@@ -1,0 +1,36 @@
+{
+  "name": "iris/wp-title-layer",
+  "description": "Structured subtitles, series, and context-aware title templates for WordPress.",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "homepage": "https://github.com/irisable/wp-title-layer",
+  "support": {
+    "issues": "https://github.com/irisable/wp-title-layer/issues",
+    "source": "https://github.com/irisable/wp-title-layer"
+  },
+  "require": {
+    "php": ">=7.4"
+  },
+  "require-dev": {
+    "phpcompatibility/php-compatibility": "^9.3",
+    "phpunit/phpunit": "^9.6",
+    "squizlabs/php_codesniffer": "^3.10",
+    "wp-coding-standards/wpcs": "^3.1",
+    "yoast/phpunit-polyfills": "^2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "WPTitleLayer\\": "includes/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    },
+    "sort-packages": true
+  },
+  "scripts": {
+    "lint": "phpcs --standard=phpcs.xml.dist",
+    "test": "phpunit"
+  }
+}

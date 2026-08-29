@@ -1,0 +1,4284 @@
+# Translation template for WP Title Layer.
+# Copyright (C) 2026 Irisable
+# This file is distributed under the same license as the WP Title Layer package.
+# Translators may contribute additional locales through the WordPress translation system.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Title Layer 1.0.0-rc.1\n"
+"Report-Msgid-Bugs-To: https://github.com/irisable/wp-title-layer/issues\n"
+"POT-Creation-Date: 2026-08-29 12:36+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: includes/Presentation/Presets.php:301
+msgctxt "inline title and subtitle separator: vertical bar"
+msgid " | "
+msgstr ""
+
+#: includes/Presentation/Presets.php:300
+msgctxt "inline title and subtitle separator: dash"
+msgid " — "
+msgstr ""
+
+#. translators: 1: current article position, 2: total article count.
+#: templates/series-navigation.php:48
+#, php-format
+msgid "%1$d of %2$d"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:290
+#, php-format
+msgid "%1$d of %2$d private ranks have been value-checked and written."
+msgstr ""
+
+#: includes/Migration/AdminPage.php:105
+#, php-format
+msgid ""
+"%1$s non-empty field-post values were found across %2$s unique post IDs. "
+"This is not a confirmed Series-usage count: ACF-saved defaults are included, "
+"while exact empty strings are excluded. WP Title Layer never imports these "
+"five fields automatically. If you know they were unused, they do not block "
+"subtitle migration; inspect unrelated ACF fields separately before "
+"uninstalling ACF."
+msgstr ""
+
+#. translators: 1: non-empty field-post values, 2: unique posts.
+#: includes/Admin/ControlCenter.php:1040
+#, php-format
+msgid ""
+"%1$s non-empty old ACF field values across %2$s post IDs can include "
+"defaults and are not confirmed Series use."
+msgstr ""
+
+#. translators: 1: theme adapter, 2: content type labels.
+#: includes/Admin/ControlCenter.php:320
+#, php-format
+msgid ""
+"%1$s replaces the verified title position for: %2$s. The article body is not "
+"used as the title slot."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:399
+#, php-format
+msgid "%d entry needs a scope or structure decision before activation."
+msgid_plural "%d entries need a scope or structure decision before activation."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: number of published articles in the Series.
+#: templates/series-archive.php:68
+#, php-format
+msgid "%d published article"
+msgid_plural "%d published articles"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/Admin/ControlCenter.php:507
+#, php-format
+msgid "%s created"
+msgstr ""
+
+#: includes/Core/Sequence.php:1197 includes/Core/Sequence.php:1366
+#: includes/Admin/SeriesHealthReport.php:340
+msgid "(no title)"
+msgstr ""
+
+#: includes/Integrations/RankMath.php:190
+msgctxt "SEO title and subtitle separator"
+msgid ": "
+msgstr ""
+
+#: includes/Presentation/Presets.php:299
+msgctxt "inline title and subtitle separator: colon"
+msgid ": "
+msgstr ""
+
+#: includes/Core/Series.php:1636
+msgid ""
+"A flat Series has no season scope. Choose Entire Series or clear the scope."
+msgstr ""
+
+#: includes/Core/Series.php:76
+msgid "A link to a Series."
+msgstr ""
+
+#: assets/editor.js:511
+msgid ""
+"A live preview is temporarily unavailable. The Title Layer will still render "
+"on the front end."
+msgstr ""
+
+#: includes/Core/Series.php:1621
+msgid "A main article in a seasoned Series must belong to one season."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:180
+msgid "A migration is still in progress"
+msgstr ""
+
+#: includes/Migration/Migrator.php:37 includes/Migration/ScanSnapshot.php:38
+msgid "A migration or rollback is already running."
+msgstr ""
+
+#: includes/Core/Series.php:1278
+msgid "A post can belong to only one primary Series."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:229
+msgid ""
+"A previous rollback protected ranks that had changed later. Those private "
+"values remain ignored while this Series uses legacy order; this fresh "
+"preview can safely begin a new initialization."
+msgstr ""
+
+#: includes/Core/Sequence.php:678
+msgid "A rank changed after the last move, so undo did not overwrite it."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:180
+msgid "A rollback is still in progress"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:111
+msgid "A safe first run"
+msgstr ""
+
+#: includes/Core/BookStructure.php:331
+msgid ""
+"A structure rank could not be verified, so completed writes were restored."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:285
+msgid ""
+"A variable template may still resolve to an empty description if the Series "
+"description is empty."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:110
+msgid ""
+"A visible page title is not automatically the same as the search-result or "
+"social-sharing title. This report keeps those channels separate."
+msgstr ""
+
+#: includes/Migration/AdminPage.php:74
+msgid "ACF / _secondary_title collisions"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:136
+msgid "About ACF"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:160 includes/Admin/SeriesHealth.php:125
+msgid "Action"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:309
+msgid "Actions"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:417
+#, php-format
+msgid "Activation is unavailable until %d entry above is resolved."
+msgid_plural ""
+"Activation is unavailable until all %d entries above are resolved."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/Core/Series.php:466 includes/Migration/AdminPage.php:59
+msgid "Active"
+msgstr ""
+
+#: includes/Core/Series.php:70
+msgid "Add New Series"
+msgstr ""
+
+#: includes/Core/Series.php:757
+msgid "Add another season"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:271
+msgid ""
+"Add the Title Layer block or shortcode exactly where you want it. Nothing is "
+"inserted automatically."
+msgstr ""
+
+#: includes/Migration/AdminPage.php:142
+msgid "Advanced batch settings"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:207
+msgid "Advanced structure active"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:737
+msgid "Advanced structure is now active for this Series."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:207
+msgid "Advanced structure not enabled"
+msgstr ""
+
+#: assets/editor.js:349
+msgid ""
+"After saving, this article will be appended to the selected Series and "
+"season."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:572
+msgid "After target"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:368
+msgid "After-article navigation"
+msgstr ""
+
+#: includes/Core/Series.php:67 includes/Admin/ControlCenter.php:351
+#: includes/Admin/SeriesHealth.php:164
+msgid "All Series"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:199
+msgid "All Series landing pages"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:235
+msgid "All members"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:186
+msgid "All saved states except transient auto-drafts."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:283
+msgid "Already copied"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:300
+msgid "Already equal"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:290
+msgid "Already equal in latest run"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:304
+#, php-format
+msgid ""
+"Among %1$s public members: %2$s have an SEO-title override (%3$s use a WP "
+"Title Layer variable), %4$s have a Facebook-title override (%5$s use a WP "
+"Title Layer variable), and %6$s have a Twitter-title override (%7$s use a WP "
+"Title Layer variable)."
+msgstr ""
+
+#: includes/Core/Sequence.php:469
+msgid ""
+"An article’s Series, season, status, or legacy position changed during "
+"initialization."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:257
+msgid ""
+"An exact match is evidence of two public entry points, not an instruction to "
+"delete one. Choose the preferred landing page and canonical policy in "
+"WordPress and your SEO provider after checking inbound links, navigation, "
+"and historical URLs."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:373
+msgid ""
+"Another SEO provider appears active. This report identifies the hand-off but "
+"does not interpret that provider’s private option schema; confirm the final "
+"tags in its interface and rendered page source."
+msgstr ""
+
+#: includes/Migration/Migrator.php:29 includes/Migration/Rollback.php:31
+#: includes/Migration/ScanSnapshot.php:25
+msgid "Another migration control action is in progress."
+msgstr ""
+
+#: includes/Migration/Rollback.php:47
+msgid "Another migration or rollback is already running."
+msgstr ""
+
+#: includes/Reader/AdminSettings.php:176
+msgid ""
+"Append previous, next, “read from the beginning,” and progress after "
+"articles in an ordered Series."
+msgstr ""
+
+#: includes/Core/BookStructure.php:167
+msgid "Appendices"
+msgstr ""
+
+#: includes/Core/Schema.php:156 includes/Presentation/Renderer.php:571
+msgid "Appendix"
+msgstr ""
+
+#: includes/Core/Series.php:335 includes/Core/Series.php:411
+msgid "Archive layout for this Series"
+msgstr ""
+
+#: includes/Core/Series.php:328 includes/Core/Series.php:403
+msgid "Archive sort"
+msgstr ""
+
+#: includes/Reader/AdminSettings.php:37
+msgid "Archive subtitles"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:527
+#: includes/Admin/SequenceManager.php:537 includes/Admin/SeriesHealth.php:278
+msgid "Article"
+msgstr ""
+
+#: includes/Core/Series.php:349 includes/Core/Series.php:427
+msgid "Article excerpts on this archive"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:787
+msgid "Article moved."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:107
+msgid "Article moved. Reloading the canonical order…"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:119
+msgid "Article search title"
+msgstr ""
+
+#: includes/Core/Series.php:342 includes/Core/Series.php:419
+msgid "Article subtitles on this archive"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:192
+msgid "Article visibility summary"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:300
+msgid "Article-level search and sharing overrides"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:241
+msgid "Articles in initialization set"
+msgstr ""
+
+#: includes/Core/Sequence.php:381
+msgid ""
+"Assign every article to a defined season before initializing this Series."
+msgstr ""
+
+#: assets/editor.js:279
+msgid ""
+"Assign this article to that Category or one of its descendants, or change "
+"the Series definition."
+msgstr ""
+
+#: includes/Core/Series.php:745
+msgid "Assigned on save"
+msgstr ""
+
+#: includes/Core/Sequence.php:584
+msgid ""
+"At least one managed rank changed after initialization; no rollback was "
+"performed."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:542
+msgid "Automatic"
+msgstr ""
+
+#: includes/Admin/ClassicEditor.php:108 includes/Admin/ClassicEditor.php:167
+msgid "Automatic article number:"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:361
+msgid "Automatic features enabled"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:526
+#: includes/Admin/SequenceManager.php:536 includes/Admin/SeriesHealth.php:281
+msgid "Automatic number"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:50
+msgid "Automatic placement applies to"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:526
+msgid ""
+"Automatic placement was not enabled because the theme-title confirmation was "
+"not checked. Manual placement remains active."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:309 includes/Admin/ControlCenter.php:340
+#: includes/Admin/ControlCenter.php:360 includes/Admin/ControlCenter.php:430
+msgid "Available after migration"
+msgstr ""
+
+#: includes/Core/Series.php:74
+msgid "Back to Series"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:186 includes/Admin/SeriesHealth.php:153
+msgid "Back to all Series"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:572
+msgid "Before target"
+msgstr ""
+
+#: includes/Core/Series.php:716
+msgid ""
+"Blank rows are ignored. Order numbers may leave gaps, making later insertion "
+"easier."
+msgstr ""
+
+#: includes/Presentation/ThemeTitleIntegration.php:257
+msgid "Block theme Post Title replacement"
+msgstr ""
+
+#: includes/Core/Series.php:373 includes/Core/Series.php:464
+msgid "Book structure"
+msgstr ""
+
+#: includes/Core/BookStructure.php:340
+msgid "Book structure could not be activated, so rank writes were restored."
+msgstr ""
+
+#: includes/Core/BookStructure.php:280
+msgid "Book structure is already enabled for this Series."
+msgstr ""
+
+#: includes/Admin/ClassicEditor.php:206
+msgid "Book structure scope"
+msgstr ""
+
+#: assets/editor.js:408
+msgid ""
+"Book-like tracks become canonical after this Series passes the Structure "
+"compatibility preview."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:428
+msgid "Both exact entry points appear self-canonical."
+msgstr ""
+
+#: includes/Migration/AdminPage.php:397
+msgid "Candidates"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:142
+msgid "Canonical Series order and structure"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:286
+msgid "Canonical URL"
+msgstr ""
+
+#: includes/Core/Sequence.php:154
+msgid "Canonical sequence order could not be activated for the new Series."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:475
+msgid ""
+"Canonical subtitles are already present or the latest migration completed. "
+"The old source metadata may remain by design."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:214
+msgid "Categories sharing at least one public article."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:227 includes/Migration/AdminPage.php:397
+#: includes/Presentation/SettingsPage.php:374
+msgid "Category"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:241
+msgid "Category branch"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:230
+msgid "Category canonical"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:395
+msgid "Category distribution"
+msgstr ""
+
+#: includes/Presentation/TemplateResolver.php:140
+msgid "Category rule"
+msgstr ""
+
+#. translators: %s: Category name.
+#: includes/Presentation/TemplateResolver.php:137
+#, php-format
+msgid "Category rule: %s"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:334
+#: includes/Presentation/SettingsPage.php:97
+msgid "Category rules"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:277
+msgid "Channel"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:109
+msgid "Channel ownership at a glance"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:135
+msgid "Check"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:408
+msgid "Check Series health"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:191
+msgid "Check and migrate old data"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:362
+msgid "Check and roll back initialization"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:526
+msgid ""
+"Check desktop and mobile, and confirm the page has one visible main title "
+"and exactly one intended H1."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:439
+msgid "Check landing & channels"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:530
+msgid "Check landing pages and title channels"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:200
+msgid "Check migration"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:490
+msgid "Check old title data"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:282
+msgid "Check result"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:524
+msgid "Check the public result"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:451
+msgid "Choose Series-wide or season scope"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:170
+#: includes/Admin/SequenceManager.php:187
+msgid "Choose a Series"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:148
+msgid "Choose a Series landing page"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:102
+msgid "Choose a Series to inspect"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:453
+msgid "Choose a defined Season"
+msgstr ""
+
+#: includes/Core/Sequence.php:998
+msgid "Choose a defined season before moving articles."
+msgstr ""
+
+#: includes/Core/Sequence.php:718
+msgid ""
+"Choose a defined season before this article can be appended to managed order."
+msgstr ""
+
+#: includes/Core/Series.php:637
+msgid ""
+"Choose a small image used decoratively beside this Series name in article "
+"title layers. It is separate from the Series cover."
+msgstr ""
+
+#: includes/Core/Sequence.php:368
+msgid "Choose an ordered Series before starting Sequence Manager."
+msgstr ""
+
+#: assets/editor.js:316
+msgid "Choose from the seasons defined for this Series."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:496
+msgid "Choose how titles appear"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:243
+msgid ""
+"Choose how titles should appear, then test one ordinary article and one "
+"Series article before wider use."
+msgstr ""
+
+#: includes/Core/Series.php:671
+msgid "Choose image"
+msgstr ""
+
+#: includes/Admin/ClassicEditor.php:147
+msgid ""
+"Choose one existing Series. Series creation and structure remain on the "
+"Series screen."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:508
+msgid ""
+"Choose ordered or unordered, then add seasons only when the collection "
+"really needs them."
+msgstr ""
+
+#: includes/Core/Schema.php:163
+msgid "Choose scope (legacy value is unresolved)"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:452
+msgid "Choose scope and a valid Season"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:146
+msgid ""
+"Choose where the Title Layer appears and how its parts are arranged. The "
+"safe default is manual placement."
+msgstr ""
+
+#: includes/Core/Sequence.php:1002
+msgid "Choose whether the article belongs before or after its target."
+msgstr ""
+
+#: includes/Core/Series.php:1617
+msgid ""
+"Choose whether this non-main entry belongs to the entire Series or one "
+"season."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:335
+msgid "Chosen at placement"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:113
+msgid "Clear search"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:443
+#, php-format
+msgid "Colon %s"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:532
+msgid ""
+"Compare Series and Category archives, then confirm canonical, robots, "
+"sitemap, search-title, and social-title ownership before changing SEO "
+"settings."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:432
+msgid ""
+"Compare Series and Category entry points, then inspect visible, search, "
+"social, canonical, robots, and sitemap ownership."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:78
+msgid ""
+"Compare public Series and Category entry points, then inspect which system "
+"owns visible, search, and social titles. Nothing on this page changes SEO "
+"metadata, taxonomy relationships, robots, canonical URLs, or sitemap "
+"settings."
+msgstr ""
+
+#: includes/Core/Series.php:466
+msgid "Compatibility mode"
+msgstr ""
+
+#: includes/Core/Series.php:905 includes/Core/Series.php:1067
+msgid "Completed"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:181
+msgid ""
+"Completed batches are already saved. Return to the migration screen to "
+"continue the same run."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:426
+msgid "Configured to consolidate on Series."
+msgstr ""
+
+#: includes/Migration/AdminPage.php:336
+msgid "Confirm"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:438
+msgid "Confirm the canonical emitted by the active provider or page source."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:441
+msgid ""
+"Confirm this target is the preferred landing page before changing "
+"relationships or redirects."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:358
+msgid "Confirm which provider emits the final tags."
+msgstr ""
+
+#: includes/Migration/AdminPage.php:266
+msgid ""
+"Conflict export is available only after a run reaches a stable terminal "
+"state."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:235
+msgid ""
+"Conflicting source or target values were left unchanged. Review the "
+"migration report before proceeding."
+msgstr ""
+
+#: includes/Migration/AdminPage.php:308 includes/Migration/AdminPage.php:397
+msgid "Conflicts"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:377
+msgid "Content migration"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:182
+msgid "Continue migration"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:299
+msgid "Continue next batch"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:182 includes/Migration/AdminPage.php:337
+msgid "Continue rollback"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:45 includes/Admin/ControlCenter.php:94
+msgid "Control Center"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:916
+msgid "Controlled by the block theme"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:289
+msgid "Copied in latest run"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:50
+msgid ""
+"Copy trusted legacy subtitles into wptl_subtitle. Source metadata is never "
+"deleted, and an existing target is never overwritten."
+msgstr ""
+
+#: includes/Migration/Rollback.php:172
+msgid "Could not advance rollback state; it remains safe to retry."
+msgstr ""
+
+#: includes/Migration/Rollback.php:228
+msgid "Could not advance rollback state; the journal remains safe to retry."
+msgstr ""
+
+#: includes/Migration/Migrator.php:414
+msgid ""
+"Could not advance the migration state; the completed journal remains safe to "
+"retry."
+msgstr ""
+
+#: includes/Migration/Migrator.php:85
+msgid "Could not create the migration journal."
+msgstr ""
+
+#: includes/Migration/Rollback.php:224
+msgid "Could not finalize the rollback journal; processing stopped safely."
+msgstr ""
+
+#: includes/Migration/Migrator.php:180
+msgid "Could not initialize the migration batch journal."
+msgstr ""
+
+#: includes/Migration/AdminPage.php:275
+msgid "Could not open the conflict export."
+msgstr ""
+
+#: includes/Migration/Migrator.php:430
+msgid ""
+"Could not record migration completion; the active marker was preserved for a "
+"safe retry."
+msgstr ""
+
+#: includes/Migration/Rollback.php:404
+msgid ""
+"Could not record rollback completion; the active marker was preserved for a "
+"safe retry."
+msgstr ""
+
+#: includes/Migration/Rollback.php:87
+msgid "Could not reserve the active rollback marker."
+msgstr ""
+
+#: includes/Migration/Migrator.php:452
+msgid "Could not save the migration batch journal."
+msgstr ""
+
+#: includes/Migration/Migrator.php:446
+msgid "Could not save the migration conflict report; the batch stopped safely."
+msgstr ""
+
+#: includes/Migration/ScanSnapshot.php:121
+#: includes/Migration/ScanSnapshot.php:131
+msgid "Could not save the reviewed migration scan."
+msgstr ""
+
+#: includes/Migration/Rollback.php:200
+msgid "Could not save the rollback journal; processing stopped safely."
+msgstr ""
+
+#: includes/Migration/Rollback.php:114
+msgid "Could not start rollback; its active marker was restored safely."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:504
+msgid "Create a Series if needed"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:348
+msgid ""
+"Create a Series only when several articles belong together. Ordinary "
+"articles do not require one."
+msgstr ""
+
+#: includes/Core/Series.php:909
+msgid "Current Season"
+msgstr ""
+
+#: includes/Core/Series.php:467
+msgid ""
+"Current front-end order is unchanged. Review legacy roles and activate "
+"advanced structure in Sequence & Structure when ready."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:279
+msgid "Current result or template"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:278
+msgid "Current source"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:451
+msgid "Custom separator"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:446
+msgid "Custom text below"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:105
+msgid "Customize the four templates"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:310
+msgid "DIV — visual title only, no heading level"
+msgstr ""
+
+#: includes/Core/Series.php:561 includes/Core/Series.php:576
+#: includes/Admin/ControlCenter.php:333
+#: includes/Presentation/SettingsPage.php:81
+msgid "Default template"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:317
+msgid "Define at least one season before managing this Series order."
+msgstr ""
+
+#: assets/editor.js:317
+msgid "Define seasons on the Series edit screen first."
+msgstr ""
+
+#: includes/Migration/AdminPage.php:85
+msgid "Definitions found"
+msgstr ""
+
+#: includes/Core/Series.php:324 includes/Core/Series.php:398
+msgid "Descriptive only. It does not publish, hide, lock, or reorder articles."
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:248
+msgid "Detected integration:"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:296
+msgid "Detected source matches"
+msgstr ""
+
+#: includes/Presentation/TemplateResolver.php:60
+msgid "Disabled by post override"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:337
+msgid "Display settings"
+msgstr ""
+
+#: assets/editor.js:472
+msgid "Display the resolved editorial title hierarchy."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:355
+msgid "Divided into seasons"
+msgstr ""
+
+#: includes/Admin/ClassicEditor.php:225
+msgid "Do not display a Title Layer"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:427
+#: includes/Presentation/SettingsPage.php:436
+msgid "Do not show"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:556
+msgid "Down"
+msgstr ""
+
+#: includes/Admin/SeriesHealthReport.php:374
+#: includes/Admin/SeriesHealth.php:196
+msgid "Draft"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:214
+msgid ""
+"Draft and pending gaps are informational. Trashed articles remain visible in "
+"totals but are not treated as structural errors. Duplicate positions follow "
+"the same non-internal post-status scope as the editor publication check."
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:214
+msgid ""
+"Draft and pending gaps are informational. Trashed articles remain visible in "
+"totals but are not treated as structural errors. Managed order checks the "
+"private canonical rank; a legacy-field warning means obsolete position data "
+"changed after initialization but does not affect readers."
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:189
+msgid "Draft or pending work that may still be intentionally incomplete."
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:189
+msgid "Draft-stage gaps"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:525
+msgid "Drag"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:548
+msgid ""
+"Drag within the visible page, use the keyboard-friendly step buttons, or "
+"search any page for an exact before/after target."
+msgstr ""
+
+#: includes/Migration/AdminPage.php:108
+msgid "Dry run"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:239
+msgid "Duplicates"
+msgstr ""
+
+#: assets/editor.js:509
+msgid "Dynamic Title Layer"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:347
+msgid ""
+"Each article can belong to one Series. Ordered and unordered Series remain "
+"separate reading models."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:245
+msgid "Edit Category"
+msgstr ""
+
+#: includes/Core/Series.php:68 includes/Admin/ChannelHealth.php:208
+msgid "Edit Series"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:237
+#: includes/Admin/SequenceManager.php:332
+#: includes/Admin/SequenceManager.php:391
+#: includes/Admin/SequenceManager.php:482 includes/Admin/SeriesHealth.php:180
+msgid "Edit Series definition"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:512
+msgid "Edit one sample article"
+msgstr ""
+
+#: includes/Presentation/Presets.php:36
+msgid "Editorial feature"
+msgstr ""
+
+#: assets/editor.js:439
+msgid "Effective template:"
+msgstr ""
+
+#: assets/editor.js:438
+msgid "Effective template: disabled"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:444
+#, php-format
+msgid "Em dash %s"
+msgstr ""
+
+#: includes/Reader/AdminSettings.php:188
+msgid "Enable [wptl_series_navigation] for manual placement."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:413
+msgid "Enable advanced structure for this Series"
+msgstr ""
+
+#: includes/Core/Series.php:908 includes/Core/Schema.php:164
+#: includes/Admin/SeriesHealth.php:345
+msgid "Entire Series"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:254
+msgid "Entire flat Series"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:439
+msgid "Entries"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:54
+msgid "Environment"
+msgstr ""
+
+#: includes/Core/Schema.php:155 includes/Presentation/Renderer.php:568
+msgid "Epilogue / afterword"
+msgstr ""
+
+#: includes/Core/BookStructure.php:166
+msgid "Epilogues"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:429
+msgid "Exact duplicate; canonical direction needs review."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:430
+msgid "Exact duplicate; verify the active provider."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:215
+msgid "Exact matches on this page"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:237
+msgid "Exact public set"
+msgstr ""
+
+#: includes/Integrations/RankMath.php:100
+msgid "Example Series"
+msgstr ""
+
+#: includes/Integrations/RankMath.php:88 includes/Integrations/RankMath.php:112
+msgid "Example subtitle"
+msgstr ""
+
+#: includes/Integrations/RankMath.php:112
+msgid "Example title"
+msgstr ""
+
+#: includes/Admin/ClassicEditor.php:128
+msgid "Explains or extends the main title. It is not a Series label."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:405
+msgid "Explicit Rank Math override"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:417
+msgid "Explicit other target"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:344
+msgid "Export conflicts (CSV)"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:289
+msgid "Facebook title"
+msgstr ""
+
+#: includes/Core/Series.php:356 includes/Core/Series.php:435
+msgid "Featured images on this archive"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:84
+msgid "Field"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:80
+msgid ""
+"Find structural gaps before they reach readers. This page never edits, "
+"publishes, hides, or reorders an article."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:343
+msgid "Finish migration before assigning Series in the article editor."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:189
+msgid "Finish the old-title migration first"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:557
+msgid "First"
+msgstr ""
+
+#: includes/Core/Series.php:906 includes/Admin/SeriesHealth.php:371
+msgid "Flat"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:455
+msgid "Flat Series cannot use season scope"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:452
+msgid "For example: ·"
+msgstr ""
+
+#: includes/Presentation/Presets.php:37
+msgid ""
+"For long-form and Series features: the same hierarchy with a restrained "
+"accent rail."
+msgstr ""
+
+#: includes/Presentation/Presets.php:47
+msgid ""
+"For ordinary posts or strict theme compatibility: only the WordPress title "
+"is shown."
+msgstr ""
+
+#: includes/Presentation/Presets.php:42
+msgid ""
+"For short titles and compact Series entries: keep Series context above while "
+"title and subtitle share one visual line."
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:322
+msgid ""
+"For the legacy body fallback, I have disabled the theme's original post "
+"title."
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:35
+msgid "Front-end placement"
+msgstr ""
+
+#: includes/Presentation/TemplateResolver.php:30
+msgid "Global default"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:309
+msgid "H2 — the theme already supplies the page H1 elsewhere"
+msgstr ""
+
+#: assets/editor.js:495
+msgid "Heading level"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:256
+msgid "Health report filters"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:407
+msgid "Health report pages"
+msgstr ""
+
+#: includes/Core/Series.php:917
+msgid "Hide"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:42
+msgid "How should the Title Layer appear?"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:273
+msgid ""
+"I explicitly approve appending unresolved articles by article date, then "
+"post ID."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:465
+msgid "In progress"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:288
+msgid "Included"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:287
+msgid "Indexing is allowed by this effective setting."
+msgstr ""
+
+#: includes/Admin/ClassicEditor.php:224
+msgid "Inherit"
+msgstr ""
+
+#: includes/Core/Series.php:913
+msgid "Inherit the site-wide setting"
+msgstr ""
+
+#: includes/Core/Series.php:338 includes/Core/Series.php:414
+msgid ""
+"Inherit uses the site-wide Reader setting. Theme keeps the active theme "
+"layout; Structured requests WP Title Layer’s season-aware layout when the "
+"theme can be safely replaced."
+msgstr ""
+
+#: includes/Core/Series.php:369 includes/Core/Series.php:449
+msgid ""
+"Inherit uses the site-wide Title presentation setting. The icon is "
+"decorative and never becomes part of the article title or SEO title."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:335
+msgid "Inherited from theme"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:386
+msgid "Inherits the SEO title"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:289
+msgid "Initialization journal"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:360
+msgid "Initialization recovery"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:275
+msgid "Initialize Sequence Manager"
+msgstr ""
+
+#: includes/Admin/ClassicEditor.php:177
+msgid ""
+"Initialize this Series in Sequence Manager to insert articles without "
+"renumbering later entries."
+msgstr ""
+
+#: includes/Core/Sequence.php:993
+msgid "Initialize this ordered Series before moving articles."
+msgstr ""
+
+#: includes/Core/BookStructure.php:283
+msgid ""
+"Initialize this ordered Series in Sequence Manager before enabling book "
+"structure."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:415
+msgid ""
+"Initialize this ordered Series in the Sequence view before enabling advanced "
+"structure."
+msgstr ""
+
+#: includes/Presentation/Presets.php:41
+msgid "Inline title"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:168
+msgid "Inspect channels"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:284
+msgid "Inspect the active provider or rendered page source."
+msgstr ""
+
+#: includes/Migration/AdminPage.php:59
+msgid "Installed but inactive"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:280
+msgid "Interpretation"
+msgstr ""
+
+#: includes/Core/Schema.php:153 includes/Presentation/Renderer.php:565
+msgid "Introduction / preface"
+msgstr ""
+
+#: includes/Core/BookStructure.php:164
+msgid "Introductions"
+msgstr ""
+
+#: includes/Admin/ClassicEditor.php:186
+msgid ""
+"Introductions, epilogues, and appendices have an independent private order."
+msgstr ""
+
+#: assets/editor.js:407
+msgid ""
+"Introductions, epilogues, and appendices use independent movable tracks and "
+"never consume automatic main-article numbers."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:407
+msgid "Invalid explicit override"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:418
+msgid "Invalid override"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:396
+msgid "Invalid structure"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:274
+msgid "Items need review"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:361
+msgid "Its metadata is not interpreted here."
+msgstr ""
+
+#: includes/Reader/ThemeArchiveIntegration.php:33
+msgid "Kadence archive-card Subtitle adapter"
+msgstr ""
+
+#: includes/Presentation/ThemeTitleIntegration.php:263
+msgid "Kadence title-area integration"
+msgstr ""
+
+#: includes/Admin/ClassicEditor.php:218
+msgid "Kicker override"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:42
+msgid "Landing & Channels"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:41 includes/Admin/ChannelHealth.php:77
+msgid "Landing Pages and Title Channels"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:429
+msgid "Landing pages and channels"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:558
+msgid "Last"
+msgstr ""
+
+#: includes/Admin/ChannelHealthReport.php:219
+#: includes/Admin/ControlCenter.php:312
+msgid "Legacy body insertion"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:499
+msgid "Legacy body insertion selected"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:62
+msgid "Legacy candidate posts"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:275
+msgid "Legacy fallback: add before the article body"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:240
+msgid "Legacy field changed"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:395
+msgid ""
+"Legacy non-main roles are never silently promoted to Series-wide or season "
+"scope."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:250
+msgid "Legacy order is unambiguous"
+msgstr ""
+
+#: includes/Admin/ClassicEditor.php:175
+msgid "Legacy sequence position"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:122
+msgid "Lifecycle"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:172
+msgid "Lifecycle not set"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:355
+msgid "Local Rank Math settings can be interpreted."
+msgstr ""
+
+#: includes/Core/Schema.php:154
+msgid "Main article (explicit)"
+msgstr ""
+
+#: includes/Core/BookStructure.php:165 includes/Core/BookStructure.php:170
+msgid "Main articles"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:454
+msgid "Main articles cannot be Series-wide"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:493
+msgid ""
+"Main articles in an unordered Series keep the Series archive sort setting. "
+"This track is shown for context but is not manually rearranged."
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:58
+msgid "Main title element"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:434
+msgid "Makes SEO changes"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:409 includes/Admin/ControlCenter.php:509
+#: includes/Admin/SeriesHealth.php:105
+msgid "Manage Series"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:144
+msgid ""
+"Manage the reading order of every ordered Series independently. Enable "
+"advanced structure only when a Series also needs introductions, epilogues, "
+"appendices, or Series-wide and season tracks."
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:236
+msgid "Managed order"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:320
+msgid "Managed order damaged"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:321
+msgid "Managed order duplicated"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:319
+msgid "Managed order missing"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:328 includes/Admin/ClassicEditor.php:109
+#: includes/Admin/ClassicEditor.php:167
+msgid "Managed sequence"
+msgstr ""
+
+#: includes/Admin/ClassicEditor.php:185
+msgid "Managed structure track"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:358
+msgid "Managed track"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:269
+msgid "Manual block or theme API"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:525
+msgid "Manual check"
+msgstr ""
+
+#: includes/Reader/AdminSettings.php:72
+msgid "Manual navigation shortcode"
+msgstr ""
+
+#: includes/Admin/ChannelHealthReport.php:217
+#: includes/Admin/ControlCenter.php:312
+msgid "Manual placement"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:499
+msgid "Manual placement selected"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:369
+msgid "Manual shortcode"
+msgstr ""
+
+#: includes/Presentation/ThemeTitleIntegration.php:269
+msgid "Manual theme integration required"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:186
+msgid "Member articles"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:250
+msgid "Members"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:307
+msgid "Migrated"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:469
+msgid "Migration complete"
+msgstr ""
+
+#: includes/Migration/AdminAssets.php:45
+msgid "Migration complete. Run the read-only scan again to verify the result."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:265
+msgid "Migration in progress"
+msgstr ""
+
+#: includes/Migration/AdminAssets.php:43
+msgid ""
+"Migration is running. You may leave this page; completed batches are already "
+"saved."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:294
+msgid "Migration report"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:263 includes/Migration/Migrator.php:113
+#: includes/Migration/Rollback.php:68 includes/Migration/Rollback.php:151
+msgid "Migration run not found."
+msgstr ""
+
+#: includes/Migration/AdminPage.php:135
+msgid "Migration runs"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:396
+msgid "Missing Seasons or incompatible scope choices must be corrected first."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:242
+msgid ""
+"Missing, malformed, duplicated, or invalid-scope legacy values are never "
+"guessed silently."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:370
+msgid ""
+"More than one SEO provider appears active. WP Title Layer will not guess "
+"which one emits the final canonical, robots, search title, or social tags; "
+"confirm ownership in the providers and rendered page source."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:530
+#: includes/Admin/SequenceManager.php:543
+msgid "Move"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:573
+msgid "Move article"
+msgstr ""
+
+#: includes/Admin/ClassicEditor.php:187
+msgid "Move in Sequence & Structure"
+msgstr ""
+
+#: includes/Admin/ClassicEditor.php:169
+msgid "Move in Sequence Manager"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:343
+msgid "Multiple providers detected"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:301
+msgid "Need review"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:291
+msgid "Need review in latest run"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:242
+msgid "Needs an explicit decision"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:463 includes/Admin/SeriesHealth.php:234
+msgid "Needs attention"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:395
+msgid "Needs scope review"
+msgstr ""
+
+#: includes/Presentation/Presets.php:32
+msgid ""
+"Neutral and theme-led for most articles: Series context above, subtitle "
+"below."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:646
+msgid "New"
+msgstr ""
+
+#: includes/Core/Series.php:71
+msgid "New Series Name"
+msgstr ""
+
+#: includes/Core/Series.php:373
+msgid ""
+"New Series start with the 0.11 book-structure model. Existing Series use a "
+"separate read-only preview before activation."
+msgstr ""
+
+#: includes/Core/Series.php:910
+msgid "Newest first"
+msgstr ""
+
+#: templates/series-navigation.php:79
+msgid "Next"
+msgstr ""
+
+#: includes/Reader/Archive.php:309 includes/Admin/ChannelHealth.php:497
+#: includes/Admin/SeriesHealth.php:403
+msgid "Next page"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:434 includes/Admin/ControlCenter.php:435
+#: includes/Migration/AdminPage.php:67
+msgid "No"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:485
+msgid ""
+"No Secondary Title or verified ACF subtitle values currently require "
+"migration."
+msgstr ""
+
+#: includes/Core/Sequence.php:553
+msgid "No Sequence Manager initialization is available to roll back."
+msgstr ""
+
+#: includes/Admin/ClassicEditor.php:135
+msgid "No Series"
+msgstr ""
+
+#: includes/Core/Series.php:73
+msgid "No Series found."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:154 includes/Admin/SeriesHealth.php:117
+msgid "No Series have been created yet."
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:117
+msgid "No Series match this search."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:398
+msgid "No WP Title Layer variable"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:394
+msgid "No article content or legacy field is changed by this preview."
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:271
+msgid "No articles match this filter."
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:367
+msgid "No categories are available."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:316
+msgid "No explicit value"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:518
+msgid "No managed articles match this scope and search."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:110
+msgid "No matching article was found in this scope."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:463
+msgid "No migration needed"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:103
+msgid ""
+"No non-empty stored values were found in these five ACF Series fields. Exact "
+"empty-string rows are not included, and this does not inspect unrelated ACF "
+"fields used by a theme or another plugin."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:1046
+msgid ""
+"No non-empty values were found in the five audited old ACF Series fields."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:262
+msgid "No old data found"
+msgstr ""
+
+#: includes/Core/Series.php:488
+msgid "No parent Category"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:223
+msgid ""
+"No public Category currently shares an eligible published article with this "
+"Series."
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:288
+msgid "No public content types are available for automatic placement."
+msgstr ""
+
+#: templates/series-archive.php:79
+msgid "No published articles are available in this Series."
+msgstr ""
+
+#: includes/Core/Sequence.php:437
+msgid "No resumable Sequence Manager initialization was found."
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:327
+msgid "No structural issue"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:271
+msgid "No structural issues were found in this Series."
+msgstr ""
+
+#: includes/Admin/PostListColumns.php:70
+msgid "No subtitle"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:375
+msgid ""
+"No supported SEO provider is currently detected. Stored settings from an "
+"inactive plugin are not treated as authoritative; inspect the rendered page "
+"source before deciding that a channel is unconfigured."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:348
+msgid "No supported provider detected"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:444
+msgid ""
+"No term override is stored; Rank Math should use this Series archive URL."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:469
+msgid ""
+"No term-level social title is stored, so Rank Math inherits the effective "
+"SEO title."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:470
+msgid ""
+"No valid structure track is available. Define the required seasons first."
+msgstr ""
+
+#: includes/Reader/ThemeArchiveIntegration.php:34
+msgid "No verified archive-card adapter for the active theme"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:780
+msgid "No verified theme adapter"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:419
+msgid ""
+"Non-main entries receive private per-track ranks. Main-article numbers, "
+"public labels, old positions, article content, and taxonomy relationships "
+"are preserved."
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:364
+msgid "Non-numbered role"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:341
+msgid "Not created yet (optional)"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:288
+msgid "Not included"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:59
+msgid "Not installed"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:242
+msgid "Not openly published"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:280
+msgid "Not scanned yet"
+msgstr ""
+
+#: includes/Core/Series.php:899 includes/Core/Series.php:947
+#: includes/Admin/SeriesHealth.php:132 includes/Admin/SeriesHealth.php:351
+#: includes/Admin/SeriesHealth.php:366
+msgid "Not set"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:342 includes/Admin/SeriesHealth.php:359
+msgid "Not used"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:285 includes/Admin/ChannelHealth.php:287
+#: includes/Admin/ChannelHealth.php:288 includes/Admin/ChannelHealth.php:289
+#: includes/Admin/ChannelHealth.php:290
+msgid "Not verified by WP Title Layer."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:118 includes/Admin/ChannelHealth.php:119
+msgid "Not verified here"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:330
+msgid ""
+"Nothing is inserted automatically. Add the Title Layer block or theme API "
+"call where the title should appear."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:171
+msgid ""
+"Nothing is written until you inspect one Series and explicitly confirm its "
+"compatibility preview."
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:322
+msgid "Obsolete legacy position changed"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:1068
+msgid "Off"
+msgstr ""
+
+#: includes/Reader/AdminSettings.php:166
+msgid ""
+"Off by default to preserve existing layouts. Each Series can inherit, show, "
+"or hide these images on its own edit screen."
+msgstr ""
+
+#: includes/Reader/AdminSettings.php:154
+msgid ""
+"Off by default. Each Series can inherit, show, or hide excerpts on its own "
+"edit screen. Theme archives, Category, and Search are unchanged."
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:351
+msgid ""
+"Off by default. Each Series can inherit, show, or hide its icon. The "
+"decorative image never becomes part of the H1, SEO title, or social title."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:216
+msgid "Old title data has not been scanned"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:225
+msgid "Old title data is ready to copy"
+msgstr ""
+
+#: includes/Core/Series.php:911
+msgid "Oldest first"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:1068
+msgid "On"
+msgstr ""
+
+#: includes/Core/Schema.php:165
+msgid "One season"
+msgstr ""
+
+#: includes/Core/Series.php:903 includes/Core/Series.php:1065
+msgid "Ongoing"
+msgstr ""
+
+#: includes/Core/Sequence.php:140
+msgid "Only an empty new Series can skip the sequence migration preview."
+msgstr ""
+
+#: includes/Reader/AdminSettings.php:178
+msgid ""
+"Only public, published, non-password-protected articles are included. For an "
+"ordered Series with seasons, choose Entire Series or Current Season on that "
+"Series’ edit screen. Existing Series default to Entire Series."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:629
+msgid ""
+"Only the first 25 are shown here; the frozen initialization set still "
+"includes every member."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:192
+msgid "Open"
+msgstr ""
+
+#: includes/Core/Series.php:468 includes/Admin/ControlCenter.php:521
+#: includes/Admin/SeriesHealth.php:177
+msgid "Open Sequence & Structure"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:515
+msgid "Open articles"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:533
+msgid "Open channel report"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:385 includes/Admin/ControlCenter.php:493
+msgid "Open migration"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:149
+msgid ""
+"Open one Series to compare its public article set with Category archives and "
+"inspect term-level SEO, canonical, robots, sitemap, and social-title "
+"settings."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:473
+msgid ""
+"Open the migration screen to check why its read-only status could not be "
+"loaded."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:491
+msgid "Open track"
+msgstr ""
+
+#: includes/Reader/AdminSettings.php:140
+msgid ""
+"Opt-in and limited to an exact verified theme hook. Category, search, home, "
+"and unsupported theme archives remain unchanged."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:507 includes/Admin/ControlCenter.php:519
+msgid "Optional"
+msgstr ""
+
+#: assets/editor.js:418
+msgid "Optional display text. Leave blank to use the Series short label."
+msgstr ""
+
+#: includes/Core/Series.php:493
+msgid ""
+"Optional editorial organization only. It does not make Series a child "
+"taxonomy and never adds or removes Category assignments on articles."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:361
+msgid "Optional features are off"
+msgstr ""
+
+#: includes/Admin/ClassicEditor.php:195
+msgid "Optional label such as 0-1, Preface II, or Appendix A."
+msgstr ""
+
+#: includes/Core/Series.php:703
+msgid ""
+"Optional. Give each season a name and use order numbers such as 10, 20, 30."
+msgstr ""
+
+#: assets/editor.js:375
+msgid "Optional. Leave blank to derive a label such as S2.03."
+msgstr ""
+
+#: assets/editor.js:374
+msgid "Optional. Leave blank to show the automatic article number."
+msgstr ""
+
+#: includes/Core/Series.php:729
+msgid "Order"
+msgstr ""
+
+#: assets/editor.js:348
+msgid ""
+"Order is controlled by Sequence Manager; the private rank is not an article "
+"field."
+msgstr ""
+
+#: includes/Core/Series.php:900 includes/Admin/SeriesHealth.php:370
+msgid "Ordered"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:478
+msgid "Ordered Series"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:421
+msgid ""
+"Ordered Series can offer an archive, previous/next links, a start link, and "
+"reading progress."
+msgstr ""
+
+#: includes/Migration/AdminPage.php:66
+msgid "Orphaned legacy data"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:201
+msgid "Other"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:284 includes/Admin/ChannelHealth.php:285
+#: includes/Admin/ChannelHealth.php:286 includes/Admin/ChannelHealth.php:287
+#: includes/Admin/ChannelHealth.php:288 includes/Admin/ChannelHealth.php:289
+#: includes/Admin/ChannelHealth.php:290
+msgid "Other or no supported provider"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:438
+msgid ""
+"Other providers are identified as owners but their private settings are not "
+"interpreted."
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:323
+msgid "Outside the Series Category branch"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:214
+msgid "Overlapping Categories"
+msgstr ""
+
+#: includes/Core/Series.php:345 includes/Core/Series.php:422
+msgid ""
+"Overrides the relevant structured or supported-theme subtitle setting for "
+"this Series only."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:116
+msgid "Owned by WP Title Layer and the active theme."
+msgstr ""
+
+#: includes/Core/Series.php:501 includes/Core/Series.php:508
+msgid "Parent Category"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:237
+msgid "Partial overlap"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:431
+msgid "Partial overlap alone does not determine canonical direction."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:216
+msgid "Partial overlaps on this page"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:297
+msgid "Password"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:202
+msgid "Password protected"
+msgstr ""
+
+#: includes/Core/Series.php:904 includes/Core/Series.php:1066
+msgid "Paused"
+msgstr ""
+
+#: includes/Admin/SeriesHealthReport.php:377
+#: includes/Admin/SeriesHealth.php:199
+msgid "Pending review"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:561
+msgid "Place before / after…"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:453
+msgid ""
+"Plain text only, up to 8 characters. An empty value uses the locale’s colon "
+"separator."
+msgstr ""
+
+#: includes/Core/Series.php:902 includes/Core/Series.php:1064
+msgid "Planning"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:416
+msgid "Points to this Series"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:424
+msgid "Populated structure tracks"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:236 includes/Admin/SeriesHealth.php:281
+msgid "Position"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:321
+msgid "Position duplicated"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:320
+msgid "Position invalid"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:319
+msgid "Position missing"
+msgstr ""
+
+#: includes/Presentation/TemplateResolver.php:65
+msgid "Post override"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:296
+msgid "Posts in last scan"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:144
+msgid "Posts per saved batch"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:86
+msgid "Posts with a non-empty stored value"
+msgstr ""
+
+#: assets/editor.js:534
+msgid ""
+"Preview uses the latest saved article data. Update the article to refresh "
+"changed title fields."
+msgstr ""
+
+#: templates/series-navigation.php:60
+msgid "Previous"
+msgstr ""
+
+#: includes/Reader/AdminSettings.php:65
+msgid "Previous / next navigation"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:79
+msgid "Previous ACF Series fields"
+msgstr ""
+
+#: includes/Reader/Archive.php:308 includes/Admin/ChannelHealth.php:496
+#: includes/Admin/SeriesHealth.php:402
+msgid "Previous page"
+msgstr ""
+
+#: includes/Admin/SeriesHealthReport.php:376
+#: includes/Admin/SeriesHealth.php:198
+msgid "Private"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:306
+msgid "Processed"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:288
+msgid "Processed in latest run"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:419
+msgid "Provider not verified"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:213
+msgid "Public Series articles"
+msgstr ""
+
+#: includes/Core/Series.php:728
+msgid "Public URL ID"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:529
+#: includes/Admin/SequenceManager.php:542
+msgid "Public label"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:205
+msgid "Public landing-page overlap and channel ownership for this Series."
+msgstr ""
+
+#: includes/Admin/ClassicEditor.php:193
+msgid "Public structure label"
+msgstr ""
+
+#: includes/Admin/SeriesHealthReport.php:373
+#: includes/Admin/SeriesHealth.php:195
+msgid "Published"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:241
+msgid ""
+"Published and work-in-progress states; trash and transient revisions are "
+"excluded."
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:124
+msgid "Published archive count"
+msgstr ""
+
+#: includes/Core/Series.php:1657
+msgid ""
+"Published posts in an ordered Series require a non-negative sequence "
+"position."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:213
+msgid "Published, public post types, without passwords."
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:188
+msgid "Published, scheduled, or private articles requiring attention."
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:188
+msgid "Published-state issues"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:436 includes/Admin/ChannelHealth.php:288
+#: includes/Admin/ChannelHealth.php:340
+msgid "Rank Math"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:384
+msgid "Rank Math default"
+msgstr ""
+
+#: includes/Integrations/RankMath.php:63
+msgid "Rank Math detected."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:385
+msgid "Rank Math global setting"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:129
+msgid ""
+"Rank Math is active, so the values above are read from its current local "
+"settings. Provider defaults are labelled separately from settings you "
+"explicitly saved."
+msgstr ""
+
+#: includes/Integrations/RankMath.php:63
+msgid "Rank Math is not currently detected."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:302
+msgid ""
+"Rank Math is not the sole verified provider here, so WP Title Layer does not "
+"interpret stored Rank Math post metadata as the current channel policy."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:383
+msgid "Rank Math post-type setting"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:406
+msgid "Rank Math self-canonical default"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:125
+msgid "Rank Math sitemap module: off"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:125
+msgid "Rank Math sitemap module: on"
+msgstr ""
+
+#: includes/Admin/ChannelHealthReport.php:286
+msgid ""
+"Rank Math social titles inherit the SEO title unless an object has its own "
+"Facebook or Twitter title."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:382
+msgid "Rank Math taxonomy setting"
+msgstr ""
+
+#: includes/Integrations/RankMath.php:48
+msgid "Rank Math variables"
+msgstr ""
+
+#: templates/series-archive.php:97
+#, php-format
+msgid "Read %s"
+msgstr ""
+
+#: templates/series-navigation.php:72
+msgid "Read from the beginning"
+msgstr ""
+
+#: templates/series-navigation.php:70
+msgid "Read this season from the beginning"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:430
+msgid "Read-only check available"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:76
+msgid "Read-only governance report"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:233
+msgid "Read-only preview"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:78
+msgid "Read-only report"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:531
+msgid "Read-only review"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:387
+msgid "Read-only structure compatibility check"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:371
+msgid "Reader settings"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:414
+msgid "Reading experience"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:418
+msgid "Reading features are paused with the rest of WP Title Layer output."
+msgstr ""
+
+#: includes/Core/Series.php:310 includes/Core/Series.php:382
+msgid "Reading mode"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:123
+msgid "Reading model"
+msgstr ""
+
+#: includes/Core/Series.php:314 includes/Core/Series.php:387
+msgid "Reading navigation scope"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:397
+msgid "Ready"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:299
+msgid "Ready in last scan"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:277
+msgid "Ready to copy"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:519
+msgid "Ready to review"
+msgstr ""
+
+#. translators: 1: ready, 2: already equal, 3: conflicts.
+#: includes/Migration/AdminPage.php:121
+#, php-format
+msgid "Ready: %1$s; already equal: %2$s; conflicts: %3$s."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:513
+msgid "Recommended next step"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:228
+msgid "Relationship"
+msgstr ""
+
+#: includes/Core/Series.php:672
+msgid "Remove image"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:435
+msgid "Removes Categories"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:363
+msgid "Rendered source remains the final check."
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:259
+msgid "Replace the theme post title (recommended)"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:456
+msgid "Replace the unrecognized Series role"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:457
+msgid "Replace the unrecognized structure scope"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:501
+msgid "Report pages"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:242
+msgid ""
+"Resolution order: post override, Series default, category rule, then the "
+"global default."
+msgstr ""
+
+#: includes/Core/BookStructure.php:289
+msgid "Resolve every scope and Season issue before enabling book structure."
+msgstr ""
+
+#: includes/Core/Sequence.php:384
+msgid ""
+"Resolve the legacy position conflicts, or explicitly approve appending "
+"unresolved articles by date."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:400
+msgid "Resolve these entries first"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:459
+msgid "Restore this template to its original defaults when I save"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:483
+msgid "Return to the migration screen to continue the saved run."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:231
+msgid "Review"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:518
+msgid "Review Series structure"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:132
+msgid "Review Sitemap Settings"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:130
+msgid "Review Titles & Meta"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:236
+msgid "Review conflicts"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:433
+msgid "Review in the active SEO provider."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:227
+msgid "Review migration"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:226
+msgid ""
+"Review the read-only report before copying. Existing WP Title Layer "
+"subtitles will not be overwritten."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:479
+msgid ""
+"Review the read-only scan, then copy the ready subtitles without overwriting "
+"existing WP Title Layer values."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:477
+msgid ""
+"Review the values that were left unchanged because their source or target "
+"data conflicted."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:501
+msgid "Review title display"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:623
+#, php-format
+msgid "Review unresolved articles (%d)"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:330
+#, php-format
+msgid ""
+"Revision %d. Every move is checked against this revision before writing."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:480
+#, php-format
+msgid ""
+"Revision %d. Every move is checked against this track revision before "
+"writing."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:287
+msgid "Robots"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:337
+msgid "Roll back owned rows"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:302
+msgid "Roll back value-matching writes"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:265
+msgid "Rollback in progress"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:361
+msgid ""
+"Rollback is available only while every initialized rank, Season definition, "
+"and revision still matches the original journal. Once the sequence has been "
+"edited, it fails closed."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:295
+msgid ""
+"Rollback restored only value-matching writes. A later edit protected one or "
+"more ranks from being overwritten."
+msgstr ""
+
+#: includes/Migration/AdminPage.php:304
+msgid "Run"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:481
+msgid "Run a complete read-only scan before starting a migration."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:208
+msgid "Run a complete read-only scan before starting migration."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:209
+msgid "Run a complete scan"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:322 includes/Migration/AdminAssets.php:44
+msgid "Run all remaining batches"
+msgstr ""
+
+#: includes/Migration/Migrator.php:599
+msgid "Run and save a complete migration scan before starting."
+msgstr ""
+
+#: includes/Migration/AdminPage.php:327
+msgid "Run next batch"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:153
+msgid "Run the read-only scan before starting a migration."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:217
+msgid "Run the read-only scan to see what can be copied and what needs review."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:117
+msgid "SEO provider"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:215
+msgid "Same complete public article set as this Series."
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:441
+msgid "Same-line separator"
+msgstr ""
+
+#: assets/editor.js:512
+msgid "Save this article once to load its live Title Layer preview."
+msgstr ""
+
+#: includes/Migration/AdminPage.php:316
+msgid "Saved batches:"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:106
+msgid "Saving the new article position…"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:271
+msgid "Scan incomplete"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:218
+msgid "Scan old data"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:112
+msgid "Scan without writing"
+msgstr ""
+
+#: includes/Admin/SeriesHealthReport.php:375
+#: includes/Admin/SeriesHealth.php:197
+msgid "Scheduled"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:250
+msgid "Scope"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:238
+msgid "Scope / role"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:317
+msgid "Scope conflicts with role or Series structure"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:350
+#: includes/Admin/SequenceManager.php:502 includes/Admin/SeriesHealth.php:112
+msgid "Search"
+msgstr ""
+
+#: includes/Core/Series.php:66 includes/Admin/SeriesHealth.php:110
+msgid "Search Series"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:111
+msgid "Search Series by name or slug"
+msgstr ""
+
+#: includes/Integrations/RankMath.php:41
+msgid "Search and sharing titles"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:349
+#: includes/Admin/SequenceManager.php:501
+msgid "Search article title"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:348
+#: includes/Admin/SequenceManager.php:500
+msgid "Search articles in this sequence"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:285
+msgid "Search description"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:184 includes/Admin/SequenceManager.php:185
+msgid "Search or choose a Series"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:570
+msgid "Search target article"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:284
+msgid "Search-result title"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:109
+msgid "Searching this sequence…"
+msgstr ""
+
+#: includes/Admin/ClassicEditor.php:152 includes/Admin/SeriesHealth.php:237
+#: includes/Admin/SeriesHealth.php:280
+msgid "Season"
+msgstr ""
+
+#: includes/Core/Series.php:741
+msgid "Season 1"
+msgstr ""
+
+#: includes/Core/Series.php:1543
+msgid ""
+"Season definitions are read-only in the REST API. Use the Series edit screen "
+"so stable public IDs can be preserved."
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:314
+msgid "Season missing"
+msgstr ""
+
+#: includes/Core/Series.php:727
+msgid "Season name"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:315
+msgid "Season not defined"
+msgstr ""
+
+#: includes/Core/Series.php:907 includes/Admin/SeriesHealth.php:371
+msgid "Seasoned"
+msgstr ""
+
+#: includes/Core/Series.php:700 includes/Core/Series.php:712
+msgid "Seasons"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:382
+msgid ""
+"Secondary Title and verified ACF subtitle data are copied conservatively. "
+"Source data is retained."
+msgstr ""
+
+#. translators: %s: migration page URL.
+#: includes/Plugin.php:83
+#, php-format
+msgid ""
+"Secondary Title is still active, so WP Title Layer has disabled its editor "
+"and front-end output to prevent duplicate titles. <a href=\"%s\">Review the "
+"migration report</a>, then deactivate Secondary Title before switching "
+"output."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:190
+msgid ""
+"Secondary Title is still active, so WP Title Layer is keeping its editor and "
+"front-end output safely paused."
+msgstr ""
+
+#: includes/Migration/AdminPage.php:58
+msgid "Secondary Title plugin"
+msgstr ""
+
+#: includes/Admin/ClassicEditor.php:154
+msgid "Select a season"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:415
+msgid "Self-canonical"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:211
+msgid "Sequence"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:52
+msgid "Sequence & Structure"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:520
+msgid ""
+"Sequence & Structure initializes insertable order where needed, previews "
+"legacy scope without guessing, and arranges each introduction, main, "
+"epilogue, or appendix track."
+msgstr ""
+
+#: includes/Core/Sequence.php:537
+msgid "Sequence Manager could not commit the Series activation marker."
+msgstr ""
+
+#: includes/Core/Sequence.php:522
+msgid "Sequence Manager could not verify the committed scope revisions."
+msgstr ""
+
+#: includes/Admin/ClassicEditor.php:168
+msgid ""
+"Sequence Manager owns the private rank. Saving after changing Series or "
+"season appends this article to that scope."
+msgstr ""
+
+#: includes/Core/Sequence.php:556
+msgid ""
+"Sequence initialization cannot be rolled back after book structure becomes "
+"active."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:718
+msgid "Sequence initialization started and its first batch was verified."
+msgstr ""
+
+#: assets/editor.js:368
+msgid "Sequence label override"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:203
+msgid "Sequence managed"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:389
+msgid ""
+"Sequence management remains available separately. Advanced structure is "
+"optional and stays read-only until every legacy scope is explicit and this "
+"Series is enabled."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:203
+msgid "Sequence not initialized"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:684
+#: includes/Admin/SequenceManager.php:696
+msgid "Sequence pages"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:336
+msgid "Sequence season scopes"
+msgstr ""
+
+#: includes/Core/Series.php:64 includes/Core/Series.php:65
+#: includes/Core/Series.php:72 includes/Admin/SequenceManager.php:184
+#: includes/Admin/ControlCenter.php:401 includes/Admin/ChannelHealth.php:158
+#: includes/Admin/ClassicEditor.php:133 includes/Admin/SeriesHealth.php:121
+#: templates/series-archive.php:46
+msgid "Series"
+msgstr ""
+
+#: assets/editor.js:276
+msgid "Series / Category mismatch"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:42 includes/Admin/SeriesHealth.php:79
+msgid "Series Content Health"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:43
+msgid "Series Health"
+msgstr ""
+
+#: includes/Core/Series.php:75
+msgid "Series Link"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:51 includes/Admin/SequenceManager.php:143
+msgid "Series Sequence and Structure Manager"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:221
+msgid "Series and Category entry points"
+msgstr ""
+
+#: includes/Core/BookStructure.php:173
+msgid "Series appendices"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:364
+msgid "Series archive"
+msgstr ""
+
+#: includes/Reader/AdminSettings.php:30
+msgid "Series archive layout"
+msgstr ""
+
+#: templates/series-archive.php:135
+msgid "Series archive pages"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:341
+msgid "Series available"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:424
+msgid "Series context"
+msgstr ""
+
+#: includes/Core/Series.php:625
+msgid "Series cover"
+msgstr ""
+
+#: assets/editor.js:224
+msgid "Series default"
+msgstr ""
+
+#. translators: %s: Series name.
+#: includes/Presentation/TemplateResolver.php:48
+#, php-format
+msgid "Series default: %s"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:357
+msgid "Series definition"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:394
+msgid "Series entries"
+msgstr ""
+
+#: includes/Core/BookStructure.php:172
+msgid "Series epilogues"
+msgstr ""
+
+#: includes/Core/Series.php:636
+msgid "Series icon"
+msgstr ""
+
+#: includes/Core/Series.php:366 includes/Core/Series.php:446
+msgid "Series icon in article title layers"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:89
+msgid "Series icons in article title layers"
+msgstr ""
+
+#: includes/Core/BookStructure.php:160
+msgid "Series introductions"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:427
+msgid "Series is configured to consolidate on Category."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:201
+msgid "Series management status"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:209
+msgid "Series manager views"
+msgstr ""
+
+#: includes/Reader/AdminSettings.php:23
+msgid "Series reading experience"
+msgstr ""
+
+#: templates/series-navigation.php:26
+msgid "Series reading navigation"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:124
+#, php-format
+msgid "Series robots: %s"
+msgstr ""
+
+#: includes/Admin/ClassicEditor.php:198
+msgid "Series role"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:318
+msgid "Series role is not recognized"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:118
+msgid "Series search title"
+msgstr ""
+
+#: includes/Core/Series.php:321 includes/Core/Series.php:395
+msgid "Series status"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:126
+msgid "Series taxonomy in sitemap: off"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:126
+msgid "Series taxonomy in sitemap: on"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:397
+msgid "Series term variable included"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:396
+msgid "Series variable included"
+msgstr ""
+
+#: assets/editor.js:298
+msgid ""
+"Series-wide entries appear only on the complete Series archive; season "
+"entries appear only inside the chosen season."
+msgstr ""
+
+#: includes/Core/Series.php:467
+msgid "Series/Season scope and role tracks are canonical for this Series."
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:316
+msgid "Series/Season scope unresolved"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:424
+msgid "Set reading experience"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:396
+msgid "Set title display"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:244
+msgid "Set up title display"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:149
+msgid "Settings sections"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:229
+msgid "Shared / Series / Category"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:216
+msgid "Shared members, but not the same complete landing page."
+msgstr ""
+
+#: includes/Core/Series.php:361 includes/Core/Series.php:440
+msgid "Short label"
+msgstr ""
+
+#: includes/Core/Series.php:916
+msgid "Show"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:349
+msgid ""
+"Show a Series icon beside its linked name when that Series has chosen an "
+"icon."
+msgstr ""
+
+#: includes/Reader/AdminSettings.php:164
+msgid ""
+"Show a compact featured image beside each article in WP Title Layer’s "
+"structured Series archive."
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:426
+msgid "Show above the title when available"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:428
+#, php-format
+msgid "Show all available tracks (%d)"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:435
+msgid "Show beside the title"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:378
+#, php-format
+msgid "Show conflict queue (%s total)"
+msgstr ""
+
+#: includes/Reader/AdminSettings.php:135
+msgid ""
+"Show each article’s Subtitle in supported theme-owned Series archive cards."
+msgstr ""
+
+#: includes/Reader/AdminSettings.php:152
+msgid ""
+"Show each article’s WordPress excerpt in WP Title Layer’s structured Series "
+"archive."
+msgstr ""
+
+#: includes/Reader/AdminSettings.php:114
+msgid ""
+"Show each article’s subtitle in WP Title Layer’s structured Series archive."
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:434
+msgid "Show on a new line below the title"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:246
+msgid ""
+"Some articles have no defined season. Fix those assignments before "
+"initialization; date append cannot repair an invalid scope."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:234
+msgid "Some old title data needs review"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:198
+msgid "Some status information is unavailable"
+msgstr ""
+
+#: includes/Core/Series.php:284
+msgid "Sorry, you are not allowed to create or change Series terms."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:642
+msgid "Stable Season URL preview"
+msgstr ""
+
+#: includes/Core/Sequence.php:143
+msgid "Stable Season identities could not be prepared for the new Series."
+msgstr ""
+
+#: includes/Presentation/Presets.php:31 includes/Presentation/Presets.php:85
+msgid "Standard title"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:148
+msgid "Start and complete migration"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:112
+msgid "Start here"
+msgstr ""
+
+#: includes/Core/Series.php:930 includes/Core/Series.php:935
+#: includes/Migration/AdminPage.php:305
+msgid "Status"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:528
+#: includes/Admin/SequenceManager.php:541
+msgid "Status and date"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:268 includes/Admin/ControlCenter.php:311
+#: includes/Admin/ControlCenter.php:341 includes/Admin/ControlCenter.php:361
+#: includes/Admin/ControlCenter.php:467 includes/Admin/ControlCenter.php:499
+#: includes/Admin/ControlCenter.php:507
+msgid "Status unavailable"
+msgstr ""
+
+#: includes/Core/Series.php:311 includes/Core/Series.php:383
+msgid "Structure"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:187
+msgid "Structure needs review"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:489
+msgid "Structure track"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:213
+msgid "Structure tracks"
+msgstr ""
+
+#: includes/Reader/AdminSettings.php:51
+msgid "Structured archive excerpts"
+msgstr ""
+
+#: includes/Reader/AdminSettings.php:58
+msgid "Structured archive featured images"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:365
+msgid "Structured archive subtitles"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:367
+msgid "Structured layout only"
+msgstr ""
+
+#: includes/Admin/PostListColumns.php:53 includes/Admin/PostListColumns.php:58
+#: includes/Admin/ClassicEditor.php:126
+#: includes/Presentation/SettingsPage.php:432
+msgid "Subtitle"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:395
+msgid "Subtitle variable included"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:436
+msgid "Supported provider audit"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:574
+msgid "Target article ID"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:111
+msgid "Target article selected:"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:375
+msgid "Template"
+msgstr ""
+
+#: includes/Admin/ClassicEditor.php:222
+msgid "Template override"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:381
+msgid "Term-level Rank Math override"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:152
+msgid "That Series could not be inspected."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:185
+msgid "That Series landing page could not be inspected."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:154
+msgid "That Series no longer exists."
+msgstr ""
+
+#: includes/Core/Series.php:1663
+msgid "That sequence position is already used in this Series and season."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:455
+msgid "The Rank Math sitemap module is disabled."
+msgstr ""
+
+#: includes/Core/Sequence.php:454
+msgid ""
+"The Series activation marker changed outside the initialization journal."
+msgstr ""
+
+#: includes/Core/BookStructure.php:286
+msgid ""
+"The Series changed after the structure preview loaded. Reload and review it "
+"again."
+msgstr ""
+
+#: includes/Core/Sequence.php:374
+msgid ""
+"The Series changed after this preview was loaded. Reload and review the "
+"initialization preview again."
+msgstr ""
+
+#: includes/Core/Sequence.php:457
+msgid "The Series definition changed after the initialization preview."
+msgstr ""
+
+#: includes/Core/Sequence.php:591
+msgid ""
+"The Series definition changed during recovery, so rollback did not overwrite "
+"it."
+msgstr ""
+
+#: includes/Core/Sequence.php:460
+msgid "The Series definition changed during the final initialization commit."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:345
+msgid "The Series definition is not currently available."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:826
+msgid ""
+"The Series is still using legacy order. Continue the next bounded "
+"initialization batch."
+msgstr ""
+
+#: includes/Core/Sequence.php:497
+msgid "The Series sequence revision changed during initialization."
+msgstr ""
+
+#: includes/Core/Sequence.php:518
+msgid ""
+"The Series sequence revision changed during the final initialization commit."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:458
+msgid "The Series taxonomy is disabled in Rank Math sitemaps."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:84
+msgid ""
+"The Series taxonomy is not currently available, so Series landing pages "
+"cannot be compared safely."
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:84
+msgid ""
+"The Series taxonomy is not currently available, so there is nothing safe to "
+"inspect."
+msgstr ""
+
+#. translators: %s: comma-separated content type labels.
+#: includes/Admin/ControlCenter.php:327
+#, php-format
+msgid ""
+"The Title Layer is added before the article body for: %s. The theme title "
+"must be disabled separately."
+msgstr ""
+
+#: includes/Integrations/RankMath.php:110
+msgid ""
+"The WordPress title plus a conditional subtitle, without a dangling "
+"separator."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:304
+msgid ""
+"The activation marker is already present; finish this journal before making "
+"sequence moves."
+msgstr ""
+
+#: includes/Core/Sequence.php:1025
+msgid "The article is already at that boundary."
+msgstr ""
+
+#: includes/Core/Sequence.php:1075
+msgid "The article is already in that position."
+msgstr ""
+
+#: includes/Core/Sequence.php:1019
+msgid "The article is no longer a member of this Series and season."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:764
+msgid "The article was moved in canonical track order."
+msgstr ""
+
+#: includes/Migration/AdminAssets.php:46
+msgid ""
+"The automatic run stopped safely. Reload the page and continue this run."
+msgstr ""
+
+#: includes/Migration/Migrator.php:198
+msgid "The batch journal is missing its reviewed candidate state."
+msgstr ""
+
+#: includes/Integrations/RankMath.php:86
+msgid "The canonical or legacy-compatible article subtitle."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:420
+msgid ""
+"The control center could not read the saved reading-experience settings."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:316
+msgid "The control center could not read the saved title-display settings."
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:264
+msgid ""
+"The current classic theme has no verified adapter. Use Manual, or integrate "
+"the theme API in its title template."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:449
+msgid ""
+"The effective canonical could not be verified from the supported provider."
+msgstr ""
+
+#: includes/Core/Sequence.php:531
+msgid "The final initialization state changed before activation."
+msgstr ""
+
+#: includes/Core/Sequence.php:489
+msgid "The frozen initialization set no longer matches the current Series."
+msgstr ""
+
+#: includes/Migration/Migrator.php:160
+msgid ""
+"The frozen migration candidate list is invalid; processing stopped without "
+"writing."
+msgstr ""
+
+#: includes/Migration/Migrator.php:152
+msgid ""
+"The frozen migration candidate list is unavailable; processing stopped "
+"without writing."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:293
+msgid "The frozen source values changed."
+msgstr ""
+
+#: includes/Integrations/RankMath.php:98
+msgid "The full Series name for an article or Series archive."
+msgstr ""
+
+#: includes/Core/Sequence.php:579
+msgid ""
+"The interrupted activation state no longer matches its journal, so rollback "
+"would be unsafe."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:602
+msgid ""
+"The last manual move can still be undone because its written ranks and "
+"revision are unchanged."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:773
+msgid "The last track move was undone without overwriting later edits."
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:103
+msgid ""
+"The list itself is lightweight. Member records are checked only after you "
+"open one Series."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:235
+msgid ""
+"The live site still uses legacy sequence positions. Initialization writes "
+"private ranks in batches and activates them only after every frozen value "
+"has been verified."
+msgstr ""
+
+#: includes/Core/Sequence.php:600
+msgid ""
+"The managed activation marker could not be removed, so article ranks were "
+"left untouched."
+msgstr ""
+
+#: includes/Migration/Migrator.php:47 includes/Migration/Migrator.php:58
+msgid ""
+"The migration control lock changed ownership before the run was created."
+msgstr ""
+
+#: includes/Migration/Rollback.php:420
+msgid ""
+"The migration control lock changed ownership; rollback was stopped safely."
+msgstr ""
+
+#: includes/Migration/Migrator.php:190 includes/Migration/Migrator.php:462
+msgid ""
+"The migration lock expired or changed ownership; the batch stopped safely."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:381
+msgid ""
+"The migration module did not return a readable status. No data was changed "
+"here."
+msgstr ""
+
+#: includes/Migration/Migrator.php:103 includes/Migration/Rollback.php:26
+#: includes/Migration/Rollback.php:136
+msgid "The migration run ID is invalid."
+msgstr ""
+
+#: includes/Migration/AdminPage.php:423
+msgid "The migration security token is invalid."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:108
+msgid "The move could not be saved. Reload and try again."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:724
+msgid "The next initialization batch was verified."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:1034
+msgid "The old ACF Series fields could not be audited from this screen."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:207
+msgid "The old-data preview is incomplete"
+msgstr ""
+
+#: includes/Migration/Migrator.php:605 includes/Migration/Migrator.php:610
+#: includes/Migration/Migrator.php:616
+msgid ""
+"The reviewed migration scan has changed. Review the latest scan before "
+"starting."
+msgstr ""
+
+#: includes/Migration/Migrator.php:55
+msgid ""
+"The reviewed migration scan is incomplete or has changed. Run the scan again."
+msgstr ""
+
+#: includes/Migration/Rollback.php:181 includes/Migration/Rollback.php:416
+msgid ""
+"The rollback lock expired or changed ownership; the batch stopped safely."
+msgstr ""
+
+#: includes/Migration/AdminPage.php:130
+msgid "The scan reached its configured limit and is not a complete site count."
+msgstr ""
+
+#: includes/Core/Sequence.php:637 includes/Core/Sequence.php:650
+#: includes/Core/BookStructure.php:277
+msgid "The selected Series no longer exists."
+msgstr ""
+
+#: includes/Core/Series.php:1632
+msgid "The selected season is not defined for this Series."
+msgstr ""
+
+#: includes/Core/Sequence.php:1006
+msgid ""
+"The sequence changed after this page loaded. Reload before saving another "
+"move."
+msgstr ""
+
+#: includes/Core/Sequence.php:674
+msgid "The sequence changed after this page loaded. Reload before undoing."
+msgstr ""
+
+#: includes/Core/Sequence.php:594
+msgid ""
+"The sequence revision changed during recovery, so rollback did not overwrite "
+"it."
+msgstr ""
+
+#: includes/Core/Sequence.php:1130
+msgid "The sequence revision could not be committed, so the move was restored."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:463
+msgid "The sitemap module, taxonomy, and this term all allow inclusion."
+msgstr ""
+
+#: includes/Core/Sequence.php:508
+msgid "The stable Season public IDs could not be verified."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:447
+msgid ""
+"The stored override is not a valid HTTP(S) URL and needs review in Rank Math."
+msgstr ""
+
+#: includes/Core/Sequence.php:1031 includes/Core/Sequence.php:1042
+msgid "The target article is no longer in the same sequence scope."
+msgstr ""
+
+#: includes/Integrations/RankMath.php:56
+msgid ""
+"The visible title, SEO title, and social-sharing title are separate "
+"channels. WP Title Layer never changes Rank Math metadata automatically."
+msgstr ""
+
+#: includes/Reader/AdminSettings.php:44
+msgid "Theme archive card subtitles"
+msgstr ""
+
+#: includes/Reader/AdminSettings.php:103
+msgid ""
+"Theme mode normally matches the site’s Category archive styling while WP "
+"Title Layer still supplies the Series ordering. Structured mode is useful "
+"when the theme cannot present seasons and reading order. Category, tag, and "
+"other archives are never replaced."
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:66
+msgid "Theme title safety check"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:312
+msgid "Theme title takeover"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:499
+msgid "Theme title takeover selected"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:247
+msgid ""
+"Theme-title takeover replaces a verified title slot instead of adding a "
+"second title inside the article body. Manual placement remains the universal "
+"fallback."
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:515
+msgid ""
+"Theme-title takeover was not enabled because the current classic theme has "
+"no verified adapter. Manual placement remains active."
+msgstr ""
+
+#: includes/Core/Sequence.php:665
+msgid "There is no completed sequence move to undo in this scope."
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:300
+msgid ""
+"These content types apply to theme-title takeover and the legacy body "
+"fallback."
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:408
+msgid ""
+"These controls change the chosen template everywhere it is used. They never "
+"accept HTML, CSS, or PHP."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:305
+msgid ""
+"These counts describe explicit overrides; they do not judge whether every "
+"article should include a subtitle. Edit those titles in Rank Math, not on "
+"this report."
+msgstr ""
+
+#: includes/Reader/AdminSettings.php:81
+msgid ""
+"These features use the ordered / unordered rule stored on each Series. "
+"Unordered Series never show reading-progress navigation. For an ordered "
+"Series with seasons, its edit screen also decides whether navigation may "
+"cross season boundaries."
+msgstr ""
+
+#: includes/Migration/AdminPage.php:80
+msgid ""
+"These five fields are audited only. Counts cover non-empty stored values, "
+"including values such as 0 or false that ACF may save when an article is "
+"updated; exact empty-string rows are not counted. This is not confirmed "
+"Series use. WP Title Layer does not depend on these fields or silently "
+"convert them into Series relationships."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:643
+msgid ""
+"These numeric identities survive season renames and reordering. Deleted "
+"numbers are not reused."
+msgstr ""
+
+#: assets/editor.js:278
+msgid "This Series belongs to the Category branch:"
+msgstr ""
+
+#: includes/Core/Series.php:1625
+msgid ""
+"This Series entry requires a season unless its non-main role is explicitly "
+"Series-wide."
+msgstr ""
+
+#: includes/Core/Sequence.php:575
+msgid ""
+"This Series has changed since initialization, so an automatic downgrade "
+"would be unsafe."
+msgstr ""
+
+#: includes/Core/Sequence.php:371
+msgid "This Series is already managed by Sequence Manager."
+msgstr ""
+
+#: assets/editor.js:361
+msgid ""
+"This Series still uses the 0.9 position field. Initialize it in Sequence "
+"Manager to insert without renumbering later articles."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:461
+msgid "This Series term is explicitly excluded from the sitemap."
+msgstr ""
+
+#: includes/Reader/AdminSettings.php:116
+msgid ""
+"This affects only the plugin-owned structured layout. In theme mode, the "
+"active theme decides what appears on archive cards."
+msgstr ""
+
+#: includes/Core/Sequence.php:1086
+msgid ""
+"This append needs a wider rebalance that you are not allowed to perform."
+msgstr ""
+
+#: assets/editor.js:524
+msgid "This article is disabled or does not yet have a renderable title layer."
+msgstr ""
+
+#: includes/Core/Sequence.php:989
+msgid "This book-structure track is not manually ordered."
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:324
+msgid ""
+"This confirmation is ignored by true theme-title takeover. It exists only to "
+"prevent duplicate titles in the older body-insertion mode."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:276
+msgid ""
+"This does not delete or rewrite legacy positions. The Series activation "
+"marker is committed last."
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:277
+msgid ""
+"This does not remove the theme title. Use it only after the theme title has "
+"been disabled separately."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:287
+msgid "This landing page is currently noindex."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:274
+msgid "This landing page’s channels"
+msgstr ""
+
+#: assets/editor.js:299
+msgid ""
+"This legacy role is not assigned to Series-wide or season scope yet. Choose "
+"explicitly before enabling book structure."
+msgstr ""
+
+#: includes/Migration/AdminPage.php:413
+msgid "This migration action accepts POST requests only."
+msgstr ""
+
+#: includes/Migration/Migrator.php:107
+msgid "This migration batch is already being processed."
+msgstr ""
+
+#: includes/Migration/Rollback.php:78
+msgid "This migration cannot be rolled back from its current state."
+msgstr ""
+
+#: includes/Migration/Rollback.php:59
+msgid "This migration is currently being processed."
+msgstr ""
+
+#: includes/Migration/Migrator.php:125
+msgid "This migration is no longer the active run and was stopped safely."
+msgstr ""
+
+#: includes/Migration/Migrator.php:122
+msgid "This migration is not in a runnable state."
+msgstr ""
+
+#: includes/Migration/Rollback.php:157
+msgid "This migration is not in rollback mode."
+msgstr ""
+
+#: includes/Migration/AdminPage.php:151
+msgid ""
+"This preview was truncated. Increase the scan limit and run a complete read-"
+"only scan before starting migration."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:138
+msgid ""
+"This report cannot confirm whether your theme or another plugin uses other "
+"ACF fields. Check those separately before removing ACF."
+msgstr ""
+
+#: assets/editor.js:346
+msgid "This role has its own private order track in Sequence & Structure."
+msgstr ""
+
+#: includes/Migration/Rollback.php:145
+msgid "This rollback batch is already being processed."
+msgstr ""
+
+#: includes/Migration/Rollback.php:160
+msgid "This rollback is no longer the active run and was stopped safely."
+msgstr ""
+
+#: includes/Migration/Migrator.php:128
+msgid ""
+"This run predates frozen scan manifests. Roll it back, then scan again "
+"before migrating."
+msgstr ""
+
+#: includes/Core/Series.php:1629
+msgid "This seasoned Series has no seasons defined."
+msgstr ""
+
+#: includes/Core/Series.php:912
+msgid "Title"
+msgstr ""
+
+#: includes/Admin/ClassicEditor.php:36
+msgid "Title Layer"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:16
+msgid "Title Layer Migration"
+msgstr ""
+
+#: assets/editor.js:523
+msgid "Title Layer is not displayed"
+msgstr ""
+
+#: assets/editor.js:487
+msgid "Title Layer settings"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:394
+msgid "Title and conditional subtitle"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:390
+msgid "Title display"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:112
+msgid "Title display settings"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:335
+msgid "Title element"
+msgstr ""
+
+#: includes/Presentation/Presets.php:46
+msgid "Title only"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:314
+msgid "Title output is paused while Secondary Title remains active."
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:74
+msgid "Title presentation"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:439
+msgid "Track"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:247 includes/Admin/SeriesHealth.php:281
+msgid "Track order"
+msgstr ""
+
+#: includes/Admin/SeriesHealthReport.php:378
+#: includes/Admin/SeriesHealth.php:200
+msgid "Trash"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:70
+msgid "Trusted ACF subtitle posts"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:290
+msgid "Twitter title"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:570
+msgid "Type target article title"
+msgstr ""
+
+#: includes/Reader/Archive.php:198
+msgid "Unassigned"
+msgstr ""
+
+#: includes/Admin/ChannelHealthReport.php:220
+#: includes/Admin/ControlCenter.php:294 includes/Admin/ControlCenter.php:337
+#: includes/Admin/ControlCenter.php:357 includes/Admin/ControlCenter.php:371
+#: includes/Admin/ChannelHealth.php:116
+msgid "Unavailable"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:603
+msgid "Undo last move"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:187
+msgid "Unique articles with at least one Series-structure issue."
+msgstr ""
+
+#: includes/Core/Series.php:901 includes/Admin/SeriesHealth.php:370
+msgid "Unordered"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:205
+#: includes/Admin/SequenceManager.php:478
+msgid "Unordered Series"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:423
+msgid "Unordered Series never receive invented previous/next navigation."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:250
+msgid "Unresolved"
+msgstr ""
+
+#: includes/Reader/Archive.php:145
+msgid "Unresolved structure"
+msgstr ""
+
+#: includes/Core/Schema.php:152
+msgid "Unspecified role (treated as a main article)"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:304
+msgid ""
+"Until completion, the front end continues to read the old sequence positions."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:387 includes/Admin/ChannelHealth.php:389
+#: includes/Admin/ChannelHealth.php:408
+msgid "Unverified"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:555
+msgid "Up"
+msgstr ""
+
+#: includes/Core/Series.php:69
+msgid "Update Series"
+msgstr ""
+
+#: includes/Reader/AdminSettings.php:97
+msgid ""
+"Use WP Title Layer’s structured Series layout with seasons and sequence "
+"labels"
+msgstr ""
+
+#: includes/Core/Series.php:589
+msgid "Use category or global default"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:385
+msgid "Use global default"
+msgstr ""
+
+#: assets/editor.js:491
+msgid "Use resolved template"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:514
+msgid ""
+"Use the Title Layer panel in the editor sidebar to set a subtitle, Series, "
+"and optional per-article template."
+msgstr ""
+
+#: includes/Core/Series.php:914
+msgid "Use the active theme"
+msgstr ""
+
+#: includes/Reader/AdminSettings.php:93
+msgid ""
+"Use the active theme’s archive layout (recommended for theme consistency)"
+msgstr ""
+
+#: includes/Integrations/RankMath.php:72
+msgid ""
+"Use the combined variable in Rank Math’s SEO title, Facebook title, or "
+"Twitter title fields only where you want the subtitle included. For example: "
+"%wptl_title_with_subtitle% %sep% %sitename%. Leaving Rank Math unchanged "
+"keeps its current titles."
+msgstr ""
+
+#: includes/Core/Series.php:915
+msgid "Use the structured Series layout"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:500
+msgid ""
+"Use verified theme-title takeover when available. Manual placement is the "
+"universal fallback; body insertion does not remove the theme title."
+msgstr ""
+
+#: includes/Core/Series.php:317
+msgid ""
+"Used by ordered Series with seasons. Entire Series may cross a season "
+"boundary; Current Season stops at that season’s first and last article."
+msgstr ""
+
+#: includes/Core/Series.php:390
+msgid ""
+"Used by ordered Series with seasons. Existing Series default to Entire "
+"Series, which may cross season boundaries."
+msgstr ""
+
+#: includes/Core/Series.php:626
+msgid ""
+"Used by the structured Series archive. The attachment ID remains the "
+"canonical stored value."
+msgstr ""
+
+#: includes/Core/Series.php:331 includes/Core/Series.php:406
+msgid ""
+"Used by unordered Series. Ordered Series always follow their reading "
+"sequence; seasoned unordered Series apply this order within each season."
+msgstr ""
+
+#: includes/Core/Series.php:359 includes/Core/Series.php:438
+msgid ""
+"Used only by WP Title Layer’s structured archive. The default is inherited "
+"and remains off on upgraded sites."
+msgstr ""
+
+#: includes/Core/Series.php:352 includes/Core/Series.php:430
+msgid ""
+"Used only by WP Title Layer’s structured archive. The inherited site-wide "
+"default is off."
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:312
+msgid ""
+"Used only by the legacy body fallback. Theme-title takeover inherits the "
+"heading level already chosen by the theme."
+msgstr ""
+
+#: includes/Core/Series.php:568 includes/Core/Series.php:582
+msgid "Used when an article in this Series does not choose its own template."
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:339
+msgid "Used when no more specific valid rule applies."
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:263
+msgid ""
+"Uses the verified theme title position, keeps one heading, and leaves the "
+"article body untouched."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:354
+msgid "Using book structure"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:353
+msgid "Using insertable sequence order"
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:730
+msgid "Value-matching initialization writes were rolled back."
+msgstr ""
+
+#: includes/Migration/AdminPage.php:87
+msgid "Verified non-empty ACF values"
+msgstr ""
+
+#: includes/Admin/ChannelHealthReport.php:218
+msgid "Verified theme title takeover"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:445
+#, php-format
+msgid "Vertical bar %s"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:244
+msgid "View"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:527
+msgid "View a published sample"
+msgstr ""
+
+#: templates/series-archive.php:56
+msgid "View all seasons"
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:279
+msgid "Visibility"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:283
+msgid "Visible archive title"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:116
+msgid "Visible page title"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:53 includes/Admin/ControlCenter.php:95
+#: includes/Presentation/SettingsPage.php:114
+#: includes/Presentation/SettingsPage.php:115
+#: includes/Presentation/SettingsPage.php:145
+msgid "WP Title Layer"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:52
+msgid "WP Title Layer Control Center"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:15 includes/Migration/AdminPage.php:49
+msgid "WP Title Layer Migration"
+msgstr ""
+
+#: includes/Integrations/RankMath.php:97
+msgid "WP Title Layer Series"
+msgstr ""
+
+#: includes/Admin/ChannelHealthReport.php:226
+msgid "WP Title Layer and the active theme"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:199
+msgid ""
+"WP Title Layer could not read the migration module. No settings were "
+"changed; open the migration screen to check the installation."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:1052
+msgid ""
+"WP Title Layer does not require ACF, but the five old Series fields could "
+"not be audited from this screen. Check the migration report before deciding "
+"whether to remove ACF."
+msgstr ""
+
+#. translators: 1: non-empty field-post values, 2: unique posts.
+#: includes/Admin/ControlCenter.php:1058
+#, php-format
+msgid ""
+"WP Title Layer does not require ACF. The audit found %1$s non-empty field-"
+"post values across %2$s post IDs in the five old Series fields. This can "
+"include ACF-saved defaults, excludes exact empty strings, and is not proof "
+"of Series use; none of these fields is converted automatically. Check "
+"unrelated ACF fields separately before uninstalling ACF."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:1064
+msgid ""
+"WP Title Layer does not require ACF. The five audited old Series fields "
+"currently contain no non-empty stored values; exact empty strings are not "
+"counted."
+msgstr ""
+
+#: includes/Plugin.php:78
+msgid "WP Title Layer is in migration-only mode."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:242
+msgid "WP Title Layer is ready to use"
+msgstr ""
+
+#: includes/Integrations/RankMath.php:85
+msgid "WP Title Layer subtitle"
+msgstr ""
+
+#: includes/Integrations/RankMath.php:109
+msgid "WP Title Layer title with subtitle"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:498 includes/Admin/ControlCenter.php:506
+#: includes/Admin/ControlCenter.php:513 includes/Admin/ControlCenter.php:519
+#: includes/Admin/ControlCenter.php:531
+msgid "Waiting for migration"
+msgstr ""
+
+#: includes/Integrations/RankMath.php:64
+msgid ""
+"When Rank Math is active, WP Title Layer registers these optional variables:"
+msgstr ""
+
+#: includes/Presentation/SettingsPage.php:397
+msgid ""
+"When several assigned categories have rules, the first saved rule in this "
+"table wins."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:352
+msgid "With reading order"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:380
+msgid "WordPress Series name"
+msgstr ""
+
+#: includes/Core/Sequence.php:476
+msgid ""
+"WordPress could not verify a sequence rank written during initialization."
+msgstr ""
+
+#: includes/Core/Sequence.php:1119
+msgid ""
+"WordPress could not verify the sequence move, so completed writes were "
+"restored."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:159
+msgid "WordPress term count"
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:283
+msgid ""
+"WordPress term name; WP Title Layer does not use this field as an SEO "
+"override."
+msgstr ""
+
+#: includes/Integrations/RankMath.php:69
+msgid ""
+"WordPress title plus a locale-appropriate separator and the subtitle only "
+"when one exists"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:114
+msgid ""
+"Work through these steps with one sample article before changing the whole "
+"site."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:288
+msgid "XML sitemap"
+msgstr ""
+
+#: includes/Migration/AdminPage.php:67
+msgid "Yes"
+msgstr ""
+
+#: includes/Core/BookStructure.php:293
+msgid "You are not allowed to enable book structure for this Series."
+msgstr ""
+
+#: includes/Admin/SequenceManager.php:121
+#: includes/Admin/SequenceManager.php:807
+#: includes/Admin/SequenceManager.php:814
+msgid "You are not allowed to manage Series sequences."
+msgstr ""
+
+#: includes/Migration/AdminPage.php:25 includes/Migration/AdminPage.php:417
+msgid "You are not allowed to manage migrations."
+msgstr ""
+
+#: includes/Core/Sequence.php:1147
+msgid "You are not allowed to manage this Series sequence."
+msgstr ""
+
+#: includes/Admin/SeriesHealth.php:65
+msgid "You are not allowed to view Series health."
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:83
+msgid "You are not allowed to view WP Title Layer settings."
+msgstr ""
+
+#: includes/Admin/ChannelHealth.php:64
+msgid "You are not allowed to view landing-page and title-channel checks."
+msgstr ""
+
+#: includes/Core/Sequence.php:1151
+msgid "You cannot edit every article affected by this sequence operation."
+msgstr ""
+
+#: includes/Core/BookStructure.php:304
+msgid "You cannot edit every article affected by this structure activation."
+msgstr ""
+
+#: includes/Core/Sequence.php:714
+msgid "You cannot update the managed order for this article."
+msgstr ""
+
+#: includes/Reader/AdminSettings.php:101
+msgid ""
+"Your current block theme keeps control of this archive. Block-theme archive "
+"replacement is not enabled in this version."
+msgstr ""
+
+#: includes/Integrations/RankMath.php:68
+msgid "full Series name"
+msgstr ""
+
+#: includes/Admin/ControlCenter.php:798
+msgid "no content types"
+msgstr ""
+
+#: includes/Integrations/RankMath.php:67
+msgid "subtitle only"
+msgstr ""

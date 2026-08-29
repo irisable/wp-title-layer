@@ -1,0 +1,26 @@
+.wptl-classic-editor > p:first-of-type {
+	margin-top: 0;
+}
+
+.wptl-classic-editor .description {
+	display: block;
+	margin-top: 4px;
+}
+
+.wptl-classic-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 12px 20px;
+}
+
+.wptl-classic-grid input,
+.wptl-classic-grid select {
+	width: 100%;
+}
+
+@media (max-width: 782px) {
+	.wptl-classic-grid {
+		grid-template-columns: minmax(0, 1fr);
+		gap: 0;
+	}
+}

@@ -1,0 +1,18 @@
+.DS_Store
+.idea/
+.vscode/
+node_modules/
+vendor/
+build/
+dist/
+coverage/
+.phpunit.result.cache
+*.log
+
+# Release artifacts are generated locally.
+wp-title-layer-*.zip
+
+# Private audit inputs and planning exports stay outside the public repository.
+secondary-title.2.2.1.zip
+wp-title-layer设想.md
+wp-title-layer初始实例.md

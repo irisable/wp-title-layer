@@ -1,0 +1,141 @@
+.wptl-title-layer {
+	margin-block: 0 1.5em;
+}
+
+.wptl-auto-prepend {
+	margin-block-start: 0;
+}
+
+.wptl-theme-title-replacement {
+	margin-block: 0 1.5em;
+}
+
+.wptl-theme-title-context,
+.wptl-theme-title-subtitle {
+	width: 100%;
+}
+
+.entry-title > .wptl-title {
+	display: inline;
+}
+
+.entry-title > .wptl-title-separator,
+.entry-title > .wptl-subtitle,
+.wptl-theme-title-inline {
+	display: inline;
+}
+
+.wptl-title-layer .wptl-title {
+	margin-block: 0;
+}
+
+.wptl-title-row .wptl-title-heading {
+	margin-block: 0;
+}
+
+.wptl-title-layer.wptl-subtitle-layout--inline .wptl-title-row {
+	display: flex;
+	align-items: baseline;
+	flex-wrap: wrap;
+}
+
+.wptl-title-layer.wptl-subtitle-layout--inline .wptl-title-heading {
+	display: inline;
+}
+
+.wptl-title-layer.wptl-subtitle-layout--inline .wptl-subtitle,
+.wptl-title-layer.wptl-subtitle-layout--inline .wptl-title-separator,
+.wptl-theme-title-inline .wptl-subtitle,
+.wptl-theme-title-inline .wptl-title-separator {
+	display: inline;
+	margin: 0;
+	font-size: clamp(1.2rem, 1.02rem + 0.65vw, 1.55rem);
+	line-height: 1.4;
+}
+
+.entry-title:has(> .wptl-title.wptl-subtitle-layout--inline) {
+	display: inline;
+}
+
+.wptl-kicker,
+.wptl-eyebrow {
+	margin-block: 0 0.45rem;
+	font-size: 0.82rem;
+	font-weight: 650;
+	letter-spacing: 0.06em;
+	line-height: 1.4;
+	text-transform: none;
+	opacity: 0.76;
+}
+
+.wptl-series-link,
+.wptl-season-link {
+	color: inherit;
+	text-decoration: none;
+}
+
+.wptl-series-icon {
+	display: inline-block;
+	width: 1.05em;
+	height: 1.05em;
+	margin-inline-end: 0.35em;
+	vertical-align: -0.16em;
+}
+
+.wptl-series-icon__image {
+	display: block;
+	width: 100%;
+	height: 100%;
+	border-radius: 0.18em;
+	object-fit: contain;
+}
+
+.wptl-series-link:hover,
+.wptl-series-link:focus-visible,
+.wptl-season-link:hover,
+.wptl-season-link:focus-visible {
+	color: var(--wptl-series-link-hover, var(--global-palette-highlight, var(--wp--preset--color--primary, currentColor)));
+	text-decoration-line: underline;
+	text-decoration-thickness: 0.08em;
+	text-underline-offset: 0.16em;
+}
+
+.wptl-series-link:focus-visible,
+.wptl-season-link:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+}
+
+.wptl-subtitle {
+	margin-block: 0.55rem 0;
+	font-size: clamp(1.25rem, 1.05rem + 0.9vw, 1.7rem);
+	font-weight: 400;
+	line-height: 1.45;
+	opacity: 0.78;
+}
+
+.wptl-title-separator {
+	font-weight: 400;
+}
+
+/*
+ * Editorial keeps the same semantic order as Standard, but gives feature and
+ * long-form entries a deliberate visual accent without overriding the theme's
+ * title font or heading size.
+ */
+.wptl-title-layer--editorial {
+	padding-inline-start: clamp(0.9rem, 2vw, 1.35rem);
+	border-inline-start: 0.2rem solid var(--wptl-editorial-accent, var(--global-palette-highlight, var(--global-palette1, currentColor)));
+}
+
+.wptl-title-layer--editorial .wptl-eyebrow,
+.wptl-theme-title-context.wptl-preset--editorial {
+	color: var(--wptl-editorial-accent, var(--global-palette-highlight, var(--global-palette1, currentColor)));
+	opacity: 1;
+}
+
+.wptl-title-layer--editorial .wptl-subtitle,
+.wptl-theme-title-subtitle.wptl-preset--editorial {
+	font-weight: 450;
+	opacity: 0.88;
+}

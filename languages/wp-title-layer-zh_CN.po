@@ -1,0 +1,4454 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Title Layer 1.0.0-rc.1\n"
+"Report-Msgid-Bugs-To: https://github.com/irisable/wp-title-layer/issues\n"
+"POT-Creation-Date: 2026-08-29 12:36+0800\n"
+"PO-Revision-Date: 2026-08-29 12:36+0800\n"
+"Last-Translator: WP Title Layer project\n"
+"Language-Team: Simplified Chinese\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: WP Title Layer translation build\n"
+
+#: includes/Presentation/Presets.php:301
+msgctxt "inline title and subtitle separator: vertical bar"
+msgid " | "
+msgstr "｜"
+
+#: includes/Presentation/Presets.php:300
+msgctxt "inline title and subtitle separator: dash"
+msgid " — "
+msgstr "——"
+
+#. translators: 1: current article position, 2: total article count.
+#: templates/series-navigation.php:48
+#, php-format
+msgid "%1$d of %2$d"
+msgstr "第 %1$d 篇，共 %2$d 篇"
+
+#: includes/Admin/SequenceManager.php:290
+#, php-format
+msgid "%1$d of %2$d private ranks have been value-checked and written."
+msgstr "已核对并写入 %2$d 个内部排序值中的 %1$d 个。"
+
+#: includes/Migration/AdminPage.php:105
+#, php-format
+msgid ""
+"%1$s non-empty field-post values were found across %2$s unique post IDs. "
+"This is not a confirmed Series-usage count: ACF-saved defaults are included, "
+"while exact empty strings are excluded. WP Title Layer never imports these "
+"five fields automatically. If you know they were unused, they do not block "
+"subtitle migration; inspect unrelated ACF fields separately before "
+"uninstalling ACF."
+msgstr ""
+"在 %2$s 个不重复的文章 ID 中，共发现 %1$s 个非空的字段—文章值。这并不是已确认"
+"的序列使用量：其中包含 ACF 保存的默认值，但不包含严格意义上的空字符串。WP "
+"Title Layer 绝不会自动导入这五个字段。如果您确定从未使用过它们，它们不会阻碍"
+"副标题迁移；卸载 ACF 前仍应另行检查其他 ACF 字段。"
+
+#. translators: 1: non-empty field-post values, 2: unique posts.
+#: includes/Admin/ControlCenter.php:1040
+#, php-format
+msgid ""
+"%1$s non-empty old ACF field values across %2$s post IDs can include "
+"defaults and are not confirmed Series use."
+msgstr ""
+"%2$s 个文章 ID 中共有 %1$s 个非空的旧 ACF 字段值；其中可能包含默认值，不能据"
+"此确认序列功能曾被使用。"
+
+#. translators: 1: theme adapter, 2: content type labels.
+#: includes/Admin/ControlCenter.php:320
+#, php-format
+msgid ""
+"%1$s replaces the verified title position for: %2$s. The article body is not "
+"used as the title slot."
+msgstr ""
+"%1$s 会为以下内容类型替换已验证的标题位置：%2$s。正文不会被当作标题位置。"
+
+#: includes/Admin/SequenceManager.php:399
+#, php-format
+msgid "%d entry needs a scope or structure decision before activation."
+msgid_plural "%d entries need a scope or structure decision before activation."
+msgstr[0] "启用前，尚有 %d 个条目需要明确范围或结构。"
+
+#. translators: %d: number of published articles in the Series.
+#: templates/series-archive.php:68
+#, php-format
+msgid "%d published article"
+msgid_plural "%d published articles"
+msgstr[0] "%d 篇已发布文章"
+
+#: includes/Admin/ControlCenter.php:507
+#, php-format
+msgid "%s created"
+msgstr "已创建 %s"
+
+#: includes/Core/Sequence.php:1197 includes/Core/Sequence.php:1366
+#: includes/Admin/SeriesHealthReport.php:340
+msgid "(no title)"
+msgstr "（无标题）"
+
+#: includes/Integrations/RankMath.php:190
+msgctxt "SEO title and subtitle separator"
+msgid ": "
+msgstr "："
+
+#: includes/Presentation/Presets.php:299
+msgctxt "inline title and subtitle separator: colon"
+msgid ": "
+msgstr "："
+
+#: includes/Core/Series.php:1636
+msgid ""
+"A flat Series has no season scope. Choose Entire Series or clear the scope."
+msgstr "平铺序列不能使用单季范围。请选择“全序列”或清除范围。"
+
+#: includes/Core/Series.php:76
+msgid "A link to a Series."
+msgstr "指向一个序列的链接。"
+
+#: assets/editor.js:511
+msgid ""
+"A live preview is temporarily unavailable. The Title Layer will still render "
+"on the front end."
+msgstr "实时预览暂时不可用，但标题层仍会在前台正常显示。"
+
+#: includes/Core/Series.php:1621
+msgid "A main article in a seasoned Series must belong to one season."
+msgstr "分季序列中的主要文章必须归属一季。"
+
+#: includes/Admin/ControlCenter.php:180
+msgid "A migration is still in progress"
+msgstr "仍有迁移正在进行"
+
+#: includes/Migration/Migrator.php:37 includes/Migration/ScanSnapshot.php:38
+msgid "A migration or rollback is already running."
+msgstr "已有迁移或回滚正在运行。"
+
+#: includes/Core/Series.php:1278
+msgid "A post can belong to only one primary Series."
+msgstr "一篇文章只能属于一个主序列。"
+
+#: includes/Admin/SequenceManager.php:229
+msgid ""
+"A previous rollback protected ranks that had changed later. Those private "
+"values remain ignored while this Series uses legacy order; this fresh "
+"preview can safely begin a new initialization."
+msgstr ""
+"上一次回滚保护了后来发生变化的内部排序值。这些私有值在本序列仍使用旧篇序期间"
+"不会生效；可从此全新预览安全开始新的初始化。"
+
+#: includes/Core/Sequence.php:678
+msgid "A rank changed after the last move, so undo did not overwrite it."
+msgstr "最近一次移动后有排序值发生变化，因此撤销未覆盖该值。"
+
+#: includes/Admin/ControlCenter.php:180
+msgid "A rollback is still in progress"
+msgstr "仍有回滚正在进行"
+
+#: includes/Admin/ControlCenter.php:111
+msgid "A safe first run"
+msgstr "安全的首次使用流程"
+
+#: includes/Core/BookStructure.php:331
+msgid ""
+"A structure rank could not be verified, so completed writes were restored."
+msgstr "无法验证结构排序值，因此已还原完成的写入。"
+
+#: includes/Admin/ChannelHealth.php:285
+msgid ""
+"A variable template may still resolve to an empty description if the Series "
+"description is empty."
+msgstr "如果序列说明为空，含变量的模板最终仍可能得到空说明。"
+
+#: includes/Admin/ChannelHealth.php:110
+msgid ""
+"A visible page title is not automatically the same as the search-result or "
+"social-sharing title. This report keeps those channels separate."
+msgstr ""
+"页面上看见的标题并不自动等同于搜索结果标题或社交分享标题；本报告会将这些渠道"
+"分开检查。"
+
+#: includes/Migration/AdminPage.php:74
+msgid "ACF / _secondary_title collisions"
+msgstr "ACF / _secondary_title 冲突"
+
+#: includes/Admin/ControlCenter.php:136
+msgid "About ACF"
+msgstr "关于 ACF"
+
+#: includes/Admin/ChannelHealth.php:160 includes/Admin/SeriesHealth.php:125
+msgid "Action"
+msgstr "操作"
+
+#: includes/Migration/AdminPage.php:309
+msgid "Actions"
+msgstr "操作"
+
+#: includes/Admin/SequenceManager.php:417
+#, php-format
+msgid "Activation is unavailable until %d entry above is resolved."
+msgid_plural ""
+"Activation is unavailable until all %d entries above are resolved."
+msgstr[0] "在解决上方全部 %d 个条目前，无法启用。"
+
+#: includes/Core/Series.php:466 includes/Migration/AdminPage.php:59
+msgid "Active"
+msgstr "已启用"
+
+#: includes/Core/Series.php:70
+msgid "Add New Series"
+msgstr "新建序列"
+
+#: includes/Core/Series.php:757
+msgid "Add another season"
+msgstr "再添加一季"
+
+#: includes/Presentation/SettingsPage.php:271
+msgid ""
+"Add the Title Layer block or shortcode exactly where you want it. Nothing is "
+"inserted automatically."
+msgstr "请在需要的位置添加标题层区块或短代码；插件不会自动插入任何内容。"
+
+#: includes/Migration/AdminPage.php:142
+msgid "Advanced batch settings"
+msgstr "高级批处理设置"
+
+#: includes/Admin/SequenceManager.php:207
+msgid "Advanced structure active"
+msgstr "高级结构已启用"
+
+#: includes/Admin/SequenceManager.php:737
+msgid "Advanced structure is now active for this Series."
+msgstr "此序列现已启用高级结构。"
+
+#: includes/Admin/SequenceManager.php:207
+msgid "Advanced structure not enabled"
+msgstr "高级结构未启用"
+
+#: assets/editor.js:349
+msgid ""
+"After saving, this article will be appended to the selected Series and "
+"season."
+msgstr "保存后，本文将追加到所选序列与季的末尾。"
+
+#: includes/Admin/SequenceManager.php:572
+msgid "After target"
+msgstr "目标文章之后"
+
+#: includes/Admin/ControlCenter.php:368
+msgid "After-article navigation"
+msgstr "文末阅读导航"
+
+#: includes/Core/Series.php:67 includes/Admin/ControlCenter.php:351
+#: includes/Admin/SeriesHealth.php:164
+msgid "All Series"
+msgstr "所有序列"
+
+#: includes/Admin/ChannelHealth.php:199
+msgid "All Series landing pages"
+msgstr "所有序列入口页"
+
+#: includes/Admin/SeriesHealth.php:235
+msgid "All members"
+msgstr "全部成员"
+
+#: includes/Admin/SeriesHealth.php:186
+msgid "All saved states except transient auto-drafts."
+msgstr "除临时自动草稿外的所有已保存状态。"
+
+#: includes/Admin/ControlCenter.php:283
+msgid "Already copied"
+msgstr "已复制"
+
+#: includes/Admin/ControlCenter.php:300
+msgid "Already equal"
+msgstr "已经相同"
+
+#: includes/Admin/ControlCenter.php:290
+msgid "Already equal in latest run"
+msgstr "最近一次运行中已相同"
+
+#: includes/Admin/ChannelHealth.php:304
+#, php-format
+msgid ""
+"Among %1$s public members: %2$s have an SEO-title override (%3$s use a WP "
+"Title Layer variable), %4$s have a Facebook-title override (%5$s use a WP "
+"Title Layer variable), and %6$s have a Twitter-title override (%7$s use a WP "
+"Title Layer variable)."
+msgstr ""
+"在 %1$s 篇公开成员文章中：%2$s 篇设置了 SEO 标题覆盖值（其中 %3$s 篇使用 WP "
+"Title Layer 变量），%4$s 篇设置了 Facebook 标题覆盖值（其中 %5$s 篇使用该变"
+"量），%6$s 篇设置了 Twitter 标题覆盖值（其中 %7$s 篇使用该变量）。"
+
+#: includes/Core/Sequence.php:469
+msgid ""
+"An article’s Series, season, status, or legacy position changed during "
+"initialization."
+msgstr "初始化期间，某篇文章的序列、季、状态或旧篇序发生了变化。"
+
+#: includes/Admin/ChannelHealth.php:257
+msgid ""
+"An exact match is evidence of two public entry points, not an instruction to "
+"delete one. Choose the preferred landing page and canonical policy in "
+"WordPress and your SEO provider after checking inbound links, navigation, "
+"and historical URLs."
+msgstr ""
+"完全匹配只说明存在两个公开入口，并不意味着应当删除其中一个。请先检查外部链"
+"接、站内导航和历史网址，再到 WordPress 与 SEO 插件中决定首选入口页和 "
+"canonical 策略。"
+
+#: includes/Admin/ChannelHealth.php:373
+msgid ""
+"Another SEO provider appears active. This report identifies the hand-off but "
+"does not interpret that provider’s private option schema; confirm the final "
+"tags in its interface and rendered page source."
+msgstr ""
+"似乎还有其他 SEO 服务处于启用状态。本报告会指出渠道已被交接，但不会解读对方的"
+"私有设置结构；请在其界面和已渲染的页面源码中确认最终标签。"
+
+#: includes/Migration/Migrator.php:29 includes/Migration/Rollback.php:31
+#: includes/Migration/ScanSnapshot.php:25
+msgid "Another migration control action is in progress."
+msgstr "另一个迁移控制操作正在进行。"
+
+#: includes/Migration/Rollback.php:47
+msgid "Another migration or rollback is already running."
+msgstr "另一个迁移或回滚已经在运行。"
+
+#: includes/Reader/AdminSettings.php:176
+msgid ""
+"Append previous, next, “read from the beginning,” and progress after "
+"articles in an ordered Series."
+msgstr "在有序序列文章末尾添加上一篇、下一篇、“从头阅读”和阅读进度。"
+
+#: includes/Core/BookStructure.php:167
+msgid "Appendices"
+msgstr "附录"
+
+#: includes/Core/Schema.php:156 includes/Presentation/Renderer.php:571
+msgid "Appendix"
+msgstr "附录"
+
+#: includes/Core/Series.php:335 includes/Core/Series.php:411
+msgid "Archive layout for this Series"
+msgstr "此序列的归档页布局"
+
+#: includes/Core/Series.php:328 includes/Core/Series.php:403
+msgid "Archive sort"
+msgstr "归档页排序"
+
+#: includes/Reader/AdminSettings.php:37
+msgid "Archive subtitles"
+msgstr "归档页副标题"
+
+#: includes/Admin/SequenceManager.php:527
+#: includes/Admin/SequenceManager.php:537 includes/Admin/SeriesHealth.php:278
+msgid "Article"
+msgstr "文章"
+
+#: includes/Core/Series.php:349 includes/Core/Series.php:427
+msgid "Article excerpts on this archive"
+msgstr "此归档页的文章摘要"
+
+#: includes/Admin/SequenceManager.php:787
+msgid "Article moved."
+msgstr "文章已移动。"
+
+#: includes/Admin/SequenceManager.php:107
+msgid "Article moved. Reloading the canonical order…"
+msgstr "文章已移动，正在重新载入规范顺序……"
+
+#: includes/Admin/ChannelHealth.php:119
+msgid "Article search title"
+msgstr "文章搜索标题"
+
+#: includes/Core/Series.php:342 includes/Core/Series.php:419
+msgid "Article subtitles on this archive"
+msgstr "此归档页的文章副标题"
+
+#: includes/Admin/SeriesHealth.php:192
+msgid "Article visibility summary"
+msgstr "文章可见性汇总"
+
+#: includes/Admin/ChannelHealth.php:300
+msgid "Article-level search and sharing overrides"
+msgstr "文章级搜索与分享标题覆盖"
+
+#: includes/Admin/SequenceManager.php:241
+msgid "Articles in initialization set"
+msgstr "初始化范围内的文章"
+
+#: includes/Core/Sequence.php:381
+msgid ""
+"Assign every article to a defined season before initializing this Series."
+msgstr "初始化此序列前，请把每篇文章都分配到已定义的季。"
+
+#: assets/editor.js:279
+msgid ""
+"Assign this article to that Category or one of its descendants, or change "
+"the Series definition."
+msgstr "请将本文分配给该分类或其下级分类，或修改序列定义。"
+
+#: includes/Core/Series.php:745
+msgid "Assigned on save"
+msgstr "保存时分配"
+
+#: includes/Core/Sequence.php:584
+msgid ""
+"At least one managed rank changed after initialization; no rollback was "
+"performed."
+msgstr "初始化后至少有一个托管排序值发生变化，因此未执行回滚。"
+
+#: includes/Admin/SequenceManager.php:542
+msgid "Automatic"
+msgstr "自动"
+
+#: includes/Admin/ClassicEditor.php:108 includes/Admin/ClassicEditor.php:167
+msgid "Automatic article number:"
+msgstr "自动篇号："
+
+#: includes/Admin/ControlCenter.php:361
+msgid "Automatic features enabled"
+msgstr "已启用自动功能"
+
+#: includes/Admin/SequenceManager.php:526
+#: includes/Admin/SequenceManager.php:536 includes/Admin/SeriesHealth.php:281
+msgid "Automatic number"
+msgstr "自动篇号"
+
+#: includes/Presentation/SettingsPage.php:50
+msgid "Automatic placement applies to"
+msgstr "自动放置适用于"
+
+#: includes/Presentation/SettingsPage.php:526
+msgid ""
+"Automatic placement was not enabled because the theme-title confirmation was "
+"not checked. Manual placement remains active."
+msgstr "由于未勾选主题标题确认项，自动放置没有启用；当前仍使用手动放置。"
+
+#: includes/Admin/ControlCenter.php:309 includes/Admin/ControlCenter.php:340
+#: includes/Admin/ControlCenter.php:360 includes/Admin/ControlCenter.php:430
+msgid "Available after migration"
+msgstr "迁移完成后可用"
+
+#: includes/Core/Series.php:74
+msgid "Back to Series"
+msgstr "返回序列列表"
+
+#: includes/Admin/ChannelHealth.php:186 includes/Admin/SeriesHealth.php:153
+msgid "Back to all Series"
+msgstr "返回所有序列"
+
+#: includes/Admin/SequenceManager.php:572
+msgid "Before target"
+msgstr "目标文章之前"
+
+#: includes/Core/Series.php:716
+msgid ""
+"Blank rows are ignored. Order numbers may leave gaps, making later insertion "
+"easier."
+msgstr "空白行会被忽略。顺序编号可以留出间隔，方便以后插入新季。"
+
+#: includes/Presentation/ThemeTitleIntegration.php:257
+msgid "Block theme Post Title replacement"
+msgstr "区块主题“文章标题”替换"
+
+#: includes/Core/Series.php:373 includes/Core/Series.php:464
+msgid "Book structure"
+msgstr "书籍式结构"
+
+#: includes/Core/BookStructure.php:340
+msgid "Book structure could not be activated, so rank writes were restored."
+msgstr "无法启用书籍式结构，因此已还原排序值写入。"
+
+#: includes/Core/BookStructure.php:280
+msgid "Book structure is already enabled for this Series."
+msgstr "此序列已启用书籍式结构。"
+
+#: includes/Admin/ClassicEditor.php:206
+msgid "Book structure scope"
+msgstr "书籍式结构范围"
+
+#: assets/editor.js:408
+msgid ""
+"Book-like tracks become canonical after this Series passes the Structure "
+"compatibility preview."
+msgstr "此序列通过结构兼容性预览后，书籍式轨道将成为规范结构。"
+
+#: includes/Admin/ChannelHealth.php:428
+msgid "Both exact entry points appear self-canonical."
+msgstr "两个完全相同的入口页似乎都将自身设为 canonical。"
+
+#: includes/Migration/AdminPage.php:397
+msgid "Candidates"
+msgstr "候选项"
+
+#: includes/Admin/SequenceManager.php:142
+msgid "Canonical Series order and structure"
+msgstr "规范序列篇序与结构"
+
+#: includes/Admin/ChannelHealth.php:286
+msgid "Canonical URL"
+msgstr "Canonical URL"
+
+#: includes/Core/Sequence.php:154
+msgid "Canonical sequence order could not be activated for the new Series."
+msgstr "无法为新序列启用规范篇序。"
+
+#: includes/Admin/ControlCenter.php:475
+msgid ""
+"Canonical subtitles are already present or the latest migration completed. "
+"The old source metadata may remain by design."
+msgstr ""
+"规范副标题已经存在，或最近一次迁移已经完成。旧来源元数据按设计可以继续保留。"
+
+#: includes/Admin/ChannelHealth.php:214
+msgid "Categories sharing at least one public article."
+msgstr "至少共享一篇公开文章的分类。"
+
+#: includes/Admin/ChannelHealth.php:227 includes/Migration/AdminPage.php:397
+#: includes/Presentation/SettingsPage.php:374
+msgid "Category"
+msgstr "分类"
+
+#: includes/Admin/SeriesHealth.php:241
+msgid "Category branch"
+msgstr "分类栏目分支"
+
+#: includes/Admin/ChannelHealth.php:230
+msgid "Category canonical"
+msgstr "分类页 canonical"
+
+#: includes/Migration/AdminPage.php:395
+msgid "Category distribution"
+msgstr "分类分布"
+
+#: includes/Presentation/TemplateResolver.php:140
+msgid "Category rule"
+msgstr "分类规则"
+
+#. translators: %s: Category name.
+#: includes/Presentation/TemplateResolver.php:137
+#, php-format
+msgid "Category rule: %s"
+msgstr "分类规则：%s"
+
+#: includes/Admin/ControlCenter.php:334
+#: includes/Presentation/SettingsPage.php:97
+msgid "Category rules"
+msgstr "分类规则"
+
+#: includes/Admin/ChannelHealth.php:277
+msgid "Channel"
+msgstr "渠道"
+
+#: includes/Admin/ChannelHealth.php:109
+msgid "Channel ownership at a glance"
+msgstr "渠道归属概览"
+
+#: includes/Admin/SeriesHealth.php:135
+msgid "Check"
+msgstr "检查"
+
+#: includes/Admin/ControlCenter.php:408
+msgid "Check Series health"
+msgstr "检查序列健康状况"
+
+#: includes/Admin/ControlCenter.php:191
+msgid "Check and migrate old data"
+msgstr "检查并迁移旧数据"
+
+#: includes/Admin/SequenceManager.php:362
+msgid "Check and roll back initialization"
+msgstr "检查并回滚初始化"
+
+#: includes/Admin/ControlCenter.php:526
+msgid ""
+"Check desktop and mobile, and confirm the page has one visible main title "
+"and exactly one intended H1."
+msgstr ""
+"请同时检查桌面端和手机端，并确认页面只有一个可见主标题及一个预期的 H1。"
+
+#: includes/Admin/ControlCenter.php:439
+msgid "Check landing & channels"
+msgstr "检查入口页与渠道"
+
+#: includes/Admin/ControlCenter.php:530
+msgid "Check landing pages and title channels"
+msgstr "检查入口页与标题渠道"
+
+#: includes/Admin/ControlCenter.php:200
+msgid "Check migration"
+msgstr "检查迁移"
+
+#: includes/Admin/ControlCenter.php:490
+msgid "Check old title data"
+msgstr "检查旧标题数据"
+
+#: includes/Admin/SeriesHealth.php:282
+msgid "Check result"
+msgstr "检查结果"
+
+#: includes/Admin/ControlCenter.php:524
+msgid "Check the public result"
+msgstr "检查公开页面结果"
+
+#: includes/Admin/SequenceManager.php:451
+msgid "Choose Series-wide or season scope"
+msgstr "请选择全序列或单季范围"
+
+#: includes/Admin/SequenceManager.php:170
+#: includes/Admin/SequenceManager.php:187
+msgid "Choose a Series"
+msgstr "选择序列"
+
+#: includes/Admin/ChannelHealth.php:148
+msgid "Choose a Series landing page"
+msgstr "选择一个序列入口页"
+
+#: includes/Admin/SeriesHealth.php:102
+msgid "Choose a Series to inspect"
+msgstr "选择要检查的序列"
+
+#: includes/Admin/SequenceManager.php:453
+msgid "Choose a defined Season"
+msgstr "请选择已定义的季"
+
+#: includes/Core/Sequence.php:998
+msgid "Choose a defined season before moving articles."
+msgstr "移动文章前，请先选择已定义的季。"
+
+#: includes/Core/Sequence.php:718
+msgid ""
+"Choose a defined season before this article can be appended to managed order."
+msgstr "请先选择已定义的季，才能把本文追加到托管篇序。"
+
+#: includes/Core/Series.php:637
+msgid ""
+"Choose a small image used decoratively beside this Series name in article "
+"title layers. It is separate from the Series cover."
+msgstr ""
+"选择一张小图像，作为装饰显示在文章标题层中的序列名旁。它与序列封面相互独立。"
+
+#: includes/Core/Sequence.php:368
+msgid "Choose an ordered Series before starting Sequence Manager."
+msgstr "启动篇序管理器前，请先选择一个有序序列。"
+
+#: assets/editor.js:316
+msgid "Choose from the seasons defined for this Series."
+msgstr "从该序列已定义的季中选择。"
+
+#: includes/Admin/ControlCenter.php:496
+msgid "Choose how titles appear"
+msgstr "选择标题显示方式"
+
+#: includes/Admin/ControlCenter.php:243
+msgid ""
+"Choose how titles should appear, then test one ordinary article and one "
+"Series article before wider use."
+msgstr ""
+"先选择标题显示方式，再各测试一篇普通文章和一篇序列文章，确认后再扩大使用范"
+"围。"
+
+#: includes/Core/Series.php:671
+msgid "Choose image"
+msgstr "选择图像"
+
+#: includes/Admin/ClassicEditor.php:147
+msgid ""
+"Choose one existing Series. Series creation and structure remain on the "
+"Series screen."
+msgstr "请选择一个已有序列。序列的创建与结构设置仍在序列页面完成。"
+
+#: includes/Admin/ControlCenter.php:508
+msgid ""
+"Choose ordered or unordered, then add seasons only when the collection "
+"really needs them."
+msgstr "先选择有序或无序；只有在内容确实需要时才添加季。"
+
+#: includes/Core/Schema.php:163
+msgid "Choose scope (legacy value is unresolved)"
+msgstr "选择范围（旧值尚未确定）"
+
+#: includes/Admin/SequenceManager.php:452
+msgid "Choose scope and a valid Season"
+msgstr "请选择范围和有效的季"
+
+#: includes/Presentation/SettingsPage.php:146
+msgid ""
+"Choose where the Title Layer appears and how its parts are arranged. The "
+"safe default is manual placement."
+msgstr "选择标题层出现的位置及各部分的排列方式。安全的默认方案是手动放置。"
+
+#: includes/Core/Sequence.php:1002
+msgid "Choose whether the article belongs before or after its target."
+msgstr "请选择把文章放在目标文章之前还是之后。"
+
+#: includes/Core/Series.php:1617
+msgid ""
+"Choose whether this non-main entry belongs to the entire Series or one "
+"season."
+msgstr "请选择此非主要文章归属全序列还是其中一季。"
+
+#: includes/Admin/ControlCenter.php:335
+msgid "Chosen at placement"
+msgstr "由放置位置指定"
+
+#: includes/Admin/SeriesHealth.php:113
+msgid "Clear search"
+msgstr "清除搜索"
+
+#: includes/Presentation/SettingsPage.php:443
+#, php-format
+msgid "Colon %s"
+msgstr "冒号 %s"
+
+#: includes/Admin/ControlCenter.php:532
+msgid ""
+"Compare Series and Category archives, then confirm canonical, robots, "
+"sitemap, search-title, and social-title ownership before changing SEO "
+"settings."
+msgstr ""
+"先比较序列与分类归档页，再确认 canonical、robots、站点地图、搜索标题和社交标"
+"题分别由谁负责，然后才修改 SEO 设置。"
+
+#: includes/Admin/ControlCenter.php:432
+msgid ""
+"Compare Series and Category entry points, then inspect visible, search, "
+"social, canonical, robots, and sitemap ownership."
+msgstr ""
+"比较序列与分类入口页，再检查可见标题、搜索标题、社交标题、canonical、robots "
+"和站点地图的归属。"
+
+#: includes/Admin/ChannelHealth.php:78
+msgid ""
+"Compare public Series and Category entry points, then inspect which system "
+"owns visible, search, and social titles. Nothing on this page changes SEO "
+"metadata, taxonomy relationships, robots, canonical URLs, or sitemap "
+"settings."
+msgstr ""
+"比较公开的序列与分类入口页，再检查可见标题、搜索标题和社交标题由哪个系统负"
+"责。本页不会修改 SEO 元数据、分类关系、robots、canonical URL 或站点地图设置。"
+
+#: includes/Core/Series.php:466
+msgid "Compatibility mode"
+msgstr "兼容模式"
+
+#: includes/Core/Series.php:905 includes/Core/Series.php:1067
+msgid "Completed"
+msgstr "已完结"
+
+#: includes/Admin/ControlCenter.php:181
+msgid ""
+"Completed batches are already saved. Return to the migration screen to "
+"continue the same run."
+msgstr "已完成的批次均已保存。请返回迁移页面继续同一个任务。"
+
+#: includes/Admin/ChannelHealth.php:426
+msgid "Configured to consolidate on Series."
+msgstr "已配置为归并到序列页。"
+
+#: includes/Migration/AdminPage.php:336
+msgid "Confirm"
+msgstr "确认"
+
+#: includes/Admin/ChannelHealth.php:438
+msgid "Confirm the canonical emitted by the active provider or page source."
+msgstr "请确认当前 SEO 服务或页面源码实际输出的 canonical。"
+
+#: includes/Admin/ChannelHealth.php:441
+msgid ""
+"Confirm this target is the preferred landing page before changing "
+"relationships or redirects."
+msgstr "更改关系或重定向前，请确认此目标确实是首选入口页。"
+
+#: includes/Admin/ChannelHealth.php:358
+msgid "Confirm which provider emits the final tags."
+msgstr "确认由哪个服务实际输出最终标签。"
+
+#: includes/Migration/AdminPage.php:266
+msgid ""
+"Conflict export is available only after a run reaches a stable terminal "
+"state."
+msgstr "迁移任务进入稳定的终止状态后，才能导出冲突。"
+
+#: includes/Admin/ControlCenter.php:235
+msgid ""
+"Conflicting source or target values were left unchanged. Review the "
+"migration report before proceeding."
+msgstr "存在冲突的来源值或目标值均未改动。继续之前请查看迁移报告。"
+
+#: includes/Migration/AdminPage.php:308 includes/Migration/AdminPage.php:397
+msgid "Conflicts"
+msgstr "冲突"
+
+#: includes/Admin/ControlCenter.php:377
+msgid "Content migration"
+msgstr "内容迁移"
+
+#: includes/Admin/ControlCenter.php:182
+msgid "Continue migration"
+msgstr "继续迁移"
+
+#: includes/Admin/SequenceManager.php:299
+msgid "Continue next batch"
+msgstr "继续下一批"
+
+#: includes/Admin/ControlCenter.php:182 includes/Migration/AdminPage.php:337
+msgid "Continue rollback"
+msgstr "继续回滚"
+
+#: includes/Admin/ControlCenter.php:45 includes/Admin/ControlCenter.php:94
+msgid "Control Center"
+msgstr "控制中心"
+
+#: includes/Admin/ControlCenter.php:916
+msgid "Controlled by the block theme"
+msgstr "由区块主题控制"
+
+#: includes/Admin/ControlCenter.php:289
+msgid "Copied in latest run"
+msgstr "最近一次运行中已复制"
+
+#: includes/Migration/AdminPage.php:50
+msgid ""
+"Copy trusted legacy subtitles into wptl_subtitle. Source metadata is never "
+"deleted, and an existing target is never overwritten."
+msgstr ""
+"将可信的旧副标题复制到 wptl_subtitle。来源元数据绝不会被删除，已有目标值也绝"
+"不会被覆盖。"
+
+#: includes/Migration/Rollback.php:172
+msgid "Could not advance rollback state; it remains safe to retry."
+msgstr "无法推进回滚状态；可以安全重试。"
+
+#: includes/Migration/Rollback.php:228
+msgid "Could not advance rollback state; the journal remains safe to retry."
+msgstr "无法推进回滚状态；日志保持完整，可以安全重试。"
+
+#: includes/Migration/Migrator.php:414
+msgid ""
+"Could not advance the migration state; the completed journal remains safe to "
+"retry."
+msgstr "无法推进迁移状态；已完成的日志保持完整，可以安全重试。"
+
+#: includes/Migration/Migrator.php:85
+msgid "Could not create the migration journal."
+msgstr "无法创建迁移日志。"
+
+#: includes/Migration/Rollback.php:224
+msgid "Could not finalize the rollback journal; processing stopped safely."
+msgstr "无法完成回滚日志；处理已安全停止。"
+
+#: includes/Migration/Migrator.php:180
+msgid "Could not initialize the migration batch journal."
+msgstr "无法初始化迁移批次日志。"
+
+#: includes/Migration/AdminPage.php:275
+msgid "Could not open the conflict export."
+msgstr "无法打开冲突导出文件。"
+
+#: includes/Migration/Migrator.php:430
+msgid ""
+"Could not record migration completion; the active marker was preserved for a "
+"safe retry."
+msgstr "无法记录迁移完成状态；当前任务标记已保留，可安全重试。"
+
+#: includes/Migration/Rollback.php:404
+msgid ""
+"Could not record rollback completion; the active marker was preserved for a "
+"safe retry."
+msgstr "无法记录回滚完成状态；当前任务标记已保留，可安全重试。"
+
+#: includes/Migration/Rollback.php:87
+msgid "Could not reserve the active rollback marker."
+msgstr "无法保留当前回滚标记。"
+
+#: includes/Migration/Migrator.php:452
+msgid "Could not save the migration batch journal."
+msgstr "无法保存迁移批次日志。"
+
+#: includes/Migration/Migrator.php:446
+msgid "Could not save the migration conflict report; the batch stopped safely."
+msgstr "无法保存迁移冲突报告；该批次已安全停止。"
+
+#: includes/Migration/ScanSnapshot.php:121
+#: includes/Migration/ScanSnapshot.php:131
+msgid "Could not save the reviewed migration scan."
+msgstr "无法保存已审阅的迁移扫描。"
+
+#: includes/Migration/Rollback.php:200
+msgid "Could not save the rollback journal; processing stopped safely."
+msgstr "无法保存回滚日志；处理已安全停止。"
+
+#: includes/Migration/Rollback.php:114
+msgid "Could not start rollback; its active marker was restored safely."
+msgstr "无法启动回滚；当前任务标记已安全恢复。"
+
+#: includes/Admin/ControlCenter.php:504
+msgid "Create a Series if needed"
+msgstr "按需创建序列"
+
+#: includes/Admin/ControlCenter.php:348
+msgid ""
+"Create a Series only when several articles belong together. Ordinary "
+"articles do not require one."
+msgstr "只有多篇文章确实属于同一组时才创建序列；普通文章不需要序列。"
+
+#: includes/Core/Series.php:909
+msgid "Current Season"
+msgstr "当前季"
+
+#: includes/Core/Series.php:467
+msgid ""
+"Current front-end order is unchanged. Review legacy roles and activate "
+"advanced structure in Sequence & Structure when ready."
+msgstr ""
+"当前前端顺序保持不变。请检查旧角色，并在准备好后到“篇序与结构”中启用高级结"
+"构。"
+
+#: includes/Admin/ChannelHealth.php:279
+msgid "Current result or template"
+msgstr "当前结果或模板"
+
+#: includes/Admin/ChannelHealth.php:278
+msgid "Current source"
+msgstr "当前来源"
+
+#: includes/Presentation/SettingsPage.php:451
+msgid "Custom separator"
+msgstr "自定义分隔符"
+
+#: includes/Presentation/SettingsPage.php:446
+msgid "Custom text below"
+msgstr "在下方输入自定义文本"
+
+#: includes/Presentation/SettingsPage.php:105
+msgid "Customize the four templates"
+msgstr "自定义四套模板"
+
+#: includes/Presentation/SettingsPage.php:310
+msgid "DIV — visual title only, no heading level"
+msgstr "DIV——仅作视觉标题，不表示标题层级"
+
+#: includes/Core/Series.php:561 includes/Core/Series.php:576
+#: includes/Admin/ControlCenter.php:333
+#: includes/Presentation/SettingsPage.php:81
+msgid "Default template"
+msgstr "默认模板"
+
+#: includes/Admin/SequenceManager.php:317
+msgid "Define at least one season before managing this Series order."
+msgstr "管理此序列篇序前，请至少定义一季。"
+
+#: assets/editor.js:317
+msgid "Define seasons on the Series edit screen first."
+msgstr "请先在序列编辑页面定义季。"
+
+#: includes/Migration/AdminPage.php:85
+msgid "Definitions found"
+msgstr "找到的字段定义"
+
+#: includes/Core/Series.php:324 includes/Core/Series.php:398
+msgid "Descriptive only. It does not publish, hide, lock, or reorder articles."
+msgstr "此状态仅用于说明，不会发布、隐藏、锁定或重排文章。"
+
+#: includes/Presentation/SettingsPage.php:248
+msgid "Detected integration:"
+msgstr "检测到的集成："
+
+#: includes/Admin/ControlCenter.php:296
+msgid "Detected source matches"
+msgstr "检测到的来源匹配项"
+
+#: includes/Presentation/TemplateResolver.php:60
+msgid "Disabled by post override"
+msgstr "已由文章覆盖设置禁用"
+
+#: includes/Admin/ControlCenter.php:337
+msgid "Display settings"
+msgstr "显示设置"
+
+#: assets/editor.js:472
+msgid "Display the resolved editorial title hierarchy."
+msgstr "显示解析后的编辑型标题层级。"
+
+#: includes/Admin/ControlCenter.php:355
+msgid "Divided into seasons"
+msgstr "按季划分"
+
+#: includes/Admin/ClassicEditor.php:225
+msgid "Do not display a Title Layer"
+msgstr "不显示标题层"
+
+#: includes/Presentation/SettingsPage.php:427
+#: includes/Presentation/SettingsPage.php:436
+msgid "Do not show"
+msgstr "不显示"
+
+#: includes/Admin/SequenceManager.php:556
+msgid "Down"
+msgstr "下移"
+
+#: includes/Admin/SeriesHealthReport.php:374
+#: includes/Admin/SeriesHealth.php:196
+msgid "Draft"
+msgstr "草稿"
+
+#: includes/Admin/SeriesHealth.php:214
+msgid ""
+"Draft and pending gaps are informational. Trashed articles remain visible in "
+"totals but are not treated as structural errors. Duplicate positions follow "
+"the same non-internal post-status scope as the editor publication check."
+msgstr ""
+"草稿和待审文章的缺口仅作提示。回收站文章仍计入总数，但不会被视为结构错误。重"
+"复篇序采用与编辑器发布检查相同的非内部文章状态范围。"
+
+#: includes/Admin/SeriesHealth.php:214
+msgid ""
+"Draft and pending gaps are informational. Trashed articles remain visible in "
+"totals but are not treated as structural errors. Managed order checks the "
+"private canonical rank; a legacy-field warning means obsolete position data "
+"changed after initialization but does not affect readers."
+msgstr ""
+"草稿和待审文章的缺项仅供参考。回收站文章仍计入总数，但不视为结构错误。托管篇"
+"序检查内部规范排序值；旧字段警告表示初始化后旧篇序数据又被改写，但不会影响读"
+"者看到的顺序。"
+
+#: includes/Admin/SeriesHealth.php:189
+msgid "Draft or pending work that may still be intentionally incomplete."
+msgstr "仍可能有意保持不完整的草稿或待审内容。"
+
+#: includes/Admin/SeriesHealth.php:189
+msgid "Draft-stage gaps"
+msgstr "草稿阶段缺口"
+
+#: includes/Admin/SequenceManager.php:525
+msgid "Drag"
+msgstr "拖动"
+
+#: includes/Admin/SequenceManager.php:548
+msgid ""
+"Drag within the visible page, use the keyboard-friendly step buttons, or "
+"search any page for an exact before/after target."
+msgstr ""
+"可在当前页拖动，也可使用便于键盘操作的步进按钮，或跨页搜索目标并精确放到其前"
+"后。"
+
+#: includes/Migration/AdminPage.php:108
+msgid "Dry run"
+msgstr "试运行"
+
+#: includes/Admin/SeriesHealth.php:239
+msgid "Duplicates"
+msgstr "重复项"
+
+#: assets/editor.js:509
+msgid "Dynamic Title Layer"
+msgstr "动态标题层"
+
+#: includes/Admin/ControlCenter.php:347
+msgid ""
+"Each article can belong to one Series. Ordered and unordered Series remain "
+"separate reading models."
+msgstr "每篇文章只能属于一个序列；有序与无序序列仍是两种不同的阅读模型。"
+
+#: includes/Admin/ChannelHealth.php:245
+msgid "Edit Category"
+msgstr "编辑分类"
+
+#: includes/Core/Series.php:68 includes/Admin/ChannelHealth.php:208
+msgid "Edit Series"
+msgstr "编辑序列"
+
+#: includes/Admin/SequenceManager.php:237
+#: includes/Admin/SequenceManager.php:332
+#: includes/Admin/SequenceManager.php:391
+#: includes/Admin/SequenceManager.php:482 includes/Admin/SeriesHealth.php:180
+msgid "Edit Series definition"
+msgstr "编辑序列定义"
+
+#: includes/Admin/ControlCenter.php:512
+msgid "Edit one sample article"
+msgstr "编辑一篇样本文章"
+
+#: includes/Presentation/Presets.php:36
+msgid "Editorial feature"
+msgstr "专题样式"
+
+#: assets/editor.js:439
+msgid "Effective template:"
+msgstr "实际使用的模板："
+
+#: assets/editor.js:438
+msgid "Effective template: disabled"
+msgstr "实际使用的模板：已禁用"
+
+#: includes/Presentation/SettingsPage.php:444
+#, php-format
+msgid "Em dash %s"
+msgstr "破折号 %s"
+
+#: includes/Reader/AdminSettings.php:188
+msgid "Enable [wptl_series_navigation] for manual placement."
+msgstr "启用 [wptl_series_navigation] 以便手动放置。"
+
+#: includes/Admin/SequenceManager.php:413
+msgid "Enable advanced structure for this Series"
+msgstr "为此序列启用高级结构"
+
+#: includes/Core/Series.php:908 includes/Core/Schema.php:164
+#: includes/Admin/SeriesHealth.php:345
+msgid "Entire Series"
+msgstr "全序列"
+
+#: includes/Admin/SequenceManager.php:254
+msgid "Entire flat Series"
+msgstr "整个单层序列"
+
+#: includes/Admin/SequenceManager.php:439
+msgid "Entries"
+msgstr "条目"
+
+#: includes/Migration/AdminPage.php:54
+msgid "Environment"
+msgstr "环境"
+
+#: includes/Core/Schema.php:155 includes/Presentation/Renderer.php:568
+msgid "Epilogue / afterword"
+msgstr "尾声／后记"
+
+#: includes/Core/BookStructure.php:166
+msgid "Epilogues"
+msgstr "尾声／后记"
+
+#: includes/Admin/ChannelHealth.php:429
+msgid "Exact duplicate; canonical direction needs review."
+msgstr "完全重复；需要审查 canonical 方向。"
+
+#: includes/Admin/ChannelHealth.php:430
+msgid "Exact duplicate; verify the active provider."
+msgstr "完全重复；请核对当前 SEO 服务。"
+
+#: includes/Admin/ChannelHealth.php:215
+msgid "Exact matches on this page"
+msgstr "本页完全匹配项"
+
+#: includes/Admin/ChannelHealth.php:237
+msgid "Exact public set"
+msgstr "完全相同的公开文章集合"
+
+#: includes/Integrations/RankMath.php:100
+msgid "Example Series"
+msgstr "示例序列"
+
+#: includes/Integrations/RankMath.php:88 includes/Integrations/RankMath.php:112
+msgid "Example subtitle"
+msgstr "示例副标题"
+
+#: includes/Integrations/RankMath.php:112
+msgid "Example title"
+msgstr "示例标题"
+
+#: includes/Admin/ClassicEditor.php:128
+msgid "Explains or extends the main title. It is not a Series label."
+msgstr "用于解释或延伸主标题，不是序列标签。"
+
+#: includes/Admin/ChannelHealth.php:405
+msgid "Explicit Rank Math override"
+msgstr "明确的 Rank Math 覆盖值"
+
+#: includes/Admin/ChannelHealth.php:417
+msgid "Explicit other target"
+msgstr "明确指向其他网址"
+
+#: includes/Migration/AdminPage.php:344
+msgid "Export conflicts (CSV)"
+msgstr "导出冲突（CSV）"
+
+#: includes/Admin/ChannelHealth.php:289
+msgid "Facebook title"
+msgstr "Facebook 标题"
+
+#: includes/Core/Series.php:356 includes/Core/Series.php:435
+msgid "Featured images on this archive"
+msgstr "此归档页的特色图像"
+
+#: includes/Migration/AdminPage.php:84
+msgid "Field"
+msgstr "字段"
+
+#: includes/Admin/SeriesHealth.php:80
+msgid ""
+"Find structural gaps before they reach readers. This page never edits, "
+"publishes, hides, or reorders an article."
+msgstr ""
+"在内容呈现给读者之前发现结构缺口。本页绝不会编辑、发布、隐藏或重排文章。"
+
+#: includes/Admin/ControlCenter.php:343
+msgid "Finish migration before assigning Series in the article editor."
+msgstr "请先完成迁移，再在文章编辑器中分配序列。"
+
+#: includes/Admin/ControlCenter.php:189
+msgid "Finish the old-title migration first"
+msgstr "请先完成旧标题迁移"
+
+#: includes/Admin/SequenceManager.php:557
+msgid "First"
+msgstr "移到最前"
+
+#: includes/Core/Series.php:906 includes/Admin/SeriesHealth.php:371
+msgid "Flat"
+msgstr "不分季"
+
+#: includes/Admin/SequenceManager.php:455
+msgid "Flat Series cannot use season scope"
+msgstr "平铺序列不能使用单季范围"
+
+#: includes/Presentation/SettingsPage.php:452
+msgid "For example: ·"
+msgstr "例如：·"
+
+#: includes/Presentation/Presets.php:37
+msgid ""
+"For long-form and Series features: the same hierarchy with a restrained "
+"accent rail."
+msgstr "适用于长文和序列专题：保持相同标题层级，并加入克制的强调边线。"
+
+#: includes/Presentation/Presets.php:47
+msgid ""
+"For ordinary posts or strict theme compatibility: only the WordPress title "
+"is shown."
+msgstr "适用于普通文章或要求严格主题兼容的场景：只显示 WordPress 主标题。"
+
+#: includes/Presentation/Presets.php:42
+msgid ""
+"For short titles and compact Series entries: keep Series context above while "
+"title and subtitle share one visual line."
+msgstr ""
+"适用于短标题和紧凑的序列文章：序列题头保留在上方，标题与副标题在视觉上同行。"
+
+#: includes/Presentation/SettingsPage.php:322
+msgid ""
+"For the legacy body fallback, I have disabled the theme's original post "
+"title."
+msgstr "对于旧版正文前插入方式，我已经另行关闭主题的原始文章标题。"
+
+#: includes/Presentation/SettingsPage.php:35
+msgid "Front-end placement"
+msgstr "前台放置方式"
+
+#: includes/Presentation/TemplateResolver.php:30
+msgid "Global default"
+msgstr "全局默认"
+
+#: includes/Presentation/SettingsPage.php:309
+msgid "H2 — the theme already supplies the page H1 elsewhere"
+msgstr "H2——主题已在其他位置提供页面 H1"
+
+#: assets/editor.js:495
+msgid "Heading level"
+msgstr "标题层级"
+
+#: includes/Admin/SeriesHealth.php:256
+msgid "Health report filters"
+msgstr "健康报告筛选"
+
+#: includes/Admin/SeriesHealth.php:407
+msgid "Health report pages"
+msgstr "健康报告分页"
+
+#: includes/Core/Series.php:917
+msgid "Hide"
+msgstr "隐藏"
+
+#: includes/Presentation/SettingsPage.php:42
+msgid "How should the Title Layer appear?"
+msgstr "标题层应如何显示？"
+
+#: includes/Admin/SequenceManager.php:273
+msgid ""
+"I explicitly approve appending unresolved articles by article date, then "
+"post ID."
+msgstr "我明确同意按文章日期、再按文章 ID，将待处理文章追加到末尾。"
+
+#: includes/Admin/ControlCenter.php:465
+msgid "In progress"
+msgstr "进行中"
+
+#: includes/Admin/ChannelHealth.php:288
+msgid "Included"
+msgstr "已包含"
+
+#: includes/Admin/ChannelHealth.php:287
+msgid "Indexing is allowed by this effective setting."
+msgstr "当前实际设置允许索引。"
+
+#: includes/Admin/ClassicEditor.php:224
+msgid "Inherit"
+msgstr "继承"
+
+#: includes/Core/Series.php:913
+msgid "Inherit the site-wide setting"
+msgstr "继承全站设置"
+
+#: includes/Core/Series.php:338 includes/Core/Series.php:414
+msgid ""
+"Inherit uses the site-wide Reader setting. Theme keeps the active theme "
+"layout; Structured requests WP Title Layer’s season-aware layout when the "
+"theme can be safely replaced."
+msgstr ""
+"“继承”使用全站阅读设置；“主题”保留当前主题布局；“结构化”则在能够安全替换主题"
+"时，使用 WP Title Layer 可识别季结构的布局。"
+
+#: includes/Core/Series.php:369 includes/Core/Series.php:449
+msgid ""
+"Inherit uses the site-wide Title presentation setting. The icon is "
+"decorative and never becomes part of the article title or SEO title."
+msgstr ""
+"“继承”使用站点级标题显示设置。此图标仅作装饰，绝不会成为文章标题或 SEO 标题的"
+"一部分。"
+
+#: includes/Admin/ControlCenter.php:335
+msgid "Inherited from theme"
+msgstr "继承自主题"
+
+#: includes/Admin/ChannelHealth.php:386
+msgid "Inherits the SEO title"
+msgstr "继承 SEO 标题"
+
+#: includes/Admin/SequenceManager.php:289
+msgid "Initialization journal"
+msgstr "初始化日志"
+
+#: includes/Admin/SequenceManager.php:360
+msgid "Initialization recovery"
+msgstr "初始化恢复"
+
+#: includes/Admin/SequenceManager.php:275
+msgid "Initialize Sequence Manager"
+msgstr "初始化篇序管理器"
+
+#: includes/Admin/ClassicEditor.php:177
+msgid ""
+"Initialize this Series in Sequence Manager to insert articles without "
+"renumbering later entries."
+msgstr "请在篇序管理器中初始化此序列，以便插入文章而不必重排后续篇号。"
+
+#: includes/Core/Sequence.php:993
+msgid "Initialize this ordered Series before moving articles."
+msgstr "请先初始化此有序序列，再移动文章。"
+
+#: includes/Core/BookStructure.php:283
+msgid ""
+"Initialize this ordered Series in Sequence Manager before enabling book "
+"structure."
+msgstr "启用书籍式结构前，请先在篇序管理器中初始化此有序序列。"
+
+#: includes/Admin/SequenceManager.php:415
+msgid ""
+"Initialize this ordered Series in the Sequence view before enabling advanced "
+"structure."
+msgstr "启用高级结构前，请先在“篇序”视图中初始化此有序序列。"
+
+#: includes/Presentation/Presets.php:41
+msgid "Inline title"
+msgstr "同行标题"
+
+#: includes/Admin/ChannelHealth.php:168
+msgid "Inspect channels"
+msgstr "检查渠道"
+
+#: includes/Admin/ChannelHealth.php:284
+msgid "Inspect the active provider or rendered page source."
+msgstr "检查当前 SEO 服务或已渲染的页面源码。"
+
+#: includes/Migration/AdminPage.php:59
+msgid "Installed but inactive"
+msgstr "已安装但未启用"
+
+#: includes/Admin/ChannelHealth.php:280
+msgid "Interpretation"
+msgstr "解读"
+
+#: includes/Core/Schema.php:153 includes/Presentation/Renderer.php:565
+msgid "Introduction / preface"
+msgstr "序文／前言"
+
+#: includes/Core/BookStructure.php:164
+msgid "Introductions"
+msgstr "序文／前言"
+
+#: includes/Admin/ClassicEditor.php:186
+msgid ""
+"Introductions, epilogues, and appendices have an independent private order."
+msgstr "序文、尾声和附录各有独立的私有顺序。"
+
+#: assets/editor.js:407
+msgid ""
+"Introductions, epilogues, and appendices use independent movable tracks and "
+"never consume automatic main-article numbers."
+msgstr "序文、尾声和附录使用可独立移动的轨道，不会占用主要文章的自动篇号。"
+
+#: includes/Admin/ChannelHealth.php:407
+msgid "Invalid explicit override"
+msgstr "明确覆盖值无效"
+
+#: includes/Admin/ChannelHealth.php:418
+msgid "Invalid override"
+msgstr "覆盖值无效"
+
+#: includes/Admin/SequenceManager.php:396
+msgid "Invalid structure"
+msgstr "结构无效"
+
+#: includes/Admin/ControlCenter.php:274
+msgid "Items need review"
+msgstr "有项目需要审查"
+
+#: includes/Admin/ChannelHealth.php:361
+msgid "Its metadata is not interpreted here."
+msgstr "此处不解读其元数据。"
+
+#: includes/Reader/ThemeArchiveIntegration.php:33
+msgid "Kadence archive-card Subtitle adapter"
+msgstr "Kadence 归档卡片副标题适配器"
+
+#: includes/Presentation/ThemeTitleIntegration.php:263
+msgid "Kadence title-area integration"
+msgstr "Kadence 标题区域集成"
+
+#: includes/Admin/ClassicEditor.php:218
+msgid "Kicker override"
+msgstr "题头覆盖文本"
+
+#: includes/Admin/ChannelHealth.php:42
+msgid "Landing & Channels"
+msgstr "入口页与渠道"
+
+#: includes/Admin/ChannelHealth.php:41 includes/Admin/ChannelHealth.php:77
+msgid "Landing Pages and Title Channels"
+msgstr "入口页与标题渠道"
+
+#: includes/Admin/ControlCenter.php:429
+msgid "Landing pages and channels"
+msgstr "入口页与渠道"
+
+#: includes/Admin/SequenceManager.php:558
+msgid "Last"
+msgstr "移到最后"
+
+#: includes/Admin/ChannelHealthReport.php:219
+#: includes/Admin/ControlCenter.php:312
+msgid "Legacy body insertion"
+msgstr "旧版正文前插入"
+
+#: includes/Admin/ControlCenter.php:499
+msgid "Legacy body insertion selected"
+msgstr "已选择旧版正文前插入"
+
+#: includes/Migration/AdminPage.php:62
+msgid "Legacy candidate posts"
+msgstr "旧数据候选文章"
+
+#: includes/Presentation/SettingsPage.php:275
+msgid "Legacy fallback: add before the article body"
+msgstr "旧版回退：添加到正文之前"
+
+#: includes/Admin/SeriesHealth.php:240
+msgid "Legacy field changed"
+msgstr "旧字段有变化"
+
+#: includes/Admin/SequenceManager.php:395
+msgid ""
+"Legacy non-main roles are never silently promoted to Series-wide or season "
+"scope."
+msgstr "旧的非主要角色绝不会被静默归入全序列或单季范围。"
+
+#: includes/Admin/SequenceManager.php:250
+msgid "Legacy order is unambiguous"
+msgstr "旧篇序明确"
+
+#: includes/Admin/ClassicEditor.php:175
+msgid "Legacy sequence position"
+msgstr "旧版篇序"
+
+#: includes/Admin/SeriesHealth.php:122
+msgid "Lifecycle"
+msgstr "连载状态"
+
+#: includes/Admin/SeriesHealth.php:172
+msgid "Lifecycle not set"
+msgstr "未设置连载状态"
+
+#: includes/Admin/ChannelHealth.php:355
+msgid "Local Rank Math settings can be interpreted."
+msgstr "可以解读本地 Rank Math 设置。"
+
+#: includes/Core/Schema.php:154
+msgid "Main article (explicit)"
+msgstr "主要文章（明确指定）"
+
+#: includes/Core/BookStructure.php:165 includes/Core/BookStructure.php:170
+msgid "Main articles"
+msgstr "主要文章"
+
+#: includes/Admin/SequenceManager.php:454
+msgid "Main articles cannot be Series-wide"
+msgstr "主要文章不能设为全序列范围"
+
+#: includes/Admin/SequenceManager.php:493
+msgid ""
+"Main articles in an unordered Series keep the Series archive sort setting. "
+"This track is shown for context but is not manually rearranged."
+msgstr ""
+"无序序列中的主要文章继续使用序列归档排序设置。此轨道仅供查看上下文，不能手动"
+"重排。"
+
+#: includes/Presentation/SettingsPage.php:58
+msgid "Main title element"
+msgstr "主标题元素"
+
+#: includes/Admin/ControlCenter.php:434
+msgid "Makes SEO changes"
+msgstr "会修改 SEO"
+
+#: includes/Admin/ControlCenter.php:409 includes/Admin/ControlCenter.php:509
+#: includes/Admin/SeriesHealth.php:105
+msgid "Manage Series"
+msgstr "管理序列"
+
+#: includes/Admin/SequenceManager.php:144
+msgid ""
+"Manage the reading order of every ordered Series independently. Enable "
+"advanced structure only when a Series also needs introductions, epilogues, "
+"appendices, or Series-wide and season tracks."
+msgstr ""
+"可独立管理每个有序序列的阅读篇序。只有当序列还需要序文、尾声、附录或全序列与"
+"单季轨道时，才启用高级结构。"
+
+#: includes/Admin/SeriesHealth.php:236
+msgid "Managed order"
+msgstr "托管篇序"
+
+#: includes/Admin/SeriesHealth.php:320
+msgid "Managed order damaged"
+msgstr "托管排序值损坏"
+
+#: includes/Admin/SeriesHealth.php:321
+msgid "Managed order duplicated"
+msgstr "托管排序值重复"
+
+#: includes/Admin/SeriesHealth.php:319
+msgid "Managed order missing"
+msgstr "缺少托管排序值"
+
+#: includes/Admin/SequenceManager.php:328 includes/Admin/ClassicEditor.php:109
+#: includes/Admin/ClassicEditor.php:167
+msgid "Managed sequence"
+msgstr "托管篇序"
+
+#: includes/Admin/ClassicEditor.php:185
+msgid "Managed structure track"
+msgstr "托管结构轨道"
+
+#: includes/Admin/SeriesHealth.php:358
+msgid "Managed track"
+msgstr "托管轨道"
+
+#: includes/Presentation/SettingsPage.php:269
+msgid "Manual block or theme API"
+msgstr "手动区块或主题 API"
+
+#: includes/Admin/ControlCenter.php:525
+msgid "Manual check"
+msgstr "手动检查"
+
+#: includes/Reader/AdminSettings.php:72
+msgid "Manual navigation shortcode"
+msgstr "手动导航短代码"
+
+#: includes/Admin/ChannelHealthReport.php:217
+#: includes/Admin/ControlCenter.php:312
+msgid "Manual placement"
+msgstr "手动放置"
+
+#: includes/Admin/ControlCenter.php:499
+msgid "Manual placement selected"
+msgstr "已选择手动放置"
+
+#: includes/Admin/ControlCenter.php:369
+msgid "Manual shortcode"
+msgstr "手动短代码"
+
+#: includes/Presentation/ThemeTitleIntegration.php:269
+msgid "Manual theme integration required"
+msgstr "需要手动集成主题"
+
+#: includes/Admin/SeriesHealth.php:186
+msgid "Member articles"
+msgstr "成员文章"
+
+#: includes/Admin/SequenceManager.php:250
+msgid "Members"
+msgstr "成员"
+
+#: includes/Migration/AdminPage.php:307
+msgid "Migrated"
+msgstr "已迁移"
+
+#: includes/Admin/ControlCenter.php:469
+msgid "Migration complete"
+msgstr "迁移完成"
+
+#: includes/Migration/AdminAssets.php:45
+msgid "Migration complete. Run the read-only scan again to verify the result."
+msgstr "迁移已完成。请再次运行只读扫描以核对结果。"
+
+#: includes/Admin/ControlCenter.php:265
+msgid "Migration in progress"
+msgstr "迁移进行中"
+
+#: includes/Migration/AdminAssets.php:43
+msgid ""
+"Migration is running. You may leave this page; completed batches are already "
+"saved."
+msgstr "迁移正在运行。您可以离开本页；已完成的批次均已保存。"
+
+#: includes/Admin/ControlCenter.php:294
+msgid "Migration report"
+msgstr "迁移报告"
+
+#: includes/Migration/AdminPage.php:263 includes/Migration/Migrator.php:113
+#: includes/Migration/Rollback.php:68 includes/Migration/Rollback.php:151
+msgid "Migration run not found."
+msgstr "未找到该迁移任务。"
+
+#: includes/Migration/AdminPage.php:135
+msgid "Migration runs"
+msgstr "迁移任务"
+
+#: includes/Admin/SequenceManager.php:396
+msgid "Missing Seasons or incompatible scope choices must be corrected first."
+msgstr "必须先修正缺失的季或不兼容的范围选择。"
+
+#: includes/Admin/SequenceManager.php:242
+msgid ""
+"Missing, malformed, duplicated, or invalid-scope legacy values are never "
+"guessed silently."
+msgstr "缺失、格式错误、重复或排序范围无效的旧值绝不会被静默猜测。"
+
+#: includes/Admin/ChannelHealth.php:370
+msgid ""
+"More than one SEO provider appears active. WP Title Layer will not guess "
+"which one emits the final canonical, robots, search title, or social tags; "
+"confirm ownership in the providers and rendered page source."
+msgstr ""
+"似乎有多个 SEO 服务同时启用。WP Title Layer 不会猜测由哪一个输出最终的 "
+"canonical、robots、搜索标题或社交标签；请在各服务界面和已渲染的页面源码中确认"
+"归属。"
+
+#: includes/Admin/SequenceManager.php:530
+#: includes/Admin/SequenceManager.php:543
+msgid "Move"
+msgstr "移动"
+
+#: includes/Admin/SequenceManager.php:573
+msgid "Move article"
+msgstr "移动文章"
+
+#: includes/Admin/ClassicEditor.php:187
+msgid "Move in Sequence & Structure"
+msgstr "在篇序与结构中移动"
+
+#: includes/Admin/ClassicEditor.php:169
+msgid "Move in Sequence Manager"
+msgstr "在篇序管理器中移动"
+
+#: includes/Admin/ChannelHealth.php:343
+msgid "Multiple providers detected"
+msgstr "检测到多个 SEO 服务"
+
+#: includes/Admin/ControlCenter.php:301
+msgid "Need review"
+msgstr "需要审查"
+
+#: includes/Admin/ControlCenter.php:291
+msgid "Need review in latest run"
+msgstr "最近一次运行中需要审查"
+
+#: includes/Admin/SequenceManager.php:242
+msgid "Needs an explicit decision"
+msgstr "需要明确决定"
+
+#: includes/Admin/ControlCenter.php:463 includes/Admin/SeriesHealth.php:234
+msgid "Needs attention"
+msgstr "需要处理"
+
+#: includes/Admin/SequenceManager.php:395
+msgid "Needs scope review"
+msgstr "需要检查范围"
+
+#: includes/Presentation/Presets.php:32
+msgid ""
+"Neutral and theme-led for most articles: Series context above, subtitle "
+"below."
+msgstr "适合大多数文章的中性样式：由主题主导视觉，序列题头在上，副标题在下。"
+
+#: includes/Admin/SequenceManager.php:646
+msgid "New"
+msgstr "新增"
+
+#: includes/Core/Series.php:71
+msgid "New Series Name"
+msgstr "新序列名称"
+
+#: includes/Core/Series.php:373
+msgid ""
+"New Series start with the 0.11 book-structure model. Existing Series use a "
+"separate read-only preview before activation."
+msgstr ""
+"新序列直接使用 0.11 书籍式结构模型；现有序列须先经过单独的只读预览再启用。"
+
+#: includes/Core/Series.php:910
+msgid "Newest first"
+msgstr "最新在前"
+
+#: templates/series-navigation.php:79
+msgid "Next"
+msgstr "下一篇"
+
+#: includes/Reader/Archive.php:309 includes/Admin/ChannelHealth.php:497
+#: includes/Admin/SeriesHealth.php:403
+msgid "Next page"
+msgstr "下一页"
+
+#: includes/Admin/ControlCenter.php:434 includes/Admin/ControlCenter.php:435
+#: includes/Migration/AdminPage.php:67
+msgid "No"
+msgstr "否"
+
+#: includes/Admin/ControlCenter.php:485
+msgid ""
+"No Secondary Title or verified ACF subtitle values currently require "
+"migration."
+msgstr "目前没有需要迁移的 Secondary Title 或可信 ACF 副标题值。"
+
+#: includes/Core/Sequence.php:553
+msgid "No Sequence Manager initialization is available to roll back."
+msgstr "没有可供回滚的篇序管理器初始化任务。"
+
+#: includes/Admin/ClassicEditor.php:135
+msgid "No Series"
+msgstr "无序列"
+
+#: includes/Core/Series.php:73
+msgid "No Series found."
+msgstr "未找到序列。"
+
+#: includes/Admin/ChannelHealth.php:154 includes/Admin/SeriesHealth.php:117
+msgid "No Series have been created yet."
+msgstr "尚未创建序列。"
+
+#: includes/Admin/SeriesHealth.php:117
+msgid "No Series match this search."
+msgstr "没有序列符合此搜索条件。"
+
+#: includes/Admin/ChannelHealth.php:398
+msgid "No WP Title Layer variable"
+msgstr "未使用 WP Title Layer 变量"
+
+#: includes/Admin/SequenceManager.php:394
+msgid "No article content or legacy field is changed by this preview."
+msgstr "此预览不会修改文章内容或旧字段。"
+
+#: includes/Admin/SeriesHealth.php:271
+msgid "No articles match this filter."
+msgstr "没有文章符合此筛选条件。"
+
+#: includes/Presentation/SettingsPage.php:367
+msgid "No categories are available."
+msgstr "没有可用分类。"
+
+#: includes/Admin/ChannelHealth.php:316
+msgid "No explicit value"
+msgstr "没有明确设置值"
+
+#: includes/Admin/SequenceManager.php:518
+msgid "No managed articles match this scope and search."
+msgstr "此排序范围和搜索条件下没有匹配的托管文章。"
+
+#: includes/Admin/SequenceManager.php:110
+msgid "No matching article was found in this scope."
+msgstr "此排序范围内没有找到匹配的文章。"
+
+#: includes/Admin/ControlCenter.php:463
+msgid "No migration needed"
+msgstr "无需迁移"
+
+#: includes/Migration/AdminPage.php:103
+msgid ""
+"No non-empty stored values were found in these five ACF Series fields. Exact "
+"empty-string rows are not included, and this does not inspect unrelated ACF "
+"fields used by a theme or another plugin."
+msgstr ""
+"这五个 ACF 序列字段中未发现非空存储值。严格为空字符串的记录不在统计范围内；这"
+"里也不会检查主题或其他插件使用的无关 ACF 字段。"
+
+#: includes/Admin/ControlCenter.php:1046
+msgid ""
+"No non-empty values were found in the five audited old ACF Series fields."
+msgstr "审计的五个旧 ACF 序列字段中未发现非空值。"
+
+#: includes/Admin/ControlCenter.php:262
+msgid "No old data found"
+msgstr "未发现旧数据"
+
+#: includes/Core/Series.php:488
+msgid "No parent Category"
+msgstr "不指定归属分类"
+
+#: includes/Admin/ChannelHealth.php:223
+msgid ""
+"No public Category currently shares an eligible published article with this "
+"Series."
+msgstr "目前没有公开分类与此序列共享符合条件的已发布文章。"
+
+#: includes/Presentation/SettingsPage.php:288
+msgid "No public content types are available for automatic placement."
+msgstr "没有可用于自动放置的公开内容类型。"
+
+#: templates/series-archive.php:79
+msgid "No published articles are available in this Series."
+msgstr "此序列暂无可公开访问的已发布文章。"
+
+#: includes/Core/Sequence.php:437
+msgid "No resumable Sequence Manager initialization was found."
+msgstr "没有找到可继续的篇序管理器初始化任务。"
+
+#: includes/Admin/SeriesHealth.php:327
+msgid "No structural issue"
+msgstr "没有结构问题"
+
+#: includes/Admin/SeriesHealth.php:271
+msgid "No structural issues were found in this Series."
+msgstr "此序列未发现结构问题。"
+
+#: includes/Admin/PostListColumns.php:70
+msgid "No subtitle"
+msgstr "无副标题"
+
+#: includes/Admin/ChannelHealth.php:375
+msgid ""
+"No supported SEO provider is currently detected. Stored settings from an "
+"inactive plugin are not treated as authoritative; inspect the rendered page "
+"source before deciding that a channel is unconfigured."
+msgstr ""
+"当前未检测到受支持的 SEO 服务。已停用插件留下的设置不会被视为有效依据；在判定"
+"某个渠道未配置之前，请先检查已渲染的页面源码。"
+
+#: includes/Admin/ChannelHealth.php:348
+msgid "No supported provider detected"
+msgstr "未检测到受支持的 SEO 服务"
+
+#: includes/Admin/ChannelHealth.php:444
+msgid ""
+"No term override is stored; Rank Math should use this Series archive URL."
+msgstr "没有保存分类项级覆盖值；Rank Math 应使用此序列归档页 URL。"
+
+#: includes/Admin/ChannelHealth.php:469
+msgid ""
+"No term-level social title is stored, so Rank Math inherits the effective "
+"SEO title."
+msgstr "没有保存分类项级社交标题，因此 Rank Math 会继承实际 SEO 标题。"
+
+#: includes/Admin/SequenceManager.php:470
+msgid ""
+"No valid structure track is available. Define the required seasons first."
+msgstr "没有可用的结构轨道。请先定义所需的季。"
+
+#: includes/Reader/ThemeArchiveIntegration.php:34
+msgid "No verified archive-card adapter for the active theme"
+msgstr "当前主题没有经过验证的归档卡片适配器"
+
+#: includes/Admin/ControlCenter.php:780
+msgid "No verified theme adapter"
+msgstr "没有经过验证的主题适配器"
+
+#: includes/Admin/SequenceManager.php:419
+msgid ""
+"Non-main entries receive private per-track ranks. Main-article numbers, "
+"public labels, old positions, article content, and taxonomy relationships "
+"are preserved."
+msgstr ""
+"非主要文章会获得各轨道独立的私有排序值；主要文章篇号、公开标签、旧位置、文章"
+"内容和分类关系均会保留。"
+
+#: includes/Admin/SeriesHealth.php:364
+msgid "Non-numbered role"
+msgstr "不编号的角色"
+
+#: includes/Admin/ControlCenter.php:341
+msgid "Not created yet (optional)"
+msgstr "尚未创建（可选）"
+
+#: includes/Admin/ChannelHealth.php:288
+msgid "Not included"
+msgstr "未包含"
+
+#: includes/Migration/AdminPage.php:59
+msgid "Not installed"
+msgstr "未安装"
+
+#: includes/Admin/SeriesHealth.php:242
+msgid "Not openly published"
+msgstr "未公开发布"
+
+#: includes/Admin/ControlCenter.php:280
+msgid "Not scanned yet"
+msgstr "尚未扫描"
+
+#: includes/Core/Series.php:899 includes/Core/Series.php:947
+#: includes/Admin/SeriesHealth.php:132 includes/Admin/SeriesHealth.php:351
+#: includes/Admin/SeriesHealth.php:366
+msgid "Not set"
+msgstr "未设置"
+
+#: includes/Admin/SeriesHealth.php:342 includes/Admin/SeriesHealth.php:359
+msgid "Not used"
+msgstr "未使用"
+
+#: includes/Admin/ChannelHealth.php:285 includes/Admin/ChannelHealth.php:287
+#: includes/Admin/ChannelHealth.php:288 includes/Admin/ChannelHealth.php:289
+#: includes/Admin/ChannelHealth.php:290
+msgid "Not verified by WP Title Layer."
+msgstr "未经 WP Title Layer 验证。"
+
+#: includes/Admin/ChannelHealth.php:118 includes/Admin/ChannelHealth.php:119
+msgid "Not verified here"
+msgstr "此处未验证"
+
+#: includes/Admin/ControlCenter.php:330
+msgid ""
+"Nothing is inserted automatically. Add the Title Layer block or theme API "
+"call where the title should appear."
+msgstr ""
+"插件不会自动插入任何内容。请在标题应出现的位置添加标题层区块或主题 API 调用。"
+
+#: includes/Admin/SequenceManager.php:171
+msgid ""
+"Nothing is written until you inspect one Series and explicitly confirm its "
+"compatibility preview."
+msgstr "在检查一个序列并明确确认其兼容预览前，插件不会写入任何数据。"
+
+#: includes/Admin/SeriesHealth.php:322
+msgid "Obsolete legacy position changed"
+msgstr "已停用的旧篇序发生变化"
+
+#: includes/Admin/ControlCenter.php:1068
+msgid "Off"
+msgstr "关闭"
+
+#: includes/Reader/AdminSettings.php:166
+msgid ""
+"Off by default to preserve existing layouts. Each Series can inherit, show, "
+"or hide these images on its own edit screen."
+msgstr ""
+"默认为关闭，以保留现有布局。每个序列都可在自己的编辑页面选择继承、显示或隐藏"
+"这些图像。"
+
+#: includes/Reader/AdminSettings.php:154
+msgid ""
+"Off by default. Each Series can inherit, show, or hide excerpts on its own "
+"edit screen. Theme archives, Category, and Search are unchanged."
+msgstr ""
+"默认关闭。每个序列可在自身编辑页面继承、显示或隐藏摘要。主题归档页、分类归档"
+"页和搜索结果不受影响。"
+
+#: includes/Presentation/SettingsPage.php:351
+msgid ""
+"Off by default. Each Series can inherit, show, or hide its icon. The "
+"decorative image never becomes part of the H1, SEO title, or social title."
+msgstr ""
+"默认关闭。每个序列可继承、显示或隐藏自身图标。此装饰图像绝不会成为 H1、SEO 标"
+"题或社交分享标题的一部分。"
+
+#: includes/Admin/ControlCenter.php:216
+msgid "Old title data has not been scanned"
+msgstr "尚未扫描旧标题数据"
+
+#: includes/Admin/ControlCenter.php:225
+msgid "Old title data is ready to copy"
+msgstr "旧标题数据已可复制"
+
+#: includes/Core/Series.php:911
+msgid "Oldest first"
+msgstr "最早在前"
+
+#: includes/Admin/ControlCenter.php:1068
+msgid "On"
+msgstr "开启"
+
+#: includes/Core/Schema.php:165
+msgid "One season"
+msgstr "单季"
+
+#: includes/Core/Series.php:903 includes/Core/Series.php:1065
+msgid "Ongoing"
+msgstr "连载中"
+
+#: includes/Core/Sequence.php:140
+msgid "Only an empty new Series can skip the sequence migration preview."
+msgstr "只有空的新序列可以跳过篇序迁移预览。"
+
+#: includes/Reader/AdminSettings.php:178
+msgid ""
+"Only public, published, non-password-protected articles are included. For an "
+"ordered Series with seasons, choose Entire Series or Current Season on that "
+"Series’ edit screen. Existing Series default to Entire Series."
+msgstr ""
+"只包含公开、已发布且无密码保护的文章。对于有序且分季的序列，请在其编辑页面选"
+"择“全序列”或“当前季”；现有序列默认使用“全序列”。"
+
+#: includes/Admin/SequenceManager.php:629
+msgid ""
+"Only the first 25 are shown here; the frozen initialization set still "
+"includes every member."
+msgstr "此处只显示前 25 篇；冻结的初始化范围仍包含全部成员。"
+
+#: includes/Admin/SequenceManager.php:192
+msgid "Open"
+msgstr "打开"
+
+#: includes/Core/Series.php:468 includes/Admin/ControlCenter.php:521
+#: includes/Admin/SeriesHealth.php:177
+msgid "Open Sequence & Structure"
+msgstr "打开篇序与结构"
+
+#: includes/Admin/ControlCenter.php:515
+msgid "Open articles"
+msgstr "打开文章"
+
+#: includes/Admin/ControlCenter.php:533
+msgid "Open channel report"
+msgstr "打开渠道报告"
+
+#: includes/Admin/ControlCenter.php:385 includes/Admin/ControlCenter.php:493
+msgid "Open migration"
+msgstr "打开迁移页面"
+
+#: includes/Admin/ChannelHealth.php:149
+msgid ""
+"Open one Series to compare its public article set with Category archives and "
+"inspect term-level SEO, canonical, robots, sitemap, and social-title "
+"settings."
+msgstr ""
+"打开一个序列，将其公开文章集合与分类归档页比较，并检查分类项级 SEO、"
+"canonical、robots、站点地图和社交标题设置。"
+
+#: includes/Admin/ControlCenter.php:473
+msgid ""
+"Open the migration screen to check why its read-only status could not be "
+"loaded."
+msgstr "请打开迁移页面，检查无法载入只读状态的原因。"
+
+#: includes/Admin/SequenceManager.php:491
+msgid "Open track"
+msgstr "打开轨道"
+
+#: includes/Reader/AdminSettings.php:140
+msgid ""
+"Opt-in and limited to an exact verified theme hook. Category, search, home, "
+"and unsupported theme archives remain unchanged."
+msgstr ""
+"此功能需主动开启，且只使用经过精确验证的主题钩子；分类、搜索、首页和不受支持"
+"主题的归档页均保持不变。"
+
+#: includes/Admin/ControlCenter.php:507 includes/Admin/ControlCenter.php:519
+msgid "Optional"
+msgstr "可选"
+
+#: assets/editor.js:418
+msgid "Optional display text. Leave blank to use the Series short label."
+msgstr "可选显示文字。留空时使用序列短标签。"
+
+#: includes/Core/Series.php:493
+msgid ""
+"Optional editorial organization only. It does not make Series a child "
+"taxonomy and never adds or removes Category assignments on articles."
+msgstr ""
+"仅用于可选的编辑组织。它不会把序列变成分类的子级，也绝不会增删文章的分类分"
+"配。"
+
+#: includes/Admin/ControlCenter.php:361
+msgid "Optional features are off"
+msgstr "可选功能已关闭"
+
+#: includes/Admin/ClassicEditor.php:195
+msgid "Optional label such as 0-1, Preface II, or Appendix A."
+msgstr "可选公开标签，例如 0-1、前言二或附录 A。"
+
+#: includes/Core/Series.php:703
+msgid ""
+"Optional. Give each season a name and use order numbers such as 10, 20, 30."
+msgstr "可选。请为每季命名，并使用 10、20、30 这样的顺序编号。"
+
+#: assets/editor.js:375
+msgid "Optional. Leave blank to derive a label such as S2.03."
+msgstr "可选。留空时自动生成类似 S2.03 的标签。"
+
+#: assets/editor.js:374
+msgid "Optional. Leave blank to show the automatic article number."
+msgstr "可选。留空时显示自动篇号。"
+
+#: includes/Core/Series.php:729
+msgid "Order"
+msgstr "顺序"
+
+#: assets/editor.js:348
+msgid ""
+"Order is controlled by Sequence Manager; the private rank is not an article "
+"field."
+msgstr "篇序由篇序管理器控制；内部排序值不是文章字段。"
+
+#: includes/Core/Series.php:900 includes/Admin/SeriesHealth.php:370
+msgid "Ordered"
+msgstr "有序"
+
+#: includes/Admin/SequenceManager.php:478
+msgid "Ordered Series"
+msgstr "有序序列"
+
+#: includes/Admin/ControlCenter.php:421
+msgid ""
+"Ordered Series can offer an archive, previous/next links, a start link, and "
+"reading progress."
+msgstr "有序序列可以提供归档页、上一篇／下一篇、起始阅读链接和阅读进度。"
+
+#: includes/Migration/AdminPage.php:66
+msgid "Orphaned legacy data"
+msgstr "孤立的旧数据"
+
+#: includes/Admin/SeriesHealth.php:201
+msgid "Other"
+msgstr "其他"
+
+#: includes/Admin/ChannelHealth.php:284 includes/Admin/ChannelHealth.php:285
+#: includes/Admin/ChannelHealth.php:286 includes/Admin/ChannelHealth.php:287
+#: includes/Admin/ChannelHealth.php:288 includes/Admin/ChannelHealth.php:289
+#: includes/Admin/ChannelHealth.php:290
+msgid "Other or no supported provider"
+msgstr "其他服务或没有受支持的服务"
+
+#: includes/Admin/ControlCenter.php:438
+msgid ""
+"Other providers are identified as owners but their private settings are not "
+"interpreted."
+msgstr "其他服务会被标记为渠道所有者，但其私有设置不会在此解读。"
+
+#: includes/Admin/SeriesHealth.php:323
+msgid "Outside the Series Category branch"
+msgstr "不属于序列指定的分类栏目分支"
+
+#: includes/Admin/ChannelHealth.php:214
+msgid "Overlapping Categories"
+msgstr "存在重叠的分类"
+
+#: includes/Core/Series.php:345 includes/Core/Series.php:422
+msgid ""
+"Overrides the relevant structured or supported-theme subtitle setting for "
+"this Series only."
+msgstr "仅为此序列覆盖相应的结构化布局或受支持主题的副标题设置。"
+
+#: includes/Admin/ChannelHealth.php:116
+msgid "Owned by WP Title Layer and the active theme."
+msgstr "由 WP Title Layer 与当前主题共同负责。"
+
+#: includes/Core/Series.php:501 includes/Core/Series.php:508
+msgid "Parent Category"
+msgstr "归属分类"
+
+#: includes/Admin/ChannelHealth.php:237
+msgid "Partial overlap"
+msgstr "部分重叠"
+
+#: includes/Admin/ChannelHealth.php:431
+msgid "Partial overlap alone does not determine canonical direction."
+msgstr "仅有部分重叠不足以决定 canonical 方向。"
+
+#: includes/Admin/ChannelHealth.php:216
+msgid "Partial overlaps on this page"
+msgstr "本页部分重叠项"
+
+#: includes/Admin/SeriesHealth.php:297
+msgid "Password"
+msgstr "密码保护"
+
+#: includes/Admin/SeriesHealth.php:202
+msgid "Password protected"
+msgstr "受密码保护"
+
+#: includes/Core/Series.php:904 includes/Core/Series.php:1066
+msgid "Paused"
+msgstr "暂停"
+
+#: includes/Admin/SeriesHealthReport.php:377
+#: includes/Admin/SeriesHealth.php:199
+msgid "Pending review"
+msgstr "待审"
+
+#: includes/Admin/SequenceManager.php:561
+msgid "Place before / after…"
+msgstr "放到指定文章前／后……"
+
+#: includes/Presentation/SettingsPage.php:453
+msgid ""
+"Plain text only, up to 8 characters. An empty value uses the locale’s colon "
+"separator."
+msgstr "仅限纯文本，最多 8 个字符。留空时使用当前语言的冒号分隔符。"
+
+#: includes/Core/Series.php:902 includes/Core/Series.php:1064
+msgid "Planning"
+msgstr "筹备中"
+
+#: includes/Admin/ChannelHealth.php:416
+msgid "Points to this Series"
+msgstr "指向此序列"
+
+#: includes/Admin/SequenceManager.php:424
+msgid "Populated structure tracks"
+msgstr "已有条目的结构轨道"
+
+#: includes/Admin/SeriesHealth.php:236 includes/Admin/SeriesHealth.php:281
+msgid "Position"
+msgstr "篇序"
+
+#: includes/Admin/SeriesHealth.php:321
+msgid "Position duplicated"
+msgstr "篇序重复"
+
+#: includes/Admin/SeriesHealth.php:320
+msgid "Position invalid"
+msgstr "篇序无效"
+
+#: includes/Admin/SeriesHealth.php:319
+msgid "Position missing"
+msgstr "缺少篇序"
+
+#: includes/Presentation/TemplateResolver.php:65
+msgid "Post override"
+msgstr "文章覆盖设置"
+
+#: includes/Admin/ControlCenter.php:296
+msgid "Posts in last scan"
+msgstr "上次扫描中的文章"
+
+#: includes/Migration/AdminPage.php:144
+msgid "Posts per saved batch"
+msgstr "每个保存批次的文章数"
+
+#: includes/Migration/AdminPage.php:86
+msgid "Posts with a non-empty stored value"
+msgstr "存有非空值的文章"
+
+#: assets/editor.js:534
+msgid ""
+"Preview uses the latest saved article data. Update the article to refresh "
+"changed title fields."
+msgstr "预览使用最近一次保存的文章数据。更新文章后，已更改的标题字段才会刷新。"
+
+#: templates/series-navigation.php:60
+msgid "Previous"
+msgstr "上一篇"
+
+#: includes/Reader/AdminSettings.php:65
+msgid "Previous / next navigation"
+msgstr "上一篇／下一篇导航"
+
+#: includes/Migration/AdminPage.php:79
+msgid "Previous ACF Series fields"
+msgstr "旧 ACF 序列字段"
+
+#: includes/Reader/Archive.php:308 includes/Admin/ChannelHealth.php:496
+#: includes/Admin/SeriesHealth.php:402
+msgid "Previous page"
+msgstr "上一页"
+
+#: includes/Admin/SeriesHealthReport.php:376
+#: includes/Admin/SeriesHealth.php:198
+msgid "Private"
+msgstr "私密"
+
+#: includes/Migration/AdminPage.php:306
+msgid "Processed"
+msgstr "已处理"
+
+#: includes/Admin/ControlCenter.php:288
+msgid "Processed in latest run"
+msgstr "最近一次运行中已处理"
+
+#: includes/Admin/ChannelHealth.php:419
+msgid "Provider not verified"
+msgstr "SEO 服务未经验证"
+
+#: includes/Admin/ChannelHealth.php:213
+msgid "Public Series articles"
+msgstr "序列中的公开文章"
+
+#: includes/Core/Series.php:728
+msgid "Public URL ID"
+msgstr "公开网址编号"
+
+#: includes/Admin/SequenceManager.php:529
+#: includes/Admin/SequenceManager.php:542
+msgid "Public label"
+msgstr "公开标签"
+
+#: includes/Admin/ChannelHealth.php:205
+msgid "Public landing-page overlap and channel ownership for this Series."
+msgstr "此序列的公开入口页重叠情况与渠道归属。"
+
+#: includes/Admin/ClassicEditor.php:193
+msgid "Public structure label"
+msgstr "公开结构标签"
+
+#: includes/Admin/SeriesHealthReport.php:373
+#: includes/Admin/SeriesHealth.php:195
+msgid "Published"
+msgstr "已发布"
+
+#: includes/Admin/SequenceManager.php:241
+msgid ""
+"Published and work-in-progress states; trash and transient revisions are "
+"excluded."
+msgstr "包括已发布和进行中的状态；不包括回收站及临时修订。"
+
+#: includes/Admin/SeriesHealth.php:124
+msgid "Published archive count"
+msgstr "已发布归档数量"
+
+#: includes/Core/Series.php:1657
+msgid ""
+"Published posts in an ordered Series require a non-negative sequence "
+"position."
+msgstr "有序序列中的已发布文章必须填写非负篇序。"
+
+#: includes/Admin/ChannelHealth.php:213
+msgid "Published, public post types, without passwords."
+msgstr "已发布、公开文章类型且无密码保护。"
+
+#: includes/Admin/SeriesHealth.php:188
+msgid "Published, scheduled, or private articles requiring attention."
+msgstr "需要处理的已发布、定时或私密文章。"
+
+#: includes/Admin/SeriesHealth.php:188
+msgid "Published-state issues"
+msgstr "已发布状态问题"
+
+#: includes/Admin/ControlCenter.php:436 includes/Admin/ChannelHealth.php:288
+#: includes/Admin/ChannelHealth.php:340
+msgid "Rank Math"
+msgstr "Rank Math"
+
+#: includes/Admin/ChannelHealth.php:384
+msgid "Rank Math default"
+msgstr "Rank Math 默认值"
+
+#: includes/Integrations/RankMath.php:63
+msgid "Rank Math detected."
+msgstr "已检测到 Rank Math。"
+
+#: includes/Admin/ChannelHealth.php:385
+msgid "Rank Math global setting"
+msgstr "Rank Math 全局设置"
+
+#: includes/Admin/ChannelHealth.php:129
+msgid ""
+"Rank Math is active, so the values above are read from its current local "
+"settings. Provider defaults are labelled separately from settings you "
+"explicitly saved."
+msgstr ""
+"Rank Math 已启用，因此以上值读取自其当前本地设置。服务默认值会与您明确保存的"
+"设置分开标示。"
+
+#: includes/Integrations/RankMath.php:63
+msgid "Rank Math is not currently detected."
+msgstr "当前未检测到 Rank Math。"
+
+#: includes/Admin/ChannelHealth.php:302
+msgid ""
+"Rank Math is not the sole verified provider here, so WP Title Layer does not "
+"interpret stored Rank Math post metadata as the current channel policy."
+msgstr ""
+"此处 Rank Math 并非唯一经过验证的 SEO 服务，因此 WP Title Layer 不会把已保存"
+"的 Rank Math 文章元数据解读为当前渠道策略。"
+
+#: includes/Admin/ChannelHealth.php:383
+msgid "Rank Math post-type setting"
+msgstr "Rank Math 文章类型设置"
+
+#: includes/Admin/ChannelHealth.php:406
+msgid "Rank Math self-canonical default"
+msgstr "Rank Math 默认指向自身的 canonical"
+
+#: includes/Admin/ChannelHealth.php:125
+msgid "Rank Math sitemap module: off"
+msgstr "Rank Math 站点地图模块：关闭"
+
+#: includes/Admin/ChannelHealth.php:125
+msgid "Rank Math sitemap module: on"
+msgstr "Rank Math 站点地图模块：开启"
+
+#: includes/Admin/ChannelHealthReport.php:286
+msgid ""
+"Rank Math social titles inherit the SEO title unless an object has its own "
+"Facebook or Twitter title."
+msgstr ""
+"除非对象单独设置了 Facebook 或 Twitter 标题，否则 Rank Math 的社交标题会继承 "
+"SEO 标题。"
+
+#: includes/Admin/ChannelHealth.php:382
+msgid "Rank Math taxonomy setting"
+msgstr "Rank Math 分类法设置"
+
+#: includes/Integrations/RankMath.php:48
+msgid "Rank Math variables"
+msgstr "Rank Math 变量"
+
+#: templates/series-archive.php:97
+#, php-format
+msgid "Read %s"
+msgstr "阅读%s"
+
+#: templates/series-navigation.php:72
+msgid "Read from the beginning"
+msgstr "从头阅读"
+
+#: templates/series-navigation.php:70
+msgid "Read this season from the beginning"
+msgstr "从本季开头阅读"
+
+#: includes/Admin/ControlCenter.php:430
+msgid "Read-only check available"
+msgstr "可进行只读检查"
+
+#: includes/Admin/ChannelHealth.php:76
+msgid "Read-only governance report"
+msgstr "只读治理报告"
+
+#: includes/Admin/SequenceManager.php:233
+msgid "Read-only preview"
+msgstr "只读预览"
+
+#: includes/Admin/SeriesHealth.php:78
+msgid "Read-only report"
+msgstr "只读报告"
+
+#: includes/Admin/ControlCenter.php:531
+msgid "Read-only review"
+msgstr "只读审查"
+
+#: includes/Admin/SequenceManager.php:387
+msgid "Read-only structure compatibility check"
+msgstr "只读结构兼容性检查"
+
+#: includes/Admin/ControlCenter.php:371
+msgid "Reader settings"
+msgstr "阅读功能设置"
+
+#: includes/Admin/ControlCenter.php:414
+msgid "Reading experience"
+msgstr "阅读体验"
+
+#: includes/Admin/ControlCenter.php:418
+msgid "Reading features are paused with the rest of WP Title Layer output."
+msgstr "阅读功能与 WP Title Layer 的其他输出一起暂停。"
+
+#: includes/Core/Series.php:310 includes/Core/Series.php:382
+msgid "Reading mode"
+msgstr "阅读模式"
+
+#: includes/Admin/SeriesHealth.php:123
+msgid "Reading model"
+msgstr "阅读模型"
+
+#: includes/Core/Series.php:314 includes/Core/Series.php:387
+msgid "Reading navigation scope"
+msgstr "阅读导航范围"
+
+#: includes/Migration/AdminPage.php:397
+msgid "Ready"
+msgstr "可处理"
+
+#: includes/Admin/ControlCenter.php:299
+msgid "Ready in last scan"
+msgstr "上次扫描中可处理"
+
+#: includes/Admin/ControlCenter.php:277
+msgid "Ready to copy"
+msgstr "可以复制"
+
+#: includes/Admin/ControlCenter.php:519
+msgid "Ready to review"
+msgstr "可供检查"
+
+#. translators: 1: ready, 2: already equal, 3: conflicts.
+#: includes/Migration/AdminPage.php:121
+#, php-format
+msgid "Ready: %1$s; already equal: %2$s; conflicts: %3$s."
+msgstr "可复制：%1$s；已经相同：%2$s；冲突：%3$s。"
+
+#: includes/Admin/ControlCenter.php:513
+msgid "Recommended next step"
+msgstr "建议的下一步"
+
+#: includes/Admin/ChannelHealth.php:228
+msgid "Relationship"
+msgstr "关系"
+
+#: includes/Core/Series.php:672
+msgid "Remove image"
+msgstr "移除图像"
+
+#: includes/Admin/ControlCenter.php:435
+msgid "Removes Categories"
+msgstr "会移除分类关系"
+
+#: includes/Admin/ChannelHealth.php:363
+msgid "Rendered source remains the final check."
+msgstr "最终仍应以已渲染的页面源码为准。"
+
+#: includes/Presentation/SettingsPage.php:259
+msgid "Replace the theme post title (recommended)"
+msgstr "替换主题文章标题（推荐）"
+
+#: includes/Admin/SequenceManager.php:456
+msgid "Replace the unrecognized Series role"
+msgstr "更正无法识别的序列角色"
+
+#: includes/Admin/SequenceManager.php:457
+msgid "Replace the unrecognized structure scope"
+msgstr "更正无法识别的结构范围"
+
+#: includes/Admin/ChannelHealth.php:501
+msgid "Report pages"
+msgstr "报告分页"
+
+#: includes/Presentation/SettingsPage.php:242
+msgid ""
+"Resolution order: post override, Series default, category rule, then the "
+"global default."
+msgstr "解析优先级：文章覆盖设置、序列默认值、分类规则，最后是全局默认值。"
+
+#: includes/Core/BookStructure.php:289
+msgid "Resolve every scope and Season issue before enabling book structure."
+msgstr "启用书籍式结构前，请先解决所有范围和季的问题。"
+
+#: includes/Core/Sequence.php:384
+msgid ""
+"Resolve the legacy position conflicts, or explicitly approve appending "
+"unresolved articles by date."
+msgstr "请先解决旧篇序冲突，或明确同意按日期追加待处理文章。"
+
+#: includes/Admin/SequenceManager.php:400
+msgid "Resolve these entries first"
+msgstr "请先处理这些条目"
+
+#: includes/Presentation/SettingsPage.php:459
+msgid "Restore this template to its original defaults when I save"
+msgstr "保存时将此模板恢复为原始默认值"
+
+#: includes/Admin/ControlCenter.php:483
+msgid "Return to the migration screen to continue the saved run."
+msgstr "请返回迁移页面继续已保存的任务。"
+
+#: includes/Admin/ChannelHealth.php:231
+msgid "Review"
+msgstr "审查"
+
+#: includes/Admin/ControlCenter.php:518
+msgid "Review Series structure"
+msgstr "检查序列结构"
+
+#: includes/Admin/ChannelHealth.php:132
+msgid "Review Sitemap Settings"
+msgstr "检查站点地图设置"
+
+#: includes/Admin/ChannelHealth.php:130
+msgid "Review Titles & Meta"
+msgstr "检查标题与 Meta 设置"
+
+#: includes/Admin/ControlCenter.php:236
+msgid "Review conflicts"
+msgstr "审查冲突"
+
+#: includes/Admin/ChannelHealth.php:433
+msgid "Review in the active SEO provider."
+msgstr "在当前 SEO 服务中检查。"
+
+#: includes/Admin/ControlCenter.php:227
+msgid "Review migration"
+msgstr "审查迁移"
+
+#: includes/Admin/ControlCenter.php:226
+msgid ""
+"Review the read-only report before copying. Existing WP Title Layer "
+"subtitles will not be overwritten."
+msgstr "复制前请先查看只读报告。已有 WP Title Layer 副标题不会被覆盖。"
+
+#: includes/Admin/ControlCenter.php:479
+msgid ""
+"Review the read-only scan, then copy the ready subtitles without overwriting "
+"existing WP Title Layer values."
+msgstr ""
+"先查看只读扫描，再复制可处理的副标题；已有 WP Title Layer 值不会被覆盖。"
+
+#: includes/Admin/ControlCenter.php:477
+msgid ""
+"Review the values that were left unchanged because their source or target "
+"data conflicted."
+msgstr "检查那些因来源或目标数据冲突而保持不变的值。"
+
+#: includes/Admin/ControlCenter.php:501
+msgid "Review title display"
+msgstr "检查标题显示"
+
+#: includes/Admin/SequenceManager.php:623
+#, php-format
+msgid "Review unresolved articles (%d)"
+msgstr "检查待处理文章（%d）"
+
+#: includes/Admin/SequenceManager.php:330
+#, php-format
+msgid ""
+"Revision %d. Every move is checked against this revision before writing."
+msgstr "修订号 %d。每次移动都会先核对此修订号，再执行写入。"
+
+#: includes/Admin/SequenceManager.php:480
+#, php-format
+msgid ""
+"Revision %d. Every move is checked against this track revision before "
+"writing."
+msgstr "修订号 %d。每次移动都会先核对此轨道修订号，再执行写入。"
+
+#: includes/Admin/ChannelHealth.php:287
+msgid "Robots"
+msgstr "Robots"
+
+#: includes/Migration/AdminPage.php:337
+msgid "Roll back owned rows"
+msgstr "回滚本插件写入的记录"
+
+#: includes/Admin/SequenceManager.php:302
+msgid "Roll back value-matching writes"
+msgstr "回滚仍匹配的写入值"
+
+#: includes/Admin/ControlCenter.php:265
+msgid "Rollback in progress"
+msgstr "回滚进行中"
+
+#: includes/Admin/SequenceManager.php:361
+msgid ""
+"Rollback is available only while every initialized rank, Season definition, "
+"and revision still matches the original journal. Once the sequence has been "
+"edited, it fails closed."
+msgstr ""
+"只有当所有已初始化的内部排序值、季定义与修订号仍与原初始化日志一致时，才可回"
+"滚；篇序一经编辑，回滚就会停止以保护数据。"
+
+#: includes/Admin/SequenceManager.php:295
+msgid ""
+"Rollback restored only value-matching writes. A later edit protected one or "
+"more ranks from being overwritten."
+msgstr ""
+"回滚只恢复了仍与写入值一致的数据。后续编辑使一个或多个排序值免于被覆盖。"
+
+#: includes/Migration/AdminPage.php:304
+msgid "Run"
+msgstr "任务"
+
+#: includes/Admin/ControlCenter.php:481
+msgid "Run a complete read-only scan before starting a migration."
+msgstr "开始迁移前，请先执行一次完整的只读扫描。"
+
+#: includes/Admin/ControlCenter.php:208
+msgid "Run a complete read-only scan before starting migration."
+msgstr "开始迁移前请完成一次完整的只读扫描。"
+
+#: includes/Admin/ControlCenter.php:209
+msgid "Run a complete scan"
+msgstr "执行完整扫描"
+
+#: includes/Migration/AdminPage.php:322 includes/Migration/AdminAssets.php:44
+msgid "Run all remaining batches"
+msgstr "运行所有剩余批次"
+
+#: includes/Migration/Migrator.php:599
+msgid "Run and save a complete migration scan before starting."
+msgstr "开始前，请先运行并保存一次完整迁移扫描。"
+
+#: includes/Migration/AdminPage.php:327
+msgid "Run next batch"
+msgstr "运行下一批"
+
+#: includes/Migration/AdminPage.php:153
+msgid "Run the read-only scan before starting a migration."
+msgstr "开始迁移前请先执行只读扫描。"
+
+#: includes/Admin/ControlCenter.php:217
+msgid "Run the read-only scan to see what can be copied and what needs review."
+msgstr "运行只读扫描，查看哪些内容可以复制、哪些需要审查。"
+
+#: includes/Admin/ChannelHealth.php:117
+msgid "SEO provider"
+msgstr "SEO 服务"
+
+#: includes/Admin/ChannelHealth.php:215
+msgid "Same complete public article set as this Series."
+msgstr "公开文章全集与此序列完全相同。"
+
+#: includes/Presentation/SettingsPage.php:441
+msgid "Same-line separator"
+msgstr "同行分隔符"
+
+#: assets/editor.js:512
+msgid "Save this article once to load its live Title Layer preview."
+msgstr "请先保存一次文章，以载入实时标题层预览。"
+
+#: includes/Migration/AdminPage.php:316
+msgid "Saved batches:"
+msgstr "已保存批次："
+
+#: includes/Admin/SequenceManager.php:106
+msgid "Saving the new article position…"
+msgstr "正在保存文章的新位置……"
+
+#: includes/Admin/ControlCenter.php:271
+msgid "Scan incomplete"
+msgstr "扫描不完整"
+
+#: includes/Admin/ControlCenter.php:218
+msgid "Scan old data"
+msgstr "扫描旧数据"
+
+#: includes/Migration/AdminPage.php:112
+msgid "Scan without writing"
+msgstr "只扫描，不写入"
+
+#: includes/Admin/SeriesHealthReport.php:375
+#: includes/Admin/SeriesHealth.php:197
+msgid "Scheduled"
+msgstr "定时发布"
+
+#: includes/Admin/SequenceManager.php:250
+msgid "Scope"
+msgstr "排序范围"
+
+#: includes/Admin/SeriesHealth.php:238
+msgid "Scope / role"
+msgstr "范围／角色"
+
+#: includes/Admin/SeriesHealth.php:317
+msgid "Scope conflicts with role or Series structure"
+msgstr "范围与角色或序列结构冲突"
+
+#: includes/Admin/SequenceManager.php:350
+#: includes/Admin/SequenceManager.php:502 includes/Admin/SeriesHealth.php:112
+msgid "Search"
+msgstr "搜索"
+
+#: includes/Core/Series.php:66 includes/Admin/SeriesHealth.php:110
+msgid "Search Series"
+msgstr "搜索序列"
+
+#: includes/Admin/SeriesHealth.php:111
+msgid "Search Series by name or slug"
+msgstr "按名称或别名搜索序列"
+
+#: includes/Integrations/RankMath.php:41
+msgid "Search and sharing titles"
+msgstr "搜索与分享标题"
+
+#: includes/Admin/SequenceManager.php:349
+#: includes/Admin/SequenceManager.php:501
+msgid "Search article title"
+msgstr "搜索文章标题"
+
+#: includes/Admin/SequenceManager.php:348
+#: includes/Admin/SequenceManager.php:500
+msgid "Search articles in this sequence"
+msgstr "在此篇序中搜索文章"
+
+#: includes/Admin/ChannelHealth.php:285
+msgid "Search description"
+msgstr "搜索描述"
+
+#: includes/Admin/SequenceManager.php:184 includes/Admin/SequenceManager.php:185
+msgid "Search or choose a Series"
+msgstr "搜索或选择序列"
+
+#: includes/Admin/SequenceManager.php:570
+msgid "Search target article"
+msgstr "搜索目标文章"
+
+#: includes/Admin/ChannelHealth.php:284
+msgid "Search-result title"
+msgstr "搜索结果标题"
+
+#: includes/Admin/SequenceManager.php:109
+msgid "Searching this sequence…"
+msgstr "正在搜索此篇序……"
+
+#: includes/Admin/ClassicEditor.php:152 includes/Admin/SeriesHealth.php:237
+#: includes/Admin/SeriesHealth.php:280
+msgid "Season"
+msgstr "季"
+
+#: includes/Core/Series.php:741
+msgid "Season 1"
+msgstr "第 1 季"
+
+#: includes/Core/Series.php:1543
+msgid ""
+"Season definitions are read-only in the REST API. Use the Series edit screen "
+"so stable public IDs can be preserved."
+msgstr ""
+"REST API 中的季定义为只读。请使用序列编辑页面，以确保稳定的公开编号得到保留。"
+
+#: includes/Admin/SeriesHealth.php:314
+msgid "Season missing"
+msgstr "缺少季"
+
+#: includes/Core/Series.php:727
+msgid "Season name"
+msgstr "季名"
+
+#: includes/Admin/SeriesHealth.php:315
+msgid "Season not defined"
+msgstr "季未定义"
+
+#: includes/Core/Series.php:907 includes/Admin/SeriesHealth.php:371
+msgid "Seasoned"
+msgstr "分季"
+
+#: includes/Core/Series.php:700 includes/Core/Series.php:712
+msgid "Seasons"
+msgstr "季"
+
+#: includes/Admin/ControlCenter.php:382
+msgid ""
+"Secondary Title and verified ACF subtitle data are copied conservatively. "
+"Source data is retained."
+msgstr ""
+"Secondary Title 与可信 ACF 副标题数据会以保守方式复制，来源数据继续保留。"
+
+#. translators: %s: migration page URL.
+#: includes/Plugin.php:83
+#, php-format
+msgid ""
+"Secondary Title is still active, so WP Title Layer has disabled its editor "
+"and front-end output to prevent duplicate titles. <a href=\"%s\">Review the "
+"migration report</a>, then deactivate Secondary Title before switching "
+"output."
+msgstr ""
+"Secondary Title 仍处于启用状态。为避免重复标题，WP Title Layer 已暂停编辑器与"
+"前台输出。请先<a href=\"%s\">查看迁移报告</a>，再停用 Secondary Title 并切换"
+"输出。"
+
+#: includes/Admin/ControlCenter.php:190
+msgid ""
+"Secondary Title is still active, so WP Title Layer is keeping its editor and "
+"front-end output safely paused."
+msgstr ""
+"Secondary Title 仍处于启用状态，因此 WP Title Layer 会继续安全地暂停编辑器和"
+"前台输出。"
+
+#: includes/Migration/AdminPage.php:58
+msgid "Secondary Title plugin"
+msgstr "Secondary Title 插件"
+
+#: includes/Admin/ClassicEditor.php:154
+msgid "Select a season"
+msgstr "选择一季"
+
+#: includes/Admin/ChannelHealth.php:415
+msgid "Self-canonical"
+msgstr "Canonical 指向自身"
+
+#: includes/Admin/SequenceManager.php:211
+msgid "Sequence"
+msgstr "篇序"
+
+#: includes/Admin/SequenceManager.php:52
+msgid "Sequence & Structure"
+msgstr "篇序与结构"
+
+#: includes/Admin/ControlCenter.php:520
+msgid ""
+"Sequence & Structure initializes insertable order where needed, previews "
+"legacy scope without guessing, and arranges each introduction, main, "
+"epilogue, or appendix track."
+msgstr ""
+"“篇序与结构”会在需要时初始化可插入篇序，在不猜测的前提下预览旧范围，并编排"
+"各序文、主要文章、尾声或附录轨道。"
+
+#: includes/Core/Sequence.php:537
+msgid "Sequence Manager could not commit the Series activation marker."
+msgstr "篇序管理器无法提交序列启用标记。"
+
+#: includes/Core/Sequence.php:522
+msgid "Sequence Manager could not verify the committed scope revisions."
+msgstr "篇序管理器无法验证已提交的范围修订号。"
+
+#: includes/Admin/ClassicEditor.php:168
+msgid ""
+"Sequence Manager owns the private rank. Saving after changing Series or "
+"season appends this article to that scope."
+msgstr ""
+"内部排序值由篇序管理器管理。更换序列或季后保存，会把本文追加到该排序范围末"
+"尾。"
+
+#: includes/Core/Sequence.php:556
+msgid ""
+"Sequence initialization cannot be rolled back after book structure becomes "
+"active."
+msgstr "启用书籍式结构后，不能回滚篇序初始化。"
+
+#: includes/Admin/SequenceManager.php:718
+msgid "Sequence initialization started and its first batch was verified."
+msgstr "篇序初始化已开始，首批数据已验证。"
+
+#: assets/editor.js:368
+msgid "Sequence label override"
+msgstr "篇序标签覆盖"
+
+#: includes/Admin/SequenceManager.php:203
+msgid "Sequence managed"
+msgstr "篇序已托管"
+
+#: includes/Admin/SequenceManager.php:389
+msgid ""
+"Sequence management remains available separately. Advanced structure is "
+"optional and stays read-only until every legacy scope is explicit and this "
+"Series is enabled."
+msgstr ""
+"篇序管理始终单独可用。高级结构为可选功能；只有在所有旧范围都已明确并为此序列"
+"启用高级结构后，它才会脱离只读状态。"
+
+#: includes/Admin/SequenceManager.php:203
+msgid "Sequence not initialized"
+msgstr "篇序尚未初始化"
+
+#: includes/Admin/SequenceManager.php:684
+#: includes/Admin/SequenceManager.php:696
+msgid "Sequence pages"
+msgstr "篇序分页"
+
+#: includes/Admin/SequenceManager.php:336
+msgid "Sequence season scopes"
+msgstr "篇序的季范围"
+
+#: includes/Core/Series.php:64 includes/Core/Series.php:65
+#: includes/Core/Series.php:72 includes/Admin/SequenceManager.php:184
+#: includes/Admin/ControlCenter.php:401 includes/Admin/ChannelHealth.php:158
+#: includes/Admin/ClassicEditor.php:133 includes/Admin/SeriesHealth.php:121
+#: templates/series-archive.php:46
+msgid "Series"
+msgstr "序列"
+
+#: assets/editor.js:276
+msgid "Series / Category mismatch"
+msgstr "序列与分类不一致"
+
+#: includes/Admin/SeriesHealth.php:42 includes/Admin/SeriesHealth.php:79
+msgid "Series Content Health"
+msgstr "序列内容健康检查"
+
+#: includes/Admin/SeriesHealth.php:43
+msgid "Series Health"
+msgstr "序列健康检查"
+
+#: includes/Core/Series.php:75
+msgid "Series Link"
+msgstr "序列链接"
+
+#: includes/Admin/SequenceManager.php:51 includes/Admin/SequenceManager.php:143
+msgid "Series Sequence and Structure Manager"
+msgstr "序列篇序与结构管理器"
+
+#: includes/Admin/ChannelHealth.php:221
+msgid "Series and Category entry points"
+msgstr "序列与分类入口页"
+
+#: includes/Core/BookStructure.php:173
+msgid "Series appendices"
+msgstr "全序列附录"
+
+#: includes/Admin/ControlCenter.php:364
+msgid "Series archive"
+msgstr "序列归档页"
+
+#: includes/Reader/AdminSettings.php:30
+msgid "Series archive layout"
+msgstr "序列归档页布局"
+
+#: templates/series-archive.php:135
+msgid "Series archive pages"
+msgstr "序列归档页分页"
+
+#: includes/Admin/ControlCenter.php:341
+msgid "Series available"
+msgstr "序列可用"
+
+#: includes/Presentation/SettingsPage.php:424
+msgid "Series context"
+msgstr "序列题头"
+
+#: includes/Core/Series.php:625
+msgid "Series cover"
+msgstr "序列封面"
+
+#: assets/editor.js:224
+msgid "Series default"
+msgstr "序列默认值"
+
+#. translators: %s: Series name.
+#: includes/Presentation/TemplateResolver.php:48
+#, php-format
+msgid "Series default: %s"
+msgstr "序列默认值：%s"
+
+#: includes/Admin/ControlCenter.php:357
+msgid "Series definition"
+msgstr "序列定义"
+
+#: includes/Admin/SequenceManager.php:394
+msgid "Series entries"
+msgstr "序列条目"
+
+#: includes/Core/BookStructure.php:172
+msgid "Series epilogues"
+msgstr "全序列尾声／后记"
+
+#: includes/Core/Series.php:636
+msgid "Series icon"
+msgstr "序列图标"
+
+#: includes/Core/Series.php:366 includes/Core/Series.php:446
+msgid "Series icon in article title layers"
+msgstr "文章标题层中的序列图标"
+
+#: includes/Presentation/SettingsPage.php:89
+msgid "Series icons in article title layers"
+msgstr "文章标题层中的序列图标"
+
+#: includes/Core/BookStructure.php:160
+msgid "Series introductions"
+msgstr "全序列序文／前言"
+
+#: includes/Admin/ChannelHealth.php:427
+msgid "Series is configured to consolidate on Category."
+msgstr "序列已配置为归并到分类页。"
+
+#: includes/Admin/SequenceManager.php:201
+msgid "Series management status"
+msgstr "序列管理状态"
+
+#: includes/Admin/SequenceManager.php:209
+msgid "Series manager views"
+msgstr "序列管理视图"
+
+#: includes/Reader/AdminSettings.php:23
+msgid "Series reading experience"
+msgstr "序列阅读体验"
+
+#: templates/series-navigation.php:26
+msgid "Series reading navigation"
+msgstr "序列阅读导航"
+
+#: includes/Admin/ChannelHealth.php:124
+#, php-format
+msgid "Series robots: %s"
+msgstr "序列 robots：%s"
+
+#: includes/Admin/ClassicEditor.php:198
+msgid "Series role"
+msgstr "序列角色"
+
+#: includes/Admin/SeriesHealth.php:318
+msgid "Series role is not recognized"
+msgstr "无法识别序列角色"
+
+#: includes/Admin/ChannelHealth.php:118
+msgid "Series search title"
+msgstr "序列搜索标题"
+
+#: includes/Core/Series.php:321 includes/Core/Series.php:395
+msgid "Series status"
+msgstr "序列状态"
+
+#: includes/Admin/ChannelHealth.php:126
+msgid "Series taxonomy in sitemap: off"
+msgstr "站点地图中的序列分类法：关闭"
+
+#: includes/Admin/ChannelHealth.php:126
+msgid "Series taxonomy in sitemap: on"
+msgstr "站点地图中的序列分类法：开启"
+
+#: includes/Admin/ChannelHealth.php:397
+msgid "Series term variable included"
+msgstr "已包含序列分类项变量"
+
+#: includes/Admin/ChannelHealth.php:396
+msgid "Series variable included"
+msgstr "已包含序列变量"
+
+#: assets/editor.js:298
+msgid ""
+"Series-wide entries appear only on the complete Series archive; season "
+"entries appear only inside the chosen season."
+msgstr "全序列条目只显示在完整序列归档中；单季条目只显示在所选季中。"
+
+#: includes/Core/Series.php:467
+msgid "Series/Season scope and role tracks are canonical for this Series."
+msgstr "此序列以全序列／单季范围和角色轨道作为规范结构。"
+
+#: includes/Admin/SeriesHealth.php:316
+msgid "Series/Season scope unresolved"
+msgstr "全序列／单季范围尚未确定"
+
+#: includes/Admin/ControlCenter.php:424
+msgid "Set reading experience"
+msgstr "设置阅读体验"
+
+#: includes/Admin/ControlCenter.php:396
+msgid "Set title display"
+msgstr "设置标题显示"
+
+#: includes/Admin/ControlCenter.php:244
+msgid "Set up title display"
+msgstr "设置标题显示"
+
+#: includes/Presentation/SettingsPage.php:149
+msgid "Settings sections"
+msgstr "设置分区"
+
+#: includes/Admin/ChannelHealth.php:229
+msgid "Shared / Series / Category"
+msgstr "共享／序列／分类"
+
+#: includes/Admin/ChannelHealth.php:216
+msgid "Shared members, but not the same complete landing page."
+msgstr "存在共享成员，但完整入口页并不相同。"
+
+#: includes/Core/Series.php:361 includes/Core/Series.php:440
+msgid "Short label"
+msgstr "短标签"
+
+#: includes/Core/Series.php:916
+msgid "Show"
+msgstr "显示"
+
+#: includes/Presentation/SettingsPage.php:349
+msgid ""
+"Show a Series icon beside its linked name when that Series has chosen an "
+"icon."
+msgstr "当序列已选择图标时，在其链接名称旁显示序列图标。"
+
+#: includes/Reader/AdminSettings.php:164
+msgid ""
+"Show a compact featured image beside each article in WP Title Layer’s "
+"structured Series archive."
+msgstr ""
+"在 WP Title Layer 的结构化序列归档页中，于每篇文章旁显示紧凑的特色图像。"
+
+#: includes/Presentation/SettingsPage.php:426
+msgid "Show above the title when available"
+msgstr "可用时显示在标题上方"
+
+#: includes/Admin/SequenceManager.php:428
+#, php-format
+msgid "Show all available tracks (%d)"
+msgstr "显示全部可用轨道（%d）"
+
+#: includes/Presentation/SettingsPage.php:435
+msgid "Show beside the title"
+msgstr "显示在标题旁边"
+
+#: includes/Migration/AdminPage.php:378
+#, php-format
+msgid "Show conflict queue (%s total)"
+msgstr "显示冲突队列（共 %s 项）"
+
+#: includes/Reader/AdminSettings.php:135
+msgid ""
+"Show each article’s Subtitle in supported theme-owned Series archive cards."
+msgstr "在受支持且由主题控制的序列归档卡片中显示每篇文章的副标题。"
+
+#: includes/Reader/AdminSettings.php:152
+msgid ""
+"Show each article’s WordPress excerpt in WP Title Layer’s structured Series "
+"archive."
+msgstr "在 WP Title Layer 的结构化序列归档页中显示每篇文章的 WordPress 摘要。"
+
+#: includes/Reader/AdminSettings.php:114
+msgid ""
+"Show each article’s subtitle in WP Title Layer’s structured Series archive."
+msgstr "在 WP Title Layer 的结构化序列归档页中显示每篇文章的副标题。"
+
+#: includes/Presentation/SettingsPage.php:434
+msgid "Show on a new line below the title"
+msgstr "在标题下方另起一行显示"
+
+#: includes/Admin/SequenceManager.php:246
+msgid ""
+"Some articles have no defined season. Fix those assignments before "
+"initialization; date append cannot repair an invalid scope."
+msgstr ""
+"有些文章未分配到已定义的季。请在初始化前修正；按日期追加无法修复无效的排序范"
+"围。"
+
+#: includes/Admin/ControlCenter.php:234
+msgid "Some old title data needs review"
+msgstr "部分旧标题数据需要审查"
+
+#: includes/Admin/ControlCenter.php:198
+msgid "Some status information is unavailable"
+msgstr "部分状态信息不可用"
+
+#: includes/Core/Series.php:284
+msgid "Sorry, you are not allowed to create or change Series terms."
+msgstr "抱歉，您无权创建或修改序列分类项。"
+
+#: includes/Admin/SequenceManager.php:642
+msgid "Stable Season URL preview"
+msgstr "稳定季网址预览"
+
+#: includes/Core/Sequence.php:143
+msgid "Stable Season identities could not be prepared for the new Series."
+msgstr "无法为新序列准备稳定的季标识。"
+
+#: includes/Presentation/Presets.php:31 includes/Presentation/Presets.php:85
+msgid "Standard title"
+msgstr "标准标题"
+
+#: includes/Migration/AdminPage.php:148
+msgid "Start and complete migration"
+msgstr "开始并完成迁移"
+
+#: includes/Admin/ControlCenter.php:112
+msgid "Start here"
+msgstr "从这里开始"
+
+#: includes/Core/Series.php:930 includes/Core/Series.php:935
+#: includes/Migration/AdminPage.php:305
+msgid "Status"
+msgstr "状态"
+
+#: includes/Admin/SequenceManager.php:528
+#: includes/Admin/SequenceManager.php:541
+msgid "Status and date"
+msgstr "状态与日期"
+
+#: includes/Admin/ControlCenter.php:268 includes/Admin/ControlCenter.php:311
+#: includes/Admin/ControlCenter.php:341 includes/Admin/ControlCenter.php:361
+#: includes/Admin/ControlCenter.php:467 includes/Admin/ControlCenter.php:499
+#: includes/Admin/ControlCenter.php:507
+msgid "Status unavailable"
+msgstr "状态不可用"
+
+#: includes/Core/Series.php:311 includes/Core/Series.php:383
+msgid "Structure"
+msgstr "结构"
+
+#: includes/Admin/SeriesHealth.php:187
+msgid "Structure needs review"
+msgstr "结构需要检查"
+
+#: includes/Admin/SequenceManager.php:489
+msgid "Structure track"
+msgstr "结构轨道"
+
+#: includes/Admin/SequenceManager.php:213
+msgid "Structure tracks"
+msgstr "结构轨道"
+
+#: includes/Reader/AdminSettings.php:51
+msgid "Structured archive excerpts"
+msgstr "结构化归档页摘要"
+
+#: includes/Reader/AdminSettings.php:58
+msgid "Structured archive featured images"
+msgstr "结构化归档页特色图像"
+
+#: includes/Admin/ControlCenter.php:365
+msgid "Structured archive subtitles"
+msgstr "结构化归档页副标题"
+
+#: includes/Admin/ControlCenter.php:367
+msgid "Structured layout only"
+msgstr "仅结构化布局"
+
+#: includes/Admin/PostListColumns.php:53 includes/Admin/PostListColumns.php:58
+#: includes/Admin/ClassicEditor.php:126
+#: includes/Presentation/SettingsPage.php:432
+msgid "Subtitle"
+msgstr "副标题"
+
+#: includes/Admin/ChannelHealth.php:395
+msgid "Subtitle variable included"
+msgstr "已包含副标题变量"
+
+#: includes/Admin/ControlCenter.php:436
+msgid "Supported provider audit"
+msgstr "受支持的 SEO 服务审计"
+
+#: includes/Admin/SequenceManager.php:574
+msgid "Target article ID"
+msgstr "目标文章 ID"
+
+#: includes/Admin/SequenceManager.php:111
+msgid "Target article selected:"
+msgstr "已选择目标文章："
+
+#: includes/Presentation/SettingsPage.php:375
+msgid "Template"
+msgstr "模板"
+
+#: includes/Admin/ClassicEditor.php:222
+msgid "Template override"
+msgstr "模板覆盖"
+
+#: includes/Admin/ChannelHealth.php:381
+msgid "Term-level Rank Math override"
+msgstr "序列项级 Rank Math 覆盖"
+
+#: includes/Admin/SeriesHealth.php:152
+msgid "That Series could not be inspected."
+msgstr "无法检查该序列。"
+
+#: includes/Admin/ChannelHealth.php:185
+msgid "That Series landing page could not be inspected."
+msgstr "无法检查该序列入口页。"
+
+#: includes/Admin/SequenceManager.php:154
+msgid "That Series no longer exists."
+msgstr "该序列已不存在。"
+
+#: includes/Core/Series.php:1663
+msgid "That sequence position is already used in this Series and season."
+msgstr "此篇序已被同一序列、同一季中的其他文章使用。"
+
+#: includes/Admin/ChannelHealth.php:455
+msgid "The Rank Math sitemap module is disabled."
+msgstr "Rank Math 站点地图模块已关闭。"
+
+#: includes/Core/Sequence.php:454
+msgid ""
+"The Series activation marker changed outside the initialization journal."
+msgstr "序列启用标记在初始化日志之外发生了变化。"
+
+#: includes/Core/BookStructure.php:286
+msgid ""
+"The Series changed after the structure preview loaded. Reload and review it "
+"again."
+msgstr "载入结构预览后，序列已经发生变化。请重新载入并再次检查。"
+
+#: includes/Core/Sequence.php:374
+msgid ""
+"The Series changed after this preview was loaded. Reload and review the "
+"initialization preview again."
+msgstr "载入此预览后，序列已经发生变化。请重新载入并再次检查初始化预览。"
+
+#: includes/Core/Sequence.php:457
+msgid "The Series definition changed after the initialization preview."
+msgstr "初始化预览后，序列定义发生了变化。"
+
+#: includes/Core/Sequence.php:591
+msgid ""
+"The Series definition changed during recovery, so rollback did not overwrite "
+"it."
+msgstr "恢复期间序列定义发生了变化，因此回滚没有覆盖它。"
+
+#: includes/Core/Sequence.php:460
+msgid "The Series definition changed during the final initialization commit."
+msgstr "最终提交初始化时，序列定义发生了变化。"
+
+#: includes/Admin/ControlCenter.php:345
+msgid "The Series definition is not currently available."
+msgstr "当前无法读取序列定义。"
+
+#: includes/Admin/SequenceManager.php:826
+msgid ""
+"The Series is still using legacy order. Continue the next bounded "
+"initialization batch."
+msgstr "此序列仍在使用旧版篇序。请继续处理下一批有限数量的初始化数据。"
+
+#: includes/Core/Sequence.php:497
+msgid "The Series sequence revision changed during initialization."
+msgstr "初始化期间，序列篇序修订号发生了变化。"
+
+#: includes/Core/Sequence.php:518
+msgid ""
+"The Series sequence revision changed during the final initialization commit."
+msgstr "最终提交初始化时，序列篇序修订号发生了变化。"
+
+#: includes/Admin/ChannelHealth.php:458
+msgid "The Series taxonomy is disabled in Rank Math sitemaps."
+msgstr "Rank Math 站点地图已禁用序列分类法。"
+
+#: includes/Admin/ChannelHealth.php:84
+msgid ""
+"The Series taxonomy is not currently available, so Series landing pages "
+"cannot be compared safely."
+msgstr "序列分类法当前不可用，因此无法安全比较序列入口页。"
+
+#: includes/Admin/SeriesHealth.php:84
+msgid ""
+"The Series taxonomy is not currently available, so there is nothing safe to "
+"inspect."
+msgstr "序列分类法当前不可用，因此没有可安全检查的内容。"
+
+#. translators: %s: comma-separated content type labels.
+#: includes/Admin/ControlCenter.php:327
+#, php-format
+msgid ""
+"The Title Layer is added before the article body for: %s. The theme title "
+"must be disabled separately."
+msgstr "标题层会添加到以下内容类型的正文之前：%s。主题原有标题必须另行关闭。"
+
+#: includes/Integrations/RankMath.php:110
+msgid ""
+"The WordPress title plus a conditional subtitle, without a dangling "
+"separator."
+msgstr "WordPress 标题加上条件式副标题；没有副标题时不会留下悬空分隔符。"
+
+#: includes/Admin/SequenceManager.php:304
+msgid ""
+"The activation marker is already present; finish this journal before making "
+"sequence moves."
+msgstr "启用标记已经写入；请先完成此日志，再进行篇序移动。"
+
+#: includes/Core/Sequence.php:1025
+msgid "The article is already at that boundary."
+msgstr "此文章已经位于该边界。"
+
+#: includes/Core/Sequence.php:1075
+msgid "The article is already in that position."
+msgstr "此文章已经位于该位置。"
+
+#: includes/Core/Sequence.php:1019
+msgid "The article is no longer a member of this Series and season."
+msgstr "此文章已不再属于该序列与季。"
+
+#: includes/Admin/SequenceManager.php:764
+msgid "The article was moved in canonical track order."
+msgstr "文章已在规范轨道顺序中移动。"
+
+#: includes/Migration/AdminAssets.php:46
+msgid ""
+"The automatic run stopped safely. Reload the page and continue this run."
+msgstr "自动任务已安全停止。请重新载入页面并继续此任务。"
+
+#: includes/Migration/Migrator.php:198
+msgid "The batch journal is missing its reviewed candidate state."
+msgstr "批次日志缺少已审阅的候选状态。"
+
+#: includes/Integrations/RankMath.php:86
+msgid "The canonical or legacy-compatible article subtitle."
+msgstr "文章的规范副标题或兼容旧数据的副标题。"
+
+#: includes/Admin/ControlCenter.php:420
+msgid ""
+"The control center could not read the saved reading-experience settings."
+msgstr "控制中心无法读取已保存的阅读体验设置。"
+
+#: includes/Admin/ControlCenter.php:316
+msgid "The control center could not read the saved title-display settings."
+msgstr "控制中心无法读取已保存的标题显示设置。"
+
+#: includes/Presentation/SettingsPage.php:264
+msgid ""
+"The current classic theme has no verified adapter. Use Manual, or integrate "
+"the theme API in its title template."
+msgstr ""
+"当前经典主题没有经过验证的适配器。请使用手动放置，或在主题标题模板中集成主题 "
+"API。"
+
+#: includes/Admin/ChannelHealth.php:449
+msgid ""
+"The effective canonical could not be verified from the supported provider."
+msgstr "无法从受支持的 SEO 服务中验证实际 canonical。"
+
+#: includes/Core/Sequence.php:531
+msgid "The final initialization state changed before activation."
+msgstr "启用前，最终初始化状态发生了变化。"
+
+#: includes/Core/Sequence.php:489
+msgid "The frozen initialization set no longer matches the current Series."
+msgstr "冻结的初始化范围已与当前序列不一致。"
+
+#: includes/Migration/Migrator.php:160
+msgid ""
+"The frozen migration candidate list is invalid; processing stopped without "
+"writing."
+msgstr "冻结的迁移候选列表无效；处理已停止，未写入数据。"
+
+#: includes/Migration/Migrator.php:152
+msgid ""
+"The frozen migration candidate list is unavailable; processing stopped "
+"without writing."
+msgstr "冻结的迁移候选列表不可用；处理已停止，未写入数据。"
+
+#: includes/Admin/SequenceManager.php:293
+msgid "The frozen source values changed."
+msgstr "已冻结的来源值发生了变化。"
+
+#: includes/Integrations/RankMath.php:98
+msgid "The full Series name for an article or Series archive."
+msgstr "文章或序列归档页的完整序列名称。"
+
+#: includes/Core/Sequence.php:579
+msgid ""
+"The interrupted activation state no longer matches its journal, so rollback "
+"would be unsafe."
+msgstr "中断后的启用状态已与日志不一致，回滚将不安全。"
+
+#: includes/Admin/SequenceManager.php:602
+msgid ""
+"The last manual move can still be undone because its written ranks and "
+"revision are unchanged."
+msgstr "最近一次手动移动写入的排序值和修订号均未改变，因此仍可撤销。"
+
+#: includes/Admin/SequenceManager.php:773
+msgid "The last track move was undone without overwriting later edits."
+msgstr "最近一次轨道移动已撤销，且未覆盖后续编辑。"
+
+#: includes/Admin/SeriesHealth.php:103
+msgid ""
+"The list itself is lightweight. Member records are checked only after you "
+"open one Series."
+msgstr "此列表本身很轻量；只有打开某个序列后才会检查其成员记录。"
+
+#: includes/Admin/SequenceManager.php:235
+msgid ""
+"The live site still uses legacy sequence positions. Initialization writes "
+"private ranks in batches and activates them only after every frozen value "
+"has been verified."
+msgstr ""
+"当前网站仍使用旧版篇序。初始化会分批写入内部排序值，并在所有冻结值都验证通过"
+"后才启用。"
+
+#: includes/Core/Sequence.php:600
+msgid ""
+"The managed activation marker could not be removed, so article ranks were "
+"left untouched."
+msgstr "无法移除托管启用标记，因此文章内部排序值保持不变。"
+
+#: includes/Migration/Migrator.php:47 includes/Migration/Migrator.php:58
+msgid ""
+"The migration control lock changed ownership before the run was created."
+msgstr "迁移任务创建前，控制锁的所有权已发生变化。"
+
+#: includes/Migration/Rollback.php:420
+msgid ""
+"The migration control lock changed ownership; rollback was stopped safely."
+msgstr "迁移控制锁的所有权已变化；回滚已安全停止。"
+
+#: includes/Migration/Migrator.php:190 includes/Migration/Migrator.php:462
+msgid ""
+"The migration lock expired or changed ownership; the batch stopped safely."
+msgstr "迁移锁已过期或所有权已变化；该批次已安全停止。"
+
+#: includes/Admin/ControlCenter.php:381
+msgid ""
+"The migration module did not return a readable status. No data was changed "
+"here."
+msgstr "迁移模块未返回可读取的状态；此处没有更改任何数据。"
+
+#: includes/Migration/Migrator.php:103 includes/Migration/Rollback.php:26
+#: includes/Migration/Rollback.php:136
+msgid "The migration run ID is invalid."
+msgstr "迁移任务 ID 无效。"
+
+#: includes/Migration/AdminPage.php:423
+msgid "The migration security token is invalid."
+msgstr "迁移安全令牌无效。"
+
+#: includes/Admin/SequenceManager.php:108
+msgid "The move could not be saved. Reload and try again."
+msgstr "无法保存此次移动。请重新载入后再试。"
+
+#: includes/Admin/SequenceManager.php:724
+msgid "The next initialization batch was verified."
+msgstr "下一批初始化数据已验证。"
+
+#: includes/Admin/ControlCenter.php:1034
+msgid "The old ACF Series fields could not be audited from this screen."
+msgstr "无法在此页面审计旧 ACF 序列字段。"
+
+#: includes/Admin/ControlCenter.php:207
+msgid "The old-data preview is incomplete"
+msgstr "旧数据预览不完整"
+
+#: includes/Migration/Migrator.php:605 includes/Migration/Migrator.php:610
+#: includes/Migration/Migrator.php:616
+msgid ""
+"The reviewed migration scan has changed. Review the latest scan before "
+"starting."
+msgstr "已审阅的迁移扫描发生了变化。开始前请检查最新扫描。"
+
+#: includes/Migration/Migrator.php:55
+msgid ""
+"The reviewed migration scan is incomplete or has changed. Run the scan again."
+msgstr "已审阅的迁移扫描不完整或已发生变化。请重新运行扫描。"
+
+#: includes/Migration/Rollback.php:181 includes/Migration/Rollback.php:416
+msgid ""
+"The rollback lock expired or changed ownership; the batch stopped safely."
+msgstr "回滚锁已过期或所有权已变化；该批次已安全停止。"
+
+#: includes/Migration/AdminPage.php:130
+msgid "The scan reached its configured limit and is not a complete site count."
+msgstr "扫描已达到设置上限，因此不是全站完整计数。"
+
+#: includes/Core/Sequence.php:637 includes/Core/Sequence.php:650
+#: includes/Core/BookStructure.php:277
+msgid "The selected Series no longer exists."
+msgstr "所选序列已不存在。"
+
+#: includes/Core/Series.php:1632
+msgid "The selected season is not defined for this Series."
+msgstr "所选季未在此序列中定义。"
+
+#: includes/Core/Sequence.php:1006
+msgid ""
+"The sequence changed after this page loaded. Reload before saving another "
+"move."
+msgstr "载入本页后篇序已经变化。请重新载入，再保存新的移动。"
+
+#: includes/Core/Sequence.php:674
+msgid "The sequence changed after this page loaded. Reload before undoing."
+msgstr "载入本页后篇序已经变化。请重新载入，再执行撤销。"
+
+#: includes/Core/Sequence.php:594
+msgid ""
+"The sequence revision changed during recovery, so rollback did not overwrite "
+"it."
+msgstr "恢复期间篇序修订号发生了变化，因此回滚没有覆盖它。"
+
+#: includes/Core/Sequence.php:1130
+msgid "The sequence revision could not be committed, so the move was restored."
+msgstr "无法提交篇序修订号，因此此次移动已还原。"
+
+#: includes/Admin/ChannelHealth.php:463
+msgid "The sitemap module, taxonomy, and this term all allow inclusion."
+msgstr "站点地图模块、分类法和当前序列项均允许收录。"
+
+#: includes/Core/Sequence.php:508
+msgid "The stable Season public IDs could not be verified."
+msgstr "无法验证稳定的季公开编号。"
+
+#: includes/Admin/ChannelHealth.php:447
+msgid ""
+"The stored override is not a valid HTTP(S) URL and needs review in Rank Math."
+msgstr "保存的覆盖值不是有效的 HTTP(S) URL，需要在 Rank Math 中检查。"
+
+#: includes/Core/Sequence.php:1031 includes/Core/Sequence.php:1042
+msgid "The target article is no longer in the same sequence scope."
+msgstr "目标文章已不在同一排序范围内。"
+
+#: includes/Integrations/RankMath.php:56
+msgid ""
+"The visible title, SEO title, and social-sharing title are separate "
+"channels. WP Title Layer never changes Rank Math metadata automatically."
+msgstr ""
+"可见标题、SEO 标题和社交分享标题是三个独立渠道。WP Title Layer 绝不会自动修"
+"改 Rank Math 元数据。"
+
+#: includes/Reader/AdminSettings.php:44
+msgid "Theme archive card subtitles"
+msgstr "主题归档卡片副标题"
+
+#: includes/Reader/AdminSettings.php:103
+msgid ""
+"Theme mode normally matches the site’s Category archive styling while WP "
+"Title Layer still supplies the Series ordering. Structured mode is useful "
+"when the theme cannot present seasons and reading order. Category, tag, and "
+"other archives are never replaced."
+msgstr ""
+"主题模式通常沿用站点的分类归档样式，同时仍由 WP Title Layer 提供序列排序。主"
+"题无法呈现季和阅读顺序时，可使用结构化模式。分类、标签及其他归档页绝不会被替"
+"换。"
+
+#: includes/Presentation/SettingsPage.php:66
+msgid "Theme title safety check"
+msgstr "主题标题安全确认"
+
+#: includes/Admin/ControlCenter.php:312
+msgid "Theme title takeover"
+msgstr "接管主题标题"
+
+#: includes/Admin/ControlCenter.php:499
+msgid "Theme title takeover selected"
+msgstr "已选择接管主题标题"
+
+#: includes/Presentation/SettingsPage.php:247
+msgid ""
+"Theme-title takeover replaces a verified title slot instead of adding a "
+"second title inside the article body. Manual placement remains the universal "
+"fallback."
+msgstr ""
+"主题标题接管会替换经过验证的标题位置，而不是在正文中添加第二个标题。手动放置"
+"仍是通用回退方案。"
+
+#: includes/Presentation/SettingsPage.php:515
+msgid ""
+"Theme-title takeover was not enabled because the current classic theme has "
+"no verified adapter. Manual placement remains active."
+msgstr ""
+"由于当前经典主题没有经过验证的适配器，主题标题接管未启用；当前仍使用手动放"
+"置。"
+
+#: includes/Core/Sequence.php:665
+msgid "There is no completed sequence move to undo in this scope."
+msgstr "此排序范围内没有可撤销的已完成移动。"
+
+#: includes/Presentation/SettingsPage.php:300
+msgid ""
+"These content types apply to theme-title takeover and the legacy body "
+"fallback."
+msgstr "这些内容类型适用于主题标题接管和旧版正文前插入方式。"
+
+#: includes/Presentation/SettingsPage.php:408
+msgid ""
+"These controls change the chosen template everywhere it is used. They never "
+"accept HTML, CSS, or PHP."
+msgstr ""
+"这些控件会改变所选模板在所有使用位置的表现，但绝不接受 HTML、CSS 或 PHP。"
+
+#: includes/Admin/ChannelHealth.php:305
+msgid ""
+"These counts describe explicit overrides; they do not judge whether every "
+"article should include a subtitle. Edit those titles in Rank Math, not on "
+"this report."
+msgstr ""
+"这些计数只描述明确的覆盖值，并不判断每篇文章是否都应包含副标题。请在 Rank "
+"Math 中编辑这些标题，而不是在本报告中操作。"
+
+#: includes/Reader/AdminSettings.php:81
+msgid ""
+"These features use the ordered / unordered rule stored on each Series. "
+"Unordered Series never show reading-progress navigation. For an ordered "
+"Series with seasons, its edit screen also decides whether navigation may "
+"cross season boundaries."
+msgstr ""
+"这些功能使用每个序列保存的有序／无序规则。无序序列绝不会显示阅读进度导航；对"
+"于有序且分季的序列，其编辑页面还会决定导航是否可以跨季。"
+
+#: includes/Migration/AdminPage.php:80
+msgid ""
+"These five fields are audited only. Counts cover non-empty stored values, "
+"including values such as 0 or false that ACF may save when an article is "
+"updated; exact empty-string rows are not counted. This is not confirmed "
+"Series use. WP Title Layer does not depend on these fields or silently "
+"convert them into Series relationships."
+msgstr ""
+"这五个字段只作审计。计数包含非空存储值，其中也包括 ACF 在更新文章时可能保存"
+"的 0 或 false；严格为空字符串的记录不计入。这不能证明序列功能曾被使用。WP "
+"Title Layer 不依赖这些字段，也不会暗中把它们转换为序列关系。"
+
+#: includes/Admin/SequenceManager.php:643
+msgid ""
+"These numeric identities survive season renames and reordering. Deleted "
+"numbers are not reused."
+msgstr "这些数字标识不会因季名修改或重新排序而改变；已删除的编号也不会重用。"
+
+#: assets/editor.js:278
+msgid "This Series belongs to the Category branch:"
+msgstr "此序列归属的分类栏目分支："
+
+#: includes/Core/Series.php:1625
+msgid ""
+"This Series entry requires a season unless its non-main role is explicitly "
+"Series-wide."
+msgstr "此序列条目必须选择一季，除非其非主要角色已明确设为全序列。"
+
+#: includes/Core/Sequence.php:575
+msgid ""
+"This Series has changed since initialization, so an automatic downgrade "
+"would be unsafe."
+msgstr "此序列在初始化后已经变化，自动降级并不安全。"
+
+#: includes/Core/Sequence.php:371
+msgid "This Series is already managed by Sequence Manager."
+msgstr "此序列已由篇序管理器管理。"
+
+#: assets/editor.js:361
+msgid ""
+"This Series still uses the 0.9 position field. Initialize it in Sequence "
+"Manager to insert without renumbering later articles."
+msgstr ""
+"此序列仍使用 0.9 版篇序字段。请在篇序管理器中初始化，以便插入文章而不必重排后"
+"续篇号。"
+
+#: includes/Admin/ChannelHealth.php:461
+msgid "This Series term is explicitly excluded from the sitemap."
+msgstr "此序列项已明确排除在站点地图之外。"
+
+#: includes/Reader/AdminSettings.php:116
+msgid ""
+"This affects only the plugin-owned structured layout. In theme mode, the "
+"active theme decides what appears on archive cards."
+msgstr ""
+"此设置只影响插件控制的结构化布局。在主题模式下，归档卡片显示什么由当前主题决"
+"定。"
+
+#: includes/Core/Sequence.php:1086
+msgid ""
+"This append needs a wider rebalance that you are not allowed to perform."
+msgstr "此次追加需要更大范围的内部重排，而您无权执行。"
+
+#: assets/editor.js:524
+msgid "This article is disabled or does not yet have a renderable title layer."
+msgstr "此文章已禁用标题层，或目前还没有可渲染的标题层。"
+
+#: includes/Core/Sequence.php:989
+msgid "This book-structure track is not manually ordered."
+msgstr "此书籍式结构轨道不能手动排序。"
+
+#: includes/Presentation/SettingsPage.php:324
+msgid ""
+"This confirmation is ignored by true theme-title takeover. It exists only to "
+"prevent duplicate titles in the older body-insertion mode."
+msgstr ""
+"真正的主题标题接管会忽略此确认项；它只用于防止旧版正文前插入模式产生重复标"
+"题。"
+
+#: includes/Admin/SequenceManager.php:276
+msgid ""
+"This does not delete or rewrite legacy positions. The Series activation "
+"marker is committed last."
+msgstr "此操作不会删除或改写旧版篇序。序列启用标记会在最后才提交。"
+
+#: includes/Presentation/SettingsPage.php:277
+msgid ""
+"This does not remove the theme title. Use it only after the theme title has "
+"been disabled separately."
+msgstr "此方式不会移除主题标题。只有在另行关闭主题标题后才能使用。"
+
+#: includes/Admin/ChannelHealth.php:287
+msgid "This landing page is currently noindex."
+msgstr "当前入口页设置为 noindex。"
+
+#: includes/Admin/ChannelHealth.php:274
+msgid "This landing page’s channels"
+msgstr "此入口页的渠道"
+
+#: assets/editor.js:299
+msgid ""
+"This legacy role is not assigned to Series-wide or season scope yet. Choose "
+"explicitly before enabling book structure."
+msgstr "此旧角色尚未归入全序列或单季范围。启用书籍式结构前，请明确选择。"
+
+#: includes/Migration/AdminPage.php:413
+msgid "This migration action accepts POST requests only."
+msgstr "此迁移操作只接受 POST 请求。"
+
+#: includes/Migration/Migrator.php:107
+msgid "This migration batch is already being processed."
+msgstr "此迁移批次已经在处理中。"
+
+#: includes/Migration/Rollback.php:78
+msgid "This migration cannot be rolled back from its current state."
+msgstr "此迁移在当前状态下无法回滚。"
+
+#: includes/Migration/Rollback.php:59
+msgid "This migration is currently being processed."
+msgstr "此迁移当前正在处理。"
+
+#: includes/Migration/Migrator.php:125
+msgid "This migration is no longer the active run and was stopped safely."
+msgstr "此迁移已不再是当前任务，因此已安全停止。"
+
+#: includes/Migration/Migrator.php:122
+msgid "This migration is not in a runnable state."
+msgstr "此迁移当前不可运行。"
+
+#: includes/Migration/Rollback.php:157
+msgid "This migration is not in rollback mode."
+msgstr "此迁移当前不在回滚模式。"
+
+#: includes/Migration/AdminPage.php:151
+msgid ""
+"This preview was truncated. Increase the scan limit and run a complete read-"
+"only scan before starting migration."
+msgstr "此预览已被截断。请提高扫描上限并完成一次完整的只读扫描，再开始迁移。"
+
+#: includes/Admin/ControlCenter.php:138
+msgid ""
+"This report cannot confirm whether your theme or another plugin uses other "
+"ACF fields. Check those separately before removing ACF."
+msgstr ""
+"本报告无法确认主题或其他插件是否使用了其余 ACF 字段。移除 ACF 前请另行检查。"
+
+#: assets/editor.js:346
+msgid "This role has its own private order track in Sequence & Structure."
+msgstr "此角色在“篇序与结构”中拥有独立的私有排序轨道。"
+
+#: includes/Migration/Rollback.php:145
+msgid "This rollback batch is already being processed."
+msgstr "此回滚批次已经在处理中。"
+
+#: includes/Migration/Rollback.php:160
+msgid "This rollback is no longer the active run and was stopped safely."
+msgstr "此回滚已不再是当前任务，因此已安全停止。"
+
+#: includes/Migration/Migrator.php:128
+msgid ""
+"This run predates frozen scan manifests. Roll it back, then scan again "
+"before migrating."
+msgstr "此任务创建于冻结扫描清单机制之前。请先回滚，再重新扫描后迁移。"
+
+#: includes/Core/Series.php:1629
+msgid "This seasoned Series has no seasons defined."
+msgstr "这个分季序列尚未定义任何季。"
+
+#: includes/Core/Series.php:912
+msgid "Title"
+msgstr "标题"
+
+#: includes/Admin/ClassicEditor.php:36
+msgid "Title Layer"
+msgstr "标题层"
+
+#: includes/Migration/AdminPage.php:16
+msgid "Title Layer Migration"
+msgstr "标题层迁移"
+
+#: assets/editor.js:523
+msgid "Title Layer is not displayed"
+msgstr "标题层未显示"
+
+#: assets/editor.js:487
+msgid "Title Layer settings"
+msgstr "标题层设置"
+
+#: includes/Admin/ChannelHealth.php:394
+msgid "Title and conditional subtitle"
+msgstr "标题与条件式副标题"
+
+#: includes/Admin/ControlCenter.php:390
+msgid "Title display"
+msgstr "标题显示"
+
+#: includes/Admin/ChannelHealth.php:112
+msgid "Title display settings"
+msgstr "标题显示设置"
+
+#: includes/Admin/ControlCenter.php:335
+msgid "Title element"
+msgstr "标题元素"
+
+#: includes/Presentation/Presets.php:46
+msgid "Title only"
+msgstr "仅标题"
+
+#: includes/Admin/ControlCenter.php:314
+msgid "Title output is paused while Secondary Title remains active."
+msgstr "Secondary Title 仍启用时，标题输出会保持暂停。"
+
+#: includes/Presentation/SettingsPage.php:74
+msgid "Title presentation"
+msgstr "标题呈现"
+
+#: includes/Admin/SequenceManager.php:439
+msgid "Track"
+msgstr "轨道"
+
+#: includes/Admin/SeriesHealth.php:247 includes/Admin/SeriesHealth.php:281
+msgid "Track order"
+msgstr "轨道顺序"
+
+#: includes/Admin/SeriesHealthReport.php:378
+#: includes/Admin/SeriesHealth.php:200
+msgid "Trash"
+msgstr "回收站"
+
+#: includes/Migration/AdminPage.php:70
+msgid "Trusted ACF subtitle posts"
+msgstr "可信 ACF 副标题文章"
+
+#: includes/Admin/ChannelHealth.php:290
+msgid "Twitter title"
+msgstr "Twitter 标题"
+
+#: includes/Admin/SequenceManager.php:570
+msgid "Type target article title"
+msgstr "输入目标文章标题"
+
+#: includes/Reader/Archive.php:198
+msgid "Unassigned"
+msgstr "未分配"
+
+#: includes/Admin/ChannelHealthReport.php:220
+#: includes/Admin/ControlCenter.php:294 includes/Admin/ControlCenter.php:337
+#: includes/Admin/ControlCenter.php:357 includes/Admin/ControlCenter.php:371
+#: includes/Admin/ChannelHealth.php:116
+msgid "Unavailable"
+msgstr "不可用"
+
+#: includes/Admin/SequenceManager.php:603
+msgid "Undo last move"
+msgstr "撤销最近一次移动"
+
+#: includes/Admin/SeriesHealth.php:187
+msgid "Unique articles with at least one Series-structure issue."
+msgstr "至少存在一个序列结构问题的文章数。"
+
+#: includes/Core/Series.php:901 includes/Admin/SeriesHealth.php:370
+msgid "Unordered"
+msgstr "无序"
+
+#: includes/Admin/SequenceManager.php:205
+#: includes/Admin/SequenceManager.php:478
+msgid "Unordered Series"
+msgstr "无序序列"
+
+#: includes/Admin/ControlCenter.php:423
+msgid "Unordered Series never receive invented previous/next navigation."
+msgstr "无序序列绝不会生成虚构的上一篇／下一篇导航。"
+
+#: includes/Admin/SequenceManager.php:250
+msgid "Unresolved"
+msgstr "待处理"
+
+#: includes/Reader/Archive.php:145
+msgid "Unresolved structure"
+msgstr "结构待确认"
+
+#: includes/Core/Schema.php:152
+msgid "Unspecified role (treated as a main article)"
+msgstr "未指定（按主要文章处理）"
+
+#: includes/Admin/SequenceManager.php:304
+msgid ""
+"Until completion, the front end continues to read the old sequence positions."
+msgstr "在初始化完成之前，前台会继续读取旧版篇序。"
+
+#: includes/Admin/ChannelHealth.php:387 includes/Admin/ChannelHealth.php:389
+#: includes/Admin/ChannelHealth.php:408
+msgid "Unverified"
+msgstr "未验证"
+
+#: includes/Admin/SequenceManager.php:555
+msgid "Up"
+msgstr "上移"
+
+#: includes/Core/Series.php:69
+msgid "Update Series"
+msgstr "更新序列"
+
+#: includes/Reader/AdminSettings.php:97
+msgid ""
+"Use WP Title Layer’s structured Series layout with seasons and sequence "
+"labels"
+msgstr "使用 WP Title Layer 的结构化序列布局，显示季与篇序标签"
+
+#: includes/Core/Series.php:589
+msgid "Use category or global default"
+msgstr "使用分类规则或全局默认值"
+
+#: includes/Presentation/SettingsPage.php:385
+msgid "Use global default"
+msgstr "使用全局默认值"
+
+#: assets/editor.js:491
+msgid "Use resolved template"
+msgstr "使用解析后的模板"
+
+#: includes/Admin/ControlCenter.php:514
+msgid ""
+"Use the Title Layer panel in the editor sidebar to set a subtitle, Series, "
+"and optional per-article template."
+msgstr "在编辑器侧栏的标题层面板中设置副标题、序列及可选的单篇文章模板。"
+
+#: includes/Core/Series.php:914
+msgid "Use the active theme"
+msgstr "使用当前主题"
+
+#: includes/Reader/AdminSettings.php:93
+msgid ""
+"Use the active theme’s archive layout (recommended for theme consistency)"
+msgstr "使用当前主题的归档页布局（建议用于保持主题一致性）"
+
+#: includes/Integrations/RankMath.php:72
+msgid ""
+"Use the combined variable in Rank Math’s SEO title, Facebook title, or "
+"Twitter title fields only where you want the subtitle included. For example: "
+"%wptl_title_with_subtitle% %sep% %sitename%. Leaving Rank Math unchanged "
+"keeps its current titles."
+msgstr ""
+"只在确实希望包含副标题的位置，将组合变量用于 Rank Math 的 SEO 标题、Facebook "
+"标题或 Twitter 标题字段。例如：%wptl_title_with_subtitle% %sep% %sitename%。"
+"不修改 Rank Math 即会保留现有标题。"
+
+#: includes/Core/Series.php:915
+msgid "Use the structured Series layout"
+msgstr "使用结构化序列布局"
+
+#: includes/Admin/ControlCenter.php:500
+msgid ""
+"Use verified theme-title takeover when available. Manual placement is the "
+"universal fallback; body insertion does not remove the theme title."
+msgstr ""
+"可用时请使用经过验证的主题标题接管。手动放置是通用回退方案；正文前插入不会移"
+"除主题标题。"
+
+#: includes/Core/Series.php:317
+msgid ""
+"Used by ordered Series with seasons. Entire Series may cross a season "
+"boundary; Current Season stops at that season’s first and last article."
+msgstr ""
+"用于有序且分季的序列。“全序列”可以跨越季边界；“当前季”会止于该季首篇与末篇。"
+
+#: includes/Core/Series.php:390
+msgid ""
+"Used by ordered Series with seasons. Existing Series default to Entire "
+"Series, which may cross season boundaries."
+msgstr "用于有序且分季的序列。现有序列默认使用“全序列”，因此可能跨越季边界。"
+
+#: includes/Core/Series.php:626
+msgid ""
+"Used by the structured Series archive. The attachment ID remains the "
+"canonical stored value."
+msgstr "用于结构化序列归档页。附件 ID 仍是规范存储值。"
+
+#: includes/Core/Series.php:331 includes/Core/Series.php:406
+msgid ""
+"Used by unordered Series. Ordered Series always follow their reading "
+"sequence; seasoned unordered Series apply this order within each season."
+msgstr ""
+"用于无序序列。有序序列始终遵循阅读篇序；分季的无序序列会在每一季内应用此排"
+"序。"
+
+#: includes/Core/Series.php:359 includes/Core/Series.php:438
+msgid ""
+"Used only by WP Title Layer’s structured archive. The default is inherited "
+"and remains off on upgraded sites."
+msgstr ""
+"仅用于 WP Title Layer 的结构化归档页。默认继承全站设置，升级后的站点仍保持关"
+"闭。"
+
+#: includes/Core/Series.php:352 includes/Core/Series.php:430
+msgid ""
+"Used only by WP Title Layer’s structured archive. The inherited site-wide "
+"default is off."
+msgstr "仅用于 WP Title Layer 的结构化归档页。继承的站点级默认值为关闭。"
+
+#: includes/Presentation/SettingsPage.php:312
+msgid ""
+"Used only by the legacy body fallback. Theme-title takeover inherits the "
+"heading level already chosen by the theme."
+msgstr "仅供旧版正文前插入方式使用。主题标题接管会继承主题已经选择的标题层级。"
+
+#: includes/Core/Series.php:568 includes/Core/Series.php:582
+msgid "Used when an article in this Series does not choose its own template."
+msgstr "当序列中的文章没有自行选择模板时使用。"
+
+#: includes/Presentation/SettingsPage.php:339
+msgid "Used when no more specific valid rule applies."
+msgstr "没有更具体的有效规则时使用。"
+
+#: includes/Presentation/SettingsPage.php:263
+msgid ""
+"Uses the verified theme title position, keeps one heading, and leaves the "
+"article body untouched."
+msgstr "使用经过验证的主题标题位置，只保留一个标题，并且不触碰正文。"
+
+#: includes/Admin/ControlCenter.php:354
+msgid "Using book structure"
+msgstr "正在使用书籍式结构"
+
+#: includes/Admin/ControlCenter.php:353
+msgid "Using insertable sequence order"
+msgstr "正在使用可插入篇序"
+
+#: includes/Admin/SequenceManager.php:730
+msgid "Value-matching initialization writes were rolled back."
+msgstr "仍与写入值一致的初始化数据已回滚。"
+
+#: includes/Migration/AdminPage.php:87
+msgid "Verified non-empty ACF values"
+msgstr "已验证的非空 ACF 值"
+
+#: includes/Admin/ChannelHealthReport.php:218
+msgid "Verified theme title takeover"
+msgstr "已验证的主题标题接管"
+
+#: includes/Presentation/SettingsPage.php:445
+#, php-format
+msgid "Vertical bar %s"
+msgstr "竖线 %s"
+
+#: includes/Admin/ChannelHealth.php:244
+msgid "View"
+msgstr "查看"
+
+#: includes/Admin/ControlCenter.php:527
+msgid "View a published sample"
+msgstr "查看已发布样本"
+
+#: templates/series-archive.php:56
+msgid "View all seasons"
+msgstr "查看所有季"
+
+#: includes/Admin/SeriesHealth.php:279
+msgid "Visibility"
+msgstr "可见性"
+
+#: includes/Admin/ChannelHealth.php:283
+msgid "Visible archive title"
+msgstr "可见的归档页标题"
+
+#: includes/Admin/ChannelHealth.php:116
+msgid "Visible page title"
+msgstr "可见页面标题"
+
+#: includes/Admin/ControlCenter.php:53 includes/Admin/ControlCenter.php:95
+#: includes/Presentation/SettingsPage.php:114
+#: includes/Presentation/SettingsPage.php:115
+#: includes/Presentation/SettingsPage.php:145
+msgid "WP Title Layer"
+msgstr "WP Title Layer"
+
+#: includes/Admin/ControlCenter.php:52
+msgid "WP Title Layer Control Center"
+msgstr "WP Title Layer 控制中心"
+
+#: includes/Migration/AdminPage.php:15 includes/Migration/AdminPage.php:49
+msgid "WP Title Layer Migration"
+msgstr "WP Title Layer 迁移"
+
+#: includes/Integrations/RankMath.php:97
+msgid "WP Title Layer Series"
+msgstr "WP Title Layer 序列"
+
+#: includes/Admin/ChannelHealthReport.php:226
+msgid "WP Title Layer and the active theme"
+msgstr "WP Title Layer 与当前主题"
+
+#: includes/Admin/ControlCenter.php:199
+msgid ""
+"WP Title Layer could not read the migration module. No settings were "
+"changed; open the migration screen to check the installation."
+msgstr ""
+"WP Title Layer 无法读取迁移模块。没有任何设置被更改；请打开迁移页面检查安装状"
+"态。"
+
+#: includes/Admin/ControlCenter.php:1052
+msgid ""
+"WP Title Layer does not require ACF, but the five old Series fields could "
+"not be audited from this screen. Check the migration report before deciding "
+"whether to remove ACF."
+msgstr ""
+"WP Title Layer 不依赖 ACF，但无法在此页面审计五个旧序列字段。决定是否移除 "
+"ACF 前，请先检查迁移报告。"
+
+#. translators: 1: non-empty field-post values, 2: unique posts.
+#: includes/Admin/ControlCenter.php:1058
+#, php-format
+msgid ""
+"WP Title Layer does not require ACF. The audit found %1$s non-empty field-"
+"post values across %2$s post IDs in the five old Series fields. This can "
+"include ACF-saved defaults, excludes exact empty strings, and is not proof "
+"of Series use; none of these fields is converted automatically. Check "
+"unrelated ACF fields separately before uninstalling ACF."
+msgstr ""
+"WP Title Layer 不依赖 ACF。审计在五个旧序列字段中发现 %1$s 个非空的字段—文章"
+"值，分布于 %2$s 个文章 ID。其中可能包含 ACF 保存的默认值，但不包含严格意义上"
+"的空字符串，也不能证明序列功能曾被使用；这些字段均不会被自动转换。卸载 ACF "
+"前，请另行检查其他 ACF 字段。"
+
+#: includes/Admin/ControlCenter.php:1064
+msgid ""
+"WP Title Layer does not require ACF. The five audited old Series fields "
+"currently contain no non-empty stored values; exact empty strings are not "
+"counted."
+msgstr ""
+"WP Title Layer 不依赖 ACF。当前审计的五个旧序列字段中没有非空存储值；严格为空"
+"字符串的记录不在统计范围内。"
+
+#: includes/Plugin.php:78
+msgid "WP Title Layer is in migration-only mode."
+msgstr "WP Title Layer 正处于仅迁移模式。"
+
+#: includes/Admin/ControlCenter.php:242
+msgid "WP Title Layer is ready to use"
+msgstr "WP Title Layer 已可使用"
+
+#: includes/Integrations/RankMath.php:85
+msgid "WP Title Layer subtitle"
+msgstr "WP Title Layer 副标题"
+
+#: includes/Integrations/RankMath.php:109
+msgid "WP Title Layer title with subtitle"
+msgstr "WP Title Layer 标题与副标题"
+
+#: includes/Admin/ControlCenter.php:498 includes/Admin/ControlCenter.php:506
+#: includes/Admin/ControlCenter.php:513 includes/Admin/ControlCenter.php:519
+#: includes/Admin/ControlCenter.php:531
+msgid "Waiting for migration"
+msgstr "等待迁移"
+
+#: includes/Integrations/RankMath.php:64
+msgid ""
+"When Rank Math is active, WP Title Layer registers these optional variables:"
+msgstr "Rank Math 启用时，WP Title Layer 会注册以下可选变量："
+
+#: includes/Presentation/SettingsPage.php:397
+msgid ""
+"When several assigned categories have rules, the first saved rule in this "
+"table wins."
+msgstr "当文章所属的多个分类都设置了规则时，以此表中最先保存的规则为准。"
+
+#: includes/Admin/ControlCenter.php:352
+msgid "With reading order"
+msgstr "有阅读顺序"
+
+#: includes/Admin/ChannelHealth.php:380
+msgid "WordPress Series name"
+msgstr "WordPress 序列名称"
+
+#: includes/Core/Sequence.php:476
+msgid ""
+"WordPress could not verify a sequence rank written during initialization."
+msgstr "WordPress 无法验证初始化期间写入的内部排序值。"
+
+#: includes/Core/Sequence.php:1119
+msgid ""
+"WordPress could not verify the sequence move, so completed writes were "
+"restored."
+msgstr "WordPress 无法验证此次篇序移动，因此已恢复完成的写入。"
+
+#: includes/Admin/ChannelHealth.php:159
+msgid "WordPress term count"
+msgstr "WordPress 分类项计数"
+
+#: includes/Admin/ChannelHealth.php:283
+msgid ""
+"WordPress term name; WP Title Layer does not use this field as an SEO "
+"override."
+msgstr "WordPress 分类项名称；WP Title Layer 不会把此字段用作 SEO 覆盖值。"
+
+#: includes/Integrations/RankMath.php:69
+msgid ""
+"WordPress title plus a locale-appropriate separator and the subtitle only "
+"when one exists"
+msgstr "WordPress 标题；存在副标题时，再加上符合当前语言习惯的分隔符和副标题"
+
+#: includes/Admin/ControlCenter.php:114
+msgid ""
+"Work through these steps with one sample article before changing the whole "
+"site."
+msgstr "先用一篇样本文章完成这些步骤，再考虑修改全站。"
+
+#: includes/Admin/ChannelHealth.php:288
+msgid "XML sitemap"
+msgstr "XML 站点地图"
+
+#: includes/Migration/AdminPage.php:67
+msgid "Yes"
+msgstr "是"
+
+#: includes/Core/BookStructure.php:293
+msgid "You are not allowed to enable book structure for this Series."
+msgstr "您无权为此序列启用书籍式结构。"
+
+#: includes/Admin/SequenceManager.php:121
+#: includes/Admin/SequenceManager.php:807
+#: includes/Admin/SequenceManager.php:814
+msgid "You are not allowed to manage Series sequences."
+msgstr "您无权管理序列篇序。"
+
+#: includes/Migration/AdminPage.php:25 includes/Migration/AdminPage.php:417
+msgid "You are not allowed to manage migrations."
+msgstr "您无权管理迁移。"
+
+#: includes/Core/Sequence.php:1147
+msgid "You are not allowed to manage this Series sequence."
+msgstr "您无权管理此序列的篇序。"
+
+#: includes/Admin/SeriesHealth.php:65
+msgid "You are not allowed to view Series health."
+msgstr "您无权查看序列健康检查。"
+
+#: includes/Admin/ControlCenter.php:83
+msgid "You are not allowed to view WP Title Layer settings."
+msgstr "您无权查看 WP Title Layer 设置。"
+
+#: includes/Admin/ChannelHealth.php:64
+msgid "You are not allowed to view landing-page and title-channel checks."
+msgstr "您无权查看入口页与标题渠道检查。"
+
+#: includes/Core/Sequence.php:1151
+msgid "You cannot edit every article affected by this sequence operation."
+msgstr "您不能编辑此次篇序操作涉及的全部文章。"
+
+#: includes/Core/BookStructure.php:304
+msgid "You cannot edit every article affected by this structure activation."
+msgstr "您不能编辑此次结构启用操作涉及的全部文章。"
+
+#: includes/Core/Sequence.php:714
+msgid "You cannot update the managed order for this article."
+msgstr "您无权更新此文章的托管篇序。"
+
+#: includes/Reader/AdminSettings.php:101
+msgid ""
+"Your current block theme keeps control of this archive. Block-theme archive "
+"replacement is not enabled in this version."
+msgstr "当前区块主题继续控制此归档页；本版本未启用区块主题归档页替换。"
+
+#: includes/Integrations/RankMath.php:68
+msgid "full Series name"
+msgstr "完整序列名称"
+
+#: includes/Admin/ControlCenter.php:798
+msgid "no content types"
+msgstr "没有内容类型"
+
+#: includes/Integrations/RankMath.php:67
+msgid "subtitle only"
+msgstr "仅副标题"
+
+#~ msgid "Move in Structure Manager"
+#~ msgstr "在结构管理器中移动"
+
+#~ msgid "Open Structure Manager"
+#~ msgstr "打开结构管理器"
+
+#~ msgid "Entries to review"
+#~ msgstr "待检查条目"
+
+#~ msgid ""
+#~ "Existing front-end order remains active until this one Series is "
+#~ "explicitly enabled. Main articles are unambiguous; old non-main roles in "
+#~ "a seasoned Series require a Series-wide or season choice."
+#~ msgstr ""
+#~ "在明确启用此序列前，现有前端顺序继续生效。主要文章无需判断；分季序列中的旧"
+#~ "非主要角色必须选择全序列或单季范围。"
+
+#~ msgid ""
+#~ "Review legacy roles, separate Series-wide and season entries, and arrange "
+#~ "each introduction, main-article, epilogue, or appendix track without "
+#~ "exposing private ranks."
+#~ msgstr ""
+#~ "检查旧角色，区分全序列与单季条目，并整理序文、主要文章、尾声或附录轨道，而"
+#~ "不公开内部排序值。"
+
+#~ msgid "Structure Manager"
+#~ msgstr "结构管理器"

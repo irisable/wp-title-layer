@@ -1,0 +1,29 @@
+{
+  "name": "wp-title-layer",
+  "version": "1.0.0-rc.1",
+  "private": true,
+  "description": "Structured subtitles, series, and context-aware title templates for WordPress.",
+  "license": "GPL-2.0-or-later",
+  "homepage": "https://github.com/irisable/wp-title-layer#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irisable/wp-title-layer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/irisable/wp-title-layer/issues"
+  },
+  "scripts": {
+    "check:js": "node --check assets/editor.js && node --check assets/migration.js && node --check assets/series-admin.js && node --check assets/classic-editor.js && node --check assets/settings.js && node --check assets/sequence-manager.js && node --check bin/build-editor-translations.js",
+    "build:i18n-json": "node bin/build-editor-translations.js",
+    "test": "node --test tests-js/*.test.js",
+    "check": "npm run check:js && npm test",
+    "test:wp": "./bin/test-playground.sh",
+    "test:package": "./bin/test-release-package.sh"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@wp-playground/cli": "^3.1.49"
+  }
+}

@@ -1,0 +1,34 @@
+.wptl-cover-preview {
+	margin: 0 0 10px;
+}
+
+.wptl-cover-preview:empty {
+	display: none;
+}
+
+.wptl-cover-preview__image {
+	display: block;
+	width: auto;
+	max-width: 160px;
+	height: auto;
+	max-height: 160px;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+}
+
+.wptl-cover-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	align-items: center;
+	margin: 0 0 6px;
+}
+
+.wptl-cover-control.is-media-ready > .wptl-cover-id-input {
+	display: none;
+}
+
+.wptl-icon-control .wptl-cover-preview__image {
+	max-width: 80px;
+	max-height: 80px;
+}

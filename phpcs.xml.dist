@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<ruleset name="WP Title Layer">
+	<description>WordPress coding standards for WP Title Layer.</description>
+	<file>wp-title-layer.php</file>
+	<file>includes</file>
+	<exclude-pattern>vendor/*</exclude-pattern>
+	<arg name="basepath" value="."/>
+	<arg name="colors"/>
+	<arg value="sp"/>
+	<rule ref="WordPress"/>
+	<rule ref="PHPCompatibilityWP">
+		<properties>
+			<property name="testVersion" value="7.4-"/>
+		</properties>
+	</rule>
+</ruleset>

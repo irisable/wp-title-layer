@@ -1,0 +1,50 @@
+.wptl-document-panel .components-base-control {
+	margin-bottom: 16px;
+}
+
+.wptl-template-source {
+	margin: 8px 0 4px;
+}
+
+.wptl-template-source .components-notice__content {
+	margin: 8px 0;
+}
+
+.wptl-block-editor-preview {
+	min-height: 80px;
+}
+
+.wptl-block-editor-preview > .wptl-title-layer {
+	margin-bottom: 0;
+}
+
+.wptl-block-placeholder {
+	border: 1px dashed #8c8f94;
+	border-radius: 3px;
+	padding: 24px;
+	text-align: center;
+	background: #f6f7f7;
+	color: #2c3338;
+}
+
+.wptl-block-placeholder .wptl-title-layer-mark {
+	display: block;
+	width: 32px;
+	height: 32px;
+	margin: 0 auto 8px;
+}
+
+.wptl-block-placeholder p {
+	margin: 6px auto 0;
+	max-width: 36em;
+}
+
+.wptl-preview-note {
+	margin: 10px 0 0;
+	font-size: 12px;
+	color: #646970;
+}
+
+.wptl-category-rules select {
+	min-width: 220px;
+}
