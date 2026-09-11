@@ -2592,17 +2592,18 @@ wptl_test_assert(
 		. '; available: ' . implode( ',', get_available_languages() )
 );
 wptl_test_same( '副标题', __( 'Subtitle', 'wp-title-layer' ), 'The packaged PHP translation did not load after switching locale.' );
-wptl_test_same( '序列', __( 'Series', 'wp-title-layer' ), 'The canonical Series term was not translated consistently.' );
+wptl_test_same( '系列', __( 'Series', 'wp-title-layer' ), 'The canonical Series term was not translated consistently.' );
+wptl_test_same( '系列总序', sprintf( __( 'Series %s', 'wp-title-layer' ), '总序' ), 'The public whole-Series structure heading did not use natural Chinese terminology.' );
 wptl_test_same( '设置分区', __( 'Settings sections', 'wp-title-layer' ), 'The grouped settings navigation label was not translated.' );
 wptl_test_same( '上一页', __( 'Previous page', 'wp-title-layer' ), 'The Simplified Chinese pagination label used article-navigation wording.' );
 wptl_test_same( '下一页', __( 'Next page', 'wp-title-layer' ), 'The Simplified Chinese pagination label used article-navigation wording.' );
 wptl_test_same( '上一篇', __( 'Previous', 'wp-title-layer' ), 'The article-navigation label was changed into a pagination label.' );
-wptl_test_same( '序列阅读导航', __( 'Series reading navigation', 'wp-title-layer' ), 'The Reader navigation landmark was not translated.' );
-wptl_test_same( '序列归档页分页', __( 'Series archive pages', 'wp-title-layer' ), 'The structured archive pagination landmark was not translated.' );
+wptl_test_same( '系列阅读导航', __( 'Series reading navigation', 'wp-title-layer' ), 'The Reader navigation landmark was not translated.' );
+wptl_test_same( '系列归档页分页', __( 'Series archive pages', 'wp-title-layer' ), 'The structured archive pagination landmark was not translated.' );
 wptl_test_same( '查看所有季', __( 'View all seasons', 'wp-title-layer' ), 'The structured archive season link was not translated.' );
 wptl_test_same( '从头阅读', __( 'Read from the beginning', 'wp-title-layer' ), 'The full-Series start link was not translated.' );
 wptl_test_same( '从本季开头阅读', __( 'Read this season from the beginning', 'wp-title-layer' ), 'The season-scoped start link was not translated.' );
-wptl_test_same( '此序列暂无可公开访问的已发布文章。', __( 'No published articles are available in this Series.', 'wp-title-layer' ), 'The empty structured archive message was not translated.' );
+wptl_test_same( '此系列暂无可公开访问的已发布文章。', __( 'No published articles are available in this Series.', 'wp-title-layer' ), 'The empty structured archive message was not translated.' );
 wptl_test_same( '第 2 篇，共 5 篇', sprintf( __( '%1$d of %2$d', 'wp-title-layer' ), 2, 5 ), 'The Reader position string was not translated.' );
 wptl_test_same( '3 篇已发布文章', sprintf( _n( '%d published article', '%d published articles', 3, 'wp-title-layer' ), 3 ), 'The structured archive article-count plural was not translated.' );
 wptl_test_same(
@@ -2631,7 +2632,7 @@ wptl_test_same( '未指定（按主要文章处理）', $wptl_zh_role_labels['']
 wptl_test_same( '序文／前言', $wptl_zh_role_labels['intro'] ?? '', 'The Series role labels were not translated.' );
 wptl_test_same( '主要文章（明确指定）', $wptl_zh_role_labels['article'] ?? '', 'The explicit main-article role was not translated or distinguished.' );
 $wptl_zh_scope_labels = \WPTitleLayer\Core\Schema::scope_labels();
-wptl_test_same( '全序列', $wptl_zh_scope_labels['series'] ?? '', 'The Series-wide scope label was not translated.' );
+wptl_test_same( '全系列', $wptl_zh_scope_labels['series'] ?? '', 'The Series-wide scope label was not translated.' );
 wptl_test_same( '单季', $wptl_zh_scope_labels['season'] ?? '', 'The season scope label was not translated.' );
 $wptl_zh_editor_data = $wptl_editor_data_method->invoke( null );
 wptl_test_same( '未指定（按主要文章处理）', $wptl_zh_editor_data['roles'][0]['label'] ?? '', 'The block-editor bootstrap did not receive the clarified translated role label.' );
@@ -2740,7 +2741,7 @@ $wptl_editor_translation_messages = is_array( $wptl_editor_translation_json )
 	? ( $wptl_editor_translation_json['locale_data']['messages'] ?? array() )
 	: array();
 wptl_test_same( '标题层', $wptl_editor_translation_messages['Title Layer'][0] ?? '', 'The packaged editor translation omitted Title Layer.' );
-wptl_test_same( '无序列', $wptl_editor_translation_messages['No Series'][0] ?? '', 'The packaged editor translation omitted the Series selector.' );
+wptl_test_same( '无系列', $wptl_editor_translation_messages['No Series'][0] ?? '', 'The packaged editor translation omitted the Series selector.' );
 wptl_test_same( '副标题', $wptl_editor_translation_messages['Subtitle'][0] ?? '', 'The packaged editor translation omitted Subtitle.' );
 
 $wptl_rank_math_plain_post_id = wptl_test_create_post( 'SEO title without subtitle' );

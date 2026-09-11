@@ -36,11 +36,11 @@ title, then stores the surrounding editorial structure as separate data:
   subtitle fields.
 
 The current implementation status and production acceptance order are tracked
-in the [1.0.0-rc.1 feature map](docs/feature-map.md). The completed stages and path
+in the [1.0.0-rc.2 feature map](docs/feature-map.md). The completed stages and path
 to 1.0 are recorded in the [development roadmap](docs/roadmap.md), with the
 ordering and upgrade contract in the
 [Series Sequence Manager design](docs/sequence-manager-design.md).
-A focused [1.0.0-rc.1 acceptance record](docs/manual-acceptance-checklist-1.0.0-rc.1.md)
+A focused [1.0.0-rc.2 acceptance record](docs/manual-acceptance-checklist-1.0.0-rc.2.md)
 covers the four Series shapes, explicit scope, role tracks, isolated fixtures,
 front-end order, legacy compatibility, and the public release package.
 
@@ -65,7 +65,7 @@ cannot certify unrelated fields owned by themes or other plugins.
 2. Activate WP Title Layer.
 3. If the site used Secondary Title or an ACF field named `subtitle`, open
    **Tools → Title Layer Migration** and run the read-only scan first.
-4. Review conflicts, then start the copy. Version 1.0.0-rc.1 continues through the
+4. Review conflicts, then start the copy. Version 1.0.0-rc.2 continues through the
    batches automatically in the migration screen and can safely resume the
    same run after a reload or interrupted request.
 5. Verify several posts and deactivate Secondary Title. While Secondary Title
@@ -94,7 +94,7 @@ Migration never deletes the source values and never overwrites an existing
 
 ## What migration copies
 
-Version 1.0.0-rc.1 has exactly two automatic subtitle sources:
+Version 1.0.0-rc.2 has exactly two automatic subtitle sources:
 
 - Secondary Title's `_secondary_title` post meta;
 - an ACF field whose field name is `subtitle`, but only when WP Title Layer can
@@ -115,7 +115,7 @@ The migration screen also audits these five legacy Series-like ACF fields:
 
 They are **non-empty-value and verified-reference counts, not confirmed usage
 counts**. ACF defaults can be included, exact empty strings are excluded, and
-the same post can be counted once for each field. Version 1.0.0-rc.1 does not
+the same post can be counted once for each field. Version 1.0.0-rc.2 does not
 automatically map them to `wptl_series`, seasons, or sequence metadata.
 
 The migration process is intentionally conservative:
@@ -144,7 +144,7 @@ settings:
 - `ordered` or `unordered`: whether a meaningful reading path exists;
 - `flat` or `seasoned`: whether entries are grouped into seasons.
 
-Version 1.0.0-rc.1 supports **at most one Series per post**. It does not model
+Version 1.0.0-rc.2 supports **at most one Series per post**. It does not model
 multiple independent memberships.
 
 Each Series may optionally point to one parent Category. This is an editorial
@@ -196,13 +196,20 @@ Season definitions also receive stable positive public IDs. New links use
 does not change its ID, deleted IDs are not reused, and old key-based links
 remain compatible.
 
-Version 1.0.0-rc.1 separates a book-like entry's **scope** from its **role**.
+Version 1.0.0-rc.2 separates a book-like entry's **scope** from its **role**.
 Flat Series entries are Series-wide. In a seasoned Series, every main article
 must belong to one Season, while an introduction, epilogue, or appendix may be
 explicitly Series-wide or belong to one Season. Each combination has its own
 track in **Sequence & Structure → Structure tracks**, so multiple prefaces or
 afterwords can be rearranged without consuming ordinary-article numbers. Public labels such as `0-1`,
 `Preface II`, or `Appendix A` remain optional display text, not ranks.
+
+The Structure manager keeps those exact role tracks visible for safe editing.
+The public structured archive uses editorial labels instead: every Season is
+one section containing its entries in canonical track order, without headings
+such as “Season — Main articles.” A Series-wide non-main entry receives its own
+heading built from `Series` plus its Public structure label, such as “Series
+Preface”; the private role is never used as public fallback text.
 
 Existing Series are not guessed into this model. The Structure tracks view first
 shows a read-only compatibility preview; any legacy non-main role with unresolved
@@ -322,7 +329,7 @@ visible theme title remains enabled.
 
 The compatibility functions `get_secondary_title()`,
 `the_secondary_title()`, and `has_secondary_title()` remain available after the
-old plugin is deactivated. Version 1.0.0-rc.1 still does not provide multiple-Series
+old plugin is deactivated. Version 1.0.0-rc.2 still does not provide multiple-Series
 relationships.
 
 ## SEO and sharing titles
@@ -380,6 +387,9 @@ Reader output is conservative and independently configurable:
   with a cover it switches to a bounded two-column header. The plugin leaves
   block themes and any classic theme with a dedicated
   `taxonomy-wptl_series*.php` template in control.
+  With advanced structure enabled, one public heading represents each Season
+  while its role tracks remain merged in canonical order; Series-wide
+  bookends use their Public structure labels rather than internal role names.
 - **After-content navigation:** opt-in and available only for an ordered Series.
   It can show previous/next entries, a start link, and reading progress. An
   ordered Series with seasons chooses Entire Series or Current Season on its
@@ -481,7 +491,7 @@ Chinese catalog.
 
 ## External REST contract
 
-The `1.0.0-rc.1` contract below is declared for external-client validation. A
+The `1.0.0-rc.2` contract below is declared for external-client validation. A
 publisher should resolve an existing Series by slug before it creates or
 updates an article:
 
@@ -553,7 +563,7 @@ npm run test:wp
 `npm run check` validates the editor, Sequence & Structure, localization catalogs,
 control center, presentation, migration, Series-health, theme-adapter, and
 channel-governance and release-version contracts in 95 checks. `npm run test:wp` parses 60 PHP files
-and runs 827 integration checks plus 111 Sequence Manager and 61
+and runs 828 integration checks plus 111 Sequence Manager and 65
 book-structure checks at
 both supported ends of the test matrix:
 
@@ -575,8 +585,8 @@ composer lint
 Build the release ZIP with:
 
 ```sh
-./bin/build-release.sh 1.0.0-rc.1
-./bin/test-release-package.sh wp-title-layer-1.0.0-rc.1.zip
+./bin/build-release.sh 1.0.0-rc.2
+./bin/test-release-package.sh wp-title-layer-1.0.0-rc.2.zip
 ```
 
 The build exports the fixed `HEAD` commit (or an explicit

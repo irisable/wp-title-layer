@@ -4,7 +4,7 @@ Tags: title, subtitle, series, editorial, gutenberg
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0-rc.1
+Stable tag: 1.0.0-rc.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -107,7 +107,7 @@ unverified values are reported as conflicts rather than guessed.
 `series_key`, `series_title`, `series_order`, `series_has_order`, and
 `series_stage` are non-empty-value and verified-reference audit rows. The same
 post can be counted in more than one field, ACF-saved defaults are included,
-and exact empty strings are excluded. Version 1.0.0-rc.1 does not map them automatically to Series relationships,
+and exact empty strings are excluded. Version 1.0.0-rc.2 does not map them automatically to Series relationships,
 seasons, or sequence fields.
 
 = What happens if an automatic migration request is interrupted? =
@@ -169,7 +169,7 @@ line; Title only is the compatibility fallback.
 
 = Can one post belong to more than one Series? =
 
-No. Version 1.0.0-rc.1 supports at most one Series per post because season, scope,
+No. Version 1.0.0-rc.2 supports at most one Series per post because season, scope,
 role, and sequence metadata would otherwise be ambiguous.
 
 = Can a Series belong to a Category? =
@@ -192,7 +192,7 @@ status appears in the Series list and the optional structured Series archive.
 Open WP Title Layer > Sequence & Structure, then use the Sequence view. Existing ordered Series first get a read-only
 preview of their legacy positions; initialization is explicit, resumable, and
 commits only after every rank validates. Legacy position and label metadata are
-preserved. Merely upgrading or activating 1.0.0-rc.1 does not rewrite an existing Series.
+preserved. Merely upgrading or activating 1.0.0-rc.2 does not rewrite an existing Series.
 
 Once initialized, drag an article, use its keyboard move buttons, or place it
 before or after a searched article. Later articles do not need manual
@@ -207,13 +207,19 @@ remain compatible.
 
 = How do prefaces, afterwords, and appendices work? =
 
-Version 1.0.0-rc.1 separates scope from role. In a seasoned Series, a main article
+Version 1.0.0-rc.2 separates scope from role. In a seasoned Series, a main article
 must belong to one Season; an introduction, epilogue, or appendix may be
 explicitly Series-wide or belong to one Season. Flat Series entries are always
 Series-wide. Each combination has an independent track in the Structure tracks view,
 so several prefaces or afterwords can be moved without consuming automatic
 main-article numbers. Optional public labels such as `0-1`, `Preface II`, and
 `Appendix A` remain display text rather than internal ranks.
+
+The Structure manager retains the precise role tracks for editing. On the
+public structured archive, each Season is shown once with all of its entries in
+canonical track order. Series-wide non-main entries use `Series` plus their
+Public structure label as the public heading; internal role names are not used
+as front-end fallback labels.
 
 Existing Series stay in compatibility mode until one Series passes its
 read-only Structure compatibility preview. The Sequence view remains available
@@ -350,7 +356,7 @@ are never reported as missing a reading position.
 = Can SEO and sharing titles include the subtitle? =
 
 Yes, as an explicit Rank Math choice rather than an automatic rewrite. Version
-1.0.0-rc.1 registers `%wptl_subtitle%`, `%wptl_series%`, and
+1.0.0-rc.2 registers `%wptl_subtitle%`, `%wptl_series%`, and
 `%wptl_title_with_subtitle%`. The combined variable adds the locale's title
 separator and subtitle only when one exists. Use it independently in Rank Math's SEO, Facebook, or
 Twitter title fields. WP Title Layer does not write Rank Math metadata or emit
@@ -377,8 +383,8 @@ in rendered page source.
 
 Run `npm run check` for 95 JavaScript, localization, editor, Sequence & Structure,
 migration, channel-governance, and release-version contract checks. Run `npm run test:wp` for
-60-file PHP syntax, 827 integration checks, 111 Sequence Manager
-checks, and 61 book-structure checks against both ends of the supported matrix:
+60-file PHP syntax, 828 integration checks, 111 Sequence Manager
+checks, and 65 book-structure checks against both ends of the supported matrix:
 
 * WordPress 6.5 with PHP 7.4;
 * WordPress 7.1 with PHP 8.3.
@@ -388,6 +394,12 @@ Official Kadence 1.5.2 templates pass 40 adapter checks. Official Rank Math
 two-post cache isolation and its real taxonomy/sitemap settings.
 
 == Changelog ==
+
+= 1.0.0-rc.2 =
+
+* Standardized every Simplified Chinese Series translation as “系列” while preserving distinct terms such as 篇序, 序文, and 顺序.
+* Kept detailed scope/role track names in the Structure manager but simplified public advanced-structure archives: one heading per Season, and Series-wide headings composed from each entry's Public structure label.
+* Stopped using private introduction, epilogue, and appendix roles as fallback text in public article title layers.
 
 = 1.0.0-rc.1 =
 

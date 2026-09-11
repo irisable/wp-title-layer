@@ -73,9 +73,12 @@ test( 'new empty ordered Series start canonical while nonempty Series cannot byp
 test( 'archives, navigation, numbering, and health consume the same scope-role model', () => {
 	assert.match( archive, /BookStructure::tracks/ );
 	assert.match( archive, /\['track'\]/ );
-	assert.match( archive, /'role'\s*=>\s*\(string\) \$definitions\[ \$track_key \]\['role'\]/ );
-	assert.match( archive, /'ordered'\s*=>\s*Series::is_ordered\( \$term \) \|\| Schema::ROLE_ARTICLE !==/ );
+	assert.match( archive, /Schema::SCOPE_SEASON === \$scope/ );
+	assert.match( archive, /\$group_key = 'season_' \. \$season_key/ );
+	assert.match( archive, /'show_sequence_labels'\s*=>\s*false/ );
+	assert.match( archive, /__\( 'Series %s', 'wp-title-layer' \)/ );
 	assert.match( archiveTemplate, /! empty\( \$wptl_group\['ordered'\] \)/ );
+	assert.match( archiveTemplate, /\$wptl_show_sequence_labels/ );
 	assert.match( series, /order_book_structure_clauses/ );
 	assert.match( series, /wptl_book_scope_pm/ );
 	assert.match( navigation, /BookStructure::context/ );

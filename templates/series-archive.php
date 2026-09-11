@@ -85,11 +85,12 @@ get_header();
 						<?php endif; ?>
 
 						<?php $wptl_group_ordered = ! empty( $wptl_group['ordered'] ); ?>
+						<?php $wptl_show_sequence_labels = false !== ( $wptl_group['show_sequence_labels'] ?? true ); ?>
 						<<?php echo $wptl_group_ordered ? 'ol' : 'ul'; ?> class="wptl-series-list">
 							<?php foreach ( (array) $wptl_group['posts'] as $wptl_post ) : ?>
 								<?php $wptl_has_image = ! empty( $wptl_view['show_featured_images'] ) && ! empty( $wptl_post['featured_image_id'] ); ?>
-								<li class="wptl-series-list__item wptl-series-list__item--<?php echo esc_attr( sanitize_html_class( (string) ( $wptl_post['role'] ?? 'article' ) ) ); ?><?php echo $wptl_has_image ? ' wptl-series-list__item--has-image' : ''; ?>">
-									<?php if ( '' !== (string) ( $wptl_post['sequence_label'] ?? '' ) ) : ?>
+								<li class="wptl-series-list__item wptl-series-list__item--<?php echo esc_attr( sanitize_html_class( (string) ( $wptl_post['role'] ?? 'article' ) ) ); ?><?php echo $wptl_has_image ? ' wptl-series-list__item--has-image' : ''; ?><?php echo $wptl_show_sequence_labels ? '' : ' wptl-series-list__item--without-sequence'; ?>">
+									<?php if ( $wptl_show_sequence_labels && '' !== (string) ( $wptl_post['sequence_label'] ?? '' ) ) : ?>
 										<span class="wptl-series-list__sequence"><?php echo esc_html( (string) $wptl_post['sequence_label'] ); ?></span>
 									<?php endif; ?>
 

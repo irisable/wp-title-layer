@@ -241,6 +241,11 @@ $so_full = array( $so_series_intro, $so_s1_intro, $so_s1_main, $so_s1_end, $so_s
 wptl_book_same( $so_full, \WPTitleLayer\Core\Sequence::ordered_post_ids( $seasoned_ordered ), 'Seasoned full-Series track order is wrong.' );
 wptl_book_same( array( $so_s1_intro, $so_s1_main, $so_s1_end ), \WPTitleLayer\Core\Sequence::ordered_post_ids( $seasoned_ordered, 's1' ), 'A season reading collection leaked Series-wide or another-season entries.' );
 wptl_book_same( '', ( new \WPTitleLayer\Presentation\Renderer() )->context( $so_series_intro )['season_key'], 'A Series-wide preface exposed its stale legacy Season.' );
+$so_series_intro_context = ( new \WPTitleLayer\Presentation\Renderer() )->context( $so_series_intro );
+wptl_book_same( '', (string) ( $so_series_intro_context['sequence_item'] ?? '' ), 'A private Series role leaked into the public title layer without an explicit public structure label.' );
+update_post_meta( $so_series_intro, 'wptl_sequence_label', 'Series preface' );
+$so_series_intro_context = ( new \WPTitleLayer\Presentation\Renderer() )->context( $so_series_intro );
+wptl_book_same( 'Series preface', (string) ( $so_series_intro_context['sequence_item'] ?? '' ), 'An explicit public structure label did not reach the public title layer.' );
 $so_series_track = \WPTitleLayer\Core\BookStructure::track_key( $seasoned_ordered, 'series', '', 'intro' );
 wptl_book_assert( ! is_wp_error( \WPTitleLayer\Core\Sequence::move_track( (int) $seasoned_ordered->term_id, $so_series_track, $so_series_intro, 0, 'end', \WPTitleLayer\Core\Sequence::track_revision( $seasoned_ordered, $so_series_track ) ) ), 'A Series-wide track in a seasoned Series was incorrectly rejected for lacking a Season.' );
 update_term_meta( (int) $seasoned_ordered->term_id, 'wptl_navigation_scope', 'season' );
@@ -283,15 +288,23 @@ $su_contexts = array_map(
 	},
 	array( $su_series_intro, $su_s1_intro, $su_s1_b, $su_s1_a, $su_s1_end, $su_series_end )
 );
+$su_contexts[0]['sequence_label'] = 'Collection preface';
+$su_contexts[5]['sequence_label'] = 'Collection afterword';
 $su_groups = $su_archive->groupPosts( $seasoned_unordered, $su_contexts );
 $su_group_semantics = array();
 foreach ( $su_groups as $su_group ) {
 	$su_group_semantics[ (string) $su_group['key'] ] = (bool) $su_group['ordered'];
 }
 wptl_book_same( false, $su_group_semantics['season_s1'] ?? null, 'A seasoned unordered main-article group rendered as an ordered list.' );
-wptl_book_same( true, $su_group_semantics['series_intro'] ?? null, 'A Series introduction track lost its explicit structural order.' );
-wptl_book_same( true, $su_group_semantics['season_s1_intro'] ?? null, 'A Season introduction track lost its explicit structural order.' );
-wptl_book_same( true, $su_group_semantics['season_s1_epilogue'] ?? null, 'A Season epilogue track lost its explicit structural order.' );
+wptl_book_same(
+	array( $su_s1_intro, $su_s1_b, $su_s1_a, $su_s1_end ),
+	array_map( 'absint', wp_list_pluck( (array) ( $su_groups[1]['posts'] ?? array() ), 'id' ) ),
+	'A public Season group did not merge its role tracks in canonical order.'
+);
+wptl_book_same( 'Season One', (string) ( $su_groups[1]['label'] ?? '' ), 'A public Season group exposed a role-specific track label.' );
+wptl_book_same( 'Series Collection preface', (string) ( $su_groups[0]['label'] ?? '' ), 'A Series-wide public heading did not use its public structure label.' );
+wptl_book_same( 'Series Collection afterword', (string) ( $su_groups[2]['label'] ?? '' ), 'A Series-wide epilogue exposed its internal role label.' );
+wptl_book_same( false, (bool) ( $su_groups[0]['show_sequence_labels'] ?? true ), 'A Series-wide heading repeated its public structure label inside the article row.' );
 $su_template = file_get_contents( WPTL_PATH . 'templates/series-archive.php' );
 wptl_book_assert( false !== strpos( $su_template, "! empty( \$wptl_group['ordered'] )" ), 'The archive template stopped consuming the group semantic flag.' );
 $su_health = ( new \WPTitleLayer\Admin\SeriesHealthReport() )->report( (int) $seasoned_unordered->term_id );

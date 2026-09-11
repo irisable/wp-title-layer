@@ -169,12 +169,21 @@
 	grid-template-columns: minmax(0, 1fr);
 }
 
+.wptl-series-list__item--without-sequence {
+	grid-template-columns: minmax(0, 1fr);
+}
+
 .wptl-series-list__item--has-image {
 	grid-template-columns: minmax(2.75rem, auto) clamp(6.5rem, 14vw, 9.5rem) minmax(0, 1fr);
 	grid-template-areas: "sequence media body";
 }
 
 .wptl-series-archive__content--unordered .wptl-series-list__item--has-image {
+	grid-template-columns: clamp(6.5rem, 14vw, 9.5rem) minmax(0, 1fr);
+	grid-template-areas: "media body";
+}
+
+.wptl-series-list__item--has-image.wptl-series-list__item--without-sequence {
 	grid-template-columns: clamp(6.5rem, 14vw, 9.5rem) minmax(0, 1fr);
 	grid-template-areas: "media body";
 }

@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Title Layer 1.0.0-rc.1\n"
+"Project-Id-Version: WP Title Layer 1.0.0-rc.2\n"
 "Report-Msgid-Bugs-To: https://github.com/irisable/wp-title-layer/issues\n"
 "POT-Creation-Date: 2026-08-29 12:36+0800\n"
-"PO-Revision-Date: 2026-08-29 12:36+0800\n"
+"PO-Revision-Date: 2026-09-11 16:00+0800\n"
 "Last-Translator: WP Title Layer project\n"
 "Language-Team: Simplified Chinese\n"
 "Language: zh_CN\n"
@@ -45,7 +45,7 @@ msgid ""
 "uninstalling ACF."
 msgstr ""
 "在 %2$s 个不重复的文章 ID 中，共发现 %1$s 个非空的字段—文章值。这并不是已确认"
-"的序列使用量：其中包含 ACF 保存的默认值，但不包含严格意义上的空字符串。WP "
+"的系列使用量：其中包含 ACF 保存的默认值，但不包含严格意义上的空字符串。WP "
 "Title Layer 绝不会自动导入这五个字段。如果您确定从未使用过它们，它们不会阻碍"
 "副标题迁移；卸载 ACF 前仍应另行检查其他 ACF 字段。"
 
@@ -57,7 +57,7 @@ msgid ""
 "defaults and are not confirmed Series use."
 msgstr ""
 "%2$s 个文章 ID 中共有 %1$s 个非空的旧 ACF 字段值；其中可能包含默认值，不能据"
-"此确认序列功能曾被使用。"
+"此确认系列功能曾被使用。"
 
 #. translators: 1: theme adapter, 2: content type labels.
 #: includes/Admin/ControlCenter.php:320
@@ -104,11 +104,11 @@ msgstr "："
 #: includes/Core/Series.php:1636
 msgid ""
 "A flat Series has no season scope. Choose Entire Series or clear the scope."
-msgstr "平铺序列不能使用单季范围。请选择“全序列”或清除范围。"
+msgstr "平铺系列不能使用单季范围。请选择“全系列”或清除范围。"
 
 #: includes/Core/Series.php:76
 msgid "A link to a Series."
-msgstr "指向一个序列的链接。"
+msgstr "指向一个系列的链接。"
 
 #: assets/editor.js:511
 msgid ""
@@ -118,7 +118,7 @@ msgstr "实时预览暂时不可用，但标题层仍会在前台正常显示。
 
 #: includes/Core/Series.php:1621
 msgid "A main article in a seasoned Series must belong to one season."
-msgstr "分季序列中的主要文章必须归属一季。"
+msgstr "分季系列中的主要文章必须归属一季。"
 
 #: includes/Admin/ControlCenter.php:180
 msgid "A migration is still in progress"
@@ -130,7 +130,7 @@ msgstr "已有迁移或回滚正在运行。"
 
 #: includes/Core/Series.php:1278
 msgid "A post can belong to only one primary Series."
-msgstr "一篇文章只能属于一个主序列。"
+msgstr "一篇文章只能属于一个主系列。"
 
 #: includes/Admin/SequenceManager.php:229
 msgid ""
@@ -138,7 +138,7 @@ msgid ""
 "values remain ignored while this Series uses legacy order; this fresh "
 "preview can safely begin a new initialization."
 msgstr ""
-"上一次回滚保护了后来发生变化的内部排序值。这些私有值在本序列仍使用旧篇序期间"
+"上一次回滚保护了后来发生变化的内部排序值。这些私有值在本系列仍使用旧篇序期间"
 "不会生效；可从此全新预览安全开始新的初始化。"
 
 #: includes/Core/Sequence.php:678
@@ -162,7 +162,7 @@ msgstr "无法验证结构排序值，因此已还原完成的写入。"
 msgid ""
 "A variable template may still resolve to an empty description if the Series "
 "description is empty."
-msgstr "如果序列说明为空，含变量的模板最终仍可能得到空说明。"
+msgstr "如果系列说明为空，含变量的模板最终仍可能得到空说明。"
 
 #: includes/Admin/ChannelHealth.php:110
 msgid ""
@@ -201,7 +201,7 @@ msgstr "已启用"
 
 #: includes/Core/Series.php:70
 msgid "Add New Series"
-msgstr "新建序列"
+msgstr "新建系列"
 
 #: includes/Core/Series.php:757
 msgid "Add another season"
@@ -223,7 +223,7 @@ msgstr "高级结构已启用"
 
 #: includes/Admin/SequenceManager.php:737
 msgid "Advanced structure is now active for this Series."
-msgstr "此序列现已启用高级结构。"
+msgstr "此系列现已启用高级结构。"
 
 #: includes/Admin/SequenceManager.php:207
 msgid "Advanced structure not enabled"
@@ -233,7 +233,7 @@ msgstr "高级结构未启用"
 msgid ""
 "After saving, this article will be appended to the selected Series and "
 "season."
-msgstr "保存后，本文将追加到所选序列与季的末尾。"
+msgstr "保存后，本文将追加到所选系列与季的末尾。"
 
 #: includes/Admin/SequenceManager.php:572
 msgid "After target"
@@ -246,11 +246,11 @@ msgstr "文末阅读导航"
 #: includes/Core/Series.php:67 includes/Admin/ControlCenter.php:351
 #: includes/Admin/SeriesHealth.php:164
 msgid "All Series"
-msgstr "所有序列"
+msgstr "所有系列"
 
 #: includes/Admin/ChannelHealth.php:199
 msgid "All Series landing pages"
-msgstr "所有序列入口页"
+msgstr "所有系列入口页"
 
 #: includes/Admin/SeriesHealth.php:235
 msgid "All members"
@@ -288,7 +288,7 @@ msgstr ""
 msgid ""
 "An article’s Series, season, status, or legacy position changed during "
 "initialization."
-msgstr "初始化期间，某篇文章的序列、季、状态或旧篇序发生了变化。"
+msgstr "初始化期间，某篇文章的系列、季、状态或旧篇序发生了变化。"
 
 #: includes/Admin/ChannelHealth.php:257
 msgid ""
@@ -323,7 +323,7 @@ msgstr "另一个迁移或回滚已经在运行。"
 msgid ""
 "Append previous, next, “read from the beginning,” and progress after "
 "articles in an ordered Series."
-msgstr "在有序序列文章末尾添加上一篇、下一篇、“从头阅读”和阅读进度。"
+msgstr "在有序系列文章末尾添加上一篇、下一篇、“从头阅读”和阅读进度。"
 
 #: includes/Core/BookStructure.php:167
 msgid "Appendices"
@@ -335,7 +335,7 @@ msgstr "附录"
 
 #: includes/Core/Series.php:335 includes/Core/Series.php:411
 msgid "Archive layout for this Series"
-msgstr "此序列的归档页布局"
+msgstr "此系列的归档页布局"
 
 #: includes/Core/Series.php:328 includes/Core/Series.php:403
 msgid "Archive sort"
@@ -385,13 +385,13 @@ msgstr "初始化范围内的文章"
 #: includes/Core/Sequence.php:381
 msgid ""
 "Assign every article to a defined season before initializing this Series."
-msgstr "初始化此序列前，请把每篇文章都分配到已定义的季。"
+msgstr "初始化此系列前，请把每篇文章都分配到已定义的季。"
 
 #: assets/editor.js:279
 msgid ""
 "Assign this article to that Category or one of its descendants, or change "
 "the Series definition."
-msgstr "请将本文分配给该分类或其下级分类，或修改序列定义。"
+msgstr "请将本文分配给该分类或其下级分类，或修改系列定义。"
 
 #: includes/Core/Series.php:745
 msgid "Assigned on save"
@@ -437,11 +437,11 @@ msgstr "迁移完成后可用"
 
 #: includes/Core/Series.php:74
 msgid "Back to Series"
-msgstr "返回序列列表"
+msgstr "返回系列列表"
 
 #: includes/Admin/ChannelHealth.php:186 includes/Admin/SeriesHealth.php:153
 msgid "Back to all Series"
-msgstr "返回所有序列"
+msgstr "返回所有系列"
 
 #: includes/Admin/SequenceManager.php:572
 msgid "Before target"
@@ -467,7 +467,7 @@ msgstr "无法启用书籍式结构，因此已还原排序值写入。"
 
 #: includes/Core/BookStructure.php:280
 msgid "Book structure is already enabled for this Series."
-msgstr "此序列已启用书籍式结构。"
+msgstr "此系列已启用书籍式结构。"
 
 #: includes/Admin/ClassicEditor.php:206
 msgid "Book structure scope"
@@ -477,7 +477,7 @@ msgstr "书籍式结构范围"
 msgid ""
 "Book-like tracks become canonical after this Series passes the Structure "
 "compatibility preview."
-msgstr "此序列通过结构兼容性预览后，书籍式轨道将成为规范结构。"
+msgstr "此系列通过结构兼容性预览后，书籍式轨道将成为规范结构。"
 
 #: includes/Admin/ChannelHealth.php:428
 msgid "Both exact entry points appear self-canonical."
@@ -489,7 +489,7 @@ msgstr "候选项"
 
 #: includes/Admin/SequenceManager.php:142
 msgid "Canonical Series order and structure"
-msgstr "规范序列篇序与结构"
+msgstr "规范系列篇序与结构"
 
 #: includes/Admin/ChannelHealth.php:286
 msgid "Canonical URL"
@@ -497,7 +497,7 @@ msgstr "Canonical URL"
 
 #: includes/Core/Sequence.php:154
 msgid "Canonical sequence order could not be activated for the new Series."
-msgstr "无法为新序列启用规范篇序。"
+msgstr "无法为新系列启用规范篇序。"
 
 #: includes/Admin/ControlCenter.php:475
 msgid ""
@@ -556,7 +556,7 @@ msgstr "检查"
 
 #: includes/Admin/ControlCenter.php:408
 msgid "Check Series health"
-msgstr "检查序列健康状况"
+msgstr "检查系列健康状况"
 
 #: includes/Admin/ControlCenter.php:191
 msgid "Check and migrate old data"
@@ -599,20 +599,20 @@ msgstr "检查公开页面结果"
 
 #: includes/Admin/SequenceManager.php:451
 msgid "Choose Series-wide or season scope"
-msgstr "请选择全序列或单季范围"
+msgstr "请选择全系列或单季范围"
 
 #: includes/Admin/SequenceManager.php:170
 #: includes/Admin/SequenceManager.php:187
 msgid "Choose a Series"
-msgstr "选择序列"
+msgstr "选择系列"
 
 #: includes/Admin/ChannelHealth.php:148
 msgid "Choose a Series landing page"
-msgstr "选择一个序列入口页"
+msgstr "选择一个系列入口页"
 
 #: includes/Admin/SeriesHealth.php:102
 msgid "Choose a Series to inspect"
-msgstr "选择要检查的序列"
+msgstr "选择要检查的系列"
 
 #: includes/Admin/SequenceManager.php:453
 msgid "Choose a defined Season"
@@ -632,15 +632,15 @@ msgid ""
 "Choose a small image used decoratively beside this Series name in article "
 "title layers. It is separate from the Series cover."
 msgstr ""
-"选择一张小图像，作为装饰显示在文章标题层中的序列名旁。它与序列封面相互独立。"
+"选择一张小图像，作为装饰显示在文章标题层中的系列名旁。它与系列封面相互独立。"
 
 #: includes/Core/Sequence.php:368
 msgid "Choose an ordered Series before starting Sequence Manager."
-msgstr "启动篇序管理器前，请先选择一个有序序列。"
+msgstr "启动篇序管理器前，请先选择一个有序系列。"
 
 #: assets/editor.js:316
 msgid "Choose from the seasons defined for this Series."
-msgstr "从该序列已定义的季中选择。"
+msgstr "从该系列已定义的季中选择。"
 
 #: includes/Admin/ControlCenter.php:496
 msgid "Choose how titles appear"
@@ -651,7 +651,7 @@ msgid ""
 "Choose how titles should appear, then test one ordinary article and one "
 "Series article before wider use."
 msgstr ""
-"先选择标题显示方式，再各测试一篇普通文章和一篇序列文章，确认后再扩大使用范"
+"先选择标题显示方式，再各测试一篇普通文章和一篇系列文章，确认后再扩大使用范"
 "围。"
 
 #: includes/Core/Series.php:671
@@ -662,7 +662,7 @@ msgstr "选择图像"
 msgid ""
 "Choose one existing Series. Series creation and structure remain on the "
 "Series screen."
-msgstr "请选择一个已有序列。序列的创建与结构设置仍在序列页面完成。"
+msgstr "请选择一个已有系列。系列的创建与结构设置仍在系列页面完成。"
 
 #: includes/Admin/ControlCenter.php:508
 msgid ""
@@ -692,7 +692,7 @@ msgstr "请选择把文章放在目标文章之前还是之后。"
 msgid ""
 "Choose whether this non-main entry belongs to the entire Series or one "
 "season."
-msgstr "请选择此非主要文章归属全序列还是其中一季。"
+msgstr "请选择此非主要文章归属全系列还是其中一季。"
 
 #: includes/Admin/ControlCenter.php:335
 msgid "Chosen at placement"
@@ -713,7 +713,7 @@ msgid ""
 "sitemap, search-title, and social-title ownership before changing SEO "
 "settings."
 msgstr ""
-"先比较序列与分类归档页，再确认 canonical、robots、站点地图、搜索标题和社交标"
+"先比较系列与分类归档页，再确认 canonical、robots、站点地图、搜索标题和社交标"
 "题分别由谁负责，然后才修改 SEO 设置。"
 
 #: includes/Admin/ControlCenter.php:432
@@ -721,7 +721,7 @@ msgid ""
 "Compare Series and Category entry points, then inspect visible, search, "
 "social, canonical, robots, and sitemap ownership."
 msgstr ""
-"比较序列与分类入口页，再检查可见标题、搜索标题、社交标题、canonical、robots "
+"比较系列与分类入口页，再检查可见标题、搜索标题、社交标题、canonical、robots "
 "和站点地图的归属。"
 
 #: includes/Admin/ChannelHealth.php:78
@@ -731,7 +731,7 @@ msgid ""
 "metadata, taxonomy relationships, robots, canonical URLs, or sitemap "
 "settings."
 msgstr ""
-"比较公开的序列与分类入口页，再检查可见标题、搜索标题和社交标题由哪个系统负"
+"比较公开的系列与分类入口页，再检查可见标题、搜索标题和社交标题由哪个系统负"
 "责。本页不会修改 SEO 元数据、分类关系、robots、canonical URL 或站点地图设置。"
 
 #: includes/Core/Series.php:466
@@ -750,7 +750,7 @@ msgstr "已完成的批次均已保存。请返回迁移页面继续同一个任
 
 #: includes/Admin/ChannelHealth.php:426
 msgid "Configured to consolidate on Series."
-msgstr "已配置为归并到序列页。"
+msgstr "已配置为归并到系列页。"
 
 #: includes/Migration/AdminPage.php:336
 msgid "Confirm"
@@ -891,13 +891,13 @@ msgstr "无法启动回滚；当前任务标记已安全恢复。"
 
 #: includes/Admin/ControlCenter.php:504
 msgid "Create a Series if needed"
-msgstr "按需创建序列"
+msgstr "按需创建系列"
 
 #: includes/Admin/ControlCenter.php:348
 msgid ""
 "Create a Series only when several articles belong together. Ordinary "
 "articles do not require one."
-msgstr "只有多篇文章确实属于同一组时才创建序列；普通文章不需要序列。"
+msgstr "只有多篇文章确实属于同一组时才创建系列；普通文章不需要系列。"
 
 #: includes/Core/Series.php:909
 msgid "Current Season"
@@ -943,11 +943,11 @@ msgstr "默认模板"
 
 #: includes/Admin/SequenceManager.php:317
 msgid "Define at least one season before managing this Series order."
-msgstr "管理此序列篇序前，请至少定义一季。"
+msgstr "管理此系列篇序前，请至少定义一季。"
 
 #: assets/editor.js:317
 msgid "Define seasons on the Series edit screen first."
-msgstr "请先在序列编辑页面定义季。"
+msgstr "请先在系列编辑页面定义季。"
 
 #: includes/Migration/AdminPage.php:85
 msgid "Definitions found"
@@ -1055,7 +1055,7 @@ msgstr "动态标题层"
 msgid ""
 "Each article can belong to one Series. Ordered and unordered Series remain "
 "separate reading models."
-msgstr "每篇文章只能属于一个序列；有序与无序序列仍是两种不同的阅读模型。"
+msgstr "每篇文章只能属于一个系列；有序与无序系列仍是两种不同的阅读模型。"
 
 #: includes/Admin/ChannelHealth.php:245
 msgid "Edit Category"
@@ -1063,14 +1063,14 @@ msgstr "编辑分类"
 
 #: includes/Core/Series.php:68 includes/Admin/ChannelHealth.php:208
 msgid "Edit Series"
-msgstr "编辑序列"
+msgstr "编辑系列"
 
 #: includes/Admin/SequenceManager.php:237
 #: includes/Admin/SequenceManager.php:332
 #: includes/Admin/SequenceManager.php:391
 #: includes/Admin/SequenceManager.php:482 includes/Admin/SeriesHealth.php:180
 msgid "Edit Series definition"
-msgstr "编辑序列定义"
+msgstr "编辑系列定义"
 
 #: includes/Admin/ControlCenter.php:512
 msgid "Edit one sample article"
@@ -1099,16 +1099,16 @@ msgstr "启用 [wptl_series_navigation] 以便手动放置。"
 
 #: includes/Admin/SequenceManager.php:413
 msgid "Enable advanced structure for this Series"
-msgstr "为此序列启用高级结构"
+msgstr "为此系列启用高级结构"
 
 #: includes/Core/Series.php:908 includes/Core/Schema.php:164
 #: includes/Admin/SeriesHealth.php:345
 msgid "Entire Series"
-msgstr "全序列"
+msgstr "全系列"
 
 #: includes/Admin/SequenceManager.php:254
 msgid "Entire flat Series"
-msgstr "整个单层序列"
+msgstr "整个单层系列"
 
 #: includes/Admin/SequenceManager.php:439
 msgid "Entries"
@@ -1144,7 +1144,7 @@ msgstr "完全相同的公开文章集合"
 
 #: includes/Integrations/RankMath.php:100
 msgid "Example Series"
-msgstr "示例序列"
+msgstr "示例系列"
 
 #: includes/Integrations/RankMath.php:88 includes/Integrations/RankMath.php:112
 msgid "Example subtitle"
@@ -1156,7 +1156,7 @@ msgstr "示例标题"
 
 #: includes/Admin/ClassicEditor.php:128
 msgid "Explains or extends the main title. It is not a Series label."
-msgstr "用于解释或延伸主标题，不是序列标签。"
+msgstr "用于解释或延伸主标题，不是系列标签。"
 
 #: includes/Admin/ChannelHealth.php:405
 msgid "Explicit Rank Math override"
@@ -1191,7 +1191,7 @@ msgstr ""
 
 #: includes/Admin/ControlCenter.php:343
 msgid "Finish migration before assigning Series in the article editor."
-msgstr "请先完成迁移，再在文章编辑器中分配序列。"
+msgstr "请先完成迁移，再在文章编辑器中分配系列。"
 
 #: includes/Admin/ControlCenter.php:189
 msgid "Finish the old-title migration first"
@@ -1207,7 +1207,7 @@ msgstr "不分季"
 
 #: includes/Admin/SequenceManager.php:455
 msgid "Flat Series cannot use season scope"
-msgstr "平铺序列不能使用单季范围"
+msgstr "平铺系列不能使用单季范围"
 
 #: includes/Presentation/SettingsPage.php:452
 msgid "For example: ·"
@@ -1217,7 +1217,7 @@ msgstr "例如：·"
 msgid ""
 "For long-form and Series features: the same hierarchy with a restrained "
 "accent rail."
-msgstr "适用于长文和序列专题：保持相同标题层级，并加入克制的强调边线。"
+msgstr "适用于长文和系列专题：保持相同标题层级，并加入克制的强调边线。"
 
 #: includes/Presentation/Presets.php:47
 msgid ""
@@ -1230,7 +1230,7 @@ msgid ""
 "For short titles and compact Series entries: keep Series context above while "
 "title and subtitle share one visual line."
 msgstr ""
-"适用于短标题和紧凑的序列文章：序列题头保留在上方，标题与副标题在视觉上同行。"
+"适用于短标题和紧凑的系列文章：系列题头保留在上方，标题与副标题在视觉上同行。"
 
 #: includes/Presentation/SettingsPage.php:322
 msgid ""
@@ -1337,23 +1337,23 @@ msgstr "初始化篇序管理器"
 msgid ""
 "Initialize this Series in Sequence Manager to insert articles without "
 "renumbering later entries."
-msgstr "请在篇序管理器中初始化此序列，以便插入文章而不必重排后续篇号。"
+msgstr "请在篇序管理器中初始化此系列，以便插入文章而不必重排后续篇号。"
 
 #: includes/Core/Sequence.php:993
 msgid "Initialize this ordered Series before moving articles."
-msgstr "请先初始化此有序序列，再移动文章。"
+msgstr "请先初始化此有序系列，再移动文章。"
 
 #: includes/Core/BookStructure.php:283
 msgid ""
 "Initialize this ordered Series in Sequence Manager before enabling book "
 "structure."
-msgstr "启用书籍式结构前，请先在篇序管理器中初始化此有序序列。"
+msgstr "启用书籍式结构前，请先在篇序管理器中初始化此有序系列。"
 
 #: includes/Admin/SequenceManager.php:415
 msgid ""
 "Initialize this ordered Series in the Sequence view before enabling advanced "
 "structure."
-msgstr "启用高级结构前，请先在“篇序”视图中初始化此有序序列。"
+msgstr "启用高级结构前，请先在“篇序”视图中初始化此有序系列。"
 
 #: includes/Presentation/Presets.php:41
 msgid "Inline title"
@@ -1467,7 +1467,7 @@ msgstr "旧字段有变化"
 msgid ""
 "Legacy non-main roles are never silently promoted to Series-wide or season "
 "scope."
-msgstr "旧的非主要角色绝不会被静默归入全序列或单季范围。"
+msgstr "旧的非主要角色绝不会被静默归入全系列或单季范围。"
 
 #: includes/Admin/SequenceManager.php:250
 msgid "Legacy order is unambiguous"
@@ -1499,14 +1499,14 @@ msgstr "主要文章"
 
 #: includes/Admin/SequenceManager.php:454
 msgid "Main articles cannot be Series-wide"
-msgstr "主要文章不能设为全序列范围"
+msgstr "主要文章不能设为全系列范围"
 
 #: includes/Admin/SequenceManager.php:493
 msgid ""
 "Main articles in an unordered Series keep the Series archive sort setting. "
 "This track is shown for context but is not manually rearranged."
 msgstr ""
-"无序序列中的主要文章继续使用序列归档排序设置。此轨道仅供查看上下文，不能手动"
+"无序系列中的主要文章继续使用系列归档排序设置。此轨道仅供查看上下文，不能手动"
 "重排。"
 
 #: includes/Presentation/SettingsPage.php:58
@@ -1520,7 +1520,7 @@ msgstr "会修改 SEO"
 #: includes/Admin/ControlCenter.php:409 includes/Admin/ControlCenter.php:509
 #: includes/Admin/SeriesHealth.php:105
 msgid "Manage Series"
-msgstr "管理序列"
+msgstr "管理系列"
 
 #: includes/Admin/SequenceManager.php:144
 msgid ""
@@ -1528,7 +1528,7 @@ msgid ""
 "advanced structure only when a Series also needs introductions, epilogues, "
 "appendices, or Series-wide and season tracks."
 msgstr ""
-"可独立管理每个有序序列的阅读篇序。只有当序列还需要序文、尾声、附录或全序列与"
+"可独立管理每个有序系列的阅读篇序。只有当系列还需要序文、尾声、附录或全系列与"
 "单季轨道时，才启用高级结构。"
 
 #: includes/Admin/SeriesHealth.php:236
@@ -1697,7 +1697,7 @@ msgstr "需要检查范围"
 msgid ""
 "Neutral and theme-led for most articles: Series context above, subtitle "
 "below."
-msgstr "适合大多数文章的中性样式：由主题主导视觉，序列题头在上，副标题在下。"
+msgstr "适合大多数文章的中性样式：由主题主导视觉，系列题头在上，副标题在下。"
 
 #: includes/Admin/SequenceManager.php:646
 msgid "New"
@@ -1705,14 +1705,14 @@ msgstr "新增"
 
 #: includes/Core/Series.php:71
 msgid "New Series Name"
-msgstr "新序列名称"
+msgstr "新系列名称"
 
 #: includes/Core/Series.php:373
 msgid ""
 "New Series start with the 0.11 book-structure model. Existing Series use a "
 "separate read-only preview before activation."
 msgstr ""
-"新序列直接使用 0.11 书籍式结构模型；现有序列须先经过单独的只读预览再启用。"
+"新系列直接使用 0.11 书籍式结构模型；现有系列须先经过单独的只读预览再启用。"
 
 #: includes/Core/Series.php:910
 msgid "Newest first"
@@ -1744,19 +1744,19 @@ msgstr "没有可供回滚的篇序管理器初始化任务。"
 
 #: includes/Admin/ClassicEditor.php:135
 msgid "No Series"
-msgstr "无序列"
+msgstr "无系列"
 
 #: includes/Core/Series.php:73
 msgid "No Series found."
-msgstr "未找到序列。"
+msgstr "未找到系列。"
 
 #: includes/Admin/ChannelHealth.php:154 includes/Admin/SeriesHealth.php:117
 msgid "No Series have been created yet."
-msgstr "尚未创建序列。"
+msgstr "尚未创建系列。"
 
 #: includes/Admin/SeriesHealth.php:117
 msgid "No Series match this search."
-msgstr "没有序列符合此搜索条件。"
+msgstr "没有系列符合此搜索条件。"
 
 #: includes/Admin/ChannelHealth.php:398
 msgid "No WP Title Layer variable"
@@ -1796,13 +1796,13 @@ msgid ""
 "empty-string rows are not included, and this does not inspect unrelated ACF "
 "fields used by a theme or another plugin."
 msgstr ""
-"这五个 ACF 序列字段中未发现非空存储值。严格为空字符串的记录不在统计范围内；这"
+"这五个 ACF 系列字段中未发现非空存储值。严格为空字符串的记录不在统计范围内；这"
 "里也不会检查主题或其他插件使用的无关 ACF 字段。"
 
 #: includes/Admin/ControlCenter.php:1046
 msgid ""
 "No non-empty values were found in the five audited old ACF Series fields."
-msgstr "审计的五个旧 ACF 序列字段中未发现非空值。"
+msgstr "审计的五个旧 ACF 系列字段中未发现非空值。"
 
 #: includes/Admin/ControlCenter.php:262
 msgid "No old data found"
@@ -1816,7 +1816,7 @@ msgstr "不指定归属分类"
 msgid ""
 "No public Category currently shares an eligible published article with this "
 "Series."
-msgstr "目前没有公开分类与此序列共享符合条件的已发布文章。"
+msgstr "目前没有公开分类与此系列共享符合条件的已发布文章。"
 
 #: includes/Presentation/SettingsPage.php:288
 msgid "No public content types are available for automatic placement."
@@ -1824,7 +1824,7 @@ msgstr "没有可用于自动放置的公开内容类型。"
 
 #: templates/series-archive.php:79
 msgid "No published articles are available in this Series."
-msgstr "此序列暂无可公开访问的已发布文章。"
+msgstr "此系列暂无可公开访问的已发布文章。"
 
 #: includes/Core/Sequence.php:437
 msgid "No resumable Sequence Manager initialization was found."
@@ -1836,7 +1836,7 @@ msgstr "没有结构问题"
 
 #: includes/Admin/SeriesHealth.php:271
 msgid "No structural issues were found in this Series."
-msgstr "此序列未发现结构问题。"
+msgstr "此系列未发现结构问题。"
 
 #: includes/Admin/PostListColumns.php:70
 msgid "No subtitle"
@@ -1858,7 +1858,7 @@ msgstr "未检测到受支持的 SEO 服务"
 #: includes/Admin/ChannelHealth.php:444
 msgid ""
 "No term override is stored; Rank Math should use this Series archive URL."
-msgstr "没有保存分类项级覆盖值；Rank Math 应使用此序列归档页 URL。"
+msgstr "没有保存分类项级覆盖值；Rank Math 应使用此系列归档页 URL。"
 
 #: includes/Admin/ChannelHealth.php:469
 msgid ""
@@ -1943,7 +1943,7 @@ msgstr ""
 msgid ""
 "Nothing is written until you inspect one Series and explicitly confirm its "
 "compatibility preview."
-msgstr "在检查一个序列并明确确认其兼容预览前，插件不会写入任何数据。"
+msgstr "在检查一个系列并明确确认其兼容预览前，插件不会写入任何数据。"
 
 #: includes/Admin/SeriesHealth.php:322
 msgid "Obsolete legacy position changed"
@@ -1958,7 +1958,7 @@ msgid ""
 "Off by default to preserve existing layouts. Each Series can inherit, show, "
 "or hide these images on its own edit screen."
 msgstr ""
-"默认为关闭，以保留现有布局。每个序列都可在自己的编辑页面选择继承、显示或隐藏"
+"默认为关闭，以保留现有布局。每个系列都可在自己的编辑页面选择继承、显示或隐藏"
 "这些图像。"
 
 #: includes/Reader/AdminSettings.php:154
@@ -1966,7 +1966,7 @@ msgid ""
 "Off by default. Each Series can inherit, show, or hide excerpts on its own "
 "edit screen. Theme archives, Category, and Search are unchanged."
 msgstr ""
-"默认关闭。每个序列可在自身编辑页面继承、显示或隐藏摘要。主题归档页、分类归档"
+"默认关闭。每个系列可在自身编辑页面继承、显示或隐藏摘要。主题归档页、分类归档"
 "页和搜索结果不受影响。"
 
 #: includes/Presentation/SettingsPage.php:351
@@ -1974,7 +1974,7 @@ msgid ""
 "Off by default. Each Series can inherit, show, or hide its icon. The "
 "decorative image never becomes part of the H1, SEO title, or social title."
 msgstr ""
-"默认关闭。每个序列可继承、显示或隐藏自身图标。此装饰图像绝不会成为 H1、SEO 标"
+"默认关闭。每个系列可继承、显示或隐藏自身图标。此装饰图像绝不会成为 H1、SEO 标"
 "题或社交分享标题的一部分。"
 
 #: includes/Admin/ControlCenter.php:216
@@ -2003,7 +2003,7 @@ msgstr "连载中"
 
 #: includes/Core/Sequence.php:140
 msgid "Only an empty new Series can skip the sequence migration preview."
-msgstr "只有空的新序列可以跳过篇序迁移预览。"
+msgstr "只有空的新系列可以跳过篇序迁移预览。"
 
 #: includes/Reader/AdminSettings.php:178
 msgid ""
@@ -2011,8 +2011,8 @@ msgid ""
 "ordered Series with seasons, choose Entire Series or Current Season on that "
 "Series’ edit screen. Existing Series default to Entire Series."
 msgstr ""
-"只包含公开、已发布且无密码保护的文章。对于有序且分季的序列，请在其编辑页面选"
-"择“全序列”或“当前季”；现有序列默认使用“全序列”。"
+"只包含公开、已发布且无密码保护的文章。对于有序且分季的系列，请在其编辑页面选"
+"择“全系列”或“当前季”；现有系列默认使用“全系列”。"
 
 #: includes/Admin/SequenceManager.php:629
 msgid ""
@@ -2047,7 +2047,7 @@ msgid ""
 "inspect term-level SEO, canonical, robots, sitemap, and social-title "
 "settings."
 msgstr ""
-"打开一个序列，将其公开文章集合与分类归档页比较，并检查分类项级 SEO、"
+"打开一个系列，将其公开文章集合与分类归档页比较，并检查分类项级 SEO、"
 "canonical、robots、站点地图和社交标题设置。"
 
 #: includes/Admin/ControlCenter.php:473
@@ -2074,14 +2074,14 @@ msgstr "可选"
 
 #: assets/editor.js:418
 msgid "Optional display text. Leave blank to use the Series short label."
-msgstr "可选显示文字。留空时使用序列短标签。"
+msgstr "可选显示文字。留空时使用系列短标签。"
 
 #: includes/Core/Series.php:493
 msgid ""
 "Optional editorial organization only. It does not make Series a child "
 "taxonomy and never adds or removes Category assignments on articles."
 msgstr ""
-"仅用于可选的编辑组织。它不会把序列变成分类的子级，也绝不会增删文章的分类分"
+"仅用于可选的编辑组织。它不会把系列变成分类的子级，也绝不会增删文章的分类分"
 "配。"
 
 #: includes/Admin/ControlCenter.php:361
@@ -2121,13 +2121,13 @@ msgstr "有序"
 
 #: includes/Admin/SequenceManager.php:478
 msgid "Ordered Series"
-msgstr "有序序列"
+msgstr "有序系列"
 
 #: includes/Admin/ControlCenter.php:421
 msgid ""
 "Ordered Series can offer an archive, previous/next links, a start link, and "
 "reading progress."
-msgstr "有序序列可以提供归档页、上一篇／下一篇、起始阅读链接和阅读进度。"
+msgstr "有序系列可以提供归档页、上一篇／下一篇、起始阅读链接和阅读进度。"
 
 #: includes/Migration/AdminPage.php:66
 msgid "Orphaned legacy data"
@@ -2152,7 +2152,7 @@ msgstr "其他服务会被标记为渠道所有者，但其私有设置不会在
 
 #: includes/Admin/SeriesHealth.php:323
 msgid "Outside the Series Category branch"
-msgstr "不属于序列指定的分类栏目分支"
+msgstr "不属于系列指定的分类栏目分支"
 
 #: includes/Admin/ChannelHealth.php:214
 msgid "Overlapping Categories"
@@ -2162,7 +2162,7 @@ msgstr "存在重叠的分类"
 msgid ""
 "Overrides the relevant structured or supported-theme subtitle setting for "
 "this Series only."
-msgstr "仅为此序列覆盖相应的结构化布局或受支持主题的副标题设置。"
+msgstr "仅为此系列覆盖相应的结构化布局或受支持主题的副标题设置。"
 
 #: includes/Admin/ChannelHealth.php:116
 msgid "Owned by WP Title Layer and the active theme."
@@ -2217,7 +2217,7 @@ msgstr "筹备中"
 
 #: includes/Admin/ChannelHealth.php:416
 msgid "Points to this Series"
-msgstr "指向此序列"
+msgstr "指向此系列"
 
 #: includes/Admin/SequenceManager.php:424
 msgid "Populated structure tracks"
@@ -2271,7 +2271,7 @@ msgstr "上一篇／下一篇导航"
 
 #: includes/Migration/AdminPage.php:79
 msgid "Previous ACF Series fields"
-msgstr "旧 ACF 序列字段"
+msgstr "旧 ACF 系列字段"
 
 #: includes/Reader/Archive.php:308 includes/Admin/ChannelHealth.php:496
 #: includes/Admin/SeriesHealth.php:402
@@ -2297,7 +2297,7 @@ msgstr "SEO 服务未经验证"
 
 #: includes/Admin/ChannelHealth.php:213
 msgid "Public Series articles"
-msgstr "序列中的公开文章"
+msgstr "系列中的公开文章"
 
 #: includes/Core/Series.php:728
 msgid "Public URL ID"
@@ -2310,7 +2310,7 @@ msgstr "公开标签"
 
 #: includes/Admin/ChannelHealth.php:205
 msgid "Public landing-page overlap and channel ownership for this Series."
-msgstr "此序列的公开入口页重叠情况与渠道归属。"
+msgstr "此系列的公开入口页重叠情况与渠道归属。"
 
 #: includes/Admin/ClassicEditor.php:193
 msgid "Public structure label"
@@ -2335,7 +2335,7 @@ msgstr "已发布归档数量"
 msgid ""
 "Published posts in an ordered Series require a non-negative sequence "
 "position."
-msgstr "有序序列中的已发布文章必须填写非负篇序。"
+msgstr "有序系列中的已发布文章必须填写非负篇序。"
 
 #: includes/Admin/ChannelHealth.php:213
 msgid "Published, public post types, without passwords."
@@ -2528,7 +2528,7 @@ msgstr "替换主题文章标题（推荐）"
 
 #: includes/Admin/SequenceManager.php:456
 msgid "Replace the unrecognized Series role"
-msgstr "更正无法识别的序列角色"
+msgstr "更正无法识别的系列角色"
 
 #: includes/Admin/SequenceManager.php:457
 msgid "Replace the unrecognized structure scope"
@@ -2542,7 +2542,7 @@ msgstr "报告分页"
 msgid ""
 "Resolution order: post override, Series default, category rule, then the "
 "global default."
-msgstr "解析优先级：文章覆盖设置、序列默认值、分类规则，最后是全局默认值。"
+msgstr "解析优先级：文章覆盖设置、系列默认值、分类规则，最后是全局默认值。"
 
 #: includes/Core/BookStructure.php:289
 msgid "Resolve every scope and Season issue before enabling book structure."
@@ -2572,7 +2572,7 @@ msgstr "审查"
 
 #: includes/Admin/ControlCenter.php:518
 msgid "Review Series structure"
-msgstr "检查序列结构"
+msgstr "检查系列结构"
 
 #: includes/Admin/ChannelHealth.php:132
 msgid "Review Sitemap Settings"
@@ -2709,7 +2709,7 @@ msgstr "SEO 服务"
 
 #: includes/Admin/ChannelHealth.php:215
 msgid "Same complete public article set as this Series."
-msgstr "公开文章全集与此序列完全相同。"
+msgstr "公开文章全集与此系列完全相同。"
 
 #: includes/Presentation/SettingsPage.php:441
 msgid "Same-line separator"
@@ -2754,7 +2754,7 @@ msgstr "范围／角色"
 
 #: includes/Admin/SeriesHealth.php:317
 msgid "Scope conflicts with role or Series structure"
-msgstr "范围与角色或序列结构冲突"
+msgstr "范围与角色或系列结构冲突"
 
 #: includes/Admin/SequenceManager.php:350
 #: includes/Admin/SequenceManager.php:502 includes/Admin/SeriesHealth.php:112
@@ -2763,11 +2763,11 @@ msgstr "搜索"
 
 #: includes/Core/Series.php:66 includes/Admin/SeriesHealth.php:110
 msgid "Search Series"
-msgstr "搜索序列"
+msgstr "搜索系列"
 
 #: includes/Admin/SeriesHealth.php:111
 msgid "Search Series by name or slug"
-msgstr "按名称或别名搜索序列"
+msgstr "按名称或别名搜索系列"
 
 #: includes/Integrations/RankMath.php:41
 msgid "Search and sharing titles"
@@ -2789,7 +2789,7 @@ msgstr "搜索描述"
 
 #: includes/Admin/SequenceManager.php:184 includes/Admin/SequenceManager.php:185
 msgid "Search or choose a Series"
-msgstr "搜索或选择序列"
+msgstr "搜索或选择系列"
 
 #: includes/Admin/SequenceManager.php:570
 msgid "Search target article"
@@ -2817,7 +2817,7 @@ msgid ""
 "Season definitions are read-only in the REST API. Use the Series edit screen "
 "so stable public IDs can be preserved."
 msgstr ""
-"REST API 中的季定义为只读。请使用序列编辑页面，以确保稳定的公开编号得到保留。"
+"REST API 中的季定义为只读。请使用系列编辑页面，以确保稳定的公开编号得到保留。"
 
 #: includes/Admin/SeriesHealth.php:314
 msgid "Season missing"
@@ -2898,7 +2898,7 @@ msgstr ""
 
 #: includes/Core/Sequence.php:537
 msgid "Sequence Manager could not commit the Series activation marker."
-msgstr "篇序管理器无法提交序列启用标记。"
+msgstr "篇序管理器无法提交系列启用标记。"
 
 #: includes/Core/Sequence.php:522
 msgid "Sequence Manager could not verify the committed scope revisions."
@@ -2909,7 +2909,7 @@ msgid ""
 "Sequence Manager owns the private rank. Saving after changing Series or "
 "season appends this article to that scope."
 msgstr ""
-"内部排序值由篇序管理器管理。更换序列或季后保存，会把本文追加到该排序范围末"
+"内部排序值由篇序管理器管理。更换系列或季后保存，会把本文追加到该排序范围末"
 "尾。"
 
 #: includes/Core/Sequence.php:556
@@ -2936,7 +2936,7 @@ msgid ""
 "optional and stays read-only until every legacy scope is explicit and this "
 "Series is enabled."
 msgstr ""
-"篇序管理始终单独可用。高级结构为可选功能；只有在所有旧范围都已明确并为此序列"
+"篇序管理始终单独可用。高级结构为可选功能；只有在所有旧范围都已明确并为此系列"
 "启用高级结构后，它才会脱离只读状态。"
 
 #: includes/Admin/SequenceManager.php:203
@@ -2958,168 +2958,174 @@ msgstr "篇序的季范围"
 #: includes/Admin/ClassicEditor.php:133 includes/Admin/SeriesHealth.php:121
 #: templates/series-archive.php:46
 msgid "Series"
-msgstr "序列"
+msgstr "系列"
+
+#. translators: %s: editor-defined public structure label, for example "Preface".
+#: includes/Reader/Archive.php
+#, php-format
+msgid "Series %s"
+msgstr "系列%s"
 
 #: assets/editor.js:276
 msgid "Series / Category mismatch"
-msgstr "序列与分类不一致"
+msgstr "系列与分类不一致"
 
 #: includes/Admin/SeriesHealth.php:42 includes/Admin/SeriesHealth.php:79
 msgid "Series Content Health"
-msgstr "序列内容健康检查"
+msgstr "系列内容健康检查"
 
 #: includes/Admin/SeriesHealth.php:43
 msgid "Series Health"
-msgstr "序列健康检查"
+msgstr "系列健康检查"
 
 #: includes/Core/Series.php:75
 msgid "Series Link"
-msgstr "序列链接"
+msgstr "系列链接"
 
 #: includes/Admin/SequenceManager.php:51 includes/Admin/SequenceManager.php:143
 msgid "Series Sequence and Structure Manager"
-msgstr "序列篇序与结构管理器"
+msgstr "系列篇序与结构管理器"
 
 #: includes/Admin/ChannelHealth.php:221
 msgid "Series and Category entry points"
-msgstr "序列与分类入口页"
+msgstr "系列与分类入口页"
 
 #: includes/Core/BookStructure.php:173
 msgid "Series appendices"
-msgstr "全序列附录"
+msgstr "全系列附录"
 
 #: includes/Admin/ControlCenter.php:364
 msgid "Series archive"
-msgstr "序列归档页"
+msgstr "系列归档页"
 
 #: includes/Reader/AdminSettings.php:30
 msgid "Series archive layout"
-msgstr "序列归档页布局"
+msgstr "系列归档页布局"
 
 #: templates/series-archive.php:135
 msgid "Series archive pages"
-msgstr "序列归档页分页"
+msgstr "系列归档页分页"
 
 #: includes/Admin/ControlCenter.php:341
 msgid "Series available"
-msgstr "序列可用"
+msgstr "系列可用"
 
 #: includes/Presentation/SettingsPage.php:424
 msgid "Series context"
-msgstr "序列题头"
+msgstr "系列题头"
 
 #: includes/Core/Series.php:625
 msgid "Series cover"
-msgstr "序列封面"
+msgstr "系列封面"
 
 #: assets/editor.js:224
 msgid "Series default"
-msgstr "序列默认值"
+msgstr "系列默认值"
 
 #. translators: %s: Series name.
 #: includes/Presentation/TemplateResolver.php:48
 #, php-format
 msgid "Series default: %s"
-msgstr "序列默认值：%s"
+msgstr "系列默认值：%s"
 
 #: includes/Admin/ControlCenter.php:357
 msgid "Series definition"
-msgstr "序列定义"
+msgstr "系列定义"
 
 #: includes/Admin/SequenceManager.php:394
 msgid "Series entries"
-msgstr "序列条目"
+msgstr "系列条目"
 
 #: includes/Core/BookStructure.php:172
 msgid "Series epilogues"
-msgstr "全序列尾声／后记"
+msgstr "全系列尾声／后记"
 
 #: includes/Core/Series.php:636
 msgid "Series icon"
-msgstr "序列图标"
+msgstr "系列图标"
 
 #: includes/Core/Series.php:366 includes/Core/Series.php:446
 msgid "Series icon in article title layers"
-msgstr "文章标题层中的序列图标"
+msgstr "文章标题层中的系列图标"
 
 #: includes/Presentation/SettingsPage.php:89
 msgid "Series icons in article title layers"
-msgstr "文章标题层中的序列图标"
+msgstr "文章标题层中的系列图标"
 
 #: includes/Core/BookStructure.php:160
 msgid "Series introductions"
-msgstr "全序列序文／前言"
+msgstr "全系列序文／前言"
 
 #: includes/Admin/ChannelHealth.php:427
 msgid "Series is configured to consolidate on Category."
-msgstr "序列已配置为归并到分类页。"
+msgstr "系列已配置为归并到分类页。"
 
 #: includes/Admin/SequenceManager.php:201
 msgid "Series management status"
-msgstr "序列管理状态"
+msgstr "系列管理状态"
 
 #: includes/Admin/SequenceManager.php:209
 msgid "Series manager views"
-msgstr "序列管理视图"
+msgstr "系列管理视图"
 
 #: includes/Reader/AdminSettings.php:23
 msgid "Series reading experience"
-msgstr "序列阅读体验"
+msgstr "系列阅读体验"
 
 #: templates/series-navigation.php:26
 msgid "Series reading navigation"
-msgstr "序列阅读导航"
+msgstr "系列阅读导航"
 
 #: includes/Admin/ChannelHealth.php:124
 #, php-format
 msgid "Series robots: %s"
-msgstr "序列 robots：%s"
+msgstr "系列 robots：%s"
 
 #: includes/Admin/ClassicEditor.php:198
 msgid "Series role"
-msgstr "序列角色"
+msgstr "系列角色"
 
 #: includes/Admin/SeriesHealth.php:318
 msgid "Series role is not recognized"
-msgstr "无法识别序列角色"
+msgstr "无法识别系列角色"
 
 #: includes/Admin/ChannelHealth.php:118
 msgid "Series search title"
-msgstr "序列搜索标题"
+msgstr "系列搜索标题"
 
 #: includes/Core/Series.php:321 includes/Core/Series.php:395
 msgid "Series status"
-msgstr "序列状态"
+msgstr "系列状态"
 
 #: includes/Admin/ChannelHealth.php:126
 msgid "Series taxonomy in sitemap: off"
-msgstr "站点地图中的序列分类法：关闭"
+msgstr "站点地图中的系列分类法：关闭"
 
 #: includes/Admin/ChannelHealth.php:126
 msgid "Series taxonomy in sitemap: on"
-msgstr "站点地图中的序列分类法：开启"
+msgstr "站点地图中的系列分类法：开启"
 
 #: includes/Admin/ChannelHealth.php:397
 msgid "Series term variable included"
-msgstr "已包含序列分类项变量"
+msgstr "已包含系列分类项变量"
 
 #: includes/Admin/ChannelHealth.php:396
 msgid "Series variable included"
-msgstr "已包含序列变量"
+msgstr "已包含系列变量"
 
 #: assets/editor.js:298
 msgid ""
 "Series-wide entries appear only on the complete Series archive; season "
 "entries appear only inside the chosen season."
-msgstr "全序列条目只显示在完整序列归档中；单季条目只显示在所选季中。"
+msgstr "全系列条目只显示在完整系列归档中；单季条目只显示在所选季中。"
 
 #: includes/Core/Series.php:467
 msgid "Series/Season scope and role tracks are canonical for this Series."
-msgstr "此序列以全序列／单季范围和角色轨道作为规范结构。"
+msgstr "此系列以全系列／单季范围和角色轨道作为规范结构。"
 
 #: includes/Admin/SeriesHealth.php:316
 msgid "Series/Season scope unresolved"
-msgstr "全序列／单季范围尚未确定"
+msgstr "全系列／单季范围尚未确定"
 
 #: includes/Admin/ControlCenter.php:424
 msgid "Set reading experience"
@@ -3139,7 +3145,7 @@ msgstr "设置分区"
 
 #: includes/Admin/ChannelHealth.php:229
 msgid "Shared / Series / Category"
-msgstr "共享／序列／分类"
+msgstr "共享／系列／分类"
 
 #: includes/Admin/ChannelHealth.php:216
 msgid "Shared members, but not the same complete landing page."
@@ -3157,14 +3163,14 @@ msgstr "显示"
 msgid ""
 "Show a Series icon beside its linked name when that Series has chosen an "
 "icon."
-msgstr "当序列已选择图标时，在其链接名称旁显示序列图标。"
+msgstr "当系列已选择图标时，在其链接名称旁显示系列图标。"
 
 #: includes/Reader/AdminSettings.php:164
 msgid ""
 "Show a compact featured image beside each article in WP Title Layer’s "
 "structured Series archive."
 msgstr ""
-"在 WP Title Layer 的结构化序列归档页中，于每篇文章旁显示紧凑的特色图像。"
+"在 WP Title Layer 的结构化系列归档页中，于每篇文章旁显示紧凑的特色图像。"
 
 #: includes/Presentation/SettingsPage.php:426
 msgid "Show above the title when available"
@@ -3187,18 +3193,18 @@ msgstr "显示冲突队列（共 %s 项）"
 #: includes/Reader/AdminSettings.php:135
 msgid ""
 "Show each article’s Subtitle in supported theme-owned Series archive cards."
-msgstr "在受支持且由主题控制的序列归档卡片中显示每篇文章的副标题。"
+msgstr "在受支持且由主题控制的系列归档卡片中显示每篇文章的副标题。"
 
 #: includes/Reader/AdminSettings.php:152
 msgid ""
 "Show each article’s WordPress excerpt in WP Title Layer’s structured Series "
 "archive."
-msgstr "在 WP Title Layer 的结构化序列归档页中显示每篇文章的 WordPress 摘要。"
+msgstr "在 WP Title Layer 的结构化系列归档页中显示每篇文章的 WordPress 摘要。"
 
 #: includes/Reader/AdminSettings.php:114
 msgid ""
 "Show each article’s subtitle in WP Title Layer’s structured Series archive."
-msgstr "在 WP Title Layer 的结构化序列归档页中显示每篇文章的副标题。"
+msgstr "在 WP Title Layer 的结构化系列归档页中显示每篇文章的副标题。"
 
 #: includes/Presentation/SettingsPage.php:434
 msgid "Show on a new line below the title"
@@ -3222,7 +3228,7 @@ msgstr "部分状态信息不可用"
 
 #: includes/Core/Series.php:284
 msgid "Sorry, you are not allowed to create or change Series terms."
-msgstr "抱歉，您无权创建或修改序列分类项。"
+msgstr "抱歉，您无权创建或修改系列分类项。"
 
 #: includes/Admin/SequenceManager.php:642
 msgid "Stable Season URL preview"
@@ -3230,7 +3236,7 @@ msgstr "稳定季网址预览"
 
 #: includes/Core/Sequence.php:143
 msgid "Stable Season identities could not be prepared for the new Series."
-msgstr "无法为新序列准备稳定的季标识。"
+msgstr "无法为新系列准备稳定的季标识。"
 
 #: includes/Presentation/Presets.php:31 includes/Presentation/Presets.php:85
 msgid "Standard title"
@@ -3325,23 +3331,23 @@ msgstr "模板覆盖"
 
 #: includes/Admin/ChannelHealth.php:381
 msgid "Term-level Rank Math override"
-msgstr "序列项级 Rank Math 覆盖"
+msgstr "系列项级 Rank Math 覆盖"
 
 #: includes/Admin/SeriesHealth.php:152
 msgid "That Series could not be inspected."
-msgstr "无法检查该序列。"
+msgstr "无法检查该系列。"
 
 #: includes/Admin/ChannelHealth.php:185
 msgid "That Series landing page could not be inspected."
-msgstr "无法检查该序列入口页。"
+msgstr "无法检查该系列入口页。"
 
 #: includes/Admin/SequenceManager.php:154
 msgid "That Series no longer exists."
-msgstr "该序列已不存在。"
+msgstr "该系列已不存在。"
 
 #: includes/Core/Series.php:1663
 msgid "That sequence position is already used in this Series and season."
-msgstr "此篇序已被同一序列、同一季中的其他文章使用。"
+msgstr "此篇序已被同一系列、同一季中的其他文章使用。"
 
 #: includes/Admin/ChannelHealth.php:455
 msgid "The Rank Math sitemap module is disabled."
@@ -3350,68 +3356,68 @@ msgstr "Rank Math 站点地图模块已关闭。"
 #: includes/Core/Sequence.php:454
 msgid ""
 "The Series activation marker changed outside the initialization journal."
-msgstr "序列启用标记在初始化日志之外发生了变化。"
+msgstr "系列启用标记在初始化日志之外发生了变化。"
 
 #: includes/Core/BookStructure.php:286
 msgid ""
 "The Series changed after the structure preview loaded. Reload and review it "
 "again."
-msgstr "载入结构预览后，序列已经发生变化。请重新载入并再次检查。"
+msgstr "载入结构预览后，系列已经发生变化。请重新载入并再次检查。"
 
 #: includes/Core/Sequence.php:374
 msgid ""
 "The Series changed after this preview was loaded. Reload and review the "
 "initialization preview again."
-msgstr "载入此预览后，序列已经发生变化。请重新载入并再次检查初始化预览。"
+msgstr "载入此预览后，系列已经发生变化。请重新载入并再次检查初始化预览。"
 
 #: includes/Core/Sequence.php:457
 msgid "The Series definition changed after the initialization preview."
-msgstr "初始化预览后，序列定义发生了变化。"
+msgstr "初始化预览后，系列定义发生了变化。"
 
 #: includes/Core/Sequence.php:591
 msgid ""
 "The Series definition changed during recovery, so rollback did not overwrite "
 "it."
-msgstr "恢复期间序列定义发生了变化，因此回滚没有覆盖它。"
+msgstr "恢复期间系列定义发生了变化，因此回滚没有覆盖它。"
 
 #: includes/Core/Sequence.php:460
 msgid "The Series definition changed during the final initialization commit."
-msgstr "最终提交初始化时，序列定义发生了变化。"
+msgstr "最终提交初始化时，系列定义发生了变化。"
 
 #: includes/Admin/ControlCenter.php:345
 msgid "The Series definition is not currently available."
-msgstr "当前无法读取序列定义。"
+msgstr "当前无法读取系列定义。"
 
 #: includes/Admin/SequenceManager.php:826
 msgid ""
 "The Series is still using legacy order. Continue the next bounded "
 "initialization batch."
-msgstr "此序列仍在使用旧版篇序。请继续处理下一批有限数量的初始化数据。"
+msgstr "此系列仍在使用旧版篇序。请继续处理下一批有限数量的初始化数据。"
 
 #: includes/Core/Sequence.php:497
 msgid "The Series sequence revision changed during initialization."
-msgstr "初始化期间，序列篇序修订号发生了变化。"
+msgstr "初始化期间，系列篇序修订号发生了变化。"
 
 #: includes/Core/Sequence.php:518
 msgid ""
 "The Series sequence revision changed during the final initialization commit."
-msgstr "最终提交初始化时，序列篇序修订号发生了变化。"
+msgstr "最终提交初始化时，系列篇序修订号发生了变化。"
 
 #: includes/Admin/ChannelHealth.php:458
 msgid "The Series taxonomy is disabled in Rank Math sitemaps."
-msgstr "Rank Math 站点地图已禁用序列分类法。"
+msgstr "Rank Math 站点地图已禁用系列分类法。"
 
 #: includes/Admin/ChannelHealth.php:84
 msgid ""
 "The Series taxonomy is not currently available, so Series landing pages "
 "cannot be compared safely."
-msgstr "序列分类法当前不可用，因此无法安全比较序列入口页。"
+msgstr "系列分类法当前不可用，因此无法安全比较系列入口页。"
 
 #: includes/Admin/SeriesHealth.php:84
 msgid ""
 "The Series taxonomy is not currently available, so there is nothing safe to "
 "inspect."
-msgstr "序列分类法当前不可用，因此没有可安全检查的内容。"
+msgstr "系列分类法当前不可用，因此没有可安全检查的内容。"
 
 #. translators: %s: comma-separated content type labels.
 #: includes/Admin/ControlCenter.php:327
@@ -3443,7 +3449,7 @@ msgstr "此文章已经位于该位置。"
 
 #: includes/Core/Sequence.php:1019
 msgid "The article is no longer a member of this Series and season."
-msgstr "此文章已不再属于该序列与季。"
+msgstr "此文章已不再属于该系列与季。"
 
 #: includes/Admin/SequenceManager.php:764
 msgid "The article was moved in canonical track order."
@@ -3490,7 +3496,7 @@ msgstr "启用前，最终初始化状态发生了变化。"
 
 #: includes/Core/Sequence.php:489
 msgid "The frozen initialization set no longer matches the current Series."
-msgstr "冻结的初始化范围已与当前序列不一致。"
+msgstr "冻结的初始化范围已与当前系列不一致。"
 
 #: includes/Migration/Migrator.php:160
 msgid ""
@@ -3510,7 +3516,7 @@ msgstr "已冻结的来源值发生了变化。"
 
 #: includes/Integrations/RankMath.php:98
 msgid "The full Series name for an article or Series archive."
-msgstr "文章或序列归档页的完整序列名称。"
+msgstr "文章或系列归档页的完整系列名称。"
 
 #: includes/Core/Sequence.php:579
 msgid ""
@@ -3532,7 +3538,7 @@ msgstr "最近一次轨道移动已撤销，且未覆盖后续编辑。"
 msgid ""
 "The list itself is lightweight. Member records are checked only after you "
 "open one Series."
-msgstr "此列表本身很轻量；只有打开某个序列后才会检查其成员记录。"
+msgstr "此列表本身很轻量；只有打开某个系列后才会检查其成员记录。"
 
 #: includes/Admin/SequenceManager.php:235
 msgid ""
@@ -3589,7 +3595,7 @@ msgstr "下一批初始化数据已验证。"
 
 #: includes/Admin/ControlCenter.php:1034
 msgid "The old ACF Series fields could not be audited from this screen."
-msgstr "无法在此页面审计旧 ACF 序列字段。"
+msgstr "无法在此页面审计旧 ACF 系列字段。"
 
 #: includes/Admin/ControlCenter.php:207
 msgid "The old-data preview is incomplete"
@@ -3619,11 +3625,11 @@ msgstr "扫描已达到设置上限，因此不是全站完整计数。"
 #: includes/Core/Sequence.php:637 includes/Core/Sequence.php:650
 #: includes/Core/BookStructure.php:277
 msgid "The selected Series no longer exists."
-msgstr "所选序列已不存在。"
+msgstr "所选系列已不存在。"
 
 #: includes/Core/Series.php:1632
 msgid "The selected season is not defined for this Series."
-msgstr "所选季未在此序列中定义。"
+msgstr "所选季未在此系列中定义。"
 
 #: includes/Core/Sequence.php:1006
 msgid ""
@@ -3647,7 +3653,7 @@ msgstr "无法提交篇序修订号，因此此次移动已还原。"
 
 #: includes/Admin/ChannelHealth.php:463
 msgid "The sitemap module, taxonomy, and this term all allow inclusion."
-msgstr "站点地图模块、分类法和当前序列项均允许收录。"
+msgstr "站点地图模块、分类法和当前系列项均允许收录。"
 
 #: includes/Core/Sequence.php:508
 msgid "The stable Season public IDs could not be verified."
@@ -3681,7 +3687,7 @@ msgid ""
 "when the theme cannot present seasons and reading order. Category, tag, and "
 "other archives are never replaced."
 msgstr ""
-"主题模式通常沿用站点的分类归档样式，同时仍由 WP Title Layer 提供序列排序。主"
+"主题模式通常沿用站点的分类归档样式，同时仍由 WP Title Layer 提供系列排序。主"
 "题无法呈现季和阅读顺序时，可使用结构化模式。分类、标签及其他归档页绝不会被替"
 "换。"
 
@@ -3747,8 +3753,8 @@ msgid ""
 "Series with seasons, its edit screen also decides whether navigation may "
 "cross season boundaries."
 msgstr ""
-"这些功能使用每个序列保存的有序／无序规则。无序序列绝不会显示阅读进度导航；对"
-"于有序且分季的序列，其编辑页面还会决定导航是否可以跨季。"
+"这些功能使用每个系列保存的有序／无序规则。无序系列绝不会显示阅读进度导航；对"
+"于有序且分季的系列，其编辑页面还会决定导航是否可以跨季。"
 
 #: includes/Migration/AdminPage.php:80
 msgid ""
@@ -3759,8 +3765,8 @@ msgid ""
 "convert them into Series relationships."
 msgstr ""
 "这五个字段只作审计。计数包含非空存储值，其中也包括 ACF 在更新文章时可能保存"
-"的 0 或 false；严格为空字符串的记录不计入。这不能证明序列功能曾被使用。WP "
-"Title Layer 不依赖这些字段，也不会暗中把它们转换为序列关系。"
+"的 0 或 false；严格为空字符串的记录不计入。这不能证明系列功能曾被使用。WP "
+"Title Layer 不依赖这些字段，也不会暗中把它们转换为系列关系。"
 
 #: includes/Admin/SequenceManager.php:643
 msgid ""
@@ -3770,35 +3776,35 @@ msgstr "这些数字标识不会因季名修改或重新排序而改变；已删
 
 #: assets/editor.js:278
 msgid "This Series belongs to the Category branch:"
-msgstr "此序列归属的分类栏目分支："
+msgstr "此系列归属的分类栏目分支："
 
 #: includes/Core/Series.php:1625
 msgid ""
 "This Series entry requires a season unless its non-main role is explicitly "
 "Series-wide."
-msgstr "此序列条目必须选择一季，除非其非主要角色已明确设为全序列。"
+msgstr "此系列条目必须选择一季，除非其非主要角色已明确设为全系列。"
 
 #: includes/Core/Sequence.php:575
 msgid ""
 "This Series has changed since initialization, so an automatic downgrade "
 "would be unsafe."
-msgstr "此序列在初始化后已经变化，自动降级并不安全。"
+msgstr "此系列在初始化后已经变化，自动降级并不安全。"
 
 #: includes/Core/Sequence.php:371
 msgid "This Series is already managed by Sequence Manager."
-msgstr "此序列已由篇序管理器管理。"
+msgstr "此系列已由篇序管理器管理。"
 
 #: assets/editor.js:361
 msgid ""
 "This Series still uses the 0.9 position field. Initialize it in Sequence "
 "Manager to insert without renumbering later articles."
 msgstr ""
-"此序列仍使用 0.9 版篇序字段。请在篇序管理器中初始化，以便插入文章而不必重排后"
+"此系列仍使用 0.9 版篇序字段。请在篇序管理器中初始化，以便插入文章而不必重排后"
 "续篇号。"
 
 #: includes/Admin/ChannelHealth.php:461
 msgid "This Series term is explicitly excluded from the sitemap."
-msgstr "此序列项已明确排除在站点地图之外。"
+msgstr "此系列项已明确排除在站点地图之外。"
 
 #: includes/Reader/AdminSettings.php:116
 msgid ""
@@ -3833,7 +3839,7 @@ msgstr ""
 msgid ""
 "This does not delete or rewrite legacy positions. The Series activation "
 "marker is committed last."
-msgstr "此操作不会删除或改写旧版篇序。序列启用标记会在最后才提交。"
+msgstr "此操作不会删除或改写旧版篇序。系列启用标记会在最后才提交。"
 
 #: includes/Presentation/SettingsPage.php:277
 msgid ""
@@ -3853,7 +3859,7 @@ msgstr "此入口页的渠道"
 msgid ""
 "This legacy role is not assigned to Series-wide or season scope yet. Choose "
 "explicitly before enabling book structure."
-msgstr "此旧角色尚未归入全序列或单季范围。启用书籍式结构前，请明确选择。"
+msgstr "此旧角色尚未归入全系列或单季范围。启用书籍式结构前，请明确选择。"
 
 #: includes/Migration/AdminPage.php:413
 msgid "This migration action accepts POST requests only."
@@ -3916,7 +3922,7 @@ msgstr "此任务创建于冻结扫描清单机制之前。请先回滚，再重
 
 #: includes/Core/Series.php:1629
 msgid "This seasoned Series has no seasons defined."
-msgstr "这个分季序列尚未定义任何季。"
+msgstr "这个分季系列尚未定义任何季。"
 
 #: includes/Core/Series.php:912
 msgid "Title"
@@ -4008,7 +4014,7 @@ msgstr "撤销最近一次移动"
 
 #: includes/Admin/SeriesHealth.php:187
 msgid "Unique articles with at least one Series-structure issue."
-msgstr "至少存在一个序列结构问题的文章数。"
+msgstr "至少存在一个系列结构问题的文章数。"
 
 #: includes/Core/Series.php:901 includes/Admin/SeriesHealth.php:370
 msgid "Unordered"
@@ -4017,11 +4023,11 @@ msgstr "无序"
 #: includes/Admin/SequenceManager.php:205
 #: includes/Admin/SequenceManager.php:478
 msgid "Unordered Series"
-msgstr "无序序列"
+msgstr "无序系列"
 
 #: includes/Admin/ControlCenter.php:423
 msgid "Unordered Series never receive invented previous/next navigation."
-msgstr "无序序列绝不会生成虚构的上一篇／下一篇导航。"
+msgstr "无序系列绝不会生成虚构的上一篇／下一篇导航。"
 
 #: includes/Admin/SequenceManager.php:250
 msgid "Unresolved"
@@ -4051,13 +4057,13 @@ msgstr "上移"
 
 #: includes/Core/Series.php:69
 msgid "Update Series"
-msgstr "更新序列"
+msgstr "更新系列"
 
 #: includes/Reader/AdminSettings.php:97
 msgid ""
 "Use WP Title Layer’s structured Series layout with seasons and sequence "
 "labels"
-msgstr "使用 WP Title Layer 的结构化序列布局，显示季与篇序标签"
+msgstr "使用 WP Title Layer 的结构化系列布局，显示季与篇序标签"
 
 #: includes/Core/Series.php:589
 msgid "Use category or global default"
@@ -4075,7 +4081,7 @@ msgstr "使用解析后的模板"
 msgid ""
 "Use the Title Layer panel in the editor sidebar to set a subtitle, Series, "
 "and optional per-article template."
-msgstr "在编辑器侧栏的标题层面板中设置副标题、序列及可选的单篇文章模板。"
+msgstr "在编辑器侧栏的标题层面板中设置副标题、系列及可选的单篇文章模板。"
 
 #: includes/Core/Series.php:914
 msgid "Use the active theme"
@@ -4099,7 +4105,7 @@ msgstr ""
 
 #: includes/Core/Series.php:915
 msgid "Use the structured Series layout"
-msgstr "使用结构化序列布局"
+msgstr "使用结构化系列布局"
 
 #: includes/Admin/ControlCenter.php:500
 msgid ""
@@ -4114,26 +4120,26 @@ msgid ""
 "Used by ordered Series with seasons. Entire Series may cross a season "
 "boundary; Current Season stops at that season’s first and last article."
 msgstr ""
-"用于有序且分季的序列。“全序列”可以跨越季边界；“当前季”会止于该季首篇与末篇。"
+"用于有序且分季的系列。“全系列”可以跨越季边界；“当前季”会止于该季首篇与末篇。"
 
 #: includes/Core/Series.php:390
 msgid ""
 "Used by ordered Series with seasons. Existing Series default to Entire "
 "Series, which may cross season boundaries."
-msgstr "用于有序且分季的序列。现有序列默认使用“全序列”，因此可能跨越季边界。"
+msgstr "用于有序且分季的系列。现有系列默认使用“全系列”，因此可能跨越季边界。"
 
 #: includes/Core/Series.php:626
 msgid ""
 "Used by the structured Series archive. The attachment ID remains the "
 "canonical stored value."
-msgstr "用于结构化序列归档页。附件 ID 仍是规范存储值。"
+msgstr "用于结构化系列归档页。附件 ID 仍是规范存储值。"
 
 #: includes/Core/Series.php:331 includes/Core/Series.php:406
 msgid ""
 "Used by unordered Series. Ordered Series always follow their reading "
 "sequence; seasoned unordered Series apply this order within each season."
 msgstr ""
-"用于无序序列。有序序列始终遵循阅读篇序；分季的无序序列会在每一季内应用此排"
+"用于无序系列。有序系列始终遵循阅读篇序；分季的无序系列会在每一季内应用此排"
 "序。"
 
 #: includes/Core/Series.php:359 includes/Core/Series.php:438
@@ -4158,7 +4164,7 @@ msgstr "仅供旧版正文前插入方式使用。主题标题接管会继承主
 
 #: includes/Core/Series.php:568 includes/Core/Series.php:582
 msgid "Used when an article in this Series does not choose its own template."
-msgstr "当序列中的文章没有自行选择模板时使用。"
+msgstr "当系列中的文章没有自行选择模板时使用。"
 
 #: includes/Presentation/SettingsPage.php:339
 msgid "Used when no more specific valid rule applies."
@@ -4236,7 +4242,7 @@ msgstr "WP Title Layer 迁移"
 
 #: includes/Integrations/RankMath.php:97
 msgid "WP Title Layer Series"
-msgstr "WP Title Layer 序列"
+msgstr "WP Title Layer 系列"
 
 #: includes/Admin/ChannelHealthReport.php:226
 msgid "WP Title Layer and the active theme"
@@ -4256,7 +4262,7 @@ msgid ""
 "not be audited from this screen. Check the migration report before deciding "
 "whether to remove ACF."
 msgstr ""
-"WP Title Layer 不依赖 ACF，但无法在此页面审计五个旧序列字段。决定是否移除 "
+"WP Title Layer 不依赖 ACF，但无法在此页面审计五个旧系列字段。决定是否移除 "
 "ACF 前，请先检查迁移报告。"
 
 #. translators: 1: non-empty field-post values, 2: unique posts.
@@ -4269,9 +4275,9 @@ msgid ""
 "of Series use; none of these fields is converted automatically. Check "
 "unrelated ACF fields separately before uninstalling ACF."
 msgstr ""
-"WP Title Layer 不依赖 ACF。审计在五个旧序列字段中发现 %1$s 个非空的字段—文章"
+"WP Title Layer 不依赖 ACF。审计在五个旧系列字段中发现 %1$s 个非空的字段—文章"
 "值，分布于 %2$s 个文章 ID。其中可能包含 ACF 保存的默认值，但不包含严格意义上"
-"的空字符串，也不能证明序列功能曾被使用；这些字段均不会被自动转换。卸载 ACF "
+"的空字符串，也不能证明系列功能曾被使用；这些字段均不会被自动转换。卸载 ACF "
 "前，请另行检查其他 ACF 字段。"
 
 #: includes/Admin/ControlCenter.php:1064
@@ -4280,7 +4286,7 @@ msgid ""
 "currently contain no non-empty stored values; exact empty strings are not "
 "counted."
 msgstr ""
-"WP Title Layer 不依赖 ACF。当前审计的五个旧序列字段中没有非空存储值；严格为空"
+"WP Title Layer 不依赖 ACF。当前审计的五个旧系列字段中没有非空存储值；严格为空"
 "字符串的记录不在统计范围内。"
 
 #: includes/Plugin.php:78
@@ -4322,7 +4328,7 @@ msgstr "有阅读顺序"
 
 #: includes/Admin/ChannelHealth.php:380
 msgid "WordPress Series name"
-msgstr "WordPress 序列名称"
+msgstr "WordPress 系列名称"
 
 #: includes/Core/Sequence.php:476
 msgid ""
@@ -4367,13 +4373,13 @@ msgstr "是"
 
 #: includes/Core/BookStructure.php:293
 msgid "You are not allowed to enable book structure for this Series."
-msgstr "您无权为此序列启用书籍式结构。"
+msgstr "您无权为此系列启用书籍式结构。"
 
 #: includes/Admin/SequenceManager.php:121
 #: includes/Admin/SequenceManager.php:807
 #: includes/Admin/SequenceManager.php:814
 msgid "You are not allowed to manage Series sequences."
-msgstr "您无权管理序列篇序。"
+msgstr "您无权管理系列篇序。"
 
 #: includes/Migration/AdminPage.php:25 includes/Migration/AdminPage.php:417
 msgid "You are not allowed to manage migrations."
@@ -4381,11 +4387,11 @@ msgstr "您无权管理迁移。"
 
 #: includes/Core/Sequence.php:1147
 msgid "You are not allowed to manage this Series sequence."
-msgstr "您无权管理此序列的篇序。"
+msgstr "您无权管理此系列的篇序。"
 
 #: includes/Admin/SeriesHealth.php:65
 msgid "You are not allowed to view Series health."
-msgstr "您无权查看序列健康检查。"
+msgstr "您无权查看系列健康检查。"
 
 #: includes/Admin/ControlCenter.php:83
 msgid "You are not allowed to view WP Title Layer settings."
@@ -4415,7 +4421,7 @@ msgstr "当前区块主题继续控制此归档页；本版本未启用区块主
 
 #: includes/Integrations/RankMath.php:68
 msgid "full Series name"
-msgstr "完整序列名称"
+msgstr "完整系列名称"
 
 #: includes/Admin/ControlCenter.php:798
 msgid "no content types"
@@ -4439,15 +4445,15 @@ msgstr "仅副标题"
 #~ "explicitly enabled. Main articles are unambiguous; old non-main roles in "
 #~ "a seasoned Series require a Series-wide or season choice."
 #~ msgstr ""
-#~ "在明确启用此序列前，现有前端顺序继续生效。主要文章无需判断；分季序列中的旧"
-#~ "非主要角色必须选择全序列或单季范围。"
+#~ "在明确启用此系列前，现有前端顺序继续生效。主要文章无需判断；分季系列中的旧"
+#~ "非主要角色必须选择全系列或单季范围。"
 
 #~ msgid ""
 #~ "Review legacy roles, separate Series-wide and season entries, and arrange "
 #~ "each introduction, main-article, epilogue, or appendix track without "
 #~ "exposing private ranks."
 #~ msgstr ""
-#~ "检查旧角色，区分全序列与单季条目，并整理序文、主要文章、尾声或附录轨道，而"
+#~ "检查旧角色，区分全系列与单季条目，并整理序文、主要文章、尾声或附录轨道，而"
 #~ "不公开内部排序值。"
 
 #~ msgid "Structure Manager"

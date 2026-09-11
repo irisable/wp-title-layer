@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Title Layer 1.0.0-rc.1\n"
+"Project-Id-Version: WP Title Layer 1.0.0-rc.2\n"
 "Report-Msgid-Bugs-To: https://github.com/irisable/wp-title-layer/issues\n"
-"POT-Creation-Date: 2026-08-29 12:36+0800\n"
+"POT-Creation-Date: 2026-09-11 16:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2867,6 +2867,12 @@ msgstr ""
 #: includes/Admin/ClassicEditor.php:133 includes/Admin/SeriesHealth.php:121
 #: templates/series-archive.php:46
 msgid "Series"
+msgstr ""
+
+#. translators: %s: editor-defined public structure label, for example "Preface".
+#: includes/Reader/Archive.php
+#, php-format
+msgid "Series %s"
 msgstr ""
 
 #: assets/editor.js:276

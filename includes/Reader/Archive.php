@@ -126,7 +126,7 @@ final class Archive {
 	 * Group current-page posts according to the term's flat/seasoned model.
 	 *
 	 * @param array<int,array<string,mixed>> $posts Post contexts in query order.
-	 * @return array<int,array{key:string,label:string,sort:int,ordered:bool,posts:array<int,array<string,mixed>>}>
+	 * @return array<int,array{key:string,label:string,sort:int,ordered:bool,show_sequence_labels?:bool,posts:array<int,array<string,mixed>>}>
 	 */
 	public function groupPosts( \WP_Term $term, array $posts ): array {
 		if ( BookStructure::is_enabled( $term ) ) {
@@ -152,17 +152,72 @@ final class Archive {
 					$groups[ $track_key ]['posts'][] = $post;
 					continue;
 				}
-				if ( ! isset( $groups[ $track_key ] ) ) {
-					$groups[ $track_key ] = array(
-						'key'     => $track_key,
-						'label'   => (string) $definitions[ $track_key ]['label'],
-						'sort'    => (int) array_search( $track_key, array_keys( $definitions ), true ),
-						'role'    => (string) $definitions[ $track_key ]['role'],
-						'ordered' => Series::is_ordered( $term ) || Schema::ROLE_ARTICLE !== (string) $definitions[ $track_key ]['role'],
-						'posts'   => array(),
-					);
+
+				$definition = $definitions[ $track_key ];
+				$scope      = (string) $definition['scope'];
+				$role       = (string) $definition['role'];
+				$season_key = (string) $definition['season_key'];
+
+				// The manager keeps role-specific tracks, but the public archive
+				// presents one natural chapter heading per season. Canonical query
+				// order still places introductions, body articles, epilogues, and
+				// appendices correctly inside the merged group.
+				if ( Schema::SCOPE_SEASON === $scope ) {
+					$group_key = 'season_' . $season_key;
+					if ( ! isset( $groups[ $group_key ] ) ) {
+						$season = Series::season( $term, $season_key );
+						$groups[ $group_key ] = array(
+							'key'                  => $group_key,
+							'label'                => is_array( $season ) ? (string) ( $season['label'] ?? '' ) : '',
+							'sort'                 => (int) array_search( $track_key, array_keys( $definitions ), true ),
+							'role'                 => Schema::ROLE_ARTICLE,
+							'ordered'              => Series::is_ordered( $term ),
+							'show_sequence_labels' => true,
+							'posts'                 => array(),
+						);
+					}
+					$groups[ $group_key ]['posts'][] = $post;
+					continue;
 				}
-				$groups[ $track_key ]['posts'][] = $post;
+
+				// A flat Series body remains one unlabeled public collection. Whole-
+				// Series bookends become individual public sections so each can use
+				// its editor-defined public label instead of exposing an internal role.
+				if ( Schema::ROLE_ARTICLE === $role ) {
+					$group_key = 'series';
+					if ( ! isset( $groups[ $group_key ] ) ) {
+						$groups[ $group_key ] = array(
+							'key'                  => $group_key,
+							'label'                => '',
+							'sort'                 => (int) array_search( $track_key, array_keys( $definitions ), true ),
+							'role'                 => $role,
+							'ordered'              => Series::is_ordered( $term ),
+							'show_sequence_labels' => true,
+							'posts'                 => array(),
+						);
+					}
+					$groups[ $group_key ]['posts'][] = $post;
+					continue;
+				}
+
+				$post_id      = absint( $post['id'] ?? 0 );
+				$group_key    = $track_key . '_entry_' . $post_id;
+				$public_label = trim( (string) ( $post['sequence_label'] ?? '' ) );
+				$groups[ $group_key ] = array(
+					'key'                  => $group_key,
+					'label'                => '' !== $public_label
+						? sprintf(
+							/* translators: %s: editor-defined public structure label, for example "Preface". */
+							__( 'Series %s', 'wp-title-layer' ),
+							$public_label
+						)
+						: __( 'Series', 'wp-title-layer' ),
+					'sort'                 => (int) array_search( $track_key, array_keys( $definitions ), true ),
+					'role'                 => $role,
+					'ordered'              => true,
+					'show_sequence_labels' => false,
+					'posts'                 => array( $post ),
+				);
 			}
 			return array_values( $groups );
 		}

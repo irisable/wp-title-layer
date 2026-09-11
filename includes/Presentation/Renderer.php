@@ -561,14 +561,11 @@ final class Renderer {
 			return $label;
 		}
 
-		if ( 'intro' === $role ) {
-			return __( 'Introduction / preface', 'wp-title-layer' );
-		}
-		if ( 'epilogue' === $role ) {
-			return __( 'Epilogue / afterword', 'wp-title-layer' );
-		}
-		if ( 'appendix' === $role ) {
-			return __( 'Appendix', 'wp-title-layer' );
+		// Roles organize private book-structure tracks. They are not public
+		// editorial labels: non-main entries appear without one unless the editor
+		// supplies an explicit Public structure label.
+		if ( in_array( $role, array( 'intro', 'epilogue', 'appendix' ), true ) ) {
+			return '';
 		}
 
 		$position = trim( $position );

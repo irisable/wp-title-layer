@@ -1,4 +1,4 @@
-# Architecture decisions for 1.0.0-rc.1
+# Architecture decisions for 1.0.0-rc.2
 
 ## Ownership and dependency boundary
 
@@ -12,7 +12,7 @@ presentation APIs. ACF is **not a dependency** and is not required to keep the
 schema registered or the site readable. It is consulted only as a possible,
 strictly verified migration source.
 
-SEO and social plugins continue to own their metadata. Version 1.0.0-rc.1 exposes
+SEO and social plugins continue to own their metadata. Version 1.0.0-rc.2 exposes
 read-only Rank Math replacement variables but does not claim SEO/social editing
 UI, filter final provider titles, write provider metadata, or emit Open Graph
 tags.
@@ -87,12 +87,12 @@ ordering, or Reader eligibility.
 
 ## Series invariants and enforcement limits
 
-Version 1.0.0-rc.1 supports at most one Series per post. Season, scope, role, and sequence
+Version 1.0.0-rc.2 supports at most one Series per post. Season, scope, role, and sequence
 metadata belongs to the post-to-Series relationship and would be ambiguous with
 multiple memberships. REST input rejects multiple Series terms, and the native
 term-assignment hook corrects a multi-term assignment to one deterministic
 term. Multiple independent Series relationships require a different future
-relationship model and are not promised by 1.0.0-rc.1.
+relationship model and are not promised by 1.0.0-rc.2.
 
 The optional parent Category is a soft editorial relation between two native
 taxonomies. It does not make the Series taxonomy hierarchical and never changes
@@ -169,6 +169,14 @@ consume a main-article number. In an unordered Series, main articles retain the
 configured archive sort and do not gain previous/next navigation; movable
 non-main tracks are still pinned at the appropriate structural edges.
 
+Role-specific labels belong to the administration model, not the public
+information architecture. The structured archive merges a Season's four tracks
+under the Season label while preserving canonical entry order. Each
+Series-wide non-main entry is a separate public section headed by `Series` plus
+its explicit Public structure label; when that label is empty, only `Series` is
+shown. The internal role is never substituted into a public heading or article
+title layer.
+
 Activation writes a non-autoloaded journal before assigning missing private
 non-main ranks, verifies every value, and commits the term marker last. A failed
 write restores only the values recorded by that activation. After activation,
@@ -216,7 +224,7 @@ Migration copies data into `wptl_subtitle`; it never renames or deletes source
 metadata. The existence of the target key is authoritative, including an empty
 target value.
 
-There are exactly two automatic sources in 1.0.0-rc.1:
+There are exactly two automatic sources in 1.0.0-rc.2:
 
 1. `_secondary_title` from Secondary Title;
 2. `subtitle` only when it is proven to be a genuine ACF field.
@@ -437,7 +445,7 @@ variable in an SEO, Facebook, or Twitter title template. WP Title Layer does
 not hook `rank_math/frontend/title` or Rank Math Open Graph title filters and
 does not write `rank_math_title`, `rank_math_facebook_title`, or
 `rank_math_twitter_title`. This preserves provider-level global and per-object
-overrides. Multiple Series per post remain outside the 1.0.0-rc.1 contract.
+overrides. Multiple Series per post remain outside the 1.0.0-rc.2 contract.
 
 ### Landing-page and channel governance
 
@@ -456,7 +464,7 @@ Aggregates stay in SQL, overlap rows are paginated, and no complete membership
 list is loaded into PHP merely to render the report.
 
 Provider activation is detected from the running provider, never merely from
-stored options. Rank Math is the only provider whose local schema 1.0.0-rc.1
+stored options. Rank Math is the only provider whose local schema 1.0.0-rc.2
 interprets. For it, taxonomy defaults remain distinct from explicitly saved
 taxonomy settings; term metadata can then override title, description, robots,
 canonical, Facebook, and Twitter channels. Sitemap inclusion requires the
@@ -583,8 +591,8 @@ Run syntax and integration smoke tests in WordPress Playground with:
 npm run test:wp
 ```
 
-The Playground script parses 60 PHP files and runs 827 integration
-checks plus 111 Sequence Manager and 61 book-structure checks at both supported ends of the 1.0.0-rc.1
+The Playground script parses 60 PHP files and runs 828 integration
+checks plus 111 Sequence Manager and 65 book-structure checks at both supported ends of the 1.0.0-rc.2
 matrix:
 
 - WordPress 6.5 with PHP 7.4;
@@ -619,7 +627,7 @@ After building a release, the same dual-environment matrix must also boot the
 extracted production artifact rather than the development directory:
 
 ```sh
-./bin/test-release-package.sh wp-title-layer-1.0.0-rc.1.zip
+./bin/test-release-package.sh wp-title-layer-1.0.0-rc.2.zip
 ```
 
 The first Playground run may require network access to obtain WordPress.
