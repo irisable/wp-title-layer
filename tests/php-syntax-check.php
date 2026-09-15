@@ -14,6 +14,9 @@ foreach ( $iterator as $file ) {
 	if ( 'php' !== strtolower( $file->getExtension() ) || false !== strpos( $file->getPathname(), '/tests/' ) ) {
 		continue;
 	}
+	if ( preg_match( '#/(?:build|node_modules|vendor)/#', $file->getPathname() ) ) {
+		continue;
+	}
 
 	try {
 		token_get_all( file_get_contents( $file->getPathname() ), TOKEN_PARSE );

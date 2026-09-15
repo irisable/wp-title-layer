@@ -36,13 +36,13 @@ title, then stores the surrounding editorial structure as separate data:
   subtitle fields.
 
 The current implementation status and production acceptance order are tracked
-in the [1.0.0-rc.2 feature map](docs/feature-map.md). The completed stages and path
+in the [1.0.0-rc.3 feature map](docs/feature-map.md). The completed stages and path
 to 1.0 are recorded in the [development roadmap](docs/roadmap.md), with the
 ordering and upgrade contract in the
 [Series Sequence Manager design](docs/sequence-manager-design.md).
-A focused [1.0.0-rc.2 acceptance record](docs/manual-acceptance-checklist-1.0.0-rc.2.md)
-covers the four Series shapes, explicit scope, role tracks, isolated fixtures,
-front-end order, legacy compatibility, and the public release package.
+A focused [1.0.0-rc.3 acceptance record](docs/manual-acceptance-checklist-1.0.0-rc.3.md)
+covers content-group editing, linked filtering, mobile presentation, shared
+renames, and compatibility with existing ungrouped articles.
 
 ACF is **not a dependency**. WP Title Layer registers and owns its taxonomy,
 post metadata, term metadata, REST schema, editor controls, and rendering layer.
@@ -65,7 +65,7 @@ cannot certify unrelated fields owned by themes or other plugins.
 2. Activate WP Title Layer.
 3. If the site used Secondary Title or an ACF field named `subtitle`, open
    **Tools → Title Layer Migration** and run the read-only scan first.
-4. Review conflicts, then start the copy. Version 1.0.0-rc.2 continues through the
+4. Review conflicts, then start the copy. Version 1.0.0-rc.3 continues through the
    batches automatically in the migration screen and can safely resume the
    same run after a reload or interrupted request.
 5. Verify several posts and deactivate Secondary Title. While Secondary Title
@@ -92,9 +92,34 @@ cannot certify unrelated fields owned by themes or other plugins.
 Migration never deletes the source values and never overwrites an existing
 `wptl_subtitle`, including one intentionally saved as empty.
 
+## Optional content groups (1.0.0-rc.3)
+
+The article editor now accepts a **Content group**, for example `W1 看见人的软弱`.
+Existing names in the current Series/Season are suggested. Saving resolves or
+creates a stable group ID; selecting a different name moves only this article.
+The separate **Rename this group** action changes the shared name immediately
+for every member while preserving existing group URLs and old-name aliases.
+
+Structured archives insert a small heading for each consecutive group run.
+They preserve article order, article numbers, ungrouped gaps, and normal
+pagination. A group spanning two pages repeats its heading on the second page.
+The single title layer displays Series, Season, group link, and article number.
+The optional `wptl_group=ID` filter works within the owning Series and Season;
+unknown or incompatible group IDs return no matching articles.
+
+Native theme archives support the group filter but retain their own layout.
+Group subheadings are supplied by the plugin's structured archive template.
+Previous/next navigation retains the configured Series/Season scope.
+Blank group fields retain existing output. No historical label is inferred or
+migrated automatically into a group.
+
+Publisher clients write `meta.wptl_series_group` as a string. See the
+[Publisher group integration contract](docs/wp-publisher-content-groups-rc.3.md)
+and [focused acceptance checklist](docs/manual-acceptance-checklist-1.0.0-rc.3.md).
+
 ## What migration copies
 
-Version 1.0.0-rc.2 has exactly two automatic subtitle sources:
+Version 1.0.0-rc.3 has exactly two automatic subtitle sources:
 
 - Secondary Title's `_secondary_title` post meta;
 - an ACF field whose field name is `subtitle`, but only when WP Title Layer can
@@ -115,7 +140,7 @@ The migration screen also audits these five legacy Series-like ACF fields:
 
 They are **non-empty-value and verified-reference counts, not confirmed usage
 counts**. ACF defaults can be included, exact empty strings are excluded, and
-the same post can be counted once for each field. Version 1.0.0-rc.2 does not
+the same post can be counted once for each field. Version 1.0.0-rc.3 does not
 automatically map them to `wptl_series`, seasons, or sequence metadata.
 
 The migration process is intentionally conservative:
@@ -144,7 +169,7 @@ settings:
 - `ordered` or `unordered`: whether a meaningful reading path exists;
 - `flat` or `seasoned`: whether entries are grouped into seasons.
 
-Version 1.0.0-rc.2 supports **at most one Series per post**. It does not model
+Version 1.0.0-rc.3 supports **at most one Series per post**. It does not model
 multiple independent memberships.
 
 Each Series may optionally point to one parent Category. This is an editorial
@@ -196,7 +221,7 @@ Season definitions also receive stable positive public IDs. New links use
 does not change its ID, deleted IDs are not reused, and old key-based links
 remain compatible.
 
-Version 1.0.0-rc.2 separates a book-like entry's **scope** from its **role**.
+Version 1.0.0-rc.3 separates a book-like entry's **scope** from its **role**.
 Flat Series entries are Series-wide. In a seasoned Series, every main article
 must belong to one Season, while an introduction, epilogue, or appendix may be
 explicitly Series-wide or belong to one Season. Each combination has its own
@@ -329,7 +354,7 @@ visible theme title remains enabled.
 
 The compatibility functions `get_secondary_title()`,
 `the_secondary_title()`, and `has_secondary_title()` remain available after the
-old plugin is deactivated. Version 1.0.0-rc.2 still does not provide multiple-Series
+old plugin is deactivated. Version 1.0.0-rc.3 still does not provide multiple-Series
 relationships.
 
 ## SEO and sharing titles
@@ -491,7 +516,7 @@ Chinese catalog.
 
 ## External REST contract
 
-The `1.0.0-rc.2` contract below is declared for external-client validation. A
+The `1.0.0-rc.3` contract below is declared for external-client validation. A
 publisher should resolve an existing Series by slug before it creates or
 updates an article:
 
@@ -562,9 +587,9 @@ npm run test:wp
 
 `npm run check` validates the editor, Sequence & Structure, localization catalogs,
 control center, presentation, migration, Series-health, theme-adapter, and
-channel-governance and release-version contracts in 95 checks. `npm run test:wp` parses 60 PHP files
-and runs 828 integration checks plus 111 Sequence Manager and 65
-book-structure checks at
+channel-governance and release-version contracts in 95 checks. `npm run test:wp` parses 61 PHP files
+and runs 828 integration checks plus 111 Sequence Manager, 65
+book-structure, and 42 content-group checks at
 both supported ends of the test matrix:
 
 - WordPress 6.5 with PHP 7.4;
@@ -585,8 +610,8 @@ composer lint
 Build the release ZIP with:
 
 ```sh
-./bin/build-release.sh 1.0.0-rc.2
-./bin/test-release-package.sh wp-title-layer-1.0.0-rc.2.zip
+./bin/build-release.sh 1.0.0-rc.3
+./bin/test-release-package.sh wp-title-layer-1.0.0-rc.3.zip
 ```
 
 The build exports the fixed `HEAD` commit (or an explicit

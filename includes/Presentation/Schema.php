@@ -150,6 +150,7 @@ final class Schema {
 	 */
 	public static function editorMap(): array {
 		return array(
+			'seriesGroup'         => 'wptl_series_group',
 			'taxonomy'            => self::seriesTaxonomy(),
 			'subtitle'            => self::subtitleMeta(),
 			'seasonKey'           => self::seasonKeyMeta(),

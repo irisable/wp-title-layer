@@ -1,4 +1,4 @@
-# WP Title Layer 1.0.0-rc.2 功能地图
+# WP Title Layer 1.0.0-rc.3 功能地图
 
 这份地图把最初设想中的标题语义层，映射到当前插件的实际能力与责任
 边界。它也是下一轮正式站点验收的清单。
@@ -15,13 +15,13 @@ Classic Editor 安全入口，以及经官方模板验证的 Kadence Archive 卡
 改用插件自有图标，并澄清空 role 与显式主要文章 role 的区别。0.10.0 新增
 逐 Series 明确启用的 Sequence Manager：既有顺序先预览、再分批初始化，启用后
 可以插入、拖动、键盘移动和撤销，而不再让作者重排后续整数；同时为 Season
-分配改名和重排后仍稳定的数字公开 ID。1.0.0-rc.2 在此基础上把书籍式内容明确
+分配改名和重排后仍稳定的数字公开 ID。1.0.0-rc.3 在此基础上把书籍式内容明确
 拆为 Series／Season 范围与序文／主要文章／尾声／附录角色。统一的“篇序与结构”
 页面将有序正文篇序与可选结构轨道分开管理。
 
 ## 1. 内容语义层
 
-| 关注点 | 当前所有者 | 1.0.0-rc.2 状态 |
+| 关注点 | 当前所有者 | 1.0.0-rc.3 状态 |
 | --- | --- | --- |
 | Primary Title | WordPress `post_title` | 完成；插件不改写原生主标题 |
 | Subtitle | `wptl_subtitle` | 完成；兼容读取与迁移 Secondary Title / 可信 ACF subtitle |
@@ -32,6 +32,7 @@ Classic Editor 安全入口，以及经官方模板验证的 Kadence Archive 卡
 | Navigation Scope | `wptl_navigation_scope` term meta | 完成；旧数据默认全系列，可显式限制当前季 |
 | Season / Order | Sequence service + Series/article meta | 完成；旧 Series 原样兼容，托管 Series 支持插入式排序和自动篇号 |
 | Season public identity | `wptl_seasons.public_id` | 完成；数字 URL 稳定，旧 key URL 兼容并规范跳转 |
+| Content group | `wptl_series_group` + 私有分组 ID | rc.3 新增；按连续篇序分段、组名链接筛选、同组改名保留链接；空字段沿用原显示 |
 | Book scope / role | `wptl_series_scope` + `wptl_series_role` | 完成；范围与角色正交，既有不明确数据先预览、不猜测 |
 | Structure tracks | “篇序与结构”管理器 + 私有 rank | 完成；篇序独立，Series／各季的序文、正文、尾声、附录分轨编排 |
 | Display Template | WP Title Layer | 完成；文章 > Series > Category > 全局默认 |
@@ -63,7 +64,7 @@ Classic Editor 安全入口，以及经官方模板验证的 Kadence Archive 卡
   计算上一篇、下一篇、起点和进度；旧 Series 默认保持跨季。
 - 已由 Sequence Manager 管理的有序 Series 使用自动连续篇号；人工 Public label
   仍可覆盖可见文字，内部 rank 不进入 H1、编辑字段或公开 API。
-- 1.0.0-rc.2 中序文、尾声与附录各自使用私有结构轨道，不占用主要文章的自动
+- 1.0.0-rc.3 中序文、尾声与附录各自使用私有结构轨道，不占用主要文章的自动
   篇号；可用 Public structure label 显示 `0-1`、`0-2`、`附录 A` 等公开记号。
 
 ## 3. Archive
@@ -135,7 +136,7 @@ Series 与 Category 的完整公开集合完全一致，才标记为 exact dupli
   实际排序与修复入口统一交给“篇序与结构”；管理器的 Series 搜索选择器选中即打开，
   并保留无脚本时的原生下拉与按钮。
 
-1.0.0-rc.2 为文章增加独立的书籍式范围：平铺 Series 的所有角色均属全系列；
+1.0.0-rc.3 为文章增加独立的书籍式范围：平铺 Series 的所有角色均属全系列；
 分季 Series 的主要文章必须属于一季，非主要角色可明确选择“全系列”或“单季”。
 旧的 `intro`、`epilogue`、`appendix` 若无法从已有 Season 确定范围，只进入逐
 Series 只读预览，不会自动写成全系列。新建的空 Series 直接获得规范结构；已有

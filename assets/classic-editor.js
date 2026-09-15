@@ -13,6 +13,44 @@
 		var managerLinks = root.querySelectorAll( '[data-wptl-manager-link]' );
 		var managedHeading = root.querySelector( '[data-wptl-managed-heading]' );
 		var conditional = root.querySelectorAll( '[data-wptl-series-condition]' );
+		var groupInput = root.querySelector( '#wptl-classic-group' );
+		var groupList = root.querySelector( '#wptl-classic-groups' );
+		var groupStatus = root.querySelector( '[data-wptl-group-status]' );
+		var groupRename = root.querySelector( '[data-wptl-group-rename]' );
+		var groupForm = root.querySelector( '[data-wptl-group-rename-form]' );
+		var groupConfig = window.WPTLGroupEditor || {};
+		var groupOptions = [], groupScope = '', renameId = 0;
+		function currentGroup() { return groupOptions.find( function ( item ) { return item.label === groupInput.value || ( item.aliases || [] ).indexOf( groupInput.value ) !== -1; } ); }
+		function groupActions() { if ( groupRename ) { groupRename.hidden = ! groupConfig.canRename || ! currentGroup(); } }
+		function loadGroups( term, seasonKey ) {
+			if ( ! groupInput || ! window.wp || ! window.wp.apiFetch ) { return; }
+			var nextScope = term + ':' + seasonKey;
+			if ( nextScope === groupScope ) { return; }
+			groupScope = nextScope; groupOptions = []; groupList.textContent = ''; groupActions(); groupForm.hidden = true;
+			window.wp.apiFetch( { path: '/wp-title-layer/v1/groups?series=' + term + '&season=' + encodeURIComponent( seasonKey ) } ).then( function ( items ) {
+				if ( groupScope !== nextScope ) { return; }
+				groupOptions = items;
+				items.forEach( function ( item ) { var option = document.createElement( 'option' ); option.value = item.label; groupList.appendChild( option ); } );
+				groupStatus.textContent = ''; groupActions();
+			} ).catch( function () { if ( groupScope === nextScope ) { groupStatus.textContent = groupConfig.loadError; } } );
+		}
+		if ( groupInput ) {
+			groupInput.addEventListener( 'input', groupActions );
+			root.querySelector( '[data-wptl-group-rename-start]' ).addEventListener( 'click', function () {
+				var item = currentGroup(); if ( ! item ) { return; }
+				renameId = item.id; root.querySelector( '#wptl-classic-group-new' ).value = item.label; groupForm.hidden = false;
+			} );
+			root.querySelector( '[data-wptl-group-rename-cancel]' ).addEventListener( 'click', function () { groupForm.hidden = true; } );
+			root.querySelector( '[data-wptl-group-rename-save]' ).addEventListener( 'click', function ( event ) {
+				var button = event.currentTarget, requestScope = groupScope;
+				var label = root.querySelector( '#wptl-classic-group-new' ).value.trim(); if ( ! label ) { return; }
+				button.disabled = true; groupInput.readOnly = true;
+				window.wp.apiFetch( { path: '/wp-title-layer/v1/groups/' + renameId, method: 'POST', data: { label: label } } ).then( function ( result ) {
+					if ( groupScope !== requestScope ) { return; }
+					groupInput.value = result.label; groupForm.hidden = true; groupScope = ''; update();
+				} ).catch( function ( error ) { if ( groupScope === requestScope ) { groupStatus.textContent = error.message || groupConfig.renameError; } } ).finally( function () { button.disabled = false; groupInput.readOnly = false; } );
+			} );
+		}
 
 		function structureTrackKey( structure, scopeValue, seasonKey, roleValue ) {
 			roleValue = roleValue || 'article';
@@ -73,6 +111,7 @@
 				}
 			}
 
+			loadGroups( termId, structure === 'seasoned' && ( mainArticle || scopeValue !== 'series' ) && season ? season.value : '' );
 			Array.prototype.forEach.call( managerLinks, function ( managerLink ) {
 				var baseUrl = managerLink.getAttribute( 'data-base-url' ) || '';
 				var postId = managerLink.getAttribute( 'data-post-id' ) || '';

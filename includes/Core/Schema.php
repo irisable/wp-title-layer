@@ -19,6 +19,8 @@ final class Schema {
 	public const META_SEQUENCE_RANK     = 'wptl_sequence_rank';
 	public const META_SEQUENCE_SOURCE_POSITION = 'wptl_sequence_source_position';
 	public const META_SEQUENCE_LABEL    = 'wptl_sequence_label';
+	public const META_SERIES_GROUP      = 'wptl_series_group';
+	public const META_GROUP_ID          = '_wptl_group_id';
 	public const META_SERIES_ROLE       = 'wptl_series_role';
 	public const META_SERIES_SCOPE      = 'wptl_series_scope';
 	public const META_TEMPLATE_OVERRIDE = 'wptl_template_override';

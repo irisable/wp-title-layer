@@ -4,7 +4,7 @@ Tags: title, subtitle, series, editorial, gutenberg
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0-rc.2
+Stable tag: 1.0.0-rc.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -383,8 +383,8 @@ in rendered page source.
 
 Run `npm run check` for 95 JavaScript, localization, editor, Sequence & Structure,
 migration, channel-governance, and release-version contract checks. Run `npm run test:wp` for
-60-file PHP syntax, 828 integration checks, 111 Sequence Manager
-checks, and 65 book-structure checks against both ends of the supported matrix:
+61-file PHP syntax, 828 integration checks, 111 Sequence Manager
+checks, 65 book-structure checks, and 42 content-group checks against both ends of the supported matrix:
 
 * WordPress 6.5 with PHP 7.4;
 * WordPress 7.1 with PHP 8.3.
@@ -394,6 +394,13 @@ Official Kadence 1.5.2 templates pass 40 adapter checks. Official Rank Math
 two-post cache isolation and its real taxonomy/sitemap settings.
 
 == Changelog ==
+
+= 1.0.0-rc.3 =
+
+* Added optional content groups, with same-scope suggestions and shared rename controls in the block and classic editors.
+* Structured archives show consecutive group headings without changing ranks or pagination; single title layers link the group independently of the article number.
+* Stable numeric group links filter the owning Series/Season. Renames preserve links and accept old-label aliases.
+* Added the optional wptl_series_group post REST field for publisher integrations; omission preserves membership and an empty string clears it.
 
 = 1.0.0-rc.2 =
 

@@ -28,6 +28,52 @@
 		}, el( 'path', { d: titleLayerIconPath, fill: 'currentColor' } ) );
 	}
 
+	function ContentGroupControl( props ) {
+		var listState = useState( [] ), groups = listState[ 0 ], setGroups = listState[ 1 ];
+		var errorState = useState( '' ), error = errorState[ 0 ], setError = errorState[ 1 ];
+		var renameState = useState( null ), rename = renameState[ 0 ], setRename = renameState[ 1 ];
+		var busyState = useState( false ), busy = busyState[ 0 ], setBusy = busyState[ 1 ];
+		var alive = wp.element.useRef( true );
+		wp.element.useEffect( function () { alive.current = true; return function () { alive.current = false; }; }, [] );
+		var saving = useSelect( function ( select ) { return select( 'core/editor' ).isSavingPost(); }, [] );
+		wp.element.useEffect( function () {
+			if ( saving ) { return; }
+			var active = true;
+			setGroups( [] ); setError( '' ); setRename( null );
+			wp.apiFetch( { path: '/wp-title-layer/v1/groups?series=' + props.series + '&season=' + encodeURIComponent( props.season ) } ).then( function ( result ) {
+				if ( active ) { setGroups( result ); }
+			} ).catch( function () {
+				if ( active ) { setError( __( 'Group suggestions could not be loaded. You can still enter a name.', 'wp-title-layer' ) ); }
+			} );
+			return function () { active = false; };
+		}, [ props.series, props.season, saving ] );
+		var selected = groups.find( function ( group ) { return group.label === props.value || ( group.aliases || [] ).indexOf( props.value ) !== -1; } );
+		var listId = 'wptl-content-groups-' + props.series + '-' + props.season;
+		return el( 'div', { className: 'wptl-content-group-control' },
+			el( wp.components.TextControl, {
+				label: __( 'Content group', 'wp-title-layer' ), value: selected ? selected.label : props.value, list: listId,
+				disabled: busy,
+				onChange: props.onChange,
+				help: __( 'Optional group, for example W1 Seeing human weakness. Article numbers remain independent.', 'wp-title-layer' )
+			} ),
+			el( 'datalist', { id: listId }, groups.map( function ( group ) { return el( 'option', { key: group.id, value: group.label } ); } ) ),
+			error ? el( 'p', { role: 'status' }, error ) : null,
+			selected && config.canRenameGroups && rename === null ? el( wp.components.Button, { variant: 'link', onClick: function () { setRename( { id: selected.id, label: selected.label } ); } }, __( 'Rename this group', 'wp-title-layer' ) ) : null,
+			rename !== null ? el( 'div', null,
+				el( wp.components.TextControl, { label: __( 'New group name', 'wp-title-layer' ), value: rename.label, onChange: function ( value ) { setRename( { id: rename.id, label: value } ); }, help: __( 'Renames this group for all its articles. Existing group links stay valid.', 'wp-title-layer' ) } ),
+				el( wp.components.Button, { variant: 'secondary', disabled: busy || ! rename.label.trim(), onClick: function () {
+					setBusy( true ); setError( '' );
+					wp.apiFetch( { path: '/wp-title-layer/v1/groups/' + rename.id, method: 'POST', data: { label: rename.label } } ).then( function ( result ) {
+						if ( ! alive.current ) { return; }
+						setGroups( groups.map( function ( group ) { return group.id === result.id ? result : group; } ) );
+						props.onChange( result.label ); setRename( null );
+					} ).catch( function ( failure ) { if ( alive.current ) { setError( failure.message || __( 'Group rename failed.', 'wp-title-layer' ) ); } } ).finally( function () { if ( alive.current ) { setBusy( false ); } } );
+				} }, __( 'Save group name', 'wp-title-layer' ) ),
+				el( wp.components.Button, { disabled: busy, onClick: function () { setRename( null ); } }, __( 'Cancel', 'wp-title-layer' ) )
+			) : null
+		);
+	}
+
 	function supportsSeriesControl( postType ) {
 		return !! postType
 			&& ( config.supportedPostTypes || [] ).indexOf( postType ) !== -1
@@ -178,6 +224,7 @@
 				var nextMeta = Object.assign( {}, editor.meta );
 				nextMeta[ schema.seasonKey ] = '';
 				nextMeta[ schema.seriesScope ] = '';
+				nextMeta[ schema.seriesGroup ] = '';
 				if ( ! termId ) {
 					nextMeta[ schema.seriesRole ] = '';
 				}
@@ -315,6 +362,16 @@
 				help: seasons.length
 					? __( 'Choose from the seasons defined for this Series.', 'wp-title-layer' )
 					: __( 'Define seasons on the Series edit screen first.', 'wp-title-layer' )
+			} ) );
+		}
+
+		if ( editor.selectedTerm && schema.seriesGroup ) {
+			controls.push( el( ContentGroupControl, {
+				key: 'content-group-' + editor.selectedTermId + '-' + ( editor.meta[ schema.seasonKey ] || '' ) + '-' + contentScope,
+				series: editor.selectedTermId,
+				season: structure === 'seasoned' && ( mainArticle || contentScope !== 'series' ) ? ( editor.meta[ schema.seasonKey ] || '' ) : '',
+				value: editor.meta[ schema.seriesGroup ] || '',
+				onChange: function ( value ) { setMeta( schema.seriesGroup, value ); }
 			} ) );
 		}
 

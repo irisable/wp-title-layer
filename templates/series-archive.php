@@ -74,6 +74,9 @@ get_header();
 			</div>
 		</header>
 
+		<?php if ( ! empty( $wptl_view['active_group'] ) ) : ?>
+			<p class="wptl-content-group-filter"><?php echo esc_html( $wptl_view['active_group'] ); ?> · <a href="<?php echo esc_url( $wptl_view['group_back_url'] ); ?>"><?php esc_html_e( 'View complete collection', 'wp-title-layer' ); ?></a></p>
+		<?php endif; ?>
 		<div class="wptl-series-archive__content wptl-series-archive__content--<?php echo esc_attr( sanitize_html_class( (string) $wptl_view['mode'] ) ); ?>">
 			<?php if ( empty( $wptl_view['groups'] ) ) : ?>
 				<p class="wptl-series-archive__empty"><?php esc_html_e( 'No published articles are available in this Series.', 'wp-title-layer' ); ?></p>
@@ -86,8 +89,12 @@ get_header();
 
 						<?php $wptl_group_ordered = ! empty( $wptl_group['ordered'] ); ?>
 						<?php $wptl_show_sequence_labels = false !== ( $wptl_group['show_sequence_labels'] ?? true ); ?>
+						<?php foreach ( $wptl_group['segments'] ?? array( array( 'label' => '', 'posts' => $wptl_group['posts'] ) ) as $wptl_segment ) : ?>
+						<?php if ( '' !== $wptl_segment['label'] ) : ?>
+							<h3 class="wptl-content-group__title"><a href="<?php echo esc_url( $wptl_segment['url'] ); ?>"><?php echo esc_html( $wptl_segment['label'] ); ?></a></h3>
+						<?php endif; ?>
 						<<?php echo $wptl_group_ordered ? 'ol' : 'ul'; ?> class="wptl-series-list">
-							<?php foreach ( (array) $wptl_group['posts'] as $wptl_post ) : ?>
+							<?php foreach ( (array) $wptl_segment['posts'] as $wptl_post ) : ?>
 								<?php $wptl_has_image = ! empty( $wptl_view['show_featured_images'] ) && ! empty( $wptl_post['featured_image_id'] ); ?>
 								<li class="wptl-series-list__item wptl-series-list__item--<?php echo esc_attr( sanitize_html_class( (string) ( $wptl_post['role'] ?? 'article' ) ) ); ?><?php echo $wptl_has_image ? ' wptl-series-list__item--has-image' : ''; ?><?php echo $wptl_show_sequence_labels ? '' : ' wptl-series-list__item--without-sequence'; ?>">
 									<?php if ( $wptl_show_sequence_labels && '' !== (string) ( $wptl_post['sequence_label'] ?? '' ) ) : ?>
@@ -113,7 +120,8 @@ get_header();
 									<?php endif; ?>
 
 									<div class="wptl-series-list__body">
-										<h3 class="wptl-series-list__title"><a href="<?php echo esc_url( (string) $wptl_post['url'] ); ?>"><?php echo esc_html( (string) $wptl_post['title'] ); ?></a></h3>
+										<?php $wptl_heading = '' !== $wptl_segment['label'] ? 'h4' : 'h3'; ?>
+										<<?php echo $wptl_heading; ?> class="wptl-series-list__title"><a href="<?php echo esc_url( (string) $wptl_post['url'] ); ?>"><?php echo esc_html( (string) $wptl_post['title'] ); ?></a></<?php echo $wptl_heading; ?>>
 										<?php if ( ! empty( $wptl_view['show_subtitles'] ) && '' !== trim( (string) $wptl_post['subtitle'] ) ) : ?>
 											<p class="wptl-series-list__subtitle"><?php echo esc_html( (string) $wptl_post['subtitle'] ); ?></p>
 										<?php endif; ?>
@@ -127,6 +135,7 @@ get_header();
 								</li>
 							<?php endforeach; ?>
 						</<?php echo $wptl_group_ordered ? 'ol' : 'ul'; ?>>
+						<?php endforeach; ?>
 					</section>
 				<?php endforeach; ?>
 			<?php endif; ?>

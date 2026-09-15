@@ -69,7 +69,8 @@
 }
 
 .wptl-series-link,
-.wptl-season-link {
+.wptl-season-link,
+.wptl-group-link {
 	color: inherit;
 	text-decoration: none;
 }
@@ -93,7 +94,9 @@
 .wptl-series-link:hover,
 .wptl-series-link:focus-visible,
 .wptl-season-link:hover,
-.wptl-season-link:focus-visible {
+.wptl-season-link:focus-visible,
+.wptl-group-link:hover,
+.wptl-group-link:focus-visible {
 	color: var(--wptl-series-link-hover, var(--global-palette-highlight, var(--wp--preset--color--primary, currentColor)));
 	text-decoration-line: underline;
 	text-decoration-thickness: 0.08em;
@@ -101,7 +104,8 @@
 }
 
 .wptl-series-link:focus-visible,
-.wptl-season-link:focus-visible {
+.wptl-season-link:focus-visible,
+.wptl-group-link:focus-visible {
 	outline: 2px solid currentColor;
 	outline-offset: 2px;
 }

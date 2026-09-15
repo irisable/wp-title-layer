@@ -89,6 +89,10 @@ final class Archive {
 			}
 		}
 
+		$groups = $this->groupPosts( $term, $posts );
+		foreach ( $groups as &$group ) { $group['segments'] = $this->contentSegments( $group['posts'] ); }
+		unset( $group );
+		$active_group = $query->get( 'wptl_active_group' );
 		$context = array(
 			'valid'          => true,
 			'term'           => $term,
@@ -102,7 +106,10 @@ final class Archive {
 			'cover_id'       => $this->coverId( (int) get_term_meta( $term->term_id, Schema::TERM_META_COVER_ID, true ) ),
 			'mode'           => $mode,
 			'structure'      => $structure,
-			'groups'         => $this->groupPosts( $term, $posts ),
+			'groups'         => $groups,
+			'active_group'   => $active_group instanceof \WP_Term ? $active_group->name : '',
+			'group_back_url' => $active_group instanceof \WP_Term && $active_season
+				? Series::public_season_archive_url( $term, $active_season['key'] ) : Series::public_archive_url( $term ),
 			'pagination'     => $this->pagination( $query ),
 			'found_posts'    => max( 0, (int) $query->found_posts ),
 			'page'           => max( 1, (int) get_query_var( 'paged', 1 ) ),
@@ -275,6 +282,8 @@ final class Archive {
 
 	/** @return array<string,mixed> */
 	public function postContext( int $post_id, string $mode, string $structure, bool $include_featured_image = false, bool $include_excerpt = false, ?\WP_Term $term = null ): array {
+		$content_group = \WPTitleLayer\Core\ContentGroups::for_post( $post_id, $term );
+		$group_series = $term ?: Series::get_primary_term( $post_id );
 		$subtitle = '';
 		if ( metadata_exists( 'post', $post_id, Schema::META_SUBTITLE ) ) {
 			$subtitle = (string) get_post_meta( $post_id, Schema::META_SUBTITLE, true );
@@ -304,6 +313,9 @@ final class Archive {
 		$role = (string) ( $book_context['role'] ?? BookStructure::role( $post_id ) );
 		return array(
 			'id'             => $post_id,
+			'group_id'       => $content_group ? (int) $content_group->term_id : 0,
+			'group_label'    => $content_group ? $content_group->name : '',
+			'group_url'      => $content_group && $group_series ? \WPTitleLayer\Core\ContentGroups::url( $content_group, $group_series ) : '',
 			'title'          => (string) get_post_field( 'post_title', $post_id, 'display' ),
 			'url'            => (string) get_permalink( $post_id ),
 			'subtitle'       => $subtitle,
@@ -324,6 +336,21 @@ final class Archive {
 				? $this->coverId( (int) get_post_thumbnail_id( $post_id ) )
 				: 0,
 		);
+	}
+
+	/** Split consecutive runs without moving posts, including ungrouped gaps. */
+	public function contentSegments( array $posts ): array {
+		$segments = array();
+		foreach ( $posts as $post ) {
+			$id = (int) ( $post['group_id'] ?? 0 );
+			$last = count( $segments ) - 1;
+			if ( $last < 0 || $segments[ $last ]['id'] !== $id ) {
+				$segments[] = array( 'id' => $id, 'label' => (string) ( $post['group_label'] ?? '' ), 'url' => (string) ( $post['group_url'] ?? '' ), 'posts' => array() );
+				++$last;
+			}
+			$segments[ $last ]['posts'][] = $post;
+		}
+		return $segments;
 	}
 
 	/** @return array{id:int,name:string,url:string}|null */
@@ -353,10 +380,16 @@ final class Archive {
 		}
 
 		$big   = 999999999;
+		$filter_args = array();
+		foreach ( array( \WPTitleLayer\Core\ContentGroups::QUERY_VAR, \WPTitleLayer\Core\Schema::QUERY_VAR_SEASON ) as $key ) {
+			$value = $query->get( $key );
+			if ( is_scalar( $value ) && '' !== (string) $value ) { $filter_args[ $key ] = (string) $value; }
+		}
 		$links = paginate_links(
 			array(
 				'base'      => str_replace( (string) $big, '%#%', get_pagenum_link( $big ) ),
 				'format'    => '?paged=%#%',
+				'add_args'  => $filter_args,
 				'current'   => max( 1, (int) get_query_var( 'paged', 1 ) ),
 				'total'     => (int) $query->max_num_pages,
 				'type'      => 'list',

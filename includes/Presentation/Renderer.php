@@ -275,7 +275,10 @@ final class Renderer {
 		}
 		$sequence      = $series_term instanceof \WP_Term ? (string) get_post_meta( $post_id, Schema::sequenceLabelMeta(), true ) : '';
 		$sequence_item = $this->sequenceItemDisplay( $position, $sequence, $role );
-		$derived_label = $this->sequenceDisplay( $season, $sequence_item );
+		$group = $series_term instanceof \WP_Term ? \WPTitleLayer\Core\ContentGroups::for_post( $post_id, $series_term ) : null;
+		$group_label = $group ? $group->name : '';
+		$group_url = $group ? \WPTitleLayer\Core\ContentGroups::url( $group, $series_term ) : '';
+		$derived_label = $this->sequenceDisplay( $season, $sequence_item, $group_label );
 
 		$kicker_override = metadata_exists( 'post', $post_id, Schema::kickerOverrideMeta() )
 			? (string) get_post_meta( $post_id, Schema::kickerOverrideMeta(), true )
@@ -302,6 +305,8 @@ final class Renderer {
 			'season'          => $this->plainText( $season ),
 			'season_key'      => $this->plainText( $season_key ),
 			'season_url'      => $season_url,
+			'group'           => $this->plainText( $group_label ),
+			'group_url'       => $group_url,
 			'position'        => $this->plainText( $position ),
 			'sequence_label'  => $this->plainText( $sequence ),
 			'sequence_item'   => $this->plainText( $sequence_item ),
@@ -324,7 +329,7 @@ final class Renderer {
 		if ( is_array( $filtered ) ) {
 			foreach ( $context as $key => $value ) {
 				if ( isset( $filtered[ $key ] ) && is_scalar( $filtered[ $key ] ) ) {
-					$context[ $key ] = in_array( $key, array( 'series_url', 'season_url' ), true )
+					$context[ $key ] = in_array( $key, array( 'series_url', 'season_url', 'group_url' ), true )
 						? esc_url_raw( (string) $filtered[ $key ], array( 'http', 'https' ) )
 						: $this->plainText( (string) $filtered[ $key ] );
 				}
@@ -423,12 +428,14 @@ final class Renderer {
 		$kicker_source   = sanitize_key( (string) ( $context['kicker_source'] ?? '' ) );
 		$season          = trim( (string) ( $context['season'] ?? '' ) );
 		$season_url      = esc_url( (string) ( $context['season_url'] ?? '' ) );
+		$group           = trim( (string) ( $context['group'] ?? '' ) );
+		$group_url       = esc_url( (string) ( $context['group_url'] ?? '' ) );
 		$sequence_item   = trim( (string) ( $context['sequence_item'] ?? '' ) );
 		$eyebrow         = trim( (string) ( $context['eyebrow'] ?? '' ) );
 		$series_icon_id  = absint( $context['series_icon_id'] ?? 0 );
 		$canonical_parts = array_values(
 			array_filter(
-				array( $kicker, $season, $sequence_item ),
+				array( $kicker, $season, $group, $sequence_item ),
 				static function ( string $value ): bool {
 					return '' !== trim( $value );
 				}
@@ -465,6 +472,9 @@ final class Renderer {
 				$season_html = '<a class="wptl-season-link" href="' . $season_url . '" rel="tag">' . $season_html . '</a>';
 			}
 			$parts[] = $season_html;
+		}
+		if ( '' !== $group ) {
+			$parts[] = $group_url ? '<a class="wptl-group-link" href="' . $group_url . '">' . esc_html( $group ) . '</a>' : esc_html( $group );
 		}
 		if ( '' !== $sequence_item ) {
 			$parts[] = esc_html( $sequence_item );
@@ -576,10 +586,10 @@ final class Renderer {
 		return $position;
 	}
 
-	private function sequenceDisplay( string $season, string $sequence_item ): string {
+	private function sequenceDisplay( string $season, string $sequence_item, string $group = '' ): string {
 		$parts = array_values(
 			array_filter(
-				array( trim( $season ), trim( $sequence_item ) ),
+				array( trim( $season ), trim( $group ), trim( $sequence_item ) ),
 				static function ( string $value ): bool {
 					return '' !== $value;
 				}

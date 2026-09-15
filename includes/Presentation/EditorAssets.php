@@ -164,6 +164,7 @@ final class EditorAssets {
 		}
 
 		$data = array(
+			'canRenameGroups' => $taxonomy && current_user_can( $taxonomy->cap->edit_terms ),
 			'schema'          => $schema,
 			'presets'         => Presets::choices(),
 			'defaultTemplate' => $settings['default_template'],

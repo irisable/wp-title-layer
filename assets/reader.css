@@ -156,6 +156,28 @@
 	list-style: none;
 }
 
+.wptl-content-group__title {
+	margin: 1.75rem 0 0.25rem;
+	font-size: clamp(1.05rem, 2vw, 1.3rem);
+	line-height: 1.5;
+	overflow-wrap: anywhere;
+}
+
+.wptl-content-group__title a,
+.wptl-content-group-filter a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.wptl-content-group__title a:hover,
+.wptl-content-group__title a:focus-visible,
+.wptl-content-group-filter a:hover,
+.wptl-content-group-filter a:focus-visible {
+	color: var(--global-palette-highlight, var(--wptl-reader-text));
+	text-decoration: underline;
+	text-underline-offset: 0.16em;
+}
+
 .wptl-series-list__item {
 	display: grid;
 	grid-template-columns: minmax(2.75rem, auto) minmax(0, 1fr);

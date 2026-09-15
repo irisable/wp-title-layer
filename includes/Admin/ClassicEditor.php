@@ -166,6 +166,24 @@ final class ClassicEditor {
 					</p>
 				</div>
 
+				<p>
+					<label for="wptl-classic-group"><strong><?php esc_html_e( 'Content group', 'wp-title-layer' ); ?></strong></label><br>
+					<?php $wptl_current_group = \WPTitleLayer\Core\ContentGroups::for_post( (int) $post->ID ); ?>
+					<input class="widefat" type="text" id="wptl-classic-group" list="wptl-classic-groups" name="<?php echo esc_attr( self::FIELD_ROOT ); ?>[series_group]" value="<?php echo esc_attr( $wptl_current_group ? $wptl_current_group->name : (string) get_post_meta( $post->ID, Schema::META_SERIES_GROUP, true ) ); ?>">
+					<datalist id="wptl-classic-groups"></datalist>
+					<span class="description"><?php esc_html_e( 'Optional group, for example W1 Seeing human weakness. Article numbers remain independent.', 'wp-title-layer' ); ?></span>
+				</p>
+				<div data-wptl-group-rename hidden>
+					<button type="button" class="button-link" data-wptl-group-rename-start><?php esc_html_e( 'Rename this group', 'wp-title-layer' ); ?></button>
+					<div data-wptl-group-rename-form hidden>
+						<label for="wptl-classic-group-new"><?php esc_html_e( 'New group name', 'wp-title-layer' ); ?></label>
+						<input type="text" id="wptl-classic-group-new" class="widefat">
+						<p class="description"><?php esc_html_e( 'Renames this group for all its articles. Existing group links stay valid.', 'wp-title-layer' ); ?></p>
+						<button type="button" class="button" data-wptl-group-rename-save><?php esc_html_e( 'Save group name', 'wp-title-layer' ); ?></button>
+						<button type="button" class="button-link" data-wptl-group-rename-cancel><?php esc_html_e( 'Cancel', 'wp-title-layer' ); ?></button>
+					</div>
+				</div>
+				<p data-wptl-group-status role="status"></p>
 				<div data-wptl-series-condition="ordered">
 					<div class="notice notice-info inline" data-wptl-series-condition="managed-ordered">
 						<p>
@@ -320,6 +338,8 @@ final class ClassicEditor {
 		}
 
 		self::saveOptionalText( $post_id, Schema::META_SEQUENCE_LABEL, $input['sequence_label'] ?? null );
+		self::saveOptionalText( $post_id, Schema::META_SERIES_GROUP, $input['series_group'] ?? null );
+		\WPTitleLayer\Core\ContentGroups::sync( $post_id );
 		self::saveOptionalText( $post_id, Schema::META_KICKER_OVERRIDE, $input['kicker_override'] ?? null );
 
 		if ( array_key_exists( 'template_override', $input ) ) {
@@ -361,7 +381,13 @@ final class ClassicEditor {
 	private static function enqueueAssets(): void {
 		$base_url = defined( 'WPTL_URL' ) ? trailingslashit( (string) WPTL_URL ) : plugin_dir_url( dirname( __DIR__, 2 ) . '/wp-title-layer.php' );
 		$version  = defined( 'WPTL_VERSION' ) ? (string) WPTL_VERSION : '1.0.0-rc.1';
-		wp_enqueue_script( 'wptl-classic-editor', $base_url . 'assets/classic-editor.js', array(), $version, true );
+		wp_enqueue_script( 'wptl-classic-editor', $base_url . 'assets/classic-editor.js', array( 'wp-api-fetch' ), $version, true );
+		$taxonomy = get_taxonomy( Series::claimed_taxonomy() );
+		wp_localize_script( 'wptl-classic-editor', 'WPTLGroupEditor', array(
+			'canRename' => $taxonomy && current_user_can( $taxonomy->cap->edit_terms ),
+			'loadError' => __( 'Group suggestions could not be loaded. You can still enter a name.', 'wp-title-layer' ),
+			'renameError' => __( 'Group rename failed.', 'wp-title-layer' ),
+		) );
 		wp_enqueue_style( 'wptl-classic-editor', $base_url . 'assets/classic-editor.css', array(), $version );
 	}
 }

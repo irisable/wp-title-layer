@@ -1,4 +1,28 @@
-# Architecture decisions for 1.0.0-rc.2
+# Architecture decisions for 1.0.0-rc.3
+
+## Content groups (rc.3)
+
+`wptl_series_group` is optional string post meta exposed through the existing
+WordPress post REST endpoint. `_wptl_group_id` is private, derived post meta.
+An internal non-public taxonomy, `wptl_content_group`, supplies stable IDs using
+WordPress term storage; it has no native metabox, rewrite, or public REST route.
+Each record belongs to one Series and an effective Season, or Series-wide scope.
+Scope and text changes reconcile after REST writes or classic-editor saves;
+low-level metadata/term writes are queued for shutdown. Reads do not create groups.
+
+Group renames require the Series edit-terms capability. Original labels remain
+aliases so older Publisher metadata cannot silently undo a shared rename.
+The post REST response exposes the current display name. Renaming to an existing
+group or alias in the same scope fails with HTTP 409. It does not merge groups.
+The authenticated suggestions endpoint requires the Series assign-terms capability.
+
+Public archive filtering checks the owning Series and Season, ANDs its group-ID
+condition with existing query restrictions, and leaves ordering to Sequence.
+Rendering splits each public archive section into consecutive runs, including
+unlabelled gaps. A repeated group after another group receives another heading;
+articles are never moved to make same-name groups contiguous.
+The public group URL is a filtered archive, not a new taxonomy archive.
+Group subheadings are limited to the plugin template; theme layouts retain control.
 
 ## Ownership and dependency boundary
 
@@ -12,7 +36,7 @@ presentation APIs. ACF is **not a dependency** and is not required to keep the
 schema registered or the site readable. It is consulted only as a possible,
 strictly verified migration source.
 
-SEO and social plugins continue to own their metadata. Version 1.0.0-rc.2 exposes
+SEO and social plugins continue to own their metadata. Version 1.0.0-rc.3 exposes
 read-only Rank Math replacement variables but does not claim SEO/social editing
 UI, filter final provider titles, write provider metadata, or emit Open Graph
 tags.
@@ -87,12 +111,12 @@ ordering, or Reader eligibility.
 
 ## Series invariants and enforcement limits
 
-Version 1.0.0-rc.2 supports at most one Series per post. Season, scope, role, and sequence
+Version 1.0.0-rc.3 supports at most one Series per post. Season, scope, role, and sequence
 metadata belongs to the post-to-Series relationship and would be ambiguous with
 multiple memberships. REST input rejects multiple Series terms, and the native
 term-assignment hook corrects a multi-term assignment to one deterministic
 term. Multiple independent Series relationships require a different future
-relationship model and are not promised by 1.0.0-rc.2.
+relationship model and are not promised by 1.0.0-rc.3.
 
 The optional parent Category is a soft editorial relation between two native
 taxonomies. It does not make the Series taxonomy hierarchical and never changes
@@ -224,7 +248,7 @@ Migration copies data into `wptl_subtitle`; it never renames or deletes source
 metadata. The existence of the target key is authoritative, including an empty
 target value.
 
-There are exactly two automatic sources in 1.0.0-rc.2:
+There are exactly two automatic sources in 1.0.0-rc.3:
 
 1. `_secondary_title` from Secondary Title;
 2. `subtitle` only when it is proven to be a genuine ACF field.
@@ -445,7 +469,7 @@ variable in an SEO, Facebook, or Twitter title template. WP Title Layer does
 not hook `rank_math/frontend/title` or Rank Math Open Graph title filters and
 does not write `rank_math_title`, `rank_math_facebook_title`, or
 `rank_math_twitter_title`. This preserves provider-level global and per-object
-overrides. Multiple Series per post remain outside the 1.0.0-rc.2 contract.
+overrides. Multiple Series per post remain outside the 1.0.0-rc.3 contract.
 
 ### Landing-page and channel governance
 
@@ -464,7 +488,7 @@ Aggregates stay in SQL, overlap rows are paginated, and no complete membership
 list is loaded into PHP merely to render the report.
 
 Provider activation is detected from the running provider, never merely from
-stored options. Rank Math is the only provider whose local schema 1.0.0-rc.2
+stored options. Rank Math is the only provider whose local schema 1.0.0-rc.3
 interprets. For it, taxonomy defaults remain distinct from explicitly saved
 taxonomy settings; term metadata can then override title, description, robots,
 canonical, Facebook, and Twitter channels. Sitemap inclusion requires the
@@ -591,8 +615,8 @@ Run syntax and integration smoke tests in WordPress Playground with:
 npm run test:wp
 ```
 
-The Playground script parses 60 PHP files and runs 828 integration
-checks plus 111 Sequence Manager and 65 book-structure checks at both supported ends of the 1.0.0-rc.2
+The Playground script parses 61 PHP files and runs 828 integration
+checks plus 111 Sequence Manager, 65 book-structure, and 42 content-group checks at both supported ends of the 1.0.0-rc.3
 matrix:
 
 - WordPress 6.5 with PHP 7.4;
@@ -627,7 +651,7 @@ After building a release, the same dual-environment matrix must also boot the
 extracted production artifact rather than the development directory:
 
 ```sh
-./bin/test-release-package.sh wp-title-layer-1.0.0-rc.2.zip
+./bin/test-release-package.sh wp-title-layer-1.0.0-rc.3.zip
 ```
 
 The first Playground run may require network access to obtain WordPress.

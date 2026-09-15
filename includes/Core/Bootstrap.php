@@ -44,6 +44,7 @@ final class Bootstrap {
 	 */
 	public static function register_content_model(): void {
 		Series::register_taxonomy();
+		ContentGroups::register_taxonomy();
 		Meta::register();
 	}
 
@@ -53,6 +54,7 @@ final class Bootstrap {
 		}
 		Series::register_runtime_hooks();
 		SequenceRuntime::register();
+		ContentGroups::register();
 		self::$runtime_hooked = true;
 	}
 }

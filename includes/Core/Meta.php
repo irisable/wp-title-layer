@@ -22,6 +22,8 @@ final class Meta {
 		self::register_private_post_field( Schema::META_SEQUENCE_RANK, 'integer', [ self::class, 'sanitize_positive_integer' ], 0 );
 		self::register_private_post_field( Schema::META_SEQUENCE_SOURCE_POSITION, 'string', [ self::class, 'sanitize_source_position' ], '' );
 		self::register_post_field( Schema::META_SEQUENCE_LABEL, 'string', [ self::class, 'sanitize_text' ], '' );
+		self::register_post_field( Schema::META_SERIES_GROUP, 'string', [ self::class, 'sanitize_text' ], '' );
+		self::register_private_post_field( Schema::META_GROUP_ID, 'integer', [ self::class, 'sanitize_positive_integer' ], 0 );
 		self::register_post_field( Schema::META_SERIES_ROLE, 'string', [ self::class, 'sanitize_role' ], '' );
 		self::register_post_field( Schema::META_SERIES_SCOPE, 'string', [ self::class, 'sanitize_content_scope' ], '' );
 		self::register_post_field( Schema::META_TEMPLATE_OVERRIDE, 'string', [ self::class, 'sanitize_key' ], '' );

@@ -30,7 +30,7 @@ const coreSeries = read( 'includes/Core/Series.php' );
 const postColumns = read( 'includes/Admin/PostListColumns.php' );
 
 test( 'Series archive links inherit the theme until hover or keyboard focus', () => {
-	assert.match( frontendCss, /\.wptl-series-link,[\s\S]*?\.wptl-season-link\s*\{[\s\S]*?color:\s*inherit;[\s\S]*?text-decoration:\s*none;/ );
+	assert.match( frontendCss, /\.wptl-series-link,[\s\S]*?\.wptl-season-link,[\s\S]*?\.wptl-group-link\s*\{[\s\S]*?color:\s*inherit;[\s\S]*?text-decoration:\s*none;/ );
 	assert.match( frontendCss, /\.wptl-series-link:hover,[\s\S]*?var\(--global-palette-highlight/ );
 	assert.match( frontendCss, /\.wptl-series-link:hover,[\s\S]*?text-decoration-line:\s*underline/ );
 	assert.match( frontendCss, /\.wptl-series-link:focus-visible[\s\S]*?outline:/ );

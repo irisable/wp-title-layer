@@ -1037,6 +1037,9 @@ final class Series {
 		}
 		$url = self::canonical_season_url( $term, (string) $token );
 		if ( '' !== $url ) {
+			$raw_group_token = get_query_var( ContentGroups::QUERY_VAR, '' );
+			$group_token = is_scalar( $raw_group_token ) ? (string) $raw_group_token : '';
+			if ( '' !== $group_token ) { $url = add_query_arg( ContentGroups::QUERY_VAR, $group_token, $url ); }
 			$paged = max( 0, (int) get_query_var( 'paged', 0 ) );
 			if ( 1 < $paged ) {
 				$url = add_query_arg( 'paged', $paged, $url );
