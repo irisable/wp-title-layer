@@ -152,6 +152,23 @@ final class ClassicEditor {
 					<span class="description"><?php esc_html_e( 'Choose one existing Series. Series creation and structure remain on the Series screen.', 'wp-title-layer' ); ?></span>
 				</p>
 
+					<p>
+						<label for="wptl-classic-role"><strong><?php esc_html_e( 'Series role', 'wp-title-layer' ); ?></strong></label><br>
+						<select id="wptl-classic-role" name="<?php echo esc_attr( self::FIELD_ROOT ); ?>[series_role]" data-wptl-role-select>
+							<?php foreach ( Schema::role_labels() as $role => $role_label ) : ?>
+								<option value="<?php echo esc_attr( $role ); ?>" <?php selected( (string) get_post_meta( $post->ID, Schema::META_SERIES_ROLE, true ), $role ); ?>><?php echo esc_html( $role_label ); ?></option>
+							<?php endforeach; ?>
+						</select>
+					</p>
+					<p data-wptl-series-condition="book-scope">
+						<label for="wptl-classic-scope"><strong><?php esc_html_e( 'Book structure scope', 'wp-title-layer' ); ?></strong></label><br>
+						<select id="wptl-classic-scope" name="<?php echo esc_attr( self::FIELD_ROOT ); ?>[series_scope]" data-wptl-scope-select>
+							<?php foreach ( Schema::scope_labels() as $scope => $scope_label ) : ?>
+								<option value="<?php echo esc_attr( $scope ); ?>" <?php selected( (string) get_post_meta( $post->ID, Schema::META_SERIES_SCOPE, true ), $scope ); ?>><?php echo esc_html( $scope_label ); ?></option>
+							<?php endforeach; ?>
+						</select>
+					</p>
+
 				<div data-wptl-series-condition="season-required">
 					<p>
 						<label for="wptl-classic-season"><strong><?php esc_html_e( 'Season', 'wp-title-layer' ); ?></strong></label><br>
@@ -166,6 +183,7 @@ final class ClassicEditor {
 					</p>
 				</div>
 
+				<div data-wptl-series-condition="content-group">
 				<p>
 					<label for="wptl-classic-group"><strong><?php esc_html_e( 'Content group', 'wp-title-layer' ); ?></strong></label><br>
 					<?php $wptl_current_group = \WPTitleLayer\Core\ContentGroups::for_post( (int) $post->ID ); ?>
@@ -184,6 +202,8 @@ final class ClassicEditor {
 					</div>
 				</div>
 				<p data-wptl-group-status role="status"></p>
+				</div>
+				<p data-wptl-series-condition="inactive-group"><?php esc_html_e( 'The saved content group is inactive for this role. It will be restored if you switch back to a main article.', 'wp-title-layer' ); ?></p>
 				<div data-wptl-series-condition="ordered">
 					<div class="notice notice-info inline" data-wptl-series-condition="managed-ordered">
 						<p>
@@ -203,6 +223,15 @@ final class ClassicEditor {
 					</div>
 				</div>
 
+				<div class="wptl-classic-grid">
+					<p>
+						<label for="wptl-classic-sequence-label"><strong><?php esc_html_e( 'Public structure label', 'wp-title-layer' ); ?></strong></label><br>
+						<input type="text" id="wptl-classic-sequence-label" name="<?php echo esc_attr( self::FIELD_ROOT ); ?>[sequence_label]" value="<?php echo esc_attr( (string) get_post_meta( $post->ID, Schema::META_SEQUENCE_LABEL, true ) ); ?>">
+						<span class="description"><?php esc_html_e( 'Optional label such as 0-1, Preface II, or Appendix A.', 'wp-title-layer' ); ?></span>
+					</p>
+
+				</div>
+
 				<div class="notice notice-info inline" data-wptl-series-condition="book-track">
 					<p>
 						<strong><?php esc_html_e( 'Managed structure track', 'wp-title-layer' ); ?></strong><br>
@@ -211,29 +240,7 @@ final class ClassicEditor {
 					</p>
 				</div>
 
-				<div class="wptl-classic-grid">
-					<p>
-						<label for="wptl-classic-sequence-label"><strong><?php esc_html_e( 'Public structure label', 'wp-title-layer' ); ?></strong></label><br>
-						<input type="text" id="wptl-classic-sequence-label" name="<?php echo esc_attr( self::FIELD_ROOT ); ?>[sequence_label]" value="<?php echo esc_attr( (string) get_post_meta( $post->ID, Schema::META_SEQUENCE_LABEL, true ) ); ?>">
-						<span class="description"><?php esc_html_e( 'Optional label such as 0-1, Preface II, or Appendix A.', 'wp-title-layer' ); ?></span>
-					</p>
-					<p>
-						<label for="wptl-classic-role"><strong><?php esc_html_e( 'Series role', 'wp-title-layer' ); ?></strong></label><br>
-						<select id="wptl-classic-role" name="<?php echo esc_attr( self::FIELD_ROOT ); ?>[series_role]" data-wptl-role-select>
-							<?php foreach ( Schema::role_labels() as $role => $role_label ) : ?>
-								<option value="<?php echo esc_attr( $role ); ?>" <?php selected( (string) get_post_meta( $post->ID, Schema::META_SERIES_ROLE, true ), $role ); ?>><?php echo esc_html( $role_label ); ?></option>
-							<?php endforeach; ?>
-						</select>
-					</p>
-					<p data-wptl-series-condition="book-scope">
-						<label for="wptl-classic-scope"><strong><?php esc_html_e( 'Book structure scope', 'wp-title-layer' ); ?></strong></label><br>
-						<select id="wptl-classic-scope" name="<?php echo esc_attr( self::FIELD_ROOT ); ?>[series_scope]" data-wptl-scope-select>
-							<?php foreach ( Schema::scope_labels() as $scope => $scope_label ) : ?>
-								<option value="<?php echo esc_attr( $scope ); ?>" <?php selected( (string) get_post_meta( $post->ID, Schema::META_SERIES_SCOPE, true ), $scope ); ?>><?php echo esc_html( $scope_label ); ?></option>
-							<?php endforeach; ?>
-						</select>
-					</p>
-				</div>
+
 			<?php endif; ?>
 
 			<div class="wptl-classic-grid">

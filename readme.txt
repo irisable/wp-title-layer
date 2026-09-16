@@ -4,7 +4,7 @@ Tags: title, subtitle, series, editorial, gutenberg
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0-rc.3
+Stable tag: 1.0.0-rc.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -394,6 +394,11 @@ Official Kadence 1.5.2 templates pass 40 adapter checks. Official Rank Math
 two-post cache isolation and its real taxonomy/sitemap settings.
 
 == Changelog ==
+
+= 1.0.0-rc.4 =
+* Merge Series-wide prefaces, afterwords and appendices into one section per role; keep individual public labels on article rows.
+* Put role before scope and season in editors. Content groups apply only to main articles; inactive saved values remain recoverable.
+* Expose versioned read-only Series capabilities for WP Publisher advanced-role publishing.
 
 = 1.0.0-rc.3 =
 

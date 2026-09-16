@@ -302,9 +302,17 @@ wptl_book_same(
 	'A public Season group did not merge its role tracks in canonical order.'
 );
 wptl_book_same( 'Season One', (string) ( $su_groups[1]['label'] ?? '' ), 'A public Season group exposed a role-specific track label.' );
-wptl_book_same( 'Series Collection preface', (string) ( $su_groups[0]['label'] ?? '' ), 'A Series-wide public heading did not use its public structure label.' );
-wptl_book_same( 'Series Collection afterword', (string) ( $su_groups[2]['label'] ?? '' ), 'A Series-wide epilogue exposed its internal role label.' );
-wptl_book_same( false, (bool) ( $su_groups[0]['show_sequence_labels'] ?? true ), 'A Series-wide heading repeated its public structure label inside the article row.' );
+wptl_book_same( 'Series prefaces', (string) ( $su_groups[0]['label'] ?? '' ), 'A Series-wide introduction did not use its stable public heading.' );
+wptl_book_same( 'Series afterwords', (string) ( $su_groups[2]['label'] ?? '' ), 'A Series-wide epilogue did not use its stable public heading.' );
+wptl_book_same( true, (bool) ( $su_groups[0]['show_sequence_labels'] ?? false ), 'A Series-wide article lost its public structure label.' );
+$extra_intro = $su_contexts[0];
+$extra_intro['id'] = 987654;
+$extra_intro['sequence_label'] = 'Preface II';
+$multi_contexts = $su_contexts;
+array_splice( $multi_contexts, 1, 0, array( $extra_intro ) );
+$multi_groups = $su_archive->groupPosts( $seasoned_unordered, $multi_contexts );
+wptl_book_same( 3, count( $multi_groups ), 'Two Series introductions created two season-level headings.' );
+wptl_book_same( array( 'Collection preface', 'Preface II' ), wp_list_pluck( $multi_groups[0]['posts'], 'sequence_label' ), 'Merged introductions lost independent public labels or order.' );
 $su_template = file_get_contents( WPTL_PATH . 'templates/series-archive.php' );
 wptl_book_assert( false !== strpos( $su_template, "! empty( \$wptl_group['ordered'] )" ), 'The archive template stopped consuming the group semantic flag.' );
 $su_health = ( new \WPTitleLayer\Admin\SeriesHealthReport() )->report( (int) $seasoned_unordered->term_id );

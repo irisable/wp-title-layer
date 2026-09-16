@@ -187,9 +187,7 @@ final class Archive {
 					continue;
 				}
 
-				// A flat Series body remains one unlabeled public collection. Whole-
-				// Series bookends become individual public sections so each can use
-				// its editor-defined public label instead of exposing an internal role.
+				// A flat Series body remains one unlabeled public collection.
 				if ( Schema::ROLE_ARTICLE === $role ) {
 					$group_key = 'series';
 					if ( ! isset( $groups[ $group_key ] ) ) {
@@ -207,24 +205,25 @@ final class Archive {
 					continue;
 				}
 
-				$post_id      = absint( $post['id'] ?? 0 );
-				$group_key    = $track_key . '_entry_' . $post_id;
-				$public_label = trim( (string) ( $post['sequence_label'] ?? '' ) );
-				$groups[ $group_key ] = array(
-					'key'                  => $group_key,
-					'label'                => '' !== $public_label
-						? sprintf(
-							/* translators: %s: editor-defined public structure label, for example "Preface". */
-							__( 'Series %s', 'wp-title-layer' ),
-							$public_label
-						)
-						: __( 'Series', 'wp-title-layer' ),
-					'sort'                 => (int) array_search( $track_key, array_keys( $definitions ), true ),
-					'role'                 => $role,
-					'ordered'              => true,
-					'show_sequence_labels' => false,
-					'posts'                 => array( $post ),
+				// One public section per Series-wide role; article labels stay on rows.
+				$group_key = $track_key;
+				$labels = array(
+					Schema::ROLE_INTRO => __( 'Series prefaces', 'wp-title-layer' ),
+					Schema::ROLE_EPILOGUE => __( 'Series afterwords', 'wp-title-layer' ),
+					Schema::ROLE_APPENDIX => __( 'Series appendix', 'wp-title-layer' ),
 				);
+				if ( ! isset( $groups[ $group_key ] ) ) {
+					$groups[ $group_key ] = array(
+						'key'                  => $group_key,
+						'label'                => $labels[ $role ] ?? '',
+						'sort'                 => (int) array_search( $track_key, array_keys( $definitions ), true ),
+						'role'                 => $role,
+						'ordered'              => true,
+						'show_sequence_labels' => true,
+						'posts'                 => array(),
+					);
+				}
+				$groups[ $group_key ]['posts'][] = $post;
 			}
 			return array_values( $groups );
 		}

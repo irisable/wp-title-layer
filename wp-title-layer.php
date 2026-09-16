@@ -3,7 +3,7 @@
  * Plugin Name:       WP Title Layer
  * Plugin URI:        https://github.com/irisable/wp-title-layer
  * Description:       Structured subtitles, series, and context-aware title templates for WordPress.
- * Version:           1.0.0-rc.3
+ * Version:           1.0.0-rc.4
  * Requires at least: 6.5
  * Requires PHP:      7.4
  * Author:            Irisable
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'WPTL_VERSION', '1.0.0-rc.3' );
+define( 'WPTL_VERSION', '1.0.0-rc.4' );
 define( 'WPTL_FILE', __FILE__ );
 define( 'WPTL_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WPTL_URL', plugin_dir_url( __FILE__ ) );

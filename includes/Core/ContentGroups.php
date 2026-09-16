@@ -76,6 +76,7 @@ final class ContentGroups {
 
 	/** Read only. A stale private ID never overrides changed text or scope. */
 	public static function for_post( int $post_id, ?\WP_Term $series = null ): ?\WP_Term {
+		if ( Schema::ROLE_ARTICLE !== BookStructure::role( $post_id ) ) { return null; }
 		$series = $series ?: Series::get_primary_term( $post_id );
 		$label = trim( (string) get_post_meta( $post_id, Schema::META_SERIES_GROUP, true ) );
 		if ( ! $series || '' === $label ) { return null; }
@@ -110,7 +111,7 @@ final class ContentGroups {
 		$series = Series::get_primary_term( $post_id );
 		$label = trim( (string) get_post_meta( $post_id, Schema::META_SERIES_GROUP, true ) );
 		$season = $series ? self::post_scope( $post_id, $series ) : null;
-		if ( ! $series || '' === $label || null === $season ) {
+		if ( ! $series || '' === $label || null === $season || Schema::ROLE_ARTICLE !== BookStructure::role( $post_id ) ) {
 			delete_post_meta( $post_id, Schema::META_GROUP_ID );
 			return;
 		}
@@ -160,6 +161,11 @@ final class ContentGroups {
 		if ( '' !== $season ) { $query->set( Schema::QUERY_VAR_RESOLVED_SEASON, $season ); }
 		// AND with existing filters; never replace theme or WordPress restrictions.
 		$meta = array( 'relation' => 'AND', array( 'key' => Schema::META_GROUP_ID, 'value' => $group->term_id, 'compare' => '=', 'type' => 'NUMERIC' ) );
+		// Also exclude pre-upgrade memberships without mutating data during a GET.
+		$meta[] = array( 'relation' => 'OR',
+			array( 'key' => Schema::META_SERIES_ROLE, 'compare' => 'NOT EXISTS' ),
+			array( 'key' => Schema::META_SERIES_ROLE, 'value' => array( '', Schema::ROLE_ARTICLE ), 'compare' => 'IN' ),
+		);
 		if ( $query->get( 'meta_query' ) ) { $meta[] = $query->get( 'meta_query' ); }
 		if ( Series::is_seasoned( $series ) ) {
 			$meta[] = '' !== $season

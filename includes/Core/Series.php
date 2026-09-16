@@ -1520,6 +1520,19 @@ final class Series {
 		if ( '' === self::$claimed_taxonomy ) {
 			return;
 		}
+		register_rest_field( self::$claimed_taxonomy, 'wptl_capabilities', array(
+			'get_callback' => static function ( $data ) {
+				$term = get_term( (int) $data['id'], self::$claimed_taxonomy );
+				return array( 'version' => 1, 'book_structure' => $term instanceof \WP_Term && BookStructure::is_enabled( $term ), 'content_groups' => 'article-only' );
+			},
+			'schema' => array( 'type' => 'object', 'readonly' => true, 'context' => array( 'view', 'edit' ),
+				'properties' => array(
+					'version' => array( 'type' => 'integer', 'enum' => array( 1 ) ),
+					'book_structure' => array( 'type' => 'boolean' ),
+					'content_groups' => array( 'type' => 'string', 'enum' => array( 'article-only' ) ),
+				),
+			),
+		) );
 		if ( ! isset( self::$rest_hooks[ 'term:' . self::$claimed_taxonomy ] ) ) {
 			add_filter( 'rest_pre_insert_' . self::$claimed_taxonomy, array( self::class, 'guard_rest_series_definition_meta' ), 10, 2 );
 			self::$rest_hooks[ 'term:' . self::$claimed_taxonomy ] = true;

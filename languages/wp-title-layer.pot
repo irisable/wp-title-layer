@@ -6,7 +6,7 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Title Layer 1.0.0-rc.3\n"
+"Project-Id-Version: WP Title Layer 1.0.0-rc.4\n"
 "Report-Msgid-Bugs-To: https://github.com/irisable/wp-title-layer/issues\n"
 "POT-Creation-Date: 2026-09-11 16:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -4323,4 +4323,16 @@ msgid "View complete collection"
 msgstr ""
 
 msgid "Cancel"
+msgstr ""
+
+msgid "Series prefaces"
+msgstr ""
+
+msgid "Series afterwords"
+msgstr ""
+
+msgid "Series appendix"
+msgstr ""
+
+msgid "The saved content group is inactive for this role. It will be restored if you switch back to a main article."
 msgstr ""

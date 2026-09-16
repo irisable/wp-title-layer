@@ -88,6 +88,10 @@
 					visible = structure === 'seasoned' && ( mainArticle || scopeValue !== 'series' );
 				} else if ( condition === 'book-track' ) {
 					visible = book && ! mainArticle;
+				} else if ( condition === 'content-group' ) {
+					visible = termId !== '0' && mainArticle;
+				} else if ( condition === 'inactive-group' ) {
+					visible = termId !== '0' && ! mainArticle && !! ( groupInput && groupInput.value );
 				}
 				group.hidden = ! visible;
 				Array.prototype.forEach.call( group.querySelectorAll( 'input, select' ), function ( field ) {

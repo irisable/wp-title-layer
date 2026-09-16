@@ -140,7 +140,13 @@ foreach ( array( 'ordered', 'unordered' ) as $mode ) {
 		Groups::flush();
 		\WPTitleLayer\Core\SequenceRuntime::flush();
 		$ids = wp_list_pluck( group_query( $shape, $unit->term_id )->posts, 'ID' );
-		group_check( array( $intro, $first ) === $ids, 'Group changed advanced-structure ordering for ' . $mode . '/' . $structure );
+		group_check( array( $first ) === $ids, 'Non-main articles leaked into group for ' . $mode . '/' . $structure );
+		group_check( null === Groups::for_post( $intro ) && 'Unit A' === get_post_meta( $intro, 'wptl_series_group', true ), 'Inactive group was displayed or destructively cleared.' );
+		update_post_meta( $intro, '_wptl_group_id', $unit->term_id );
+		group_check( array( $first ) === wp_list_pluck( group_query( $shape, $unit->term_id )->posts, 'ID' ), 'Pre-upgrade group ID leaked a non-main article.' );
+		update_post_meta( $intro, 'wptl_series_role', 'article' );
+		Groups::flush();
+		group_check( Groups::for_post( $intro ) && $unit->term_id === Groups::for_post( $intro )->term_id, 'Returning to main article did not restore its saved group.' );
 	}
 }
 
@@ -156,6 +162,16 @@ $suggestions->set_param( 'season', 's1' );
 group_check( 200 === $server->dispatch( $suggestions )->get_status(), 'Assign-only author could not load group suggestions.' );
 group_check( 403 === $server->dispatch( $rename )->get_status(), 'Assign-only author could rename a shared group.' );
 wp_set_current_user( $admin );
+
+$cap_request = new WP_REST_Request( 'GET', '/wp/v2/wptl_series/' . $shape->term_id );
+$cap_response = $server->dispatch( $cap_request );
+group_check( array( 'version' => 1, 'book_structure' => true, 'content_groups' => 'article-only' ) === ( $cap_response->get_data()['wptl_capabilities'] ?? null ), 'Enabled Series did not expose the semantic public capability.' );
+$cap_write = new WP_REST_Request( 'POST', '/wp/v2/wptl_series/' . $shape->term_id );
+$cap_write->set_param( 'wptl_capabilities', array( 'version' => 1, 'book_structure' => false ) );
+$server->dispatch( $cap_write );
+group_check( true === ( $server->dispatch( $cap_request )->get_data()['wptl_capabilities']['book_structure'] ?? null ), 'Client could overwrite computed capability.' );
+$plain_cap = $server->dispatch( new WP_REST_Request( 'GET', '/wp/v2/wptl_series/' . $other['term_id'] ) );
+group_check( false === ( $plain_cap->get_data()['wptl_capabilities']['book_structure'] ?? null ), 'Non-enabled Series advertised advanced capability.' );
 
 if ( $failures ) { fwrite( STDERR, implode( "\n", $failures ) . "\n" ); exit( 1 ); }
 echo 'WP Title Layer content-group checks passed: ' . $checks . "\n";

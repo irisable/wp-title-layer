@@ -21,6 +21,16 @@ const archive = read( 'includes/Reader/Archive.php' );
 const archiveTemplate = read( 'templates/series-archive.php' );
 const navigation = read( 'includes/Reader/Navigation.php' );
 
+test( 'editors place role before dependent scope and season, and preserve inactive groups', () => {
+	assert.ok( editor.indexOf( "key: 'role'" ) < editor.indexOf( "key: 'series-scope'" ) );
+	assert.ok( editor.indexOf( "key: 'series-scope'" ) < editor.indexOf( "key: 'season'" ) );
+	assert.match( editor, /editor.selectedTerm && mainArticle && schema.seriesGroup/ );
+	assert.ok( classic.indexOf( 'for="wptl-classic-role"' ) < classic.indexOf( 'for="wptl-classic-scope"' ) );
+	assert.ok( classic.indexOf( 'for="wptl-classic-scope"' ) < classic.indexOf( 'for="wptl-classic-season"' ) );
+	assert.match( classicJs, /condition === 'content-group'[\s\S]*?mainArticle/ );
+	assert.match( classic, /\$input\['series_group'\] \?\? null/ );
+} );
+
 test( 'scope and role are independent plugin-owned fields with a private per-Series activation marker', () => {
 	assert.match( schema, /META_SERIES_SCOPE\s*=\s*'wptl_series_scope'/ );
 	assert.match( schema, /TERM_META_BOOK_STRUCTURE_VERSION\s*=\s*'wptl_book_structure_version'/ );
@@ -75,8 +85,9 @@ test( 'archives, navigation, numbering, and health consume the same scope-role m
 	assert.match( archive, /\['track'\]/ );
 	assert.match( archive, /Schema::SCOPE_SEASON === \$scope/ );
 	assert.match( archive, /\$group_key = 'season_' \. \$season_key/ );
-	assert.match( archive, /'show_sequence_labels'\s*=>\s*false/ );
-	assert.match( archive, /__\( 'Series %s', 'wp-title-layer' \)/ );
+	assert.match( archive, /'show_sequence_labels'\s*=>\s*true/ );
+	assert.match( archive, /__\( 'Series prefaces', 'wp-title-layer' \)/ );
+	assert.doesNotMatch( archive, /_entry_/ );
 	assert.match( archiveTemplate, /! empty\( \$wptl_group\['ordered'\] \)/ );
 	assert.match( archiveTemplate, /\$wptl_show_sequence_labels/ );
 	assert.match( series, /order_book_structure_clauses/ );

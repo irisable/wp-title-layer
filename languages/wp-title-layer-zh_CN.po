@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Title Layer 1.0.0-rc.3\n"
+"Project-Id-Version: WP Title Layer 1.0.0-rc.4\n"
 "Report-Msgid-Bugs-To: https://github.com/irisable/wp-title-layer/issues\n"
 "POT-Creation-Date: 2026-08-29 12:36+0800\n"
 "PO-Revision-Date: 2026-09-11 16:00+0800\n"
@@ -471,7 +471,7 @@ msgstr "此系列已启用书籍式结构。"
 
 #: includes/Admin/ClassicEditor.php:206
 msgid "Book structure scope"
-msgstr "书籍式结构范围"
+msgstr "所属范围"
 
 #: assets/editor.js:408
 msgid ""
@@ -4494,3 +4494,15 @@ msgstr "查看完整列表"
 
 msgid "Cancel"
 msgstr "取消"
+
+msgid "Series prefaces"
+msgstr "系列序文"
+
+msgid "Series afterwords"
+msgstr "系列后记"
+
+msgid "Series appendix"
+msgstr "系列附录"
+
+msgid "The saved content group is inactive for this role. It will be restored if you switch back to a main article."
+msgstr "已保存的内容分组在此角色下不生效；切回主要文章后将恢复。"

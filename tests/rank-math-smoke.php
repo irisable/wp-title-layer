@@ -24,7 +24,7 @@ $same = static function ( $expected, $actual, string $message ) use ( $assert ):
 };
 
 $assert( defined( 'RANK_MATH_VERSION' ), 'The official Rank Math plugin did not load.' );
-$assert( defined( 'WPTL_VERSION' ) && '1.0.0-rc.3' === WPTL_VERSION, 'WP Title Layer 1.0.0-rc.3 did not load.' );
+$assert( defined( 'WPTL_VERSION' ) && '1.0.0-rc.4' === WPTL_VERSION, 'WP Title Layer 1.0.0-rc.4 did not load.' );
 
 if ( 0 === did_action( 'wp' ) ) {
 	do_action( 'wp' );

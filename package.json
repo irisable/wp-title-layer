@@ -1,6 +1,6 @@
 {
   "name": "wp-title-layer",
-  "version": "1.0.0-rc.3",
+  "version": "1.0.0-rc.4",
   "private": true,
   "description": "Structured subtitles, series, and context-aware title templates for WordPress.",
   "license": "GPL-2.0-or-later",

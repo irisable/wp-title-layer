@@ -327,6 +327,28 @@
 			) );
 		}
 
+		if ( editor.selectedTerm ) {
+			controls.push( el( wp.components.SelectControl, {
+				key: 'role',
+				label: __( 'Series role', 'wp-title-layer' ),
+				value: role,
+				options: config.roles || [],
+				onChange: function ( value ) {
+					var next = Object.assign( {}, editor.meta );
+					next[ schema.seriesRole ] = value;
+					if ( ! value || value === 'article' ) {
+						next[ schema.seriesScope ] = '';
+					} else if ( structure === 'seasoned' && ! next[ schema.seriesScope ] ) {
+						next[ schema.seriesScope ] = 'season';
+					}
+					editPost( { meta: next } );
+				},
+				help: bookStructureEnabled
+					? __( 'Introductions, epilogues, and appendices use independent movable tracks and never consume automatic main-article numbers.', 'wp-title-layer' )
+					: __( 'Book-like tracks become canonical after this Series passes the Structure compatibility preview.', 'wp-title-layer' )
+			} ) );
+		}
+
 		if ( editor.selectedTerm && structure === 'seasoned' && ! mainArticle ) {
 			controls.push( el( wp.components.SelectControl, {
 				key: 'series-scope',
@@ -365,13 +387,27 @@
 			} ) );
 		}
 
-		if ( editor.selectedTerm && schema.seriesGroup ) {
+		if ( editor.selectedTerm && ! mainArticle && editor.meta[ schema.seriesGroup ] ) {
+			controls.push( el( 'p', { key: 'inactive-group' }, __( 'The saved content group is inactive for this role. It will be restored if you switch back to a main article.', 'wp-title-layer' ) ) );
+		}
+
+		if ( editor.selectedTerm && mainArticle && schema.seriesGroup ) {
 			controls.push( el( ContentGroupControl, {
 				key: 'content-group-' + editor.selectedTermId + '-' + ( editor.meta[ schema.seasonKey ] || '' ) + '-' + contentScope,
 				series: editor.selectedTermId,
 				season: structure === 'seasoned' && ( mainArticle || contentScope !== 'series' ) ? ( editor.meta[ schema.seasonKey ] || '' ) : '',
 				value: editor.meta[ schema.seriesGroup ] || '',
 				onChange: function ( value ) { setMeta( schema.seriesGroup, value ); }
+			} ) );
+		}
+
+		if ( editor.selectedTerm && ! mainArticle ) {
+			controls.push( el( wp.components.TextControl, {
+				key: 'sequence-label',
+				label: __( 'Public structure label', 'wp-title-layer' ),
+				value: editor.meta[ schema.sequenceLabel ] || '',
+				onChange: function ( value ) { setMeta( schema.sequenceLabel, value ); },
+				help: __( 'Optional label such as 0-1, Preface II, or Appendix A.', 'wp-title-layer' )
 			} ) );
 		}
 
@@ -418,7 +454,7 @@
 					help: __( 'This Series still uses the 0.9 position field. Initialize it in Sequence Manager to insert without renumbering later articles.', 'wp-title-layer' )
 				} ) );
 			}
-			if ( mode === 'ordered' ) {
+			if ( mode === 'ordered' && mainArticle ) {
 				controls.push(
 				el( wp.components.TextControl, {
 					key: 'sequence-label',
@@ -435,36 +471,6 @@
 			}
 		}
 
-		if ( editor.selectedTerm ) {
-			if ( mode !== 'ordered' && ! mainArticle ) {
-				controls.push( el( wp.components.TextControl, {
-					key: 'sequence-label',
-					label: __( 'Public structure label', 'wp-title-layer' ),
-					value: editor.meta[ schema.sequenceLabel ] || '',
-					onChange: function ( value ) { setMeta( schema.sequenceLabel, value ); },
-					help: __( 'Optional label such as 0-1, Preface II, or Appendix A.', 'wp-title-layer' )
-				} ) );
-			}
-			controls.push( el( wp.components.SelectControl, {
-				key: 'role',
-				label: __( 'Series role', 'wp-title-layer' ),
-				value: role,
-				options: config.roles || [],
-				onChange: function ( value ) {
-					var next = Object.assign( {}, editor.meta );
-					next[ schema.seriesRole ] = value;
-					if ( ! value || value === 'article' ) {
-						next[ schema.seriesScope ] = '';
-					} else if ( structure === 'seasoned' && ! next[ schema.seriesScope ] ) {
-						next[ schema.seriesScope ] = 'season';
-					}
-					editPost( { meta: next } );
-				},
-				help: bookStructureEnabled
-					? __( 'Introductions, epilogues, and appendices use independent movable tracks and never consume automatic main-article numbers.', 'wp-title-layer' )
-					: __( 'Book-like tracks become canonical after this Series passes the Structure compatibility preview.', 'wp-title-layer' )
-			} ) );
-		}
 
 		controls.push(
 			el( wp.components.TextControl, {

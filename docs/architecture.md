@@ -1,4 +1,4 @@
-# Architecture decisions for 1.0.0-rc.3
+# Architecture decisions for 1.0.0-rc.4
 
 ## Content groups (rc.3)
 
@@ -6,7 +6,10 @@
 WordPress post REST endpoint. `_wptl_group_id` is private, derived post meta.
 An internal non-public taxonomy, `wptl_content_group`, supplies stable IDs using
 WordPress term storage; it has no native metabox, rewrite, or public REST route.
-Each record belongs to one Series and an effective Season, or Series-wide scope.
+Each record belongs to one Series and an effective Season, or a flat Series.
+Only main articles have effective membership. Non-main roles retain their stored
+text but lose the derived membership; render/query checks also exclude stale IDs
+from pre-upgrade data without requiring a destructive migration.
 Scope and text changes reconcile after REST writes or classic-editor saves;
 low-level metadata/term writes are queued for shutdown. Reads do not create groups.
 
@@ -36,7 +39,7 @@ presentation APIs. ACF is **not a dependency** and is not required to keep the
 schema registered or the site readable. It is consulted only as a possible,
 strictly verified migration source.
 
-SEO and social plugins continue to own their metadata. Version 1.0.0-rc.3 exposes
+SEO and social plugins continue to own their metadata. Version 1.0.0-rc.4 exposes
 read-only Rank Math replacement variables but does not claim SEO/social editing
 UI, filter final provider titles, write provider metadata, or emit Open Graph
 tags.
@@ -111,12 +114,12 @@ ordering, or Reader eligibility.
 
 ## Series invariants and enforcement limits
 
-Version 1.0.0-rc.3 supports at most one Series per post. Season, scope, role, and sequence
+Version 1.0.0-rc.4 supports at most one Series per post. Season, scope, role, and sequence
 metadata belongs to the post-to-Series relationship and would be ambiguous with
 multiple memberships. REST input rejects multiple Series terms, and the native
 term-assignment hook corrects a multi-term assignment to one deterministic
 term. Multiple independent Series relationships require a different future
-relationship model and are not promised by 1.0.0-rc.3.
+relationship model and are not promised by 1.0.0-rc.4.
 
 The optional parent Category is a soft editorial relation between two native
 taxonomies. It does not make the Series taxonomy hierarchical and never changes
@@ -195,11 +198,14 @@ non-main tracks are still pinned at the appropriate structural edges.
 
 Role-specific labels belong to the administration model, not the public
 information architecture. The structured archive merges a Season's four tracks
-under the Season label while preserving canonical entry order. Each
-Series-wide non-main entry is a separate public section headed by `Series` plus
-its explicit Public structure label; when that label is empty, only `Series` is
-shown. The internal role is never substituted into a public heading or article
-title layer.
+under the Season label while preserving canonical entry order. Series-wide
+prefaces, afterwords and appendices each share one section with a fixed translated
+public heading. Individual Public structure labels remain on article rows, just
+as they do inside a Season. No public label changes structural grouping.
+
+Native Series REST responses expose read-only `wptl_capabilities` with version 1,
+computed `book_structure`, and `content_groups: article-only`. This is the public
+Publisher contract, not an invitation to write internal activation markers.
 
 Activation writes a non-autoloaded journal before assigning missing private
 non-main ranks, verifies every value, and commits the term marker last. A failed
@@ -248,7 +254,7 @@ Migration copies data into `wptl_subtitle`; it never renames or deletes source
 metadata. The existence of the target key is authoritative, including an empty
 target value.
 
-There are exactly two automatic sources in 1.0.0-rc.3:
+There are exactly two automatic sources in 1.0.0-rc.4:
 
 1. `_secondary_title` from Secondary Title;
 2. `subtitle` only when it is proven to be a genuine ACF field.
@@ -469,7 +475,7 @@ variable in an SEO, Facebook, or Twitter title template. WP Title Layer does
 not hook `rank_math/frontend/title` or Rank Math Open Graph title filters and
 does not write `rank_math_title`, `rank_math_facebook_title`, or
 `rank_math_twitter_title`. This preserves provider-level global and per-object
-overrides. Multiple Series per post remain outside the 1.0.0-rc.3 contract.
+overrides. Multiple Series per post remain outside the 1.0.0-rc.4 contract.
 
 ### Landing-page and channel governance
 
@@ -488,7 +494,7 @@ Aggregates stay in SQL, overlap rows are paginated, and no complete membership
 list is loaded into PHP merely to render the report.
 
 Provider activation is detected from the running provider, never merely from
-stored options. Rank Math is the only provider whose local schema 1.0.0-rc.3
+stored options. Rank Math is the only provider whose local schema 1.0.0-rc.4
 interprets. For it, taxonomy defaults remain distinct from explicitly saved
 taxonomy settings; term metadata can then override title, description, robots,
 canonical, Facebook, and Twitter channels. Sitemap inclusion requires the
@@ -616,7 +622,7 @@ npm run test:wp
 ```
 
 The Playground script parses 61 PHP files and runs 828 integration
-checks plus 111 Sequence Manager, 65 book-structure, and 42 content-group checks at both supported ends of the 1.0.0-rc.3
+checks plus 111 Sequence Manager, 67 book-structure, 57 content-group, and 46 Publisher contract checks at both supported ends of the 1.0.0-rc.4
 matrix:
 
 - WordPress 6.5 with PHP 7.4;
@@ -651,7 +657,7 @@ After building a release, the same dual-environment matrix must also boot the
 extracted production artifact rather than the development directory:
 
 ```sh
-./bin/test-release-package.sh wp-title-layer-1.0.0-rc.3.zip
+./bin/test-release-package.sh wp-title-layer-1.0.0-rc.4.zip
 ```
 
 The first Playground run may require network access to obtain WordPress.
