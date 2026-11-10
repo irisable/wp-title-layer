@@ -362,7 +362,7 @@ root attributes. The bundled classic adapter supports Kadence's exact
 `kadence_single_before_entry_title` / `kadence_single_after_entry_title` pair;
 its `the_title` filter remains inert unless that exact slot has armed it and it
 returns only phrasing-safe title content, never a complete header or heading.
-Default support is limited to verified official Kadence 1.5.x title templates;
+Default support is limited to verified official Kadence 1.5.x and 1.6.0 title templates;
 a child theme that overrides either relevant title template and unknown classic
 themes stay in manual mode. A trusted-code support filter may explicitly add a
 site-specific adapter after its author verifies the same structural contract.

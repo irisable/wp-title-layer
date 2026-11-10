@@ -96,6 +96,28 @@ $assert( ! $above_content_has_h1 || false === strpos( $above_content_heading[1],
 $assert( ! $above_content_has_h1 || false === strpos( $above_content_heading[1], 'wptl-season-link' ), 'Kadence above-content title placed the season archive link inside its native H1.' );
 $assert( false !== strpos( $above_content, 'Kadence subtitle sentinel' ), 'Kadence above-content title lost the subtitle.' );
 
+/* Whole-Series prefaces keep their public label without a seasonal number. */
+$settings_before = get_option( 'wptl_settings' );
+update_term_meta( $term_id, \WPTitleLayer\Core\Schema::TERM_META_BOOK_STRUCTURE_VERSION, \WPTitleLayer\Core\BookStructure::VERSION );
+update_post_meta( $post_id, 'wptl_series_role', 'intro' );
+update_post_meta( $post_id, 'wptl_series_scope', 'series' );
+update_post_meta( $post_id, 'wptl_sequence_label', 'Preface sentinel' );
+foreach ( array( 'template-parts/content/entry_title', 'template-parts/title/title' ) as $title_part ) {
+	ob_start();
+	get_template_part( $title_part );
+	$preface_html = (string) ob_get_clean();
+	$assert( 1 === substr_count( strtolower( $preface_html ), '<h1' ), 'Preface title did not keep exactly one H1.' );
+	$assert( false !== strpos( $preface_html, 'Preface sentinel' ), 'Preface title lost its public label.' );
+	$assert( false !== strpos( $preface_html, 'Kadence Series' ), 'Preface title lost its Series.' );
+	$assert( false !== strpos( $preface_html, 'Kadence subtitle sentinel' ), 'Preface title lost its Subtitle.' );
+	$assert( false === strpos( $preface_html, 'Arrival season' ), 'Whole-Series preface incorrectly displayed a season.' );
+}
+$assert( $settings_before === get_option( 'wptl_settings' ), 'Title rendering rewrote stored display settings.' );
+delete_term_meta( $term_id, \WPTitleLayer\Core\Schema::TERM_META_BOOK_STRUCTURE_VERSION );
+delete_post_meta( $post_id, 'wptl_series_role' );
+delete_post_meta( $post_id, 'wptl_series_scope' );
+delete_post_meta( $post_id, 'wptl_sequence_label' );
+
 /* A Series icon remains decorative and outside both verified Kadence H1 slots. */
 $icon_upload = wp_upload_bits(
 	'wptl-kadence-series-icon.png',

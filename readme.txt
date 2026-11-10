@@ -4,7 +4,7 @@ Tags: title, subtitle, series, editorial, gutenberg
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0-rc.4
+Stable tag: 1.0.0-rc.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -35,7 +35,7 @@ the surrounding editorial structure as separate data:
 * a read-only Series/Category landing-page and title-channel governance report;
 * a native media-library Series cover selector and fail-safe Classic Editor controls;
 * an accessible tabbed settings interface with a no-JavaScript fallback;
-* opt-in Series-archive card Subtitles for verified official Kadence 1.5.x templates;
+* opt-in Series-archive card Subtitles for verified official Kadence 1.5.x and 1.6.0 templates;
 * non-destructive Secondary Title migration;
 * carefully verified migration of a genuine ACF `subtitle` field.
 
@@ -125,7 +125,7 @@ review is left unchanged and reported as a conflict or left for a new scan.
 
 Open Settings > WP Title Layer and choose Replace the theme post title when the
 screen reports a verified integration. Block themes use their singular Post
-Title block; official Kadence 1.5.x title templates use their exact singular
+Title block; official Kadence 1.5.x and 1.6.0 title templates use their exact singular
 title hooks. The original heading level is retained and the body is not used
 as the title slot. A Kadence child theme that overrides the relevant title
 templates falls back to Manual mode.
@@ -274,7 +274,7 @@ shown, or hidden per Series. Its no-cover header uses the available desktop widt
 a cover enables a bounded two-column header. Block themes and dedicated theme
 templates keep control.
 
-On verified official Kadence 1.5.x templates, a separate opt-in can add the
+On verified official Kadence 1.5.x and 1.6.0 templates, a separate opt-in can add the
 Subtitle after each Series archive card title and before its metadata. It does
 not affect Category, search, home, structured, or unsupported-theme archives.
 
@@ -394,6 +394,11 @@ Official Kadence 1.5.2 templates pass 40 adapter checks. Official Rank Math
 two-post cache isolation and its real taxonomy/sitemap settings.
 
 == Changelog ==
+
+= 1.0.0-rc.5 =
+* Restore title-slot replacement and opt-in archive subtitles with official Kadence 1.6.0.
+* Retain title-template and child-override safety checks. Untested future Kadence releases remain unsupported.
+* No content, Series, settings, or database migration.
 
 = 1.0.0-rc.4 =
 * Merge Series-wide prefaces, afterwords and appendices into one section per role; keep individual public labels on article rows.

@@ -454,7 +454,9 @@ final class ThemeTitleIntegration {
 
 	private static function isVerifiedKadenceVersion(): bool {
 		$version = defined( 'KADENCE_VERSION' ) ? (string) KADENCE_VERSION : '';
-		return '' !== $version && version_compare( $version, '1.5.0', '>=' ) && version_compare( $version, '1.6.0', '<' );
+		// Keep the previously verified branch; admit only the newly tested release.
+		// Future releases still require verification, and templates are checked separately.
+		return '1.6.0' === $version || ( 1 === preg_match( '/^1\.5\.\d+$/D', $version ) );
 	}
 
 	private static function hasVerifiedKadenceTemplates(): bool {

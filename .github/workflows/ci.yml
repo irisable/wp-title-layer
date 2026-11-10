@@ -45,6 +45,10 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run test:wp
+      - name: Verify official Kadence title and archive templates
+        run: |
+          curl --fail --location --output "$RUNNER_TEMP/kadence-1.6.0.zip" https://downloads.wordpress.org/theme/kadence.1.6.0.zip
+          ./bin/test-kadence.sh "$RUNNER_TEMP/kadence-1.6.0.zip"
       - name: Build candidate package
         run: ./bin/build-release.sh "$(node -p "require('./package.json').version")"
       - name: Test extracted candidate package

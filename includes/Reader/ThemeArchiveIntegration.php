@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
 
 final class ThemeArchiveIntegration {
 	public static function register(): void {
-		// Verified Kadence 1.5.x places its loop title at 20 and metadata at 30.
+		// Verified Kadence 1.5.x and 1.6.0 place the loop title at 20 and metadata at 30.
 		add_action( 'kadence_loop_entry_header', array( __CLASS__, 'renderKadenceSubtitle' ), 25 );
 	}
 

@@ -29,7 +29,7 @@ title, then stores the surrounding editorial structure as separate data:
 - a read-only landing-page and channel report for duplicate Category entry
   points, canonical, robots, sitemap, search titles, and social titles;
 - a media-library Series cover control and a fail-safe Classic Editor meta box;
-- opt-in archive-card subtitles for verified official Kadence 1.5.x templates;
+- opt-in archive-card subtitles for verified official Kadence 1.5.x and 1.6.0 templates;
 - an accessible, progressively enhanced tabbed settings screen that keeps
   placement, presentation, reading, and search/share responsibilities separate;
 - a non-destructive migration path from Secondary Title and verified ACF
@@ -77,7 +77,7 @@ cannot certify unrelated fields owned by themes or other plugins.
    **Replace the theme post title** so the layer occupies the original title
    slot instead of the article body.
 7. Test one ordinary article and one Series article. Block themes and the
-   verified official Kadence 1.5.x title templates have title-slot
+   verified official Kadence 1.5.x and 1.6.0 title templates have title-slot
    integrations. A Kadence child theme that overrides those title templates,
    and other classic themes, retain their title and use manual block/theme-API
    placement.

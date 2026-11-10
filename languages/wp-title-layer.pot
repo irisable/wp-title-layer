@@ -6,7 +6,7 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Title Layer 1.0.0-rc.4\n"
+"Project-Id-Version: WP Title Layer 1.0.0-rc.5\n"
 "Report-Msgid-Bugs-To: https://github.com/irisable/wp-title-layer/issues\n"
 "POT-Creation-Date: 2026-09-11 16:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
