@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for helping improve WP Title Layer.
+Thank you for helping improve Irisable Title Layer (formerly WP Title Layer).
 
 Before starting a substantial change, open an issue that describes the user
 problem and the compatibility impact. The 1.0 release line keeps the existing

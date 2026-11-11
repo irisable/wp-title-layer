@@ -1,6 +1,12 @@
 # Irisable Title Layer
 
-WordPress.org submission candidate: **1.0.1**. See the [submission audit](docs/wordpress-org-submission.md).
+Formerly **WP Title Layer**. Version **1.0.1** was submitted to WordPress.org on
+November 11, 2026 as `irisable-title-layer` and is **awaiting manual review**.
+The submission's automated scan passed; this is not directory approval or a live
+WordPress.org release. See the [submission audit](docs/wordpress-org-submission.md).
+
+The GitHub repository remains `irisable/wp-title-layer` during review. Existing
+data fields, REST endpoints and stored block names remain backward compatible.
 Published stable release: **1.0.0**. This promotes the production-tested release
 candidates, including the Kadence 1.6.0 compatibility fix, without a new data
 migration. Historical RC checklists below remain the detailed feature records.
@@ -65,8 +71,10 @@ cannot certify unrelated fields owned by themes or other plugins.
 
 ## Install and start
 
-1. Install the ZIP or copy the `wp-title-layer` directory to
-   `/wp-content/plugins/`.
+1. Install the ZIP or copy its plugin directory to `/wp-content/plugins/`.
+   The 1.0.1 directory package uses `irisable-title-layer`; deactivate the old
+   `wp-title-layer` copy before activating it. Existing data and settings are
+   retained. The historical 1.0.0 package still uses its original directory.
 2. Activate Irisable Title Layer.
 3. If the site used Secondary Title or an ACF field named `subtitle`, open
    **Tools → Title Layer Migration** and run the read-only scan first.
@@ -485,7 +493,7 @@ always rendered exactly as the administrator saved it. Switching languages
 does not rewrite `wptl_settings`, post metadata, term metadata, or article
 content.
 
-The bundled `languages/wp-title-layer.pot` catalog leaves the normal WordPress
+The bundled `languages/irisable-title-layer.pot` catalog leaves the normal WordPress
 translation path open for additional languages. Text owned by WordPress, the
 active theme, or another plugin is translated by that component's own language
 pack; for example, a Kadence field label is not controlled by Irisable Title Layer's
@@ -595,7 +603,7 @@ npm run test:wp
 
 `npm run check` validates the editor, Sequence & Structure, localization catalogs,
 control center, presentation, migration, Series-health, theme-adapter, and
-channel-governance and release-version contracts in 96 checks. `npm run test:wp` parses 61 PHP files
+channel-governance and release-version contracts in 99 checks. `npm run test:wp` parses 61 PHP files
 and runs 828 integration checks plus 111 Sequence Manager, 67
 book-structure, 57 content-group, and 46 Publisher contract checks at
 both supported ends of the test matrix:
@@ -618,8 +626,8 @@ composer lint
 Build the release ZIP with:
 
 ```sh
-./bin/build-release.sh 1.0.0-rc.4
-./bin/test-release-package.sh wp-title-layer-1.0.0-rc.4.zip
+bash bin/build-wporg-release.sh
+./bin/test-release-package.sh irisable-title-layer-1.0.1.zip
 ```
 
 The build exports the fixed `HEAD` commit (or an explicit

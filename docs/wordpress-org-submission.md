@@ -9,7 +9,9 @@ The authenticated submission page shows **Awaiting Review**, assigned slug
 `irisable-title-layer`, version `1.0.1`, and **Automated Plugin Scanning: Pass**.
 The server-side result lists one nonblocking `unexpected_markdown_file` warning
 for the deliberately retained `CREDITS.md`. The page says a confirmation email
-was sent; inbox receipt has not been independently checked.
+was sent; the owner subsequently opened it in Chrome, where its subject and
+body were verified as the automatic successful-submission receipt, not a human
+review response.
 
 Submitted source commit: `895d3c5`. Submitted file:
 `irisable-title-layer-1.0.1.zip`, SHA-256

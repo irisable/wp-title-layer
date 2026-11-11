@@ -50,6 +50,11 @@ jobs:
           curl --fail --location --output "$RUNNER_TEMP/kadence-1.6.0.zip" https://downloads.wordpress.org/theme/kadence.1.6.0.zip
           ./bin/test-kadence.sh "$RUNNER_TEMP/kadence-1.6.0.zip"
       - name: Build candidate package
-        run: ./bin/build-release.sh "$(node -p "require('./package.json').version")"
+        run: bash bin/build-wporg-release.sh
       - name: Test extracted candidate package
-        run: ./bin/test-release-package.sh "wp-title-layer-$(node -p "require('./package.json').version").zip"
+        run: ./bin/test-release-package.sh "irisable-title-layer-$(node -p "require('./package.json').version").zip"
+      - name: Verify directory rename and legacy coexistence guard
+        run: |
+          node_modules/.bin/wp-playground-cli php --wp="$WPTL_CURRENT_WP_SOURCE" --php=8.3 --verbosity=quiet \
+            --mount="$PWD:/wordpress/wp-content/plugins/irisable-title-layer" \
+            -- /wordpress/wp-content/plugins/irisable-title-layer/tests/distribution-smoke.php
