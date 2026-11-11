@@ -4,7 +4,7 @@ Tags: title, subtitle, series, editorial, gutenberg
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0-rc.5
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -394,6 +394,11 @@ Official Kadence 1.5.2 templates pass 40 adapter checks. Official Rank Math
 two-post cache isolation and its real taxonomy/sitemap settings.
 
 == Changelog ==
+
+= 1.0.0 =
+* First stable release after extended production use of the release candidates.
+* Includes the verified Kadence 1.6.0 compatibility fix from rc.5.
+* No new content migration or feature changes from rc.5.
 
 = 1.0.0-rc.5 =
 * Restore title-slot replacement and opt-in archive subtitles with official Kadence 1.6.0.

@@ -1,5 +1,9 @@
 # WP Title Layer
 
+Current stable release: **1.0.0**. This promotes the production-tested release
+candidates, including the Kadence 1.6.0 compatibility fix, without a new data
+migration. Historical RC checklists below remain the detailed feature records.
+
 [![CI](https://github.com/irisable/wp-title-layer/actions/workflows/ci.yml/badge.svg)](https://github.com/irisable/wp-title-layer/actions/workflows/ci.yml)
 [![License: GPL-2.0-or-later](https://img.shields.io/badge/License-GPL--2.0--or--later-blue.svg)](LICENSE)
 
