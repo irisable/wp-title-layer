@@ -2,6 +2,26 @@
 
 Date: 2026-11-11. Candidate: 1.0.1. Directory account: `irisable`.
 
+## Current outcome: accepted for review
+
+The renamed **Irisable Title Layer 1.0.1** upload was accepted on 2026-11-11.
+The authenticated submission page shows **Awaiting Review**, assigned slug
+`irisable-title-layer`, version `1.0.1`, and **Automated Plugin Scanning: Pass**.
+The server-side result lists one nonblocking `unexpected_markdown_file` warning
+for the deliberately retained `CREDITS.md`. The page says a confirmation email
+was sent; inbox receipt has not been independently checked.
+
+Submitted source commit: `895d3c5`. Submitted file:
+`irisable-title-layer-1.0.1.zip`, SHA-256
+`416dd4148eb0cb1508b77838ac321177140019b3cdccbb5e78143534290a2821`.
+Local Plugin Check 2.2.0 selected 31 static checks: **0 errors, 125 reviewed
+warnings**. The full exact-ZIP dual-version matrix passed, as did 99 JS/contracts
+and 9 new-directory/legacy-coexistence/data-preservation checks.
+
+This is NOT manual approval or a live directory release. Next: wait for the
+review email and reply within that submission, not as a new plugin submission.
+No production redeployment, GitHub release replacement or Obsidian reload.
+
 ## Owner-approved rename
 
 After the first upload was rejected, the owner approved **Irisable Title Layer**
@@ -26,7 +46,7 @@ This is a submission candidate, not an assertion of approval or availability in
 the plugin directory. Published GitHub 1.0.0 remains unchanged. Production is
 not redeployed as part of this preparation.
 
-## Submission attempt outcome
+## Historical first attempt (superseded by the accepted renamed submission)
 
 The owner explicitly authorized the directory declarations and upload. The
 upload endpoint rejected the name **WP Title Layer**, stating that `wp` cannot
