@@ -2,7 +2,7 @@
 /**
  * Rank Math variables for independently composed SEO and social titles.
  *
- * WP Title Layer deliberately does not overwrite Rank Math post metadata or
+ * Irisable Title Layer deliberately does not overwrite Rank Math post metadata or
  * filter its final titles. Administrators opt in by placing these variables in
  * Rank Math's SEO and social title fields, where existing global and per-post
  * overrides remain authoritative.
@@ -38,14 +38,14 @@ final class RankMath {
 	public static function addSettingsSection(): void {
 		add_settings_section(
 			'wptl_rank_math_section',
-			__( 'Search and sharing titles', 'wp-title-layer' ),
+			__( 'Search and sharing titles', 'irisable-title-layer' ),
 			array( __CLASS__, 'renderSectionIntro' ),
 			SettingsPage::PAGE_SLUG
 		);
 
 		add_settings_field(
 			'wptl_rank_math_variables',
-			__( 'Rank Math variables', 'wp-title-layer' ),
+			__( 'Rank Math variables', 'irisable-title-layer' ),
 			array( __CLASS__, 'renderVariables' ),
 			SettingsPage::PAGE_SLUG,
 			'wptl_rank_math_section'
@@ -53,25 +53,25 @@ final class RankMath {
 	}
 
 	public static function renderSectionIntro(): void {
-		echo '<p>' . esc_html__( 'The visible title, SEO title, and social-sharing title are separate channels. WP Title Layer never changes Rank Math metadata automatically.', 'wp-title-layer' ) . '</p>';
+		echo '<p>' . esc_html__( 'The visible title, SEO title, and social-sharing title are separate channels. Irisable Title Layer never changes Rank Math metadata automatically.', 'irisable-title-layer' ) . '</p>';
 	}
 
 	public static function renderVariables(): void {
 		$detected = defined( 'RANK_MATH_VERSION' ) || function_exists( 'rank_math' ) || class_exists( '\\RankMath\\Helper' );
 		?>
 		<p>
-			<strong><?php echo esc_html( $detected ? __( 'Rank Math detected.', 'wp-title-layer' ) : __( 'Rank Math is not currently detected.', 'wp-title-layer' ) ); ?></strong>
-			<?php esc_html_e( 'When Rank Math is active, WP Title Layer registers these optional variables:', 'wp-title-layer' ); ?>
+			<strong><?php echo esc_html( $detected ? __( 'Rank Math detected.', 'irisable-title-layer' ) : __( 'Rank Math is not currently detected.', 'irisable-title-layer' ) ); ?></strong>
+			<?php esc_html_e( 'When Rank Math is active, Irisable Title Layer registers these optional variables:', 'irisable-title-layer' ); ?>
 		</p>
 		<ul class="ul-disc">
-			<li><code>%wptl_subtitle%</code> — <?php esc_html_e( 'subtitle only', 'wp-title-layer' ); ?></li>
-			<li><code>%wptl_series%</code> — <?php esc_html_e( 'full Series name', 'wp-title-layer' ); ?></li>
-			<li><code>%wptl_title_with_subtitle%</code> — <?php esc_html_e( 'WordPress title plus a locale-appropriate separator and the subtitle only when one exists', 'wp-title-layer' ); ?></li>
+			<li><code>%wptl_subtitle%</code> — <?php esc_html_e( 'subtitle only', 'irisable-title-layer' ); ?></li>
+			<li><code>%wptl_series%</code> — <?php esc_html_e( 'full Series name', 'irisable-title-layer' ); ?></li>
+			<li><code>%wptl_title_with_subtitle%</code> — <?php esc_html_e( 'WordPress title plus a locale-appropriate separator and the subtitle only when one exists', 'irisable-title-layer' ); ?></li>
 		</ul>
 		<p class="description">
 			<?php
 			/* translators: The percent-delimited names are literal Rank Math variables, not printf placeholders. Keep them unchanged. */
-			esc_html_e( 'Use the combined variable in Rank Math’s SEO title, Facebook title, or Twitter title fields only where you want the subtitle included. For example: %wptl_title_with_subtitle% %sep% %sitename%. Leaving Rank Math unchanged keeps its current titles.', 'wp-title-layer' ); // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText -- Literal Rank Math tokens.
+			esc_html_e( 'Use the combined variable in Rank Math’s SEO title, Facebook title, or Twitter title fields only where you want the subtitle included. For example: %wptl_title_with_subtitle% %sep% %sitename%. Leaving Rank Math unchanged keeps its current titles.', 'irisable-title-layer' ); // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText -- Literal Rank Math tokens.
 			?>
 		</p>
 		<?php
@@ -85,10 +85,10 @@ final class RankMath {
 		\rank_math_register_var_replacement(
 			'wptl_subtitle',
 			array(
-				'name'        => __( 'WP Title Layer subtitle', 'wp-title-layer' ),
-				'description' => __( 'The canonical or legacy-compatible article subtitle.', 'wp-title-layer' ),
+				'name'        => __( 'Irisable Title Layer subtitle', 'irisable-title-layer' ),
+				'description' => __( 'The canonical or legacy-compatible article subtitle.', 'irisable-title-layer' ),
 				'variable'    => 'wptl_subtitle',
-				'example'     => __( 'Example subtitle', 'wp-title-layer' ),
+				'example'     => __( 'Example subtitle', 'irisable-title-layer' ),
 				'nocache'     => true,
 			),
 			array( __CLASS__, 'subtitle' )
@@ -97,10 +97,10 @@ final class RankMath {
 		\rank_math_register_var_replacement(
 			'wptl_series',
 			array(
-				'name'        => __( 'WP Title Layer Series', 'wp-title-layer' ),
-				'description' => __( 'The full Series name for an article or Series archive.', 'wp-title-layer' ),
+				'name'        => __( 'Irisable Title Layer Series', 'irisable-title-layer' ),
+				'description' => __( 'The full Series name for an article or Series archive.', 'irisable-title-layer' ),
 				'variable'    => 'wptl_series',
-				'example'     => __( 'Example Series', 'wp-title-layer' ),
+				'example'     => __( 'Example Series', 'irisable-title-layer' ),
 				'nocache'     => true,
 			),
 			array( __CLASS__, 'series' )
@@ -109,10 +109,10 @@ final class RankMath {
 		\rank_math_register_var_replacement(
 			'wptl_title_with_subtitle',
 			array(
-				'name'        => __( 'WP Title Layer title with subtitle', 'wp-title-layer' ),
-				'description' => __( 'The WordPress title plus a conditional subtitle, without a dangling separator.', 'wp-title-layer' ),
+				'name'        => __( 'Irisable Title Layer title with subtitle', 'irisable-title-layer' ),
+				'description' => __( 'The WordPress title plus a conditional subtitle, without a dangling separator.', 'irisable-title-layer' ),
 				'variable'    => 'wptl_title_with_subtitle',
-				'example'     => __( 'Example title', 'wp-title-layer' ) . self::titleSubtitleSeparator() . __( 'Example subtitle', 'wp-title-layer' ),
+				'example'     => __( 'Example title', 'irisable-title-layer' ) . self::titleSubtitleSeparator() . __( 'Example subtitle', 'irisable-title-layer' ),
 				'nocache'     => true,
 			),
 			array( __CLASS__, 'titleWithSubtitle' )
@@ -190,7 +190,7 @@ final class RankMath {
 
 	/** Locale-aware plain-text separator for SEO and social title variables. */
 	public static function titleSubtitleSeparator(): string {
-		return _x( ': ', 'SEO title and subtitle separator', 'wp-title-layer' );
+		return _x( ': ', 'SEO title and subtitle separator', 'irisable-title-layer' );
 	}
 
 	/** @param mixed $candidate Optional post object supplied by an integration. */

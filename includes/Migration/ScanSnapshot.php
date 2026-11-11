@@ -22,7 +22,7 @@ final class ScanSnapshot {
 	public function create( int $max_posts = 100000 ) {
 		$global_token = $this->store->acquire_global_lock();
 		if ( false === $global_token ) {
-			return new \WP_Error( 'wptl_migration_control_locked', __( 'Another migration control action is in progress.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_migration_control_locked', __( 'Another migration control action is in progress.', 'irisable-title-layer' ) );
 		}
 
 		$scan_id           = Config::new_run_id();
@@ -35,7 +35,7 @@ final class ScanSnapshot {
 			$active_id  = Config::clean_run_id( (string) get_option( Config::ACTIVE_RUN_OPTION, '' ) );
 			$active_run = '' !== $active_id ? $this->store->get_run( $active_id ) : null;
 			if ( is_array( $active_run ) && in_array( (string) ( $active_run['status'] ?? '' ), array( 'running', 'rollback_running' ), true ) ) {
-				$result = new \WP_Error( 'wptl_migration_active', __( 'A migration or rollback is already running.', 'wp-title-layer' ) );
+				$result = new \WP_Error( 'wptl_migration_active', __( 'A migration or rollback is already running.', 'irisable-title-layer' ) );
 			} else {
 				$flush = function () use ( $scan_id, $global_token, &$chunk_number, &$chunk ): void {
 					if ( empty( $chunk ) ) {
@@ -118,7 +118,7 @@ final class ScanSnapshot {
 				$result = $scan;
 			}
 		} catch ( \Throwable $error ) {
-			$result = new \WP_Error( 'wptl_migration_scan_write_failed', __( 'Could not save the reviewed migration scan.', 'wp-title-layer' ) );
+			$result = new \WP_Error( 'wptl_migration_scan_write_failed', __( 'Could not save the reviewed migration scan.', 'irisable-title-layer' ) );
 		} finally {
 			if ( is_wp_error( $result ) && ! $summary_committed ) {
 				$this->store->delete_manifest( $scan_id, $chunk_number );
@@ -128,6 +128,6 @@ final class ScanSnapshot {
 
 		return is_array( $result ) || is_wp_error( $result )
 			? $result
-			: new \WP_Error( 'wptl_migration_scan_write_failed', __( 'Could not save the reviewed migration scan.', 'wp-title-layer' ) );
+			: new \WP_Error( 'wptl_migration_scan_write_failed', __( 'Could not save the reviewed migration scan.', 'irisable-title-layer' ) );
 	}
 }

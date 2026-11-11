@@ -28,23 +28,23 @@ final class Presets {
 	public static function all(): array {
 		$presets = array(
 			'standard' => array(
-				'label'       => __( 'Standard title', 'wp-title-layer' ),
-				'description' => __( 'Neutral and theme-led for most articles: Series context above, subtitle below.', 'wp-title-layer' ),
+				'label'       => __( 'Standard title', 'irisable-title-layer' ),
+				'description' => __( 'Neutral and theme-led for most articles: Series context above, subtitle below.', 'irisable-title-layer' ),
 				'template'    => '<header class="wptl-title-layer wptl-title-layer--standard">{{eyebrow_block}}<h1 class="wptl-title wptl-title-heading">{{title}}</h1>{{subtitle_block}}</header>',
 			),
 			'editorial' => array(
-				'label'       => __( 'Editorial feature', 'wp-title-layer' ),
-				'description' => __( 'For long-form and Series features: the same hierarchy with a restrained accent rail.', 'wp-title-layer' ),
+				'label'       => __( 'Editorial feature', 'irisable-title-layer' ),
+				'description' => __( 'For long-form and Series features: the same hierarchy with a restrained accent rail.', 'irisable-title-layer' ),
 				'template'    => '<header class="wptl-title-layer wptl-title-layer--editorial">{{eyebrow_block}}<h1 class="wptl-title wptl-title-heading">{{title}}</h1>{{subtitle_block}}</header>',
 			),
 			'inline' => array(
-				'label'       => __( 'Inline title', 'wp-title-layer' ),
-				'description' => __( 'For short titles and compact Series entries: keep Series context above while title and subtitle share one visual line.', 'wp-title-layer' ),
+				'label'       => __( 'Inline title', 'irisable-title-layer' ),
+				'description' => __( 'For short titles and compact Series entries: keep Series context above while title and subtitle share one visual line.', 'irisable-title-layer' ),
 				'template'    => '<header class="wptl-title-layer wptl-title-layer--inline">{{eyebrow_block}}<div class="wptl-title-row"><h1 class="wptl-title-heading">{{title_content}}</h1>{{subtitle_inline}}</div>{{subtitle_block}}</header>',
 			),
 			'minimal' => array(
-				'label'       => __( 'Title only', 'wp-title-layer' ),
-				'description' => __( 'For ordinary posts or strict theme compatibility: only the WordPress title is shown.', 'wp-title-layer' ),
+				'label'       => __( 'Title only', 'irisable-title-layer' ),
+				'description' => __( 'For ordinary posts or strict theme compatibility: only the WordPress title is shown.', 'irisable-title-layer' ),
 				'template'    => '<h1 class="wptl-title-layer wptl-title-layer--minimal wptl-title-heading">{{title}}</h1>',
 			),
 		);
@@ -82,7 +82,7 @@ final class Presets {
 
 		return array(
 			'id'          => self::DEFAULT_ID,
-			'label'       => __( 'Standard title', 'wp-title-layer' ),
+			'label'       => __( 'Standard title', 'irisable-title-layer' ),
 			'description' => '',
 			'template'    => '<header class="wptl-title-layer"><h1 class="wptl-title wptl-title-heading">{{title}}</h1>{{subtitle_block}}</header>',
 		);
@@ -296,9 +296,9 @@ final class Presets {
 	 */
 	public static function localeSeparators(): array {
 		return array(
-			'colon' => _x( ': ', 'inline title and subtitle separator: colon', 'wp-title-layer' ),
-			'dash'  => _x( ' — ', 'inline title and subtitle separator: dash', 'wp-title-layer' ),
-			'pipe'  => _x( ' | ', 'inline title and subtitle separator: vertical bar', 'wp-title-layer' ),
+			'colon' => _x( ': ', 'inline title and subtitle separator: colon', 'irisable-title-layer' ),
+			'dash'  => _x( ' — ', 'inline title and subtitle separator: dash', 'irisable-title-layer' ),
+			'pipe'  => _x( ' | ', 'inline title and subtitle separator: vertical bar', 'irisable-title-layer' ),
 		);
 	}
 

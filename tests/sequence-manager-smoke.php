@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Title Layer 0.10 canonical-sequence integration checks.
+ * Irisable Title Layer 0.10 canonical-sequence integration checks.
  *
  * @package WPTitleLayer
  */
@@ -475,8 +475,8 @@ $move_autoload = $wpdb->get_var( $wpdb->prepare( "SELECT autoload FROM {$wpdb->o
 wptl_sequence_assert( ! in_array( $move_autoload, array( 'yes', 'on', 'auto-on' ), true ), 'The latest move journal is autoloaded.' );
 
 if ( $wptl_sequence_failures ) {
-	fwrite( STDERR, "WP Title Layer Sequence Manager failures:\n- " . implode( "\n- ", $wptl_sequence_failures ) . "\n" );
+	fwrite( STDERR, "Irisable Title Layer Sequence Manager failures:\n- " . implode( "\n- ", $wptl_sequence_failures ) . "\n" );
 	exit( 1 );
 }
 
-echo 'WP Title Layer Sequence Manager checks passed: ' . (int) $wptl_sequence_checks . "\n";
+echo 'Irisable Title Layer Sequence Manager checks passed: ' . (int) $wptl_sequence_checks . "\n";

@@ -11,6 +11,7 @@ coverage/
 
 # Release artifacts are generated locally.
 wp-title-layer-*.zip
+irisable-title-layer-*.zip
 
 # Private audit inputs and planning exports stay outside the public repository.
 secondary-title.2.2.1.zip

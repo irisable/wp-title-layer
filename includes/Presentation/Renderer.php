@@ -92,7 +92,7 @@ final class Renderer {
 	/**
 	 * Build phrasing-safe fragments for an exact classic-theme title adapter.
 	 *
-	 * The theme keeps its own heading wrapper. WP Title Layer contributes only
+	 * The theme keeps its own heading wrapper. Irisable Title Layer contributes only
 	 * a context line, safe inline title content, and an optional subtitle line.
 	 *
 	 * @return array{status:string,before:string,title:string,after:string,preset:string}

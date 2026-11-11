@@ -33,7 +33,7 @@ final class ClassicEditor {
 
 		add_meta_box(
 			'wptl-classic-title-layer',
-			__( 'Title Layer', 'wp-title-layer' ),
+			__( 'Title Layer', 'irisable-title-layer' ),
 			array( __CLASS__, 'renderMetaBox' ),
 			$post_type,
 			'normal',
@@ -82,7 +82,7 @@ final class ClassicEditor {
 		$owns = Schema::TAXONOMY_SERIES === $taxonomy;
 		/**
 		 * Reused taxonomies keep their native editor by default. Opt in only when
-		 * WP Title Layer is intended to own their single-Series relationship UI.
+		 * Irisable Title Layer is intended to own their single-Series relationship UI.
 		 *
 		 * @param bool   $owns     Whether WPTL owns the control.
 		 * @param string $taxonomy Claimed taxonomy.
@@ -106,8 +106,8 @@ final class ClassicEditor {
 		$current_main = ! $current_book || ! empty( $current_book_context['main'] );
 		$current_ordinal = $current_managed ? \WPTitleLayer\Core\Sequence::automatic_ordinal( (int) $post->ID, $current_term ) : 0;
 		$current_sequence_heading = 0 < $current_ordinal
-			? sprintf( '%1$s %2$d', __( 'Automatic article number:', 'wp-title-layer' ), $current_ordinal )
-			: __( 'Managed sequence', 'wp-title-layer' );
+			? sprintf( '%1$s %2$d', __( 'Automatic article number:', 'irisable-title-layer' ), $current_ordinal )
+			: __( 'Managed sequence', 'irisable-title-layer' );
 		$manager_base_url = add_query_arg(
 			'page',
 			'wp-title-layer-sequence-manager',
@@ -128,16 +128,16 @@ final class ClassicEditor {
 		<div class="wptl-classic-editor" data-wptl-classic-editor>
 			<input type="hidden" name="<?php echo esc_attr( self::FIELD_ROOT ); ?>[_present]" value="1">
 			<p>
-				<label for="wptl-classic-subtitle"><strong><?php esc_html_e( 'Subtitle', 'wp-title-layer' ); ?></strong></label><br>
+				<label for="wptl-classic-subtitle"><strong><?php esc_html_e( 'Subtitle', 'irisable-title-layer' ); ?></strong></label><br>
 				<input class="widefat" type="text" id="wptl-classic-subtitle" name="<?php echo esc_attr( self::FIELD_ROOT ); ?>[subtitle]" value="<?php echo esc_attr( (string) get_post_meta( $post->ID, Schema::META_SUBTITLE, true ) ); ?>">
-				<span class="description"><?php esc_html_e( 'Explains or extends the main title. It is not a Series label.', 'wp-title-layer' ); ?></span>
+				<span class="description"><?php esc_html_e( 'Explains or extends the main title. It is not a Series label.', 'irisable-title-layer' ); ?></span>
 			</p>
 
 			<?php if ( self::ownsSeriesControl() ) : ?>
 				<p>
-					<label for="wptl-classic-series"><strong><?php esc_html_e( 'Series', 'wp-title-layer' ); ?></strong></label><br>
+					<label for="wptl-classic-series"><strong><?php esc_html_e( 'Series', 'irisable-title-layer' ); ?></strong></label><br>
 					<select class="widefat" id="wptl-classic-series" name="<?php echo esc_attr( self::FIELD_ROOT ); ?>[series_id]" data-wptl-series-select>
-						<option value="0"><?php esc_html_e( 'No Series', 'wp-title-layer' ); ?></option>
+						<option value="0"><?php esc_html_e( 'No Series', 'irisable-title-layer' ); ?></option>
 						<?php foreach ( $series_terms as $term ) : ?>
 							<option
 								value="<?php echo esc_attr( (string) $term->term_id ); ?>"
@@ -149,11 +149,11 @@ final class ClassicEditor {
 							><?php echo esc_html( $term->name ); ?></option>
 						<?php endforeach; ?>
 					</select>
-					<span class="description"><?php esc_html_e( 'Choose one existing Series. Series creation and structure remain on the Series screen.', 'wp-title-layer' ); ?></span>
+					<span class="description"><?php esc_html_e( 'Choose one existing Series. Series creation and structure remain on the Series screen.', 'irisable-title-layer' ); ?></span>
 				</p>
 
 					<p>
-						<label for="wptl-classic-role"><strong><?php esc_html_e( 'Series role', 'wp-title-layer' ); ?></strong></label><br>
+						<label for="wptl-classic-role"><strong><?php esc_html_e( 'Series role', 'irisable-title-layer' ); ?></strong></label><br>
 						<select id="wptl-classic-role" name="<?php echo esc_attr( self::FIELD_ROOT ); ?>[series_role]" data-wptl-role-select>
 							<?php foreach ( Schema::role_labels() as $role => $role_label ) : ?>
 								<option value="<?php echo esc_attr( $role ); ?>" <?php selected( (string) get_post_meta( $post->ID, Schema::META_SERIES_ROLE, true ), $role ); ?>><?php echo esc_html( $role_label ); ?></option>
@@ -161,7 +161,7 @@ final class ClassicEditor {
 						</select>
 					</p>
 					<p data-wptl-series-condition="book-scope">
-						<label for="wptl-classic-scope"><strong><?php esc_html_e( 'Book structure scope', 'wp-title-layer' ); ?></strong></label><br>
+						<label for="wptl-classic-scope"><strong><?php esc_html_e( 'Book structure scope', 'irisable-title-layer' ); ?></strong></label><br>
 						<select id="wptl-classic-scope" name="<?php echo esc_attr( self::FIELD_ROOT ); ?>[series_scope]" data-wptl-scope-select>
 							<?php foreach ( Schema::scope_labels() as $scope => $scope_label ) : ?>
 								<option value="<?php echo esc_attr( $scope ); ?>" <?php selected( (string) get_post_meta( $post->ID, Schema::META_SERIES_SCOPE, true ), $scope ); ?>><?php echo esc_html( $scope_label ); ?></option>
@@ -171,9 +171,9 @@ final class ClassicEditor {
 
 				<div data-wptl-series-condition="season-required">
 					<p>
-						<label for="wptl-classic-season"><strong><?php esc_html_e( 'Season', 'wp-title-layer' ); ?></strong></label><br>
+						<label for="wptl-classic-season"><strong><?php esc_html_e( 'Season', 'irisable-title-layer' ); ?></strong></label><br>
 						<select class="widefat" id="wptl-classic-season" name="<?php echo esc_attr( self::FIELD_ROOT ); ?>[season_key]" data-wptl-season-select>
-							<option value=""><?php esc_html_e( 'Select a season', 'wp-title-layer' ); ?></option>
+							<option value=""><?php esc_html_e( 'Select a season', 'irisable-title-layer' ); ?></option>
 							<?php foreach ( $series_terms as $term ) : ?>
 								<?php foreach ( Series::seasons( $term ) as $season ) : ?>
 									<option value="<?php echo esc_attr( $season['key'] ); ?>" data-series="<?php echo esc_attr( (string) $term->term_id ); ?>" <?php selected( $current_id === (int) $term->term_id ? $current_season : '', $season['key'] ); ?>><?php echo esc_html( $term->name . ' — ' . $season['label'] ); ?></option>
@@ -185,39 +185,39 @@ final class ClassicEditor {
 
 				<div data-wptl-series-condition="content-group">
 				<p>
-					<label for="wptl-classic-group"><strong><?php esc_html_e( 'Content group', 'wp-title-layer' ); ?></strong></label><br>
+					<label for="wptl-classic-group"><strong><?php esc_html_e( 'Content group', 'irisable-title-layer' ); ?></strong></label><br>
 					<?php $wptl_current_group = \WPTitleLayer\Core\ContentGroups::for_post( (int) $post->ID ); ?>
 					<input class="widefat" type="text" id="wptl-classic-group" list="wptl-classic-groups" name="<?php echo esc_attr( self::FIELD_ROOT ); ?>[series_group]" value="<?php echo esc_attr( $wptl_current_group ? $wptl_current_group->name : (string) get_post_meta( $post->ID, Schema::META_SERIES_GROUP, true ) ); ?>">
 					<datalist id="wptl-classic-groups"></datalist>
-					<span class="description"><?php esc_html_e( 'Optional group, for example W1 Seeing human weakness. Article numbers remain independent.', 'wp-title-layer' ); ?></span>
+					<span class="description"><?php esc_html_e( 'Optional group, for example W1 Seeing human weakness. Article numbers remain independent.', 'irisable-title-layer' ); ?></span>
 				</p>
 				<div data-wptl-group-rename hidden>
-					<button type="button" class="button-link" data-wptl-group-rename-start><?php esc_html_e( 'Rename this group', 'wp-title-layer' ); ?></button>
+					<button type="button" class="button-link" data-wptl-group-rename-start><?php esc_html_e( 'Rename this group', 'irisable-title-layer' ); ?></button>
 					<div data-wptl-group-rename-form hidden>
-						<label for="wptl-classic-group-new"><?php esc_html_e( 'New group name', 'wp-title-layer' ); ?></label>
+						<label for="wptl-classic-group-new"><?php esc_html_e( 'New group name', 'irisable-title-layer' ); ?></label>
 						<input type="text" id="wptl-classic-group-new" class="widefat">
-						<p class="description"><?php esc_html_e( 'Renames this group for all its articles. Existing group links stay valid.', 'wp-title-layer' ); ?></p>
-						<button type="button" class="button" data-wptl-group-rename-save><?php esc_html_e( 'Save group name', 'wp-title-layer' ); ?></button>
-						<button type="button" class="button-link" data-wptl-group-rename-cancel><?php esc_html_e( 'Cancel', 'wp-title-layer' ); ?></button>
+						<p class="description"><?php esc_html_e( 'Renames this group for all its articles. Existing group links stay valid.', 'irisable-title-layer' ); ?></p>
+						<button type="button" class="button" data-wptl-group-rename-save><?php esc_html_e( 'Save group name', 'irisable-title-layer' ); ?></button>
+						<button type="button" class="button-link" data-wptl-group-rename-cancel><?php esc_html_e( 'Cancel', 'irisable-title-layer' ); ?></button>
 					</div>
 				</div>
 				<p data-wptl-group-status role="status"></p>
 				</div>
-				<p data-wptl-series-condition="inactive-group"><?php esc_html_e( 'The saved content group is inactive for this role. It will be restored if you switch back to a main article.', 'wp-title-layer' ); ?></p>
+				<p data-wptl-series-condition="inactive-group"><?php esc_html_e( 'The saved content group is inactive for this role. It will be restored if you switch back to a main article.', 'irisable-title-layer' ); ?></p>
 				<div data-wptl-series-condition="ordered">
 					<div class="notice notice-info inline" data-wptl-series-condition="managed-ordered">
 						<p>
-							<strong data-wptl-managed-heading data-current-term-id="<?php echo esc_attr( (string) $current_id ); ?>" data-current-season-key="<?php echo esc_attr( $current_season ); ?>" data-current-ordinal="<?php echo esc_attr( (string) $current_ordinal ); ?>" data-automatic-label="<?php esc_attr_e( 'Automatic article number:', 'wp-title-layer' ); ?>" data-managed-label="<?php esc_attr_e( 'Managed sequence', 'wp-title-layer' ); ?>"><?php echo esc_html( $current_sequence_heading ); ?></strong><br>
-							<?php esc_html_e( 'Sequence Manager owns the private rank. Saving after changing Series or season appends this article to that scope.', 'wp-title-layer' ); ?>
-							<a href="<?php echo esc_url( $manager_url ); ?>" data-wptl-manager-link data-base-url="<?php echo esc_url( $manager_base_url ); ?>" data-post-id="<?php echo esc_attr( (string) $post->ID ); ?>"><?php esc_html_e( 'Move in Sequence Manager', 'wp-title-layer' ); ?></a>
+							<strong data-wptl-managed-heading data-current-term-id="<?php echo esc_attr( (string) $current_id ); ?>" data-current-season-key="<?php echo esc_attr( $current_season ); ?>" data-current-ordinal="<?php echo esc_attr( (string) $current_ordinal ); ?>" data-automatic-label="<?php esc_attr_e( 'Automatic article number:', 'irisable-title-layer' ); ?>" data-managed-label="<?php esc_attr_e( 'Managed sequence', 'irisable-title-layer' ); ?>"><?php echo esc_html( $current_sequence_heading ); ?></strong><br>
+							<?php esc_html_e( 'Sequence Manager owns the private rank. Saving after changing Series or season appends this article to that scope.', 'irisable-title-layer' ); ?>
+							<a href="<?php echo esc_url( $manager_url ); ?>" data-wptl-manager-link data-base-url="<?php echo esc_url( $manager_base_url ); ?>" data-post-id="<?php echo esc_attr( (string) $post->ID ); ?>"><?php esc_html_e( 'Move in Sequence Manager', 'irisable-title-layer' ); ?></a>
 						</p>
 					</div>
 					<div class="wptl-classic-grid">
 						<div data-wptl-series-condition="legacy-ordered">
 							<p>
-								<label for="wptl-classic-position"><strong><?php esc_html_e( 'Legacy sequence position', 'wp-title-layer' ); ?></strong></label><br>
+								<label for="wptl-classic-position"><strong><?php esc_html_e( 'Legacy sequence position', 'irisable-title-layer' ); ?></strong></label><br>
 								<input type="number" min="0" step="1" id="wptl-classic-position" name="<?php echo esc_attr( self::FIELD_ROOT ); ?>[sequence_position]" value="<?php echo esc_attr( metadata_exists( 'post', $post->ID, Schema::META_SEQUENCE_POSITION ) ? (string) get_post_meta( $post->ID, Schema::META_SEQUENCE_POSITION, true ) : '' ); ?>">
-								<span class="description"><?php esc_html_e( 'Initialize this Series in Sequence Manager to insert articles without renumbering later entries.', 'wp-title-layer' ); ?></span>
+								<span class="description"><?php esc_html_e( 'Initialize this Series in Sequence Manager to insert articles without renumbering later entries.', 'irisable-title-layer' ); ?></span>
 							</p>
 						</div>
 					</div>
@@ -225,18 +225,18 @@ final class ClassicEditor {
 
 				<div class="wptl-classic-grid">
 					<p>
-						<label for="wptl-classic-sequence-label"><strong><?php esc_html_e( 'Public structure label', 'wp-title-layer' ); ?></strong></label><br>
+						<label for="wptl-classic-sequence-label"><strong><?php esc_html_e( 'Public structure label', 'irisable-title-layer' ); ?></strong></label><br>
 						<input type="text" id="wptl-classic-sequence-label" name="<?php echo esc_attr( self::FIELD_ROOT ); ?>[sequence_label]" value="<?php echo esc_attr( (string) get_post_meta( $post->ID, Schema::META_SEQUENCE_LABEL, true ) ); ?>">
-						<span class="description"><?php esc_html_e( 'Optional label such as 0-1, Preface II, or Appendix A.', 'wp-title-layer' ); ?></span>
+						<span class="description"><?php esc_html_e( 'Optional label such as 0-1, Preface II, or Appendix A.', 'irisable-title-layer' ); ?></span>
 					</p>
 
 				</div>
 
 				<div class="notice notice-info inline" data-wptl-series-condition="book-track">
 					<p>
-						<strong><?php esc_html_e( 'Managed structure track', 'wp-title-layer' ); ?></strong><br>
-						<?php esc_html_e( 'Introductions, epilogues, and appendices have an independent private order.', 'wp-title-layer' ); ?>
-						<a href="<?php echo esc_url( $manager_url ); ?>" data-wptl-manager-link data-base-url="<?php echo esc_url( $manager_base_url ); ?>" data-post-id="<?php echo esc_attr( (string) $post->ID ); ?>"><?php esc_html_e( 'Move in Sequence & Structure', 'wp-title-layer' ); ?></a>
+						<strong><?php esc_html_e( 'Managed structure track', 'irisable-title-layer' ); ?></strong><br>
+						<?php esc_html_e( 'Introductions, epilogues, and appendices have an independent private order.', 'irisable-title-layer' ); ?>
+						<a href="<?php echo esc_url( $manager_url ); ?>" data-wptl-manager-link data-base-url="<?php echo esc_url( $manager_base_url ); ?>" data-post-id="<?php echo esc_attr( (string) $post->ID ); ?>"><?php esc_html_e( 'Move in Sequence & Structure', 'irisable-title-layer' ); ?></a>
 					</p>
 				</div>
 
@@ -245,14 +245,14 @@ final class ClassicEditor {
 
 			<div class="wptl-classic-grid">
 				<p>
-					<label for="wptl-classic-kicker"><strong><?php esc_html_e( 'Kicker override', 'wp-title-layer' ); ?></strong></label><br>
+					<label for="wptl-classic-kicker"><strong><?php esc_html_e( 'Kicker override', 'irisable-title-layer' ); ?></strong></label><br>
 					<input type="text" id="wptl-classic-kicker" name="<?php echo esc_attr( self::FIELD_ROOT ); ?>[kicker_override]" value="<?php echo esc_attr( (string) get_post_meta( $post->ID, Schema::META_KICKER_OVERRIDE, true ) ); ?>">
 				</p>
 				<p>
-					<label for="wptl-classic-template"><strong><?php esc_html_e( 'Template override', 'wp-title-layer' ); ?></strong></label><br>
+					<label for="wptl-classic-template"><strong><?php esc_html_e( 'Template override', 'irisable-title-layer' ); ?></strong></label><br>
 					<select id="wptl-classic-template" name="<?php echo esc_attr( self::FIELD_ROOT ); ?>[template_override]">
-						<option value=""><?php esc_html_e( 'Inherit', 'wp-title-layer' ); ?></option>
-						<option value="disabled" <?php selected( (string) get_post_meta( $post->ID, Schema::META_TEMPLATE_OVERRIDE, true ), 'disabled' ); ?>><?php esc_html_e( 'Do not display a Title Layer', 'wp-title-layer' ); ?></option>
+						<option value=""><?php esc_html_e( 'Inherit', 'irisable-title-layer' ); ?></option>
+						<option value="disabled" <?php selected( (string) get_post_meta( $post->ID, Schema::META_TEMPLATE_OVERRIDE, true ), 'disabled' ); ?>><?php esc_html_e( 'Do not display a Title Layer', 'irisable-title-layer' ); ?></option>
 						<?php foreach ( Presets::choices() as $preset ) : ?>
 							<option value="<?php echo esc_attr( $preset['value'] ); ?>" <?php selected( (string) get_post_meta( $post->ID, Schema::META_TEMPLATE_OVERRIDE, true ), $preset['value'] ); ?>><?php echo esc_html( $preset['label'] ); ?></option>
 						<?php endforeach; ?>
@@ -392,8 +392,8 @@ final class ClassicEditor {
 		$taxonomy = get_taxonomy( Series::claimed_taxonomy() );
 		wp_localize_script( 'wptl-classic-editor', 'WPTLGroupEditor', array(
 			'canRename' => $taxonomy && current_user_can( $taxonomy->cap->edit_terms ),
-			'loadError' => __( 'Group suggestions could not be loaded. You can still enter a name.', 'wp-title-layer' ),
-			'renameError' => __( 'Group rename failed.', 'wp-title-layer' ),
+			'loadError' => __( 'Group suggestions could not be loaded. You can still enter a name.', 'irisable-title-layer' ),
+			'renameError' => __( 'Group rename failed.', 'irisable-title-layer' ),
 		) );
 		wp_enqueue_style( 'wptl-classic-editor', $base_url . 'assets/classic-editor.css', array(), $version );
 	}

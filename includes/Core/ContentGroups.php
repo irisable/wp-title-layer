@@ -215,11 +215,11 @@ final class ContentGroups {
 	public static function rename( \WP_REST_Request $request ) {
 		$group = get_term( (int) $request['id'], self::TAXONOMY );
 		$label = trim( (string) $request['label'] );
-		if ( ! $group instanceof \WP_Term || '' === $label ) { return new \WP_Error( 'wptl_group_invalid', __( 'Choose a group and a nonempty name.', 'wp-title-layer' ), array( 'status' => 400 ) ); }
+		if ( ! $group instanceof \WP_Term || '' === $label ) { return new \WP_Error( 'wptl_group_invalid', __( 'Choose a group and a nonempty name.', 'irisable-title-layer' ), array( 'status' => 400 ) ); }
 		$series = get_term( (int) get_term_meta( $group->term_id, '_wptl_series', true ), Series::claimed_taxonomy() );
-		if ( ! $series instanceof \WP_Term ) { return new \WP_Error( 'wptl_group_invalid', __( 'Choose an existing Series.', 'wp-title-layer' ), array( 'status' => 400 ) ); }
+		if ( ! $series instanceof \WP_Term ) { return new \WP_Error( 'wptl_group_invalid', __( 'Choose an existing Series.', 'irisable-title-layer' ), array( 'status' => 400 ) ); }
 		$existing = self::find( $series, (string) get_term_meta( $group->term_id, '_wptl_season', true ), $label );
-		if ( $existing && $existing->term_id !== $group->term_id ) { return new \WP_Error( 'wptl_group_conflict', __( 'This group name is already in use.', 'wp-title-layer' ), array( 'status' => 409 ) ); }
+		if ( $existing && $existing->term_id !== $group->term_id ) { return new \WP_Error( 'wptl_group_conflict', __( 'This group name is already in use.', 'irisable-title-layer' ), array( 'status' => 409 ) ); }
 		$aliases = (array) get_term_meta( $group->term_id, '_wptl_aliases', true );
 		$aliases[] = $group->name;
 		$result = wp_update_term( $group->term_id, self::TAXONOMY, array( 'name' => $label ) );

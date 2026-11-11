@@ -42,12 +42,12 @@ validate_archive_inventory() {
 		esac
 
 		case "${entry}" in
-			wp-title-layer/)
+			"${package_slug}/")
 				root_count=$(( root_count + 1 ))
 				continue
 				;;
-			wp-title-layer/*)
-				relative="${entry#wp-title-layer/}"
+			"${package_slug}/"*)
+				relative="${entry#${package_slug}/}"
 				;;
 			*)
 				fail_archive_inventory "entry is outside the unique wp-title-layer/ root: ${entry}"
@@ -84,7 +84,13 @@ fi
 
 archive_name="$(basename "${archive_path}")"
 case "${archive_name}" in
+	irisable-title-layer-*.zip)
+		package_slug='irisable-title-layer'
+		archive_version="${archive_name#irisable-title-layer-}"
+		archive_version="${archive_version%.zip}"
+		;;
 	wp-title-layer-*.zip)
+		package_slug='wp-title-layer'
 		archive_version="${archive_name#wp-title-layer-}"
 		archive_version="${archive_version%.zip}"
 		;;
@@ -96,7 +102,7 @@ esac
 
 validate_archive_inventory "${archive_path}"
 unzip -q "${archive_path}" -d "${stage_dir}"
-plugin_dir="${stage_dir}/wp-title-layer"
+plugin_dir="${stage_dir}/${package_slug}"
 if [[ ! -f "${plugin_dir}/wp-title-layer.php" ]]; then
 	echo 'The ZIP does not contain the expected wp-title-layer plugin root.' >&2
 	exit 1

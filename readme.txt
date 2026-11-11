@@ -1,4 +1,4 @@
-=== WP Title Layer ===
+=== Irisable Title Layer ===
 Contributors: irisable
 Tags: title, subtitle, series, editorial, gutenberg
 Requires at least: 6.5
@@ -12,7 +12,7 @@ Structured subtitles and excerpts, one Series per post, and explicit title-layer
 
 == Description ==
 
-WP Title Layer keeps the native WordPress post title canonical while storing
+Irisable Title Layer keeps the native WordPress post title canonical while storing
 the surrounding editorial structure as separate data:
 
 * explanatory subtitles;
@@ -39,10 +39,10 @@ the surrounding editorial structure as separate data:
 * non-destructive Secondary Title migration;
 * carefully verified migration of a genuine ACF `subtitle` field.
 
-ACF is not required. WP Title Layer owns its taxonomy, metadata, REST schema,
+ACF is not required. Irisable Title Layer owns its taxonomy, metadata, REST schema,
 editor controls, and rendering layer, and works when ACF is absent.
 
-WP Title Layer never sends a complete layer through a general `the_title`
+Irisable Title Layer never sends a complete layer through a general `the_title`
 filter. It can instead replace a verified singular title slot in a block theme
 or Kadence, retaining the theme heading level and leaving the body untouched.
 Other classic themes use manual block, shortcode, or theme-API placement.
@@ -64,17 +64,17 @@ rule, then global default. A post can also disable its Title Layer.
 == Installation ==
 
 1. Upload the `wp-title-layer` directory to `/wp-content/plugins/` or install the ZIP.
-2. Activate WP Title Layer.
+2. Activate Irisable Title Layer.
 3. If the site used Secondary Title or ACF `subtitle`, open Tools > Title Layer Migration and scan without writing.
 4. Review the conflicts, then start the copy. The migration screen continues through batches automatically and can safely resume the same run after interruption.
 5. Verify several posts and deactivate Secondary Title.
-6. Open WP Title Layer > Control Center, then choose the verified theme-title takeover or a manual placement under Settings > WP Title Layer.
+6. Open Irisable Title Layer > Control Center, then choose the verified theme-title takeover or a manual placement under Settings > Irisable Title Layer.
 7. Test one ordinary article and one Series article, including mobile layout and exactly one intended H1.
 8. Optionally enable the classic-theme Series archive or after-content ordered-Series navigation.
-9. Review one Series at a time under WP Title Layer > Landing & Channels before changing canonical, robots, sitemap, or duplicate Category entry points.
-10. For an existing Series, open WP Title Layer > Sequence & Structure. Every ordered Series has a Sequence view; initialize it once if needed. Use Structure tracks only when book-like roles are needed. Upgrading alone never converts old Series.
+9. Review one Series at a time under Irisable Title Layer > Landing & Channels before changing canonical, robots, sitemap, or duplicate Category entry points.
+10. For an existing Series, open Irisable Title Layer > Sequence & Structure. Every ordered Series has a Sequence view; initialize it once if needed. Use Structure tracks only when book-like roles are needed. Upgrading alone never converts old Series.
 
-While Secondary Title is active, WP Title Layer remains in migration-only mode:
+While Secondary Title is active, Irisable Title Layer remains in migration-only mode:
 its editor and front-end output stay disabled to avoid duplicate ownership.
 Migration does not delete source data or overwrite an existing canonical
 subtitle, even when the existing value is empty.
@@ -83,7 +83,7 @@ subtitle, even when the existing value is empty.
 
 = Does this require ACF? =
 
-No. ACF is neither a runtime dependency nor the owner of WP Title Layer data.
+No. ACF is neither a runtime dependency nor the owner of Irisable Title Layer data.
 It is only one possible migration source.
 
 On an existing site, run the migration report before removing ACF. Its five
@@ -123,7 +123,7 @@ review is left unchanged and reported as a conflict or left for a new scan.
 
 = How does the Title Layer replace my visible title? =
 
-Open Settings > WP Title Layer and choose Replace the theme post title when the
+Open Settings > Irisable Title Layer and choose Replace the theme post title when the
 screen reports a verified integration. Block themes use their singular Post
 Title block; official Kadence 1.5.x and 1.6.0 title templates use their exact singular
 title hooks. The original heading level is retained and the body is not used
@@ -177,7 +177,7 @@ role, and sequence metadata would otherwise be ambiguous.
 Yes. A Series may optionally name one parent Category as an editorial map. An
 article is consistent when it belongs to that Category or one of its child
 Categories. A mismatch appears as a warning in the block editor and Series
-Health, but WP Title Layer never blocks saving or automatically changes the
+Health, but Irisable Title Layer never blocks saving or automatically changes the
 article's Category relationships.
 
 = What does the Series status change? =
@@ -189,7 +189,7 @@ status appears in the Series list and the optional structured Series archive.
 
 = How do I insert an article into an ordered Series? =
 
-Open WP Title Layer > Sequence & Structure, then use the Sequence view. Existing ordered Series first get a read-only
+Open Irisable Title Layer > Sequence & Structure, then use the Sequence view. Existing ordered Series first get a read-only
 preview of their legacy positions; initialization is explicit, resumable, and
 commits only after every rank validates. Legacy position and label metadata are
 preserved. Merely upgrading or activating 1.0.0-rc.2 does not rewrite an existing Series.
@@ -234,7 +234,7 @@ previous/next navigation, while non-main structure tracks can still be moved.
 Resolve an existing Series from `/wp-json/wp/v2/wptl_series?slug=...`, then send
 its term ID through the article's `wptl_series` REST field. Send the canonical
 Subtitle as `meta.wptl_subtitle`; `_secondary_title` is compatibility input, not
-a new-write target. WP Title Layer accepts at most one Series and an article
+a new-write target. Irisable Title Layer accepts at most one Series and an article
 publisher must not create or redefine Series terms.
 
 A seasoned article uses the internal `wptl_season_key`. The stable numeric
@@ -310,14 +310,14 @@ square controls, a solid current page, arrow previous/next controls, an unboxed
 ellipsis, and no underlined links while preserving keyboard focus and full
 screen-reader labels.
 
-= Does WP Title Layer support the Classic Editor? =
+= Does Irisable Title Layer support the Classic Editor? =
 
 Yes. When Gutenberg is actually disabled for a supported post type, one
 nonce- and capability-protected meta box edits Subtitle, an existing single
 Series, season/order details, kicker, and template override. It does not create
 Series terms and it does not appear beside the Gutenberg sidebar. Custom
 reused taxonomies retain their native relationship UI unless an integrator
-explicitly gives that control to WP Title Layer.
+explicitly gives that control to Irisable Title Layer.
 
 = Which languages are included? =
 
@@ -341,7 +341,7 @@ be a separate, explicit action.
 
 = How can I find missing seasons or duplicate positions? =
 
-Open WP Title Layer > Series Health, or choose Check Series health in the
+Open Irisable Title Layer > Series Health, or choose Check Series health in the
 Control Center. The report inspects one Series at a time and separates
 published, scheduled, private, draft, pending, trashed, and password-protected
 articles. It flags missing or invalid positions, missing or undefined seasons,
@@ -359,13 +359,13 @@ Yes, as an explicit Rank Math choice rather than an automatic rewrite. Version
 1.0.0-rc.2 registers `%wptl_subtitle%`, `%wptl_series%`, and
 `%wptl_title_with_subtitle%`. The combined variable adds the locale's title
 separator and subtitle only when one exists. Use it independently in Rank Math's SEO, Facebook, or
-Twitter title fields. WP Title Layer does not write Rank Math metadata or emit
+Twitter title fields. Irisable Title Layer does not write Rank Math metadata or emit
 its own Open Graph tags. Multiple Series memberships remain outside this
 version's scope.
 
 = How do I check duplicate Series and Category landing pages? =
 
-Open WP Title Layer > Landing & Channels. Select a Series to compare only its
+Open Irisable Title Layer > Landing & Channels. Select a Series to compare only its
 public, published, non-password-protected articles with Category archives. An
 exact duplicate means both complete public article sets are identical; a
 partial overlap only reports the shared counts. The report never removes a
@@ -379,9 +379,20 @@ inheritance separately. Inactive Rank Math options are ignored; another or
 multiple SEO providers are identified but must be checked in their own UI and
 in rendered page source.
 
+== Upgrading from WP Title Layer ==
+
+
+Irisable Title Layer is the directory-distribution name of WP Title Layer.
+Deactivate the old WP Title Layer copy before activating this plugin. Existing
+title fields, Series, settings, blocks and Publisher REST interfaces are reused
+without a content migration. Do not run both copies together. The old package's
+Update URI setting means it will not automatically switch to the new directory
+slug; install this package manually once. Take a backup before switching.
+
 == Privacy and external services ==
 
-WP Title Layer does not collect telemetry, create visitor-tracking cookies,
+
+Irisable Title Layer does not collect telemetry, create visitor-tracking cookies,
 or send content to external services. Its data is stored in your WordPress
 database. Optional integrations use locally installed plugins; no external
 account or API key is required. Migration exports download to the requesting
@@ -479,7 +490,7 @@ two-post cache isolation and its real taxonomy/sitemap settings.
 * Restyled the structured Series archive paginator with square controls, a solid current page, arrow previous/next controls, an unboxed ellipsis, keyboard focus, and no default underlines.
 * Added default-off WordPress Excerpts to the structured archive with independent site-wide and per-Series inherit/show/hide policies; theme, Category, and Search archives remain unchanged.
 * Added a separate media-library Series icon with site-wide and per-Series visibility controls; it remains decorative, outside the H1, and absent from SEO/social title variables.
-* Replaced the generic Gutenberg panel/block A icon with the WP Title Layer mark and clarified unspecified versus explicitly selected main-article role labels without rewriting stored role metadata.
+* Replaced the generic Gutenberg panel/block A icon with the Irisable Title Layer mark and clarified unspecified versus explicitly selected main-article role labels without rewriting stored role metadata.
 
 = 0.9.0 =
 
@@ -512,7 +523,7 @@ two-post cache isolation and its real taxonomy/sitemap settings.
 
 = 0.7.0 =
 
-* Added a capability-gated, read-only Landing & Channels report under the WP Title Layer control center.
+* Added a capability-gated, read-only Landing & Channels report under the Irisable Title Layer control center.
 * Classified Series/Category entry points from exact public article sets, keeping partial overlaps factual and excluding drafts, private, scheduled, trashed, and password-protected content.
 * Added Rank Math inspection for taxonomy and term search titles, descriptions, canonical, robots, sitemap, Facebook/Twitter inheritance, and article-level variable use without writing provider data.
 * Distinguished Rank Math defaults, inactive stored options, other SEO providers, and multiple-provider ownership; all remediation remains in WordPress or the provider UI.
@@ -561,7 +572,7 @@ two-post cache isolation and its real taxonomy/sitemap settings.
 = 0.2.3 =
 
 * Linked the displayed Series label to its public Series archive while keeping season and sequence text outside the link.
-* Removed Gutenberg's duplicate native Series taxonomy panel on supported article types, leaving the WP Title Layer single-Series selector and Series management screen intact.
+* Removed Gutenberg's duplicate native Series taxonomy panel on supported article types, leaving the Irisable Title Layer single-Series selector and Series management screen intact.
 
 = 0.2.2 =
 

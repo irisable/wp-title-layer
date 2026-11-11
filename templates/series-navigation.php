@@ -23,7 +23,7 @@ $wptl_position = max( 1, (int) ( $wptl_navigation['position'] ?? 1 ) );
 $wptl_total    = max( 1, (int) ( $wptl_navigation['total'] ?? 1 ) );
 $wptl_is_season_scope = 'season' === $wptl_scope && is_array( $wptl_season ) && ! empty( $wptl_season['label'] );
 ?>
-<nav class="wptl-series-navigation" aria-label="<?php esc_attr_e( 'Series reading navigation', 'wp-title-layer' ); ?>">
+<nav class="wptl-series-navigation" aria-label="<?php esc_attr_e( 'Series reading navigation', 'irisable-title-layer' ); ?>">
 	<div class="wptl-series-navigation__context">
 		<span class="wptl-series-navigation__context-name">
 			<?php if ( ! empty( $wptl_series['url'] ) && ! empty( $wptl_series['name'] ) ) : ?>
@@ -45,7 +45,7 @@ $wptl_is_season_scope = 'season' === $wptl_scope && is_array( $wptl_season ) && 
 			echo esc_html(
 				sprintf(
 					/* translators: 1: current article position, 2: total article count. */
-					__( '%1$d of %2$d', 'wp-title-layer' ),
+					__( '%1$d of %2$d', 'irisable-title-layer' ),
 					$wptl_position,
 					$wptl_total
 				)
@@ -57,7 +57,7 @@ $wptl_is_season_scope = 'season' === $wptl_scope && is_array( $wptl_season ) && 
 	<div class="wptl-series-navigation__links">
 		<?php if ( $wptl_previous ) : ?>
 			<a class="wptl-series-navigation__link wptl-series-navigation__link--previous" rel="prev" href="<?php echo esc_url( (string) $wptl_previous['url'] ); ?>">
-				<span class="wptl-series-navigation__eyebrow"><?php esc_html_e( 'Previous', 'wp-title-layer' ); ?></span>
+				<span class="wptl-series-navigation__eyebrow"><?php esc_html_e( 'Previous', 'irisable-title-layer' ); ?></span>
 				<span class="wptl-series-navigation__title"><?php echo esc_html( (string) $wptl_previous['title'] ); ?></span>
 			</a>
 		<?php else : ?>
@@ -67,16 +67,16 @@ $wptl_is_season_scope = 'season' === $wptl_scope && is_array( $wptl_season ) && 
 		<?php if ( $wptl_first ) : ?>
 			<a class="wptl-series-navigation__start" href="<?php echo esc_url( (string) $wptl_first['url'] ); ?>">
 				<?php if ( $wptl_is_season_scope ) : ?>
-					<?php esc_html_e( 'Read this season from the beginning', 'wp-title-layer' ); ?>
+					<?php esc_html_e( 'Read this season from the beginning', 'irisable-title-layer' ); ?>
 				<?php else : ?>
-					<?php esc_html_e( 'Read from the beginning', 'wp-title-layer' ); ?>
+					<?php esc_html_e( 'Read from the beginning', 'irisable-title-layer' ); ?>
 				<?php endif; ?>
 			</a>
 		<?php endif; ?>
 
 		<?php if ( $wptl_next ) : ?>
 			<a class="wptl-series-navigation__link wptl-series-navigation__link--next" rel="next" href="<?php echo esc_url( (string) $wptl_next['url'] ); ?>">
-				<span class="wptl-series-navigation__eyebrow"><?php esc_html_e( 'Next', 'wp-title-layer' ); ?></span>
+				<span class="wptl-series-navigation__eyebrow"><?php esc_html_e( 'Next', 'irisable-title-layer' ); ?></span>
 				<span class="wptl-series-navigation__title"><?php echo esc_html( (string) $wptl_next['title'] ); ?></span>
 			</a>
 		<?php else : ?>

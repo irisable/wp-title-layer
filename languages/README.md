@@ -1,14 +1,14 @@
-# WP Title Layer translations
+# Irisable Title Layer translations
 
-`wp-title-layer` is the plugin text domain and `/languages` is its bundled
+`irisable-title-layer` is the plugin text domain and `/languages` is its bundled
 domain path.
 
 The release includes:
 
-- `wp-title-layer.pot`: source catalog for translators;
-- `wp-title-layer-zh_CN.po`: editable Simplified Chinese catalog;
-- `wp-title-layer-zh_CN.mo`: compiled PHP/front-end catalog;
-- `wp-title-layer-zh_CN-wptl-editor.json`: Jed catalog for the Gutenberg
+- `irisable-title-layer.pot`: source catalog for translators;
+- `irisable-title-layer-zh_CN.po`: editable Simplified Chinese catalog;
+- `irisable-title-layer-zh_CN.mo`: compiled PHP/front-end catalog;
+- `irisable-title-layer-zh_CN-wptl-editor.json`: Jed catalog for the Gutenberg
   script handle `wptl-editor`.
 
 English source strings are the fallback for locales without a catalog. New

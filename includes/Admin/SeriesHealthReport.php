@@ -339,7 +339,7 @@ final class SeriesHealthReport {
 
 		$title = trim( (string) ( $record['post_title'] ?? '' ) );
 		if ( '' === $title ) {
-			$title = __( '(no title)', 'wp-title-layer' );
+			$title = __( '(no title)', 'irisable-title-layer' );
 		}
 
 		$season_key = sanitize_text_field( $raw_season_key );
@@ -372,12 +372,12 @@ final class SeriesHealthReport {
 
 	private static function post_status_label( string $status ): string {
 		$labels = array(
-			'publish' => __( 'Published', 'wp-title-layer' ),
-			'draft'   => __( 'Draft', 'wp-title-layer' ),
-			'future'  => __( 'Scheduled', 'wp-title-layer' ),
-			'private' => __( 'Private', 'wp-title-layer' ),
-			'pending' => __( 'Pending review', 'wp-title-layer' ),
-			'trash'   => __( 'Trash', 'wp-title-layer' ),
+			'publish' => __( 'Published', 'irisable-title-layer' ),
+			'draft'   => __( 'Draft', 'irisable-title-layer' ),
+			'future'  => __( 'Scheduled', 'irisable-title-layer' ),
+			'private' => __( 'Private', 'irisable-title-layer' ),
+			'pending' => __( 'Pending review', 'irisable-title-layer' ),
+			'trash'   => __( 'Trash', 'irisable-title-layer' ),
 		);
 
 		return $labels[ $status ] ?? ucwords( str_replace( array( '-', '_' ), ' ', $status ) );

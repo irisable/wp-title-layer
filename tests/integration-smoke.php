@@ -173,7 +173,7 @@ function wptl_test_callback_class( $callback ) {
 }
 
 /**
- * Count callbacks owned by selected WP Title Layer modules.
+ * Count callbacks owned by selected Irisable Title Layer modules.
  *
  * @param string[] $prefixes Fully qualified class-name prefixes.
  * @return int
@@ -302,7 +302,7 @@ $wptl_editor_script = $wptl_scripts->registered[ \WPTitleLayer\Presentation\Edit
 wptl_test_assert( $wptl_editor_script instanceof _WP_Dependency, 'The WPTL editor script was not registered in real WordPress.' );
 wptl_test_assert( $wptl_editor_script && in_array( 'wp-data', (array) $wptl_editor_script->deps, true ), 'The editor panel guard did not declare the WordPress data-store dependency.' );
 wptl_test_assert( $wptl_editor_script && in_array( 'wp-edit-post', (array) $wptl_editor_script->deps, true ), 'The WPTL replacement panel did not declare the editor UI dependency.' );
-wptl_test_same( 'wp-title-layer', $wptl_editor_script ? (string) $wptl_editor_script->textdomain : '', 'The editor script was not bound to the plugin text domain.' );
+wptl_test_same( 'irisable-title-layer', $wptl_editor_script ? (string) $wptl_editor_script->textdomain : '', 'The editor script was not bound to the plugin text domain.' );
 wptl_test_same( WPTL_PATH . 'languages', $wptl_editor_script ? (string) $wptl_editor_script->translations_path : '', 'The editor script was not bound to the packaged language directory.' );
 $wptl_editor_style = wp_styles()->registered[ \WPTitleLayer\Presentation\EditorAssets::STYLE_HANDLE ] ?? null;
 $wptl_editor_inline_styles = $wptl_editor_style instanceof _WP_Dependency ? (array) ( $wptl_editor_style->extra['after'] ?? array() ) : array();
@@ -1444,7 +1444,7 @@ wptl_test_same( 'inherits_search_title', $wptl_channel_report['channels']['twitt
 wptl_test_same( 1, $wptl_channel_report['article_overrides']['seo_titles'], 'The report counted article SEO-title overrides incorrectly.' );
 wptl_test_same( 1, $wptl_channel_report['article_overrides']['seo_titles_with_wptl'], 'The report missed an article SEO-title variable.' );
 wptl_test_same( 1, $wptl_channel_report['article_overrides']['facebook_titles'], 'The report counted article Facebook-title overrides incorrectly.' );
-wptl_test_same( 0, $wptl_channel_report['article_overrides']['facebook_titles_with_wptl'], 'A plain Facebook title was mistaken for a WP Title Layer variable.' );
+wptl_test_same( 0, $wptl_channel_report['article_overrides']['facebook_titles_with_wptl'], 'A plain Facebook title was mistaken for a Irisable Title Layer variable.' );
 wptl_test_same( 1, $wptl_channel_report['article_overrides']['twitter_titles_with_wptl'], 'The report missed an article Twitter-title variable.' );
 wptl_test_same( $wptl_channel_before, $wptl_channel_snapshot(), 'Reading landing-page and channel facts changed options, metadata, or taxonomy relationships.' );
 
@@ -2568,7 +2568,7 @@ $wptl_core_locale_marker    = WP_LANG_DIR . '/zh_CN.mo';
 $wptl_created_locale_marker = false;
 if ( ! is_file( $wptl_core_locale_marker ) ) {
 	wp_mkdir_p( WP_LANG_DIR );
-	$wptl_created_locale_marker = copy( WPTL_PATH . 'languages/wp-title-layer-zh_CN.mo', $wptl_core_locale_marker );
+	$wptl_created_locale_marker = copy( WPTL_PATH . 'languages/irisable-title-layer-zh_CN.mo', $wptl_core_locale_marker );
 }
 $wptl_locale_switcher = $GLOBALS['wp_locale_switcher'] ?? null;
 $wptl_locale_languages_property = null;
@@ -2591,21 +2591,21 @@ wptl_test_assert(
 		. '; marker: ' . ( is_readable( $wptl_core_locale_marker ) ? 'readable' : 'missing' )
 		. '; available: ' . implode( ',', get_available_languages() )
 );
-wptl_test_same( '副标题', __( 'Subtitle', 'wp-title-layer' ), 'The packaged PHP translation did not load after switching locale.' );
-wptl_test_same( '系列', __( 'Series', 'wp-title-layer' ), 'The canonical Series term was not translated consistently.' );
-wptl_test_same( '系列总序', sprintf( __( 'Series %s', 'wp-title-layer' ), '总序' ), 'The public whole-Series structure heading did not use natural Chinese terminology.' );
-wptl_test_same( '设置分区', __( 'Settings sections', 'wp-title-layer' ), 'The grouped settings navigation label was not translated.' );
-wptl_test_same( '上一页', __( 'Previous page', 'wp-title-layer' ), 'The Simplified Chinese pagination label used article-navigation wording.' );
-wptl_test_same( '下一页', __( 'Next page', 'wp-title-layer' ), 'The Simplified Chinese pagination label used article-navigation wording.' );
-wptl_test_same( '上一篇', __( 'Previous', 'wp-title-layer' ), 'The article-navigation label was changed into a pagination label.' );
-wptl_test_same( '系列阅读导航', __( 'Series reading navigation', 'wp-title-layer' ), 'The Reader navigation landmark was not translated.' );
-wptl_test_same( '系列归档页分页', __( 'Series archive pages', 'wp-title-layer' ), 'The structured archive pagination landmark was not translated.' );
-wptl_test_same( '查看所有季', __( 'View all seasons', 'wp-title-layer' ), 'The structured archive season link was not translated.' );
-wptl_test_same( '从头阅读', __( 'Read from the beginning', 'wp-title-layer' ), 'The full-Series start link was not translated.' );
-wptl_test_same( '从本季开头阅读', __( 'Read this season from the beginning', 'wp-title-layer' ), 'The season-scoped start link was not translated.' );
-wptl_test_same( '此系列暂无可公开访问的已发布文章。', __( 'No published articles are available in this Series.', 'wp-title-layer' ), 'The empty structured archive message was not translated.' );
-wptl_test_same( '第 2 篇，共 5 篇', sprintf( __( '%1$d of %2$d', 'wp-title-layer' ), 2, 5 ), 'The Reader position string was not translated.' );
-wptl_test_same( '3 篇已发布文章', sprintf( _n( '%d published article', '%d published articles', 3, 'wp-title-layer' ), 3 ), 'The structured archive article-count plural was not translated.' );
+wptl_test_same( '副标题', __( 'Subtitle', 'irisable-title-layer' ), 'The packaged PHP translation did not load after switching locale.' );
+wptl_test_same( '系列', __( 'Series', 'irisable-title-layer' ), 'The canonical Series term was not translated consistently.' );
+wptl_test_same( '系列总序', sprintf( __( 'Series %s', 'irisable-title-layer' ), '总序' ), 'The public whole-Series structure heading did not use natural Chinese terminology.' );
+wptl_test_same( '设置分区', __( 'Settings sections', 'irisable-title-layer' ), 'The grouped settings navigation label was not translated.' );
+wptl_test_same( '上一页', __( 'Previous page', 'irisable-title-layer' ), 'The Simplified Chinese pagination label used article-navigation wording.' );
+wptl_test_same( '下一页', __( 'Next page', 'irisable-title-layer' ), 'The Simplified Chinese pagination label used article-navigation wording.' );
+wptl_test_same( '上一篇', __( 'Previous', 'irisable-title-layer' ), 'The article-navigation label was changed into a pagination label.' );
+wptl_test_same( '系列阅读导航', __( 'Series reading navigation', 'irisable-title-layer' ), 'The Reader navigation landmark was not translated.' );
+wptl_test_same( '系列归档页分页', __( 'Series archive pages', 'irisable-title-layer' ), 'The structured archive pagination landmark was not translated.' );
+wptl_test_same( '查看所有季', __( 'View all seasons', 'irisable-title-layer' ), 'The structured archive season link was not translated.' );
+wptl_test_same( '从头阅读', __( 'Read from the beginning', 'irisable-title-layer' ), 'The full-Series start link was not translated.' );
+wptl_test_same( '从本季开头阅读', __( 'Read this season from the beginning', 'irisable-title-layer' ), 'The season-scoped start link was not translated.' );
+wptl_test_same( '此系列暂无可公开访问的已发布文章。', __( 'No published articles are available in this Series.', 'irisable-title-layer' ), 'The empty structured archive message was not translated.' );
+wptl_test_same( '第 2 篇，共 5 篇', sprintf( __( '%1$d of %2$d', 'irisable-title-layer' ), 2, 5 ), 'The Reader position string was not translated.' );
+wptl_test_same( '3 篇已发布文章', sprintf( _n( '%d published article', '%d published articles', 3, 'irisable-title-layer' ), 3 ), 'The structured archive article-count plural was not translated.' );
 wptl_test_same(
 	array( 'colon' => '：', 'dash' => '——', 'pipe' => '｜' ),
 	\WPTitleLayer\Presentation\Presets::localeSeparators(),
@@ -2672,7 +2672,7 @@ if ( $wptl_locale_languages_property instanceof ReflectionProperty ) {
 if ( $wptl_created_locale_marker ) {
 	unlink( $wptl_core_locale_marker );
 }
-wptl_test_same( 'Subtitle', __( 'Subtitle', 'wp-title-layer' ), 'Restoring the locale left Simplified Chinese strings active.' );
+wptl_test_same( 'Subtitle', __( 'Subtitle', 'irisable-title-layer' ), 'Restoring the locale left Simplified Chinese strings active.' );
 wptl_test_same(
 	array( 'colon' => ': ', 'dash' => ' — ', 'pipe' => ' | ' ),
 	\WPTitleLayer\Presentation\Presets::localeSeparators(),
@@ -2736,7 +2736,7 @@ wptl_test_assert( wp_script_is( 'wptl-settings-tabs', 'enqueued' ), 'The setting
 unregister_setting( 'wptl_settings_group', \WPTitleLayer\Presentation\Schema::settingsOption() );
 wp_set_current_user( $wptl_settings_page_original_user );
 
-$wptl_editor_translation_json = json_decode( (string) file_get_contents( WPTL_PATH . 'languages/wp-title-layer-zh_CN-wptl-editor.json' ), true );
+$wptl_editor_translation_json = json_decode( (string) file_get_contents( WPTL_PATH . 'languages/irisable-title-layer-zh_CN-wptl-editor.json' ), true );
 $wptl_editor_translation_messages = is_array( $wptl_editor_translation_json )
 	? ( $wptl_editor_translation_json['locale_data']['messages'] ?? array() )
 	: array();
@@ -4164,8 +4164,8 @@ wptl_test_assert(
 $GLOBALS['current_screen'] = $wptl_legacy_old_screen;
 
 if ( $wptl_failures ) {
-	fwrite( STDERR, "WP Title Layer integration failures:\n- " . implode( "\n- ", $wptl_failures ) . "\n" );
+	fwrite( STDERR, "Irisable Title Layer integration failures:\n- " . implode( "\n- ", $wptl_failures ) . "\n" );
 	exit( 1 );
 }
 
-echo 'WP Title Layer integration checks passed: ' . (int) $wptl_checks . "\n";
+echo 'Irisable Title Layer integration checks passed: ' . (int) $wptl_checks . "\n";

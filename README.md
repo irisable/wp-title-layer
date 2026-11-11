@@ -1,4 +1,4 @@
-# WP Title Layer
+# Irisable Title Layer
 
 WordPress.org submission candidate: **1.0.1**. See the [submission audit](docs/wordpress-org-submission.md).
 Published stable release: **1.0.0**. This promotes the production-tested release
@@ -8,7 +8,7 @@ migration. Historical RC checklists below remain the detailed feature records.
 [![CI](https://github.com/irisable/wp-title-layer/actions/workflows/ci.yml/badge.svg)](https://github.com/irisable/wp-title-layer/actions/workflows/ci.yml)
 [![License: GPL-2.0-or-later](https://img.shields.io/badge/License-GPL--2.0--or--later-blue.svg)](LICENSE)
 
-WP Title Layer keeps the native WordPress `post_title` as the canonical primary
+Irisable Title Layer keeps the native WordPress `post_title` as the canonical primary
 title, then stores the surrounding editorial structure as separate data:
 
 - an explanatory subtitle;
@@ -49,7 +49,7 @@ A focused [1.0.0-rc.4 acceptance record](docs/manual-acceptance-checklist-1.0.0-
 covers archive role grouping, editor field order, inactive groups, and Publisher
 advanced-role interoperability.
 
-ACF is **not a dependency**. WP Title Layer registers and owns its taxonomy,
+ACF is **not a dependency**. Irisable Title Layer registers and owns its taxonomy,
 post metadata, term metadata, REST schema, editor controls, and rendering layer.
 It works when ACF is absent or has been removed.
 
@@ -57,28 +57,28 @@ Before removing ACF from an existing site, run the migration report while ACF
 is still active. The five audited Series fields report non-empty field-post
 values and unique post IDs, not confirmed use: ACF-saved `0`, `false`, and
 configured defaults can be included, while exact empty strings are excluded.
-WP Title Layer never converts those five fields automatically. If the site
+Irisable Title Layer never converts those five fields automatically. If the site
 owner confirms they were unused, any verified ACF subtitle values have been
 migrated, and the site has no other ACF-dependent
-content, WP Title Layer itself gives no reason to keep ACF installed. The report
+content, Irisable Title Layer itself gives no reason to keep ACF installed. The report
 cannot certify unrelated fields owned by themes or other plugins.
 
 ## Install and start
 
 1. Install the ZIP or copy the `wp-title-layer` directory to
    `/wp-content/plugins/`.
-2. Activate WP Title Layer.
+2. Activate Irisable Title Layer.
 3. If the site used Secondary Title or an ACF field named `subtitle`, open
    **Tools → Title Layer Migration** and run the read-only scan first.
 4. Review conflicts, then start the copy. Version 1.0.0-rc.4 continues through the
    batches automatically in the migration screen and can safely resume the
    same run after a reload or interrupted request.
 5. Verify several posts and deactivate Secondary Title. While Secondary Title
-   remains active, WP Title Layer stays in **migration-only mode**: its editor
+   remains active, Irisable Title Layer stays in **migration-only mode**: its editor
    and front-end presentation are not enabled, preventing two plugins from
    owning the same output.
-6. Open **WP Title Layer → Control Center**, then configure display under
-   **Settings → WP Title Layer**. When the detected theme supports it, select
+6. Open **Irisable Title Layer → Control Center**, then configure display under
+   **Settings → Irisable Title Layer**. When the detected theme supports it, select
    **Replace the theme post title** so the layer occupies the original title
    slot instead of the article body.
 7. Test one ordinary article and one Series article. Block themes and the
@@ -87,9 +87,9 @@ cannot certify unrelated fields owned by themes or other plugins.
    and other classic themes, retain their title and use manual block/theme-API
    placement.
 8. Enable Reader features separately if desired. They remain off by default.
-9. Open **WP Title Layer → Landing & Channels** for one Series at a time before
+9. Open **Irisable Title Layer → Landing & Channels** for one Series at a time before
    changing canonical, robots, sitemap, or duplicate Category entry points.
-10. For an existing Series, open **WP Title Layer → Sequence & Structure**.
+10. For an existing Series, open **Irisable Title Layer → Sequence & Structure**.
     Every ordered Series has a **Sequence** view; initialize it once if needed.
     Use **Structure tracks** only when the Series also needs book-like roles.
     Merely upgrading the plugin does not convert or rewrite any old Series.
@@ -130,7 +130,7 @@ Advanced-role clients use the [rc.4 capability contract](docs/wp-publisher-advan
 Version 1.0.0-rc.4 has exactly two automatic subtitle sources:
 
 - Secondary Title's `_secondary_title` post meta;
-- an ACF field whose field name is `subtitle`, but only when WP Title Layer can
+- an ACF field whose field name is `subtitle`, but only when Irisable Title Layer can
   verify a real ACF field definition and the post's `_subtitle` reference
   points to that field key.
 
@@ -207,7 +207,7 @@ navigation fails closed for that article instead of guessing a boundary; the
 read-only Series Health report identifies the season problem.
 
 Existing ordered Series remain on their legacy `wptl_sequence_position` values
-until an administrator explicitly initializes them in **WP Title Layer →
+until an administrator explicitly initializes them in **Irisable Title Layer →
 Sequence & Structure → Sequence**. Its searchable Series chooser opens a
 selection immediately; without JavaScript, the matching native select and Open
 button remain available. The preview freezes the reviewed membership and source
@@ -253,7 +253,7 @@ Series start canonical immediately. Unordered Series retain their chosen body
 sort and no main previous/next path, but their non-main structural tracks can
 still be placed at the appropriate archive edges.
 
-Open **WP Title Layer → Series Health** (or use **Check Series health** in the
+Open **Irisable Title Layer → Series Health** (or use **Check Series health** in the
 Control Center) to audit that soft constraint without changing content. The
 report checks one Series at a time for missing or invalid positions, undefined
 or missing seasons, and duplicate positions. It separates published,
@@ -280,7 +280,7 @@ Template resolution is deterministic:
 3. first matching category rule;
 4. global default template.
 
-WP Title Layer deliberately does **not** use a general structured-HTML
+Irisable Title Layer deliberately does **not** use a general structured-HTML
 `the_title` filter. Activating it therefore does not silently alter menus,
 archives, widgets, feeds, or unrelated theme headings. Display is one of three
 mutually exclusive modes:
@@ -325,7 +325,7 @@ masquerade as an icon-bearing Series label.
 A non-Series article simply omits that eyebrow. The primary title remains the
 native WordPress `post_title`.
 
-The four built-in templates have safe recipe controls on the WP Title Layer
+The four built-in templates have safe recipe controls on the Irisable Title Layer
 settings page. For each template, an administrator can show or hide the Series
 context, place the subtitle below or beside the title (or hide it), and choose
 the locale's colon, em dash, vertical bar, or a plain-text custom separator of
@@ -384,7 +384,7 @@ is `%wptl_title_with_subtitle% %sep% %sitename%`. Leaving Rank Math unchanged
 keeps the site's current SEO and sharing titles. This preserves Rank Math's
 global and per-post overrides rather than silently replacing them.
 
-Open **WP Title Layer → Landing & Channels** to inspect those boundaries without
+Open **Irisable Title Layer → Landing & Channels** to inspect those boundaries without
 changing them. The report compares each Series with Category archives using
 only public, published, non-password-protected articles. A Category is called
 an exact duplicate entry point only when its complete eligible article set is
@@ -461,16 +461,16 @@ list, the optional **Subtitle** column can be shown or hidden through WordPress
 Screen Options.
 
 When the Classic Editor plugin or another filter disables Gutenberg for a
-supported post type, WP Title Layer adds one nonce- and capability-protected
+supported post type, Irisable Title Layer adds one nonce- and capability-protected
 meta box for Subtitle, an existing single Series, season/order fields, kicker,
 and template override. It never offers term creation there and does not appear
 beside the Gutenberg document panel. A deliberately reused custom taxonomy
 keeps its native Classic Editor relationship UI unless an integrator explicitly
-opts WP Title Layer into ownership.
+opts Irisable Title Layer into ownership.
 
 ## Languages and punctuation
 
-WP Title Layer uses the current WordPress locale throughout its PHP screens,
+Irisable Title Layer uses the current WordPress locale throughout its PHP screens,
 Classic Editor controls, block-editor sidebar, reports, and front-end labels.
 The administration interface therefore follows each user's WordPress profile
 language when WordPress supplies that locale; public output follows the locale
@@ -488,7 +488,7 @@ content.
 The bundled `languages/wp-title-layer.pot` catalog leaves the normal WordPress
 translation path open for additional languages. Text owned by WordPress, the
 active theme, or another plugin is translated by that component's own language
-pack; for example, a Kadence field label is not controlled by WP Title Layer's
+pack; for example, a Kadence field label is not controlled by Irisable Title Layer's
 Chinese catalog.
 
 ## Canonical data model
@@ -569,7 +569,7 @@ The rules are intentionally narrow:
   replace a Series safely, send `wptl_series: []` or the new term ID and also
   clear any season, role, scope, and label that no longer applies. WP Title
   Layer does not guess an external client's intended cleanup.
-- For a managed ordered Series, omit `wptl_sequence_position`; WP Title Layer
+- For a managed ordered Series, omit `wptl_sequence_position`; Irisable Title Layer
   appends the saved article to the appropriate canonical track. An old ordered
   Series that has not been initialized returns `wptl_missing_sequence_position`
   for a published article. The normal remedy is to initialize that Series in

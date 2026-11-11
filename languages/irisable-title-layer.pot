@@ -1,12 +1,12 @@
-# Translation template for WP Title Layer.
+# Translation template for Irisable Title Layer.
 # Copyright (C) 2026 Irisable
-# This file is distributed under the same license as the WP Title Layer package.
+# This file is distributed under the same license as the Irisable Title Layer package.
 # Translators may contribute additional locales through the WordPress translation system.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Title Layer 1.0.1\n"
+"Project-Id-Version: Irisable Title Layer 1.0.1\n"
 "Report-Msgid-Bugs-To: https://github.com/irisable/wp-title-layer/issues\n"
 "POT-Creation-Date: 2026-09-11 16:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -44,7 +44,7 @@ msgstr ""
 msgid ""
 "%1$s non-empty field-post values were found across %2$s unique post IDs. "
 "This is not a confirmed Series-usage count: ACF-saved defaults are included, "
-"while exact empty strings are excluded. WP Title Layer never imports these "
+"while exact empty strings are excluded. Irisable Title Layer never imports these "
 "five fields automatically. If you know they were unused, they do not block "
 "subtitle migration; inspect unrelated ACF fields separately before "
 "uninstalling ACF."
@@ -1264,7 +1264,7 @@ msgstr ""
 #: includes/Core/Series.php:338 includes/Core/Series.php:414
 msgid ""
 "Inherit uses the site-wide Reader setting. Theme keeps the active theme "
-"layout; Structured requests WP Title Layer’s season-aware layout when the "
+"layout; Structured requests Irisable Title Layer’s season-aware layout when the "
 "theme can be safely replaced."
 msgstr ""
 
@@ -1601,7 +1601,7 @@ msgstr ""
 
 #: includes/Admin/ChannelHealth.php:370
 msgid ""
-"More than one SEO provider appears active. WP Title Layer will not guess "
+"More than one SEO provider appears active. Irisable Title Layer will not guess "
 "which one emits the final canonical, robots, search title, or social tags; "
 "confirm ownership in the providers and rendered page source."
 msgstr ""
@@ -1712,7 +1712,7 @@ msgid "No Series match this search."
 msgstr ""
 
 #: includes/Admin/ChannelHealth.php:398
-msgid "No WP Title Layer variable"
+msgid "No Irisable Title Layer variable"
 msgstr ""
 
 #: includes/Admin/SequenceManager.php:394
@@ -1872,7 +1872,7 @@ msgstr ""
 #: includes/Admin/ChannelHealth.php:285 includes/Admin/ChannelHealth.php:287
 #: includes/Admin/ChannelHealth.php:288 includes/Admin/ChannelHealth.php:289
 #: includes/Admin/ChannelHealth.php:290
-msgid "Not verified by WP Title Layer."
+msgid "Not verified by Irisable Title Layer."
 msgstr ""
 
 #: includes/Admin/ChannelHealth.php:118 includes/Admin/ChannelHealth.php:119
@@ -2097,7 +2097,7 @@ msgid ""
 msgstr ""
 
 #: includes/Admin/ChannelHealth.php:116
-msgid "Owned by WP Title Layer and the active theme."
+msgid "Owned by Irisable Title Layer and the active theme."
 msgstr ""
 
 #: includes/Core/Series.php:501 includes/Core/Series.php:508
@@ -2311,7 +2311,7 @@ msgstr ""
 
 #: includes/Admin/ChannelHealth.php:302
 msgid ""
-"Rank Math is not the sole verified provider here, so WP Title Layer does not "
+"Rank Math is not the sole verified provider here, so Irisable Title Layer does not "
 "interpret stored Rank Math post metadata as the current channel policy."
 msgstr ""
 
@@ -2391,7 +2391,7 @@ msgid "Reading experience"
 msgstr ""
 
 #: includes/Admin/ControlCenter.php:418
-msgid "Reading features are paused with the rest of WP Title Layer output."
+msgid "Reading features are paused with the rest of Irisable Title Layer output."
 msgstr ""
 
 #: includes/Core/Series.php:310 includes/Core/Series.php:382
@@ -2522,14 +2522,14 @@ msgstr ""
 
 #: includes/Admin/ControlCenter.php:226
 msgid ""
-"Review the read-only report before copying. Existing WP Title Layer "
+"Review the read-only report before copying. Existing Irisable Title Layer "
 "subtitles will not be overwritten."
 msgstr ""
 
 #: includes/Admin/ControlCenter.php:479
 msgid ""
 "Review the read-only scan, then copy the ready subtitles without overwriting "
-"existing WP Title Layer values."
+"existing Irisable Title Layer values."
 msgstr ""
 
 #: includes/Admin/ControlCenter.php:477
@@ -2770,7 +2770,7 @@ msgstr ""
 #: includes/Plugin.php:83
 #, php-format
 msgid ""
-"Secondary Title is still active, so WP Title Layer has disabled its editor "
+"Secondary Title is still active, so Irisable Title Layer has disabled its editor "
 "and front-end output to prevent duplicate titles. <a href=\"%s\">Review the "
 "migration report</a>, then deactivate Secondary Title before switching "
 "output."
@@ -2778,7 +2778,7 @@ msgstr ""
 
 #: includes/Admin/ControlCenter.php:190
 msgid ""
-"Secondary Title is still active, so WP Title Layer is keeping its editor and "
+"Secondary Title is still active, so Irisable Title Layer is keeping its editor and "
 "front-end output safely paused."
 msgstr ""
 
@@ -3076,7 +3076,7 @@ msgstr ""
 
 #: includes/Reader/AdminSettings.php:164
 msgid ""
-"Show a compact featured image beside each article in WP Title Layer’s "
+"Show a compact featured image beside each article in Irisable Title Layer’s "
 "structured Series archive."
 msgstr ""
 
@@ -3105,13 +3105,13 @@ msgstr ""
 
 #: includes/Reader/AdminSettings.php:152
 msgid ""
-"Show each article’s WordPress excerpt in WP Title Layer’s structured Series "
+"Show each article’s WordPress excerpt in Irisable Title Layer’s structured Series "
 "archive."
 msgstr ""
 
 #: includes/Reader/AdminSettings.php:114
 msgid ""
-"Show each article’s subtitle in WP Title Layer’s structured Series archive."
+"Show each article’s subtitle in Irisable Title Layer’s structured Series archive."
 msgstr ""
 
 #: includes/Presentation/SettingsPage.php:434
@@ -3573,7 +3573,7 @@ msgstr ""
 #: includes/Integrations/RankMath.php:56
 msgid ""
 "The visible title, SEO title, and social-sharing title are separate "
-"channels. WP Title Layer never changes Rank Math metadata automatically."
+"channels. Irisable Title Layer never changes Rank Math metadata automatically."
 msgstr ""
 
 #: includes/Reader/AdminSettings.php:44
@@ -3649,7 +3649,7 @@ msgid ""
 "These five fields are audited only. Counts cover non-empty stored values, "
 "including values such as 0 or false that ACF may save when an article is "
 "updated; exact empty-string rows are not counted. This is not confirmed "
-"Series use. WP Title Layer does not depend on these fields or silently "
+"Series use. Irisable Title Layer does not depend on these fields or silently "
 "convert them into Series relationships."
 msgstr ""
 
@@ -3939,7 +3939,7 @@ msgstr ""
 
 #: includes/Reader/AdminSettings.php:97
 msgid ""
-"Use WP Title Layer’s structured Series layout with seasons and sequence "
+"Use Irisable Title Layer’s structured Series layout with seasons and sequence "
 "labels"
 msgstr ""
 
@@ -4014,13 +4014,13 @@ msgstr ""
 
 #: includes/Core/Series.php:359 includes/Core/Series.php:438
 msgid ""
-"Used only by WP Title Layer’s structured archive. The default is inherited "
+"Used only by Irisable Title Layer’s structured archive. The default is inherited "
 "and remains off on upgraded sites."
 msgstr ""
 
 #: includes/Core/Series.php:352 includes/Core/Series.php:430
 msgid ""
-"Used only by WP Title Layer’s structured archive. The inherited site-wide "
+"Used only by Irisable Title Layer’s structured archive. The inherited site-wide "
 "default is off."
 msgstr ""
 
@@ -4097,34 +4097,34 @@ msgstr ""
 #: includes/Presentation/SettingsPage.php:114
 #: includes/Presentation/SettingsPage.php:115
 #: includes/Presentation/SettingsPage.php:145
-msgid "WP Title Layer"
+msgid "Irisable Title Layer"
 msgstr ""
 
 #: includes/Admin/ControlCenter.php:52
-msgid "WP Title Layer Control Center"
+msgid "Irisable Title Layer Control Center"
 msgstr ""
 
 #: includes/Migration/AdminPage.php:15 includes/Migration/AdminPage.php:49
-msgid "WP Title Layer Migration"
+msgid "Irisable Title Layer Migration"
 msgstr ""
 
 #: includes/Integrations/RankMath.php:97
-msgid "WP Title Layer Series"
+msgid "Irisable Title Layer Series"
 msgstr ""
 
 #: includes/Admin/ChannelHealthReport.php:226
-msgid "WP Title Layer and the active theme"
+msgid "Irisable Title Layer and the active theme"
 msgstr ""
 
 #: includes/Admin/ControlCenter.php:199
 msgid ""
-"WP Title Layer could not read the migration module. No settings were "
+"Irisable Title Layer could not read the migration module. No settings were "
 "changed; open the migration screen to check the installation."
 msgstr ""
 
 #: includes/Admin/ControlCenter.php:1052
 msgid ""
-"WP Title Layer does not require ACF, but the five old Series fields could "
+"Irisable Title Layer does not require ACF, but the five old Series fields could "
 "not be audited from this screen. Check the migration report before deciding "
 "whether to remove ACF."
 msgstr ""
@@ -4133,7 +4133,7 @@ msgstr ""
 #: includes/Admin/ControlCenter.php:1058
 #, php-format
 msgid ""
-"WP Title Layer does not require ACF. The audit found %1$s non-empty field-"
+"Irisable Title Layer does not require ACF. The audit found %1$s non-empty field-"
 "post values across %2$s post IDs in the five old Series fields. This can "
 "include ACF-saved defaults, excludes exact empty strings, and is not proof "
 "of Series use; none of these fields is converted automatically. Check "
@@ -4142,25 +4142,25 @@ msgstr ""
 
 #: includes/Admin/ControlCenter.php:1064
 msgid ""
-"WP Title Layer does not require ACF. The five audited old Series fields "
+"Irisable Title Layer does not require ACF. The five audited old Series fields "
 "currently contain no non-empty stored values; exact empty strings are not "
 "counted."
 msgstr ""
 
 #: includes/Plugin.php:78
-msgid "WP Title Layer is in migration-only mode."
+msgid "Irisable Title Layer is in migration-only mode."
 msgstr ""
 
 #: includes/Admin/ControlCenter.php:242
-msgid "WP Title Layer is ready to use"
+msgid "Irisable Title Layer is ready to use"
 msgstr ""
 
 #: includes/Integrations/RankMath.php:85
-msgid "WP Title Layer subtitle"
+msgid "Irisable Title Layer subtitle"
 msgstr ""
 
 #: includes/Integrations/RankMath.php:109
-msgid "WP Title Layer title with subtitle"
+msgid "Irisable Title Layer title with subtitle"
 msgstr ""
 
 #: includes/Admin/ControlCenter.php:498 includes/Admin/ControlCenter.php:506
@@ -4171,7 +4171,7 @@ msgstr ""
 
 #: includes/Integrations/RankMath.php:64
 msgid ""
-"When Rank Math is active, WP Title Layer registers these optional variables:"
+"When Rank Math is active, Irisable Title Layer registers these optional variables:"
 msgstr ""
 
 #: includes/Presentation/SettingsPage.php:397
@@ -4205,7 +4205,7 @@ msgstr ""
 
 #: includes/Admin/ChannelHealth.php:283
 msgid ""
-"WordPress term name; WP Title Layer does not use this field as an SEO "
+"WordPress term name; Irisable Title Layer does not use this field as an SEO "
 "override."
 msgstr ""
 
@@ -4252,7 +4252,7 @@ msgid "You are not allowed to view Series health."
 msgstr ""
 
 #: includes/Admin/ControlCenter.php:83
-msgid "You are not allowed to view WP Title Layer settings."
+msgid "You are not allowed to view Irisable Title Layer settings."
 msgstr ""
 
 #: includes/Admin/ChannelHealth.php:64
@@ -4335,4 +4335,7 @@ msgid "Series appendix"
 msgstr ""
 
 msgid "The saved content group is inactive for this role. It will be restored if you switch back to a main article."
+msgstr ""
+
+msgid "Deactivate the existing WP Title Layer copy before activating Irisable Title Layer. Your titles, Series and settings are preserved."
 msgstr ""

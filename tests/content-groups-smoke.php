@@ -174,4 +174,4 @@ $plain_cap = $server->dispatch( new WP_REST_Request( 'GET', '/wp/v2/wptl_series/
 group_check( false === ( $plain_cap->get_data()['wptl_capabilities']['book_structure'] ?? null ), 'Non-enabled Series advertised advanced capability.' );
 
 if ( $failures ) { fwrite( STDERR, implode( "\n", $failures ) . "\n" ); exit( 1 ); }
-echo 'WP Title Layer content-group checks passed: ' . $checks . "\n";
+echo 'Irisable Title Layer content-group checks passed: ' . $checks . "\n";

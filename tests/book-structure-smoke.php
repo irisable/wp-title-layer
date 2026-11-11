@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Title Layer 0.11 book-structure integration checks.
+ * Irisable Title Layer 0.11 book-structure integration checks.
  *
  * @package WPTitleLayer
  */
@@ -346,8 +346,8 @@ $classic_method->setAccessible( true );
 wptl_book_assert( ! in_array( 'attachment', (array) $classic_method->invoke( null ), true ), 'The Classic Editor Title Layer box still targets Media attachments.' );
 
 if ( $wptl_book_failures ) {
-	fwrite( STDERR, "WP Title Layer book-structure failures:\n- " . implode( "\n- ", $wptl_book_failures ) . "\n" );
+	fwrite( STDERR, "Irisable Title Layer book-structure failures:\n- " . implode( "\n- ", $wptl_book_failures ) . "\n" );
 	exit( 1 );
 }
 
-echo 'WP Title Layer book-structure checks passed: ' . (int) $wptl_book_checks . "\n";
+echo 'Irisable Title Layer book-structure checks passed: ' . (int) $wptl_book_checks . "\n";

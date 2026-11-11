@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! function_exists( 'get_secondary_title' ) ) {
 	/**
-	 * Return the WP Title Layer subtitle with legacy-compatible affixes.
+	 * Return the Irisable Title Layer subtitle with legacy-compatible affixes.
 	 *
 	 * @param int    $post_id      Post ID. Defaults to the current post.
 	 * @param string $prefix       Optional prefix.

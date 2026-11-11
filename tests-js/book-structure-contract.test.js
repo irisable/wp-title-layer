@@ -86,7 +86,7 @@ test( 'archives, navigation, numbering, and health consume the same scope-role m
 	assert.match( archive, /Schema::SCOPE_SEASON === \$scope/ );
 	assert.match( archive, /\$group_key = 'season_' \. \$season_key/ );
 	assert.match( archive, /'show_sequence_labels'\s*=>\s*true/ );
-	assert.match( archive, /__\( 'Series prefaces', 'wp-title-layer' \)/ );
+	assert.match( archive, /__\( 'Series prefaces', 'irisable-title-layer' \)/ );
 	assert.doesNotMatch( archive, /_entry_/ );
 	assert.match( archiveTemplate, /! empty\( \$wptl_group\['ordered'\] \)/ );
 	assert.match( archiveTemplate, /\$wptl_show_sequence_labels/ );

@@ -2,6 +2,26 @@
 
 Date: 2026-11-11. Candidate: 1.0.1. Directory account: `irisable`.
 
+## Owner-approved rename
+
+After the first upload was rejected, the owner approved **Irisable Title Layer**
+and a new submission. The intended directory slug, package root and translation
+domain are now `irisable-title-layer`. The source repository stays at its
+existing GitHub URL. Database keys, taxonomy names, PHP namespace, REST routes,
+stored block names and editor registration IDs remain unchanged.
+
+The old copy must be deactivated before activating the directory copy. The new
+loader refuses to run alongside an active legacy copy and uses a closure
+autoloader to avoid redefining the legacy global function. No production
+deployment or automatic deactivation is performed. The old `Update URI: false`
+installation needs a one-time manual switch; changing the public name does not
+magically migrate the WordPress plugin basename.
+
+Build the directory artifact with `bash bin/build-wporg-release.sh`; the
+existing legacy-root builder remains available for controlled updates in the
+old folder. Run `bin/test-release-package.sh irisable-title-layer-1.0.1.zip` and
+the standalone `tests/distribution-smoke.php` with the new directory mount.
+
 This is a submission candidate, not an assertion of approval or availability in
 the plugin directory. Published GitHub 1.0.0 remains unchanged. Production is
 not redeployed as part of this preparation.

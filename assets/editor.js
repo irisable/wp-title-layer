@@ -43,7 +43,7 @@
 			wp.apiFetch( { path: '/wp-title-layer/v1/groups?series=' + props.series + '&season=' + encodeURIComponent( props.season ) } ).then( function ( result ) {
 				if ( active ) { setGroups( result ); }
 			} ).catch( function () {
-				if ( active ) { setError( __( 'Group suggestions could not be loaded. You can still enter a name.', 'wp-title-layer' ) ); }
+				if ( active ) { setError( __( 'Group suggestions could not be loaded. You can still enter a name.', 'irisable-title-layer' ) ); }
 			} );
 			return function () { active = false; };
 		}, [ props.series, props.season, saving ] );
@@ -51,25 +51,25 @@
 		var listId = 'wptl-content-groups-' + props.series + '-' + props.season;
 		return el( 'div', { className: 'wptl-content-group-control' },
 			el( wp.components.TextControl, {
-				label: __( 'Content group', 'wp-title-layer' ), value: selected ? selected.label : props.value, list: listId,
+				label: __( 'Content group', 'irisable-title-layer' ), value: selected ? selected.label : props.value, list: listId,
 				disabled: busy,
 				onChange: props.onChange,
-				help: __( 'Optional group, for example W1 Seeing human weakness. Article numbers remain independent.', 'wp-title-layer' )
+				help: __( 'Optional group, for example W1 Seeing human weakness. Article numbers remain independent.', 'irisable-title-layer' )
 			} ),
 			el( 'datalist', { id: listId }, groups.map( function ( group ) { return el( 'option', { key: group.id, value: group.label } ); } ) ),
 			error ? el( 'p', { role: 'status' }, error ) : null,
-			selected && config.canRenameGroups && rename === null ? el( wp.components.Button, { variant: 'link', onClick: function () { setRename( { id: selected.id, label: selected.label } ); } }, __( 'Rename this group', 'wp-title-layer' ) ) : null,
+			selected && config.canRenameGroups && rename === null ? el( wp.components.Button, { variant: 'link', onClick: function () { setRename( { id: selected.id, label: selected.label } ); } }, __( 'Rename this group', 'irisable-title-layer' ) ) : null,
 			rename !== null ? el( 'div', null,
-				el( wp.components.TextControl, { label: __( 'New group name', 'wp-title-layer' ), value: rename.label, onChange: function ( value ) { setRename( { id: rename.id, label: value } ); }, help: __( 'Renames this group for all its articles. Existing group links stay valid.', 'wp-title-layer' ) } ),
+				el( wp.components.TextControl, { label: __( 'New group name', 'irisable-title-layer' ), value: rename.label, onChange: function ( value ) { setRename( { id: rename.id, label: value } ); }, help: __( 'Renames this group for all its articles. Existing group links stay valid.', 'irisable-title-layer' ) } ),
 				el( wp.components.Button, { variant: 'secondary', disabled: busy || ! rename.label.trim(), onClick: function () {
 					setBusy( true ); setError( '' );
 					wp.apiFetch( { path: '/wp-title-layer/v1/groups/' + rename.id, method: 'POST', data: { label: rename.label } } ).then( function ( result ) {
 						if ( ! alive.current ) { return; }
 						setGroups( groups.map( function ( group ) { return group.id === result.id ? result : group; } ) );
 						props.onChange( result.label ); setRename( null );
-					} ).catch( function ( failure ) { if ( alive.current ) { setError( failure.message || __( 'Group rename failed.', 'wp-title-layer' ) ); } } ).finally( function () { if ( alive.current ) { setBusy( false ); } } );
-				} }, __( 'Save group name', 'wp-title-layer' ) ),
-				el( wp.components.Button, { disabled: busy, onClick: function () { setRename( null ); } }, __( 'Cancel', 'wp-title-layer' ) )
+					} ).catch( function ( failure ) { if ( alive.current ) { setError( failure.message || __( 'Group rename failed.', 'irisable-title-layer' ) ); } } ).finally( function () { if ( alive.current ) { setBusy( false ); } } );
+				} }, __( 'Save group name', 'irisable-title-layer' ) ),
+				el( wp.components.Button, { disabled: busy, onClick: function () { setRename( null ); } }, __( 'Cancel', 'irisable-title-layer' ) )
 			) : null
 		);
 	}
@@ -255,26 +255,26 @@
 		var categoryConsistent = ! parentCategoryId || editor.categoryIds.some( function ( categoryId ) {
 			return categoryBranchIds.indexOf( parseInt( categoryId, 10 ) ) !== -1;
 		} );
-		var sourceLabel = __( 'Global default', 'wp-title-layer' ) + ': ' + presetLabel( config.defaultTemplate );
+		var sourceLabel = __( 'Global default', 'irisable-title-layer' ) + ': ' + presetLabel( config.defaultTemplate );
 		var effective = config.defaultTemplate;
 
 		( config.categoryRules || [] ).some( function ( rule ) {
 			if ( editor.categoryIds.indexOf( rule.categoryId ) !== -1 ) {
 				effective = rule.preset;
-				sourceLabel = __( 'Category rule', 'wp-title-layer' ) + ': ' + rule.categoryName;
+				sourceLabel = __( 'Category rule', 'irisable-title-layer' ) + ': ' + rule.categoryName;
 				return true;
 			}
 			return false;
 		} );
 		if ( editor.selectedTerm && seriesDefault ) {
 			effective = seriesDefault;
-			sourceLabel = __( 'Series default', 'wp-title-layer' ) + ': ' + editor.selectedTerm.name;
+			sourceLabel = __( 'Series default', 'irisable-title-layer' ) + ': ' + editor.selectedTerm.name;
 		}
 		if ( override ) {
 			effective = override;
 			sourceLabel = override === 'disabled'
-				? __( 'Disabled by post override', 'wp-title-layer' )
-				: __( 'Post override', 'wp-title-layer' );
+				? __( 'Disabled by post override', 'irisable-title-layer' )
+				: __( 'Post override', 'irisable-title-layer' );
 		}
 
 		var availableSeriesTerms = Array.isArray( editor.seriesTerms ) ? editor.seriesTerms.slice() : [];
@@ -284,7 +284,7 @@
 		) {
 			availableSeriesTerms.unshift( editor.selectedTerm );
 		}
-		var termChoices = [ { label: __( 'No Series', 'wp-title-layer' ), value: '0' } ];
+		var termChoices = [ { label: __( 'No Series', 'irisable-title-layer' ), value: '0' } ];
 		if ( Array.isArray( editor.seriesTerms ) ) {
 			termChoices = termChoices.concat( availableSeriesTerms.map( function ( term ) {
 				return { label: term.name, value: String( term.id ) };
@@ -294,18 +294,18 @@
 		var controls = [
 			el( wp.components.TextareaControl, {
 				key: 'subtitle',
-				label: __( 'Subtitle', 'wp-title-layer' ),
+				label: __( 'Subtitle', 'irisable-title-layer' ),
 				rows: 2,
 				value: editor.meta[ schema.subtitle ] || '',
 				onChange: function ( value ) { setMeta( schema.subtitle, value ); },
-				help: __( 'Explains or extends the main title. It is not a Series label.', 'wp-title-layer' )
+				help: __( 'Explains or extends the main title. It is not a Series label.', 'irisable-title-layer' )
 			} )
 		];
 
 		if ( editor.seriesEnabled ) {
 			controls.push( el( wp.components.ComboboxControl, {
 				key: 'series',
-				label: __( 'Series', 'wp-title-layer' ),
+				label: __( 'Series', 'irisable-title-layer' ),
 				value: String( editor.selectedTermId ),
 				options: termChoices,
 				onChange: setSeries,
@@ -320,17 +320,17 @@
 				status: 'warning',
 				isDismissible: false
 			},
-				el( 'strong', null, __( 'Series / Category mismatch', 'wp-title-layer' ) ),
+				el( 'strong', null, __( 'Series / Category mismatch', 'irisable-title-layer' ) ),
 				el( 'br' ),
-				__( 'This Series belongs to the Category branch:', 'wp-title-layer' ) + ' ' + ( categoryBranch ? categoryBranch.name : String( parentCategoryId ) ) + '. ',
-				__( 'Assign this article to that Category or one of its descendants, or change the Series definition.', 'wp-title-layer' )
+				__( 'This Series belongs to the Category branch:', 'irisable-title-layer' ) + ' ' + ( categoryBranch ? categoryBranch.name : String( parentCategoryId ) ) + '. ',
+				__( 'Assign this article to that Category or one of its descendants, or change the Series definition.', 'irisable-title-layer' )
 			) );
 		}
 
 		if ( editor.selectedTerm ) {
 			controls.push( el( wp.components.SelectControl, {
 				key: 'role',
-				label: __( 'Series role', 'wp-title-layer' ),
+				label: __( 'Series role', 'irisable-title-layer' ),
 				value: role,
 				options: config.roles || [],
 				onChange: function ( value ) {
@@ -344,15 +344,15 @@
 					editPost( { meta: next } );
 				},
 				help: bookStructureEnabled
-					? __( 'Introductions, epilogues, and appendices use independent movable tracks and never consume automatic main-article numbers.', 'wp-title-layer' )
-					: __( 'Book-like tracks become canonical after this Series passes the Structure compatibility preview.', 'wp-title-layer' )
+					? __( 'Introductions, epilogues, and appendices use independent movable tracks and never consume automatic main-article numbers.', 'irisable-title-layer' )
+					: __( 'Book-like tracks become canonical after this Series passes the Structure compatibility preview.', 'irisable-title-layer' )
 			} ) );
 		}
 
 		if ( editor.selectedTerm && structure === 'seasoned' && ! mainArticle ) {
 			controls.push( el( wp.components.SelectControl, {
 				key: 'series-scope',
-				label: __( 'Book structure scope', 'wp-title-layer' ),
+				label: __( 'Book structure scope', 'irisable-title-layer' ),
 				value: contentScope,
 				options: config.scopes || [],
 				onChange: function ( value ) {
@@ -364,31 +364,31 @@
 					editPost( { meta: next } );
 				},
 				help: contentScope
-					? __( 'Series-wide entries appear only on the complete Series archive; season entries appear only inside the chosen season.', 'wp-title-layer' )
-					: __( 'This legacy role is not assigned to Series-wide or season scope yet. Choose explicitly before enabling book structure.', 'wp-title-layer' )
+					? __( 'Series-wide entries appear only on the complete Series archive; season entries appear only inside the chosen season.', 'irisable-title-layer' )
+					: __( 'This legacy role is not assigned to Series-wide or season scope yet. Choose explicitly before enabling book structure.', 'irisable-title-layer' )
 			} ) );
 		}
 
 		if ( editor.selectedTerm && structure === 'seasoned' && ( mainArticle || contentScope !== 'series' ) ) {
-			var seasonChoices = [ { label: __( 'Select a season', 'wp-title-layer' ), value: '' } ].concat(
+			var seasonChoices = [ { label: __( 'Select a season', 'irisable-title-layer' ), value: '' } ].concat(
 				seasons.map( function ( season ) {
 					return { label: season.label || season.key, value: season.key };
 				} )
 			);
 			controls.push( el( wp.components.SelectControl, {
 				key: 'season',
-				label: __( 'Season', 'wp-title-layer' ),
+				label: __( 'Season', 'irisable-title-layer' ),
 				value: editor.meta[ schema.seasonKey ] || '',
 				options: seasonChoices,
 				onChange: function ( value ) { setMeta( schema.seasonKey, value ); },
 				help: seasons.length
-					? __( 'Choose from the seasons defined for this Series.', 'wp-title-layer' )
-					: __( 'Define seasons on the Series edit screen first.', 'wp-title-layer' )
+					? __( 'Choose from the seasons defined for this Series.', 'irisable-title-layer' )
+					: __( 'Define seasons on the Series edit screen first.', 'irisable-title-layer' )
 			} ) );
 		}
 
 		if ( editor.selectedTerm && ! mainArticle && editor.meta[ schema.seriesGroup ] ) {
-			controls.push( el( 'p', { key: 'inactive-group' }, __( 'The saved content group is inactive for this role. It will be restored if you switch back to a main article.', 'wp-title-layer' ) ) );
+			controls.push( el( 'p', { key: 'inactive-group' }, __( 'The saved content group is inactive for this role. It will be restored if you switch back to a main article.', 'irisable-title-layer' ) ) );
 		}
 
 		if ( editor.selectedTerm && mainArticle && schema.seriesGroup ) {
@@ -404,10 +404,10 @@
 		if ( editor.selectedTerm && ! mainArticle ) {
 			controls.push( el( wp.components.TextControl, {
 				key: 'sequence-label',
-				label: __( 'Public structure label', 'wp-title-layer' ),
+				label: __( 'Public structure label', 'irisable-title-layer' ),
 				value: editor.meta[ schema.sequenceLabel ] || '',
 				onChange: function ( value ) { setMeta( schema.sequenceLabel, value ); },
-				help: __( 'Optional label such as 0-1, Preface II, or Appendix A.', 'wp-title-layer' )
+				help: __( 'Optional label such as 0-1, Preface II, or Appendix A.', 'irisable-title-layer' )
 			} ) );
 		}
 
@@ -430,42 +430,42 @@
 					isDismissible: false
 				},
 					el( 'strong', null, ! mainArticle
-						? __( 'Managed structure track', 'wp-title-layer' )
+						? __( 'Managed structure track', 'irisable-title-layer' )
 						: ( sameScope && parseInt( currentSequence.ordinal, 10 ) > 0
-							? __( 'Automatic article number:', 'wp-title-layer' ) + ' ' + String( currentSequence.ordinal )
-							: __( 'Managed sequence', 'wp-title-layer' ) ) ),
+							? __( 'Automatic article number:', 'irisable-title-layer' ) + ' ' + String( currentSequence.ordinal )
+							: __( 'Managed sequence', 'irisable-title-layer' ) ) ),
 					el( 'br' ),
 					! mainArticle
-						? __( 'This role has its own private order track in Sequence & Structure.', 'wp-title-layer' )
+						? __( 'This role has its own private order track in Sequence & Structure.', 'irisable-title-layer' )
 						: ( sameScope
-							? __( 'Order is controlled by Sequence Manager; the private rank is not an article field.', 'wp-title-layer' )
-							: __( 'After saving, this article will be appended to the selected Series and season.', 'wp-title-layer' ) ),
-					managerUrl ? el( Fragment, null, el( 'br' ), el( 'a', { href: managerUrl }, __( 'Move in Sequence & Structure', 'wp-title-layer' ) ) ) : null
+							? __( 'Order is controlled by Sequence Manager; the private rank is not an article field.', 'irisable-title-layer' )
+							: __( 'After saving, this article will be appended to the selected Series and season.', 'irisable-title-layer' ) ),
+					managerUrl ? el( Fragment, null, el( 'br' ), el( 'a', { href: managerUrl }, __( 'Move in Sequence & Structure', 'irisable-title-layer' ) ) ) : null
 				) );
 			} else if ( mode === 'ordered' ) {
 				controls.push( el( wp.components.TextControl, {
 					key: 'position',
-					label: __( 'Legacy sequence position', 'wp-title-layer' ),
+					label: __( 'Legacy sequence position', 'irisable-title-layer' ),
 					type: 'number',
 					min: 0,
 					step: 1,
 					value: editor.meta[ schema.sequencePosition ] === undefined ? '' : editor.meta[ schema.sequencePosition ],
 					onChange: function ( value ) { setMeta( schema.sequencePosition, value === '' ? null : parseInt( value, 10 ) ); },
-					help: __( 'This Series still uses the 0.9 position field. Initialize it in Sequence Manager to insert without renumbering later articles.', 'wp-title-layer' )
+					help: __( 'This Series still uses the 0.9 position field. Initialize it in Sequence Manager to insert without renumbering later articles.', 'irisable-title-layer' )
 				} ) );
 			}
 			if ( mode === 'ordered' && mainArticle ) {
 				controls.push(
 				el( wp.components.TextControl, {
 					key: 'sequence-label',
-					label: mainArticle ? __( 'Sequence label override', 'wp-title-layer' ) : __( 'Public structure label', 'wp-title-layer' ),
+					label: mainArticle ? __( 'Sequence label override', 'irisable-title-layer' ) : __( 'Public structure label', 'irisable-title-layer' ),
 					value: editor.meta[ schema.sequenceLabel ] || '',
 					onChange: function ( value ) { setMeta( schema.sequenceLabel, value ); },
 					help: ! mainArticle
-						? __( 'Optional label such as 0-1, Preface II, or Appendix A.', 'wp-title-layer' )
+						? __( 'Optional label such as 0-1, Preface II, or Appendix A.', 'irisable-title-layer' )
 						: ( sequenceManaged
-						? __( 'Optional. Leave blank to show the automatic article number.', 'wp-title-layer' )
-						: __( 'Optional. Leave blank to derive a label such as S2.03.', 'wp-title-layer' ) )
+						? __( 'Optional. Leave blank to show the automatic article number.', 'irisable-title-layer' )
+						: __( 'Optional. Leave blank to derive a label such as S2.03.', 'irisable-title-layer' ) )
 				} )
 				);
 			}
@@ -475,18 +475,18 @@
 		controls.push(
 			el( wp.components.TextControl, {
 				key: 'kicker',
-				label: __( 'Kicker override', 'wp-title-layer' ),
+				label: __( 'Kicker override', 'irisable-title-layer' ),
 				value: editor.meta[ schema.kickerOverride ] || '',
 				onChange: function ( value ) { setMeta( schema.kickerOverride, value ); },
-				help: __( 'Optional display text. Leave blank to use the Series short label.', 'wp-title-layer' )
+				help: __( 'Optional display text. Leave blank to use the Series short label.', 'irisable-title-layer' )
 			} ),
 			el( wp.components.SelectControl, {
 				key: 'template',
-				label: __( 'Template override', 'wp-title-layer' ),
+				label: __( 'Template override', 'irisable-title-layer' ),
 				value: override,
 				options: [
-					{ label: __( 'Inherit', 'wp-title-layer' ), value: '' },
-					{ label: __( 'Do not display a Title Layer', 'wp-title-layer' ), value: 'disabled' }
+					{ label: __( 'Inherit', 'irisable-title-layer' ), value: '' },
+					{ label: __( 'Do not display a Title Layer', 'irisable-title-layer' ), value: 'disabled' }
 				].concat( optionList() ),
 				onChange: function ( value ) { setMeta( schema.templateOverride, value ); }
 			} ),
@@ -498,8 +498,8 @@
 			},
 				el( 'strong', null,
 					override === 'disabled'
-						? __( 'Effective template: disabled', 'wp-title-layer' )
-						: __( 'Effective template:', 'wp-title-layer' ) + ' ' + presetLabel( effective )
+						? __( 'Effective template: disabled', 'irisable-title-layer' )
+						: __( 'Effective template:', 'irisable-title-layer' ) + ' ' + presetLabel( effective )
 				),
 				el( 'br' ),
 				sourceLabel
@@ -508,7 +508,7 @@
 
 		return el( PluginDocumentSettingPanel, {
 			name: 'wp-title-layer-fields',
-			title: __( 'Title Layer', 'wp-title-layer' ),
+			title: __( 'Title Layer', 'irisable-title-layer' ),
 			className: 'wptl-document-panel'
 		}, controls );
 	}
@@ -531,8 +531,8 @@
 
 	wp.blocks.registerBlockType( 'wp-title-layer/title-layer', {
 		apiVersion: 2,
-		title: __( 'Title Layer', 'wp-title-layer' ),
-		description: __( 'Display the resolved editorial title hierarchy.', 'wp-title-layer' ),
+		title: __( 'Title Layer', 'irisable-title-layer' ),
+		description: __( 'Display the resolved editorial title hierarchy.', 'irisable-title-layer' ),
 		icon: titleLayerIcon(),
 		category: 'theme',
 		attributes: {
@@ -547,15 +547,15 @@
 			}, [] );
 			var blockProps = wp.blockEditor.useBlockProps( { className: 'wptl-block-editor-preview' } );
 			var inspector = el( wp.blockEditor.InspectorControls, null,
-				el( wp.components.PanelBody, { title: __( 'Title Layer settings', 'wp-title-layer' ) },
+				el( wp.components.PanelBody, { title: __( 'Title Layer settings', 'irisable-title-layer' ) },
 					el( wp.components.SelectControl, {
-						label: __( 'Template', 'wp-title-layer' ),
+						label: __( 'Template', 'irisable-title-layer' ),
 						value: props.attributes.preset,
-						options: optionList( { label: __( 'Use resolved template', 'wp-title-layer' ), value: '' } ),
+						options: optionList( { label: __( 'Use resolved template', 'irisable-title-layer' ), value: '' } ),
 						onChange: function ( value ) { props.setAttributes( { preset: value } ); }
 					} ),
 					el( wp.components.SelectControl, {
-						label: __( 'Heading level', 'wp-title-layer' ),
+						label: __( 'Heading level', 'irisable-title-layer' ),
 						value: props.attributes.headingTag,
 						options: [ 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'p' ].map( function ( tag ) {
 							return { label: tag.toUpperCase(), value: tag };
@@ -569,10 +569,10 @@
 			} );
 			var fallback = el( 'div', { className: 'wptl-block-placeholder' },
 				titleLayerIcon( 'wptl-title-layer-mark' ),
-				el( 'strong', null, __( 'Dynamic Title Layer', 'wp-title-layer' ) ),
+				el( 'strong', null, __( 'Dynamic Title Layer', 'irisable-title-layer' ) ),
 				el( 'p', null, currentPostId
-					? __( 'A live preview is temporarily unavailable. The Title Layer will still render on the front end.', 'wp-title-layer' )
-					: __( 'Save this article once to load its live Title Layer preview.', 'wp-title-layer' )
+					? __( 'A live preview is temporarily unavailable. The Title Layer will still render on the front end.', 'irisable-title-layer' )
+					: __( 'Save this article once to load its live Title Layer preview.', 'irisable-title-layer' )
 				)
 			);
 			var preview = ServerSideRender && currentPostId
@@ -583,8 +583,8 @@
 					EmptyResponsePlaceholder: function () {
 						return el( wp.components.Placeholder, {
 							icon: titleLayerIcon(),
-							label: __( 'Title Layer is not displayed', 'wp-title-layer' ),
-							instructions: __( 'This article is disabled or does not yet have a renderable title layer.', 'wp-title-layer' )
+							label: __( 'Title Layer is not displayed', 'irisable-title-layer' ),
+							instructions: __( 'This article is disabled or does not yet have a renderable title layer.', 'irisable-title-layer' )
 						} );
 					},
 					ErrorResponsePlaceholder: function () { return fallback; }
@@ -594,7 +594,7 @@
 				inspector,
 				el( 'div', blockProps,
 					preview,
-					el( 'p', { className: 'wptl-preview-note' }, __( 'Preview uses the latest saved article data. Update the article to refresh changed title fields.', 'wp-title-layer' ) )
+					el( 'p', { className: 'wptl-preview-note' }, __( 'Preview uses the latest saved article data. Update the article to refresh changed title fields.', 'irisable-title-layer' ) )
 				)
 			);
 		},

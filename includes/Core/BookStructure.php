@@ -157,20 +157,20 @@ final class BookStructure {
 			}
 		};
 
-		$add( $tracks, $term, Schema::SCOPE_SERIES, '', Schema::ROLE_INTRO, __( 'Series introductions', 'wp-title-layer' ), true );
+		$add( $tracks, $term, Schema::SCOPE_SERIES, '', Schema::ROLE_INTRO, __( 'Series introductions', 'irisable-title-layer' ), true );
 		if ( Series::is_seasoned( $term ) ) {
 			foreach ( Series::seasons( $term ) as $season ) {
 				$prefix = (string) $season['label'] . ' — ';
-				$add( $tracks, $term, Schema::SCOPE_SEASON, (string) $season['key'], Schema::ROLE_INTRO, $prefix . __( 'Introductions', 'wp-title-layer' ), true );
-				$add( $tracks, $term, Schema::SCOPE_SEASON, (string) $season['key'], Schema::ROLE_ARTICLE, $prefix . __( 'Main articles', 'wp-title-layer' ), Series::is_ordered( $term ) && Sequence::is_managed( $term ) );
-				$add( $tracks, $term, Schema::SCOPE_SEASON, (string) $season['key'], Schema::ROLE_EPILOGUE, $prefix . __( 'Epilogues', 'wp-title-layer' ), true );
-				$add( $tracks, $term, Schema::SCOPE_SEASON, (string) $season['key'], Schema::ROLE_APPENDIX, $prefix . __( 'Appendices', 'wp-title-layer' ), true );
+				$add( $tracks, $term, Schema::SCOPE_SEASON, (string) $season['key'], Schema::ROLE_INTRO, $prefix . __( 'Introductions', 'irisable-title-layer' ), true );
+				$add( $tracks, $term, Schema::SCOPE_SEASON, (string) $season['key'], Schema::ROLE_ARTICLE, $prefix . __( 'Main articles', 'irisable-title-layer' ), Series::is_ordered( $term ) && Sequence::is_managed( $term ) );
+				$add( $tracks, $term, Schema::SCOPE_SEASON, (string) $season['key'], Schema::ROLE_EPILOGUE, $prefix . __( 'Epilogues', 'irisable-title-layer' ), true );
+				$add( $tracks, $term, Schema::SCOPE_SEASON, (string) $season['key'], Schema::ROLE_APPENDIX, $prefix . __( 'Appendices', 'irisable-title-layer' ), true );
 			}
 		} else {
-			$add( $tracks, $term, Schema::SCOPE_SERIES, '', Schema::ROLE_ARTICLE, __( 'Main articles', 'wp-title-layer' ), Series::is_ordered( $term ) && Sequence::is_managed( $term ) );
+			$add( $tracks, $term, Schema::SCOPE_SERIES, '', Schema::ROLE_ARTICLE, __( 'Main articles', 'irisable-title-layer' ), Series::is_ordered( $term ) && Sequence::is_managed( $term ) );
 		}
-		$add( $tracks, $term, Schema::SCOPE_SERIES, '', Schema::ROLE_EPILOGUE, __( 'Series epilogues', 'wp-title-layer' ), true );
-		$add( $tracks, $term, Schema::SCOPE_SERIES, '', Schema::ROLE_APPENDIX, __( 'Series appendices', 'wp-title-layer' ), true );
+		$add( $tracks, $term, Schema::SCOPE_SERIES, '', Schema::ROLE_EPILOGUE, __( 'Series epilogues', 'irisable-title-layer' ), true );
+		$add( $tracks, $term, Schema::SCOPE_SERIES, '', Schema::ROLE_APPENDIX, __( 'Series appendices', 'irisable-title-layer' ), true );
 		return $tracks;
 	}
 
@@ -274,23 +274,23 @@ final class BookStructure {
 		$preview = self::preview( $term_id );
 		$term = $preview['term'] ?? null;
 		if ( empty( $preview['valid'] ) || ! $term instanceof \WP_Term ) {
-			return new \WP_Error( 'wptl_book_invalid_series', __( 'The selected Series no longer exists.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_book_invalid_series', __( 'The selected Series no longer exists.', 'irisable-title-layer' ) );
 		}
 		if ( self::is_enabled( $term ) ) {
-			return new \WP_Error( 'wptl_book_already_enabled', __( 'Book structure is already enabled for this Series.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_book_already_enabled', __( 'Book structure is already enabled for this Series.', 'irisable-title-layer' ) );
 		}
 		if ( Series::is_ordered( $term ) && ! Sequence::is_managed( $term ) ) {
-			return new \WP_Error( 'wptl_book_sequence_required', __( 'Initialize this ordered Series in Sequence Manager before enabling book structure.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_book_sequence_required', __( 'Initialize this ordered Series in Sequence Manager before enabling book structure.', 'irisable-title-layer' ) );
 		}
 		if ( '' !== $expected_fingerprint && ! hash_equals( (string) $preview['fingerprint'], $expected_fingerprint ) ) {
-			return new \WP_Error( 'wptl_book_preview_changed', __( 'The Series changed after the structure preview loaded. Reload and review it again.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_book_preview_changed', __( 'The Series changed after the structure preview loaded. Reload and review it again.', 'irisable-title-layer' ) );
 		}
 		if ( ! empty( $preview['ambiguous'] ) || ! empty( $preview['invalid'] ) ) {
-			return new \WP_Error( 'wptl_book_unresolved', __( 'Resolve every scope and Season issue before enabling book structure.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_book_unresolved', __( 'Resolve every scope and Season issue before enabling book structure.', 'irisable-title-layer' ) );
 		}
 		$taxonomy = get_taxonomy( $term->taxonomy );
 		if ( ! $taxonomy instanceof \WP_Taxonomy || ! current_user_can( $taxonomy->cap->edit_terms ) || ! current_user_can( 'edit_term', $term_id ) ) {
-			return new \WP_Error( 'wptl_book_forbidden', __( 'You are not allowed to enable book structure for this Series.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_book_forbidden', __( 'You are not allowed to enable book structure for this Series.', 'irisable-title-layer' ) );
 		}
 
 		$changes = array();
@@ -301,7 +301,7 @@ final class BookStructure {
 			$ids = self::track_post_ids( $term, $track, false, true );
 			foreach ( $ids as $index => $post_id ) {
 				if ( ! current_user_can( 'edit_post', $post_id ) ) {
-					return new \WP_Error( 'wptl_book_member_forbidden', __( 'You cannot edit every article affected by this structure activation.', 'wp-title-layer' ) );
+					return new \WP_Error( 'wptl_book_member_forbidden', __( 'You cannot edit every article affected by this structure activation.', 'irisable-title-layer' ) );
 				}
 				$new_rank = ( $index + 1 ) * Sequence::RANK_STEP;
 				$changes[] = array(
@@ -328,7 +328,7 @@ final class BookStructure {
 				self::restore_changes( $written );
 				$journal['status'] = 'failed';
 				update_option( self::journal_name( $term_id ), $journal, false );
-				return new \WP_Error( 'wptl_book_rank_write_failed', __( 'A structure rank could not be verified, so completed writes were restored.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_book_rank_write_failed', __( 'A structure rank could not be verified, so completed writes were restored.', 'irisable-title-layer' ) );
 			}
 			$written[] = $change;
 		}
@@ -337,7 +337,7 @@ final class BookStructure {
 			self::restore_changes( $written );
 			$journal['status'] = 'failed';
 			update_option( self::journal_name( $term_id ), $journal, false );
-			return new \WP_Error( 'wptl_book_activation_failed', __( 'Book structure could not be activated, so rank writes were restored.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_book_activation_failed', __( 'Book structure could not be activated, so rank writes were restored.', 'irisable-title-layer' ) );
 		}
 		$journal['status']       = 'complete';
 		$journal['completed_at'] = time();

@@ -36,7 +36,7 @@ final class Plugin {
 		$legacy_active = function_exists( 'get_secondary_title' );
 
 		load_plugin_textdomain(
-			'wp-title-layer',
+			'irisable-title-layer',
 			false,
 			dirname( plugin_basename( WPTL_FILE ) ) . '/languages'
 		);
@@ -75,12 +75,12 @@ final class Plugin {
 		?>
 		<div class="notice notice-warning">
 			<p>
-				<strong><?php esc_html_e( 'WP Title Layer is in migration-only mode.', 'wp-title-layer' ); ?></strong>
+				<strong><?php esc_html_e( 'Irisable Title Layer is in migration-only mode.', 'irisable-title-layer' ); ?></strong>
 				<?php
 				echo wp_kses_post(
 					sprintf(
 						/* translators: %s: migration page URL. */
-						__( 'Secondary Title is still active, so WP Title Layer has disabled its editor and front-end output to prevent duplicate titles. <a href="%s">Review the migration report</a>, then deactivate Secondary Title before switching output.', 'wp-title-layer' ),
+						__( 'Secondary Title is still active, so Irisable Title Layer has disabled its editor and front-end output to prevent duplicate titles. <a href="%s">Review the migration report</a>, then deactivate Secondary Title before switching output.', 'irisable-title-layer' ),
 						esc_url( $url )
 					)
 				);

@@ -1,6 +1,6 @@
 <?php
 /**
- * Reader settings backed by WP Title Layer's shared option.
+ * Reader settings backed by Irisable Title Layer's shared option.
  *
  * @package WPTitleLayer
  */

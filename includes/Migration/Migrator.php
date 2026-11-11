@@ -26,7 +26,7 @@ final class Migrator {
 	public function start_run( array $args = [] ) {
 		$global_token = $this->store->acquire_global_lock();
 		if ( false === $global_token ) {
-			return new \WP_Error( 'wptl_migration_control_locked', __( 'Another migration control action is in progress.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_migration_control_locked', __( 'Another migration control action is in progress.', 'irisable-title-layer' ) );
 		}
 
 		try {
@@ -34,7 +34,7 @@ final class Migrator {
 			if ( '' !== $active_id ) {
 				$active_run = $this->store->get_run( $active_id );
 				if ( $active_run && in_array( $active_run['status'], [ 'running', 'rollback_running' ], true ) ) {
-					return new \WP_Error( 'wptl_migration_active', __( 'A migration or rollback is already running.', 'wp-title-layer' ) );
+					return new \WP_Error( 'wptl_migration_active', __( 'A migration or rollback is already running.', 'irisable-title-layer' ) );
 				}
 				$this->store->clear_active_run( $active_id );
 			}
@@ -44,7 +44,7 @@ final class Migrator {
 				return $scan;
 			}
 			if ( ! $this->store->refresh_global_lock( $global_token ) ) {
-				return new \WP_Error( 'wptl_migration_control_lock_lost', __( 'The migration control lock changed ownership before the run was created.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_migration_control_lock_lost', __( 'The migration control lock changed ownership before the run was created.', 'irisable-title-layer' ) );
 			}
 			if ( ! $this->store->verify_manifest(
 				(string) $scan['scan_id'],
@@ -52,10 +52,10 @@ final class Migrator {
 				(int) $scan['manifest_count'],
 				(string) $scan['manifest_hash']
 			) ) {
-				return new \WP_Error( 'wptl_migration_manifest_invalid', __( 'The reviewed migration scan is incomplete or has changed. Run the scan again.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_migration_manifest_invalid', __( 'The reviewed migration scan is incomplete or has changed. Run the scan again.', 'irisable-title-layer' ) );
 			}
 			if ( ! $this->store->refresh_global_lock( $global_token ) ) {
-				return new \WP_Error( 'wptl_migration_control_lock_lost', __( 'The migration control lock changed ownership before the run was created.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_migration_control_lock_lost', __( 'The migration control lock changed ownership before the run was created.', 'irisable-title-layer' ) );
 			}
 
 			$run_id = Config::new_run_id();
@@ -82,7 +82,7 @@ final class Migrator {
 			];
 
 			if ( ! $this->store->add_run( $run, $global_token ) ) {
-				return new \WP_Error( 'wptl_migration_create_failed', __( 'Could not create the migration journal.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_migration_create_failed', __( 'Could not create the migration journal.', 'irisable-title-layer' ) );
 			}
 
 			do_action( 'wptl_migration_run_started', $run );
@@ -100,17 +100,17 @@ final class Migrator {
 	public function process_batch( string $run_id, ?int $requested_size = null ) {
 		$run_id = Config::clean_run_id( $run_id );
 		if ( '' === $run_id ) {
-			return new \WP_Error( 'wptl_migration_invalid_id', __( 'The migration run ID is invalid.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_migration_invalid_id', __( 'The migration run ID is invalid.', 'irisable-title-layer' ) );
 		}
 		$lock_token = $this->store->acquire_lock( $run_id );
 		if ( false === $lock_token ) {
-			return new \WP_Error( 'wptl_migration_locked', __( 'This migration batch is already being processed.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_migration_locked', __( 'This migration batch is already being processed.', 'irisable-title-layer' ) );
 		}
 
 		try {
 			$run = $this->store->get_run( $run_id );
 			if ( ! $run ) {
-				return new \WP_Error( 'wptl_migration_not_found', __( 'Migration run not found.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_migration_not_found', __( 'Migration run not found.', 'irisable-title-layer' ) );
 			}
 			if ( 'complete' === $run['status'] ) {
 				if ( $this->store->refresh_lock( $run_id, $lock_token ) ) {
@@ -119,13 +119,13 @@ final class Migrator {
 				return $run;
 			}
 			if ( 'running' !== $run['status'] ) {
-				return new \WP_Error( 'wptl_migration_bad_state', __( 'This migration is not in a runnable state.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_migration_bad_state', __( 'This migration is not in a runnable state.', 'irisable-title-layer' ) );
 			}
 			if ( $run_id !== Config::clean_run_id( (string) get_option( Config::ACTIVE_RUN_OPTION, '' ) ) ) {
-				return new \WP_Error( 'wptl_migration_inactive', __( 'This migration is no longer the active run and was stopped safely.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_migration_inactive', __( 'This migration is no longer the active run and was stopped safely.', 'irisable-title-layer' ) );
 			}
 			if ( ! $this->run_has_manifest( $run ) ) {
-				return new \WP_Error( 'wptl_migration_legacy_run_requires_rollback', __( 'This run predates frozen scan manifests. Roll it back, then scan again before migrating.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_migration_legacy_run_requires_rollback', __( 'This run predates frozen scan manifests. Roll it back, then scan again before migrating.', 'irisable-title-layer' ) );
 			}
 
 			$batch = max( 1, (int) $run['next_batch'] );
@@ -149,7 +149,7 @@ final class Migrator {
 					$total
 				);
 				if ( empty( $manifest_records ) ) {
-					return new \WP_Error( 'wptl_migration_manifest_unavailable', __( 'The frozen migration candidate list is unavailable; processing stopped without writing.', 'wp-title-layer' ) );
+					return new \WP_Error( 'wptl_migration_manifest_unavailable', __( 'The frozen migration candidate list is unavailable; processing stopped without writing.', 'irisable-title-layer' ) );
 				}
 
 				$candidates = array();
@@ -157,7 +157,7 @@ final class Migrator {
 					$post_id     = (int) ( $manifest_record['post_id'] ?? 0 );
 					$fingerprint = $manifest_record['fingerprint'] ?? null;
 					if ( $post_id < 1 || ! is_array( $fingerprint ) || isset( $candidates[ (string) $post_id ] ) ) {
-						return new \WP_Error( 'wptl_migration_manifest_invalid', __( 'The frozen migration candidate list is invalid; processing stopped without writing.', 'wp-title-layer' ) );
+						return new \WP_Error( 'wptl_migration_manifest_invalid', __( 'The frozen migration candidate list is invalid; processing stopped without writing.', 'irisable-title-layer' ) );
 					}
 					$candidates[ (string) $post_id ] = $fingerprint;
 				}
@@ -177,7 +177,7 @@ final class Migrator {
 					'counts'        => $this->empty_counts(),
 				];
 				if ( ! $this->store->refresh_lock( $run_id, $lock_token ) || ! $this->store->save_log( $run_id, $batch, $log ) ) {
-					return new \WP_Error( 'wptl_migration_log_failed', __( 'Could not initialize the migration batch journal.', 'wp-title-layer' ) );
+					return new \WP_Error( 'wptl_migration_log_failed', __( 'Could not initialize the migration batch journal.', 'irisable-title-layer' ) );
 				}
 				if ( ! $this->store->refresh_lock( $run_id, $lock_token ) ) {
 					return $this->lock_lost_error();
@@ -187,7 +187,7 @@ final class Migrator {
 			$conflicts = $this->store->get_conflicts( $run_id, $batch );
 			foreach ( (array) $log['candidate_ids'] as $post_id ) {
 				if ( ! $this->store->refresh_lock( $run_id, $lock_token ) ) {
-					return new \WP_Error( 'wptl_migration_lock_lost', __( 'The migration lock expired or changed ownership; the batch stopped safely.', 'wp-title-layer' ) );
+					return new \WP_Error( 'wptl_migration_lock_lost', __( 'The migration lock expired or changed ownership; the batch stopped safely.', 'irisable-title-layer' ) );
 				}
 				$post_id = (int) $post_id;
 				$key     = (string) $post_id;
@@ -195,7 +195,7 @@ final class Migrator {
 					? $log['candidates'][ $key ]
 					: null;
 				if ( null === $expected ) {
-					return new \WP_Error( 'wptl_migration_manifest_invalid', __( 'The batch journal is missing its reviewed candidate state.', 'wp-title-layer' ) );
+					return new \WP_Error( 'wptl_migration_manifest_invalid', __( 'The batch journal is missing its reviewed candidate state.', 'irisable-title-layer' ) );
 				}
 				if ( isset( $log['records'][ $key ] ) && $this->is_final_record( $log['records'][ $key ] ) ) {
 					continue;
@@ -411,7 +411,7 @@ final class Migrator {
 			return $this->lock_lost_error();
 		}
 		if ( ! $this->store->save_run( $run ) ) {
-			return new \WP_Error( 'wptl_migration_state_write_failed', __( 'Could not advance the migration state; the completed journal remains safe to retry.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_migration_state_write_failed', __( 'Could not advance the migration state; the completed journal remains safe to retry.', 'irisable-title-layer' ) );
 		}
 
 		return (int) $run['manifest_cursor'] >= max( 0, (int) ( $run['manifest_count'] ?? 0 ) )
@@ -427,7 +427,7 @@ final class Migrator {
 			return $this->lock_lost_error();
 		}
 		if ( ! $this->store->save_run( $run ) ) {
-			return new \WP_Error( 'wptl_migration_completion_write_failed', __( 'Could not record migration completion; the active marker was preserved for a safe retry.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_migration_completion_write_failed', __( 'Could not record migration completion; the active marker was preserved for a safe retry.', 'irisable-title-layer' ) );
 		}
 		if ( ! $this->store->refresh_lock( $run['id'], $lock_token ) ) {
 			return $this->lock_lost_error();
@@ -443,13 +443,13 @@ final class Migrator {
 			return $this->lock_lost_error();
 		}
 		if ( $save_conflicts && ! $this->store->save_conflicts( $run_id, $batch, $conflicts ) ) {
-			return new \WP_Error( 'wptl_migration_conflict_log_failed', __( 'Could not save the migration conflict report; the batch stopped safely.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_migration_conflict_log_failed', __( 'Could not save the migration conflict report; the batch stopped safely.', 'irisable-title-layer' ) );
 		}
 		if ( ! $this->store->refresh_lock( $run_id, $lock_token ) ) {
 			return $this->lock_lost_error();
 		}
 		if ( ! $this->store->save_log( $run_id, $batch, $log ) ) {
-			return new \WP_Error( 'wptl_migration_log_failed', __( 'Could not save the migration batch journal.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_migration_log_failed', __( 'Could not save the migration batch journal.', 'irisable-title-layer' ) );
 		}
 		if ( ! $this->store->refresh_lock( $run_id, $lock_token ) ) {
 			return $this->lock_lost_error();
@@ -459,7 +459,7 @@ final class Migrator {
 	}
 
 	private function lock_lost_error(): \WP_Error {
-		return new \WP_Error( 'wptl_migration_lock_lost', __( 'The migration lock expired or changed ownership; the batch stopped safely.', 'wp-title-layer' ) );
+		return new \WP_Error( 'wptl_migration_lock_lost', __( 'The migration lock expired or changed ownership; the batch stopped safely.', 'irisable-title-layer' ) );
 	}
 
 	private function aggregate_counts( string $run_id, int $last_batch ): array {
@@ -596,24 +596,24 @@ final class Migrator {
 	private function validated_scan( array $args ) {
 		$scan = get_option( Config::LAST_SCAN_OPTION, null );
 		if ( ! is_array( $scan ) || ! AdminPage::canStartFromScan( $scan ) ) {
-			return new \WP_Error( 'wptl_migration_scan_required', __( 'Run and save a complete migration scan before starting.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_migration_scan_required', __( 'Run and save a complete migration scan before starting.', 'irisable-title-layer' ) );
 		}
 
 		$requested_id = Config::clean_run_id( is_scalar( $args['scan_id'] ?? null ) ? (string) $args['scan_id'] : '' );
 		$saved_id     = Config::clean_run_id( is_scalar( $scan['scan_id'] ?? null ) ? (string) $scan['scan_id'] : '' );
 		if ( '' === $requested_id || ! hash_equals( $saved_id, $requested_id ) ) {
-			return new \WP_Error( 'wptl_migration_scan_changed', __( 'The reviewed migration scan has changed. Review the latest scan before starting.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_migration_scan_changed', __( 'The reviewed migration scan has changed. Review the latest scan before starting.', 'irisable-title-layer' ) );
 		}
 
 		foreach ( array( 'manifest_count', 'manifest_chunks' ) as $field ) {
 			if ( array_key_exists( $field, $args ) && (int) $args[ $field ] !== (int) $scan[ $field ] ) {
-				return new \WP_Error( 'wptl_migration_scan_changed', __( 'The reviewed migration scan has changed. Review the latest scan before starting.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_migration_scan_changed', __( 'The reviewed migration scan has changed. Review the latest scan before starting.', 'irisable-title-layer' ) );
 			}
 		}
 		if ( array_key_exists( 'manifest_hash', $args ) ) {
 			$requested_hash = is_scalar( $args['manifest_hash'] ) ? strtolower( (string) $args['manifest_hash'] ) : '';
 			if ( ! hash_equals( (string) $scan['manifest_hash'], $requested_hash ) ) {
-				return new \WP_Error( 'wptl_migration_scan_changed', __( 'The reviewed migration scan has changed. Review the latest scan before starting.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_migration_scan_changed', __( 'The reviewed migration scan has changed. Review the latest scan before starting.', 'irisable-title-layer' ) );
 			}
 		}
 

@@ -40,10 +40,10 @@ final class AdminAssets {
 				'nonce'     => wp_create_nonce( 'wptl_migration_ajax' ),
 				'autoRunId' => 'run_started' === $message ? $run_id : '',
 				'text'      => [
-					'running'  => __( 'Migration is running. You may leave this page; completed batches are already saved.', 'wp-title-layer' ),
-					'continue' => __( 'Run all remaining batches', 'wp-title-layer' ),
-					'complete' => __( 'Migration complete. Run the read-only scan again to verify the result.', 'wp-title-layer' ),
-					'failed'   => __( 'The automatic run stopped safely. Reload the page and continue this run.', 'wp-title-layer' ),
+					'running'  => __( 'Migration is running. You may leave this page; completed batches are already saved.', 'irisable-title-layer' ),
+					'continue' => __( 'Run all remaining batches', 'irisable-title-layer' ),
+					'complete' => __( 'Migration complete. Run the read-only scan again to verify the result.', 'irisable-title-layer' ),
+					'failed'   => __( 'The automatic run stopped safely. Reload the page and continue this run.', 'irisable-title-layer' ),
 				],
 			]
 		);

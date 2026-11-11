@@ -149,7 +149,7 @@ final class Archive {
 					if ( ! isset( $groups[ $track_key ] ) ) {
 						$groups[ $track_key ] = array(
 							'key'     => $track_key,
-							'label'   => __( 'Unresolved structure', 'wp-title-layer' ),
+							'label'   => __( 'Unresolved structure', 'irisable-title-layer' ),
 							'sort'    => PHP_INT_MAX,
 							'role'    => Schema::ROLE_ARTICLE,
 							'ordered' => Series::is_ordered( $term ),
@@ -208,9 +208,9 @@ final class Archive {
 				// One public section per Series-wide role; article labels stay on rows.
 				$group_key = $track_key;
 				$labels = array(
-					Schema::ROLE_INTRO => __( 'Series prefaces', 'wp-title-layer' ),
-					Schema::ROLE_EPILOGUE => __( 'Series afterwords', 'wp-title-layer' ),
-					Schema::ROLE_APPENDIX => __( 'Series appendix', 'wp-title-layer' ),
+					Schema::ROLE_INTRO => __( 'Series prefaces', 'irisable-title-layer' ),
+					Schema::ROLE_EPILOGUE => __( 'Series afterwords', 'irisable-title-layer' ),
+					Schema::ROLE_APPENDIX => __( 'Series appendix', 'irisable-title-layer' ),
 				);
 				if ( ! isset( $groups[ $group_key ] ) ) {
 					$groups[ $group_key ] = array(
@@ -256,7 +256,7 @@ final class Archive {
 					'key'     => $key,
 					'label'   => $definition
 						? (string) $definition['label']
-						: ( '' !== $key ? $key : __( 'Unassigned', 'wp-title-layer' ) ),
+						: ( '' !== $key ? $key : __( 'Unassigned', 'irisable-title-layer' ) ),
 					'sort'    => $definition ? (int) $definition['sort'] : PHP_INT_MAX,
 					'ordered' => Series::is_ordered( $term ),
 					'posts'   => array(),
@@ -392,8 +392,8 @@ final class Archive {
 				'current'   => max( 1, (int) get_query_var( 'paged', 1 ) ),
 				'total'     => (int) $query->max_num_pages,
 				'type'      => 'list',
-				'prev_text' => '<span aria-hidden="true">&lsaquo;</span><span class="screen-reader-text">' . esc_html__( 'Previous page', 'wp-title-layer' ) . '</span>',
-				'next_text' => '<span aria-hidden="true">&rsaquo;</span><span class="screen-reader-text">' . esc_html__( 'Next page', 'wp-title-layer' ) . '</span>',
+				'prev_text' => '<span aria-hidden="true">&lsaquo;</span><span class="screen-reader-text">' . esc_html__( 'Previous page', 'irisable-title-layer' ) . '</span>',
+				'next_text' => '<span aria-hidden="true">&rsaquo;</span><span class="screen-reader-text">' . esc_html__( 'Next page', 'irisable-title-layer' ) . '</span>',
 			)
 		);
 

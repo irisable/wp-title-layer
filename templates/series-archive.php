@@ -43,7 +43,7 @@ get_header();
 						<?php endif; ?>
 						<span class="wptl-series-archive__kicker-separator" aria-hidden="true"> / </span>
 					<?php endif; ?>
-					<span><?php esc_html_e( 'Series', 'wp-title-layer' ); ?></span>
+					<span><?php esc_html_e( 'Series', 'irisable-title-layer' ); ?></span>
 				</p>
 				<h1 class="wptl-series-archive__title"><?php echo esc_html( (string) $wptl_view['name'] ); ?></h1>
 				<?php if ( ! empty( $wptl_view['status_label'] ) ) : ?>
@@ -53,7 +53,7 @@ get_header();
 					<p class="wptl-series-archive__active-season">
 						<span><?php echo esc_html( (string) $wptl_view['active_season']['label'] ); ?></span>
 						<?php if ( ! empty( $wptl_view['series_url'] ) ) : ?>
-							<a class="wptl-series-archive__all-seasons" href="<?php echo esc_url( (string) $wptl_view['series_url'] ); ?>"><?php esc_html_e( 'View all seasons', 'wp-title-layer' ); ?></a>
+							<a class="wptl-series-archive__all-seasons" href="<?php echo esc_url( (string) $wptl_view['series_url'] ); ?>"><?php esc_html_e( 'View all seasons', 'irisable-title-layer' ); ?></a>
 						<?php endif; ?>
 					</p>
 				<?php endif; ?>
@@ -65,7 +65,7 @@ get_header();
 					echo esc_html(
 						sprintf(
 							/* translators: %d: number of published articles in the Series. */
-							_n( '%d published article', '%d published articles', (int) $wptl_view['found_posts'], 'wp-title-layer' ),
+							_n( '%d published article', '%d published articles', (int) $wptl_view['found_posts'], 'irisable-title-layer' ),
 							(int) $wptl_view['found_posts']
 						)
 					);
@@ -75,11 +75,11 @@ get_header();
 		</header>
 
 		<?php if ( ! empty( $wptl_view['active_group'] ) ) : ?>
-			<p class="wptl-content-group-filter"><?php echo esc_html( $wptl_view['active_group'] ); ?> · <a href="<?php echo esc_url( $wptl_view['group_back_url'] ); ?>"><?php esc_html_e( 'View complete collection', 'wp-title-layer' ); ?></a></p>
+			<p class="wptl-content-group-filter"><?php echo esc_html( $wptl_view['active_group'] ); ?> · <a href="<?php echo esc_url( $wptl_view['group_back_url'] ); ?>"><?php esc_html_e( 'View complete collection', 'irisable-title-layer' ); ?></a></p>
 		<?php endif; ?>
 		<div class="wptl-series-archive__content wptl-series-archive__content--<?php echo esc_attr( sanitize_html_class( (string) $wptl_view['mode'] ) ); ?>">
 			<?php if ( empty( $wptl_view['groups'] ) ) : ?>
-				<p class="wptl-series-archive__empty"><?php esc_html_e( 'No published articles are available in this Series.', 'wp-title-layer' ); ?></p>
+				<p class="wptl-series-archive__empty"><?php esc_html_e( 'No published articles are available in this Series.', 'irisable-title-layer' ); ?></p>
 			<?php else : ?>
 				<?php foreach ( (array) $wptl_view['groups'] as $wptl_group ) : ?>
 					<section class="wptl-series-group">
@@ -102,7 +102,7 @@ get_header();
 									<?php endif; ?>
 
 									<?php if ( $wptl_has_image ) : ?>
-										<a class="wptl-series-list__media" href="<?php echo esc_url( (string) $wptl_post['url'] ); ?>" aria-label="<?php /* translators: %s: article title. */ echo esc_attr( sprintf( __( 'Read %s', 'wp-title-layer' ), (string) $wptl_post['title'] ) ); ?>">
+										<a class="wptl-series-list__media" href="<?php echo esc_url( (string) $wptl_post['url'] ); ?>" aria-label="<?php /* translators: %s: article title. */ echo esc_attr( sprintf( __( 'Read %s', 'irisable-title-layer' ), (string) $wptl_post['title'] ) ); ?>">
 											<?php
 											echo wp_kses_post(
 												wp_get_attachment_image(
@@ -142,7 +142,7 @@ get_header();
 		</div>
 
 		<?php if ( ! empty( $wptl_view['pagination'] ) ) : ?>
-			<nav class="wptl-series-archive__pagination" aria-label="<?php esc_attr_e( 'Series archive pages', 'wp-title-layer' ); ?>">
+			<nav class="wptl-series-archive__pagination" aria-label="<?php esc_attr_e( 'Series archive pages', 'irisable-title-layer' ); ?>">
 				<?php echo wp_kses_post( (string) $wptl_view['pagination'] ); ?>
 			</nav>
 		<?php endif; ?>

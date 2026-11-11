@@ -39,8 +39,8 @@ final class SeriesHealth {
 	public static function add_page(): void {
 		$hook = add_submenu_page(
 			ControlCenter::PAGE_SLUG,
-			__( 'Series Content Health', 'wp-title-layer' ),
-			__( 'Series Health', 'wp-title-layer' ),
+			__( 'Series Content Health', 'irisable-title-layer' ),
+			__( 'Series Health', 'irisable-title-layer' ),
 			self::capability(),
 			self::PAGE_SLUG,
 			array( __CLASS__, 'render' )
@@ -62,7 +62,7 @@ final class SeriesHealth {
 
 	public static function render(): void {
 		if ( ! current_user_can( self::capability() ) ) {
-			wp_die( esc_html__( 'You are not allowed to view Series health.', 'wp-title-layer' ) );
+			wp_die( esc_html__( 'You are not allowed to view Series health.', 'irisable-title-layer' ) );
 		}
 
 		$term_id       = isset( $_GET['series_id'] ) ? absint( wp_unslash( $_GET['series_id'] ) ) : 0;
@@ -75,13 +75,13 @@ final class SeriesHealth {
 		?>
 		<div class="wrap wptl-series-health">
 			<header class="wptl-health-header">
-				<p class="wptl-cc-eyebrow"><?php esc_html_e( 'Read-only report', 'wp-title-layer' ); ?></p>
-				<h1><?php esc_html_e( 'Series Content Health', 'wp-title-layer' ); ?></h1>
-				<p><?php esc_html_e( 'Find structural gaps before they reach readers. This page never edits, publishes, hides, or reorders an article.', 'wp-title-layer' ); ?></p>
+				<p class="wptl-cc-eyebrow"><?php esc_html_e( 'Read-only report', 'irisable-title-layer' ); ?></p>
+				<h1><?php esc_html_e( 'Series Content Health', 'irisable-title-layer' ); ?></h1>
+				<p><?php esc_html_e( 'Find structural gaps before they reach readers. This page never edits, publishes, hides, or reorders an article.', 'irisable-title-layer' ); ?></p>
 			</header>
 
 			<?php if ( '' === Series::claimed_taxonomy() ) : ?>
-				<div class="notice notice-warning inline"><p><?php esc_html_e( 'The Series taxonomy is not currently available, so there is nothing safe to inspect.', 'wp-title-layer' ); ?></p></div>
+				<div class="notice notice-warning inline"><p><?php esc_html_e( 'The Series taxonomy is not currently available, so there is nothing safe to inspect.', 'irisable-title-layer' ); ?></p></div>
 			<?php elseif ( 0 < $term_id ) : ?>
 				<?php self::render_report( $service->report( $term_id, $view, $page, 50 ) ); ?>
 			<?php else : ?>
@@ -99,40 +99,40 @@ final class SeriesHealth {
 		<section class="wptl-health-panel" aria-labelledby="wptl-health-series-list">
 			<div class="wptl-health-panel__heading">
 				<div>
-					<h2 id="wptl-health-series-list"><?php esc_html_e( 'Choose a Series to inspect', 'wp-title-layer' ); ?></h2>
-					<p><?php esc_html_e( 'The list itself is lightweight. Member records are checked only after you open one Series.', 'wp-title-layer' ); ?></p>
+					<h2 id="wptl-health-series-list"><?php esc_html_e( 'Choose a Series to inspect', 'irisable-title-layer' ); ?></h2>
+					<p><?php esc_html_e( 'The list itself is lightweight. Member records are checked only after you open one Series.', 'irisable-title-layer' ); ?></p>
 				</div>
-				<a class="button" href="<?php echo esc_url( self::manage_series_url() ); ?>"><?php esc_html_e( 'Manage Series', 'wp-title-layer' ); ?></a>
+				<a class="button" href="<?php echo esc_url( self::manage_series_url() ); ?>"><?php esc_html_e( 'Manage Series', 'irisable-title-layer' ); ?></a>
 			</div>
 
 			<form class="wptl-health-series-search" method="get" action="<?php echo esc_url( admin_url( 'admin.php' ) ); ?>">
 				<input type="hidden" name="page" value="<?php echo esc_attr( self::PAGE_SLUG ); ?>">
-				<label class="screen-reader-text" for="wptl-health-series-search"><?php esc_html_e( 'Search Series', 'wp-title-layer' ); ?></label>
-				<input type="search" id="wptl-health-series-search" name="series_search" value="<?php echo esc_attr( $search ); ?>" placeholder="<?php esc_attr_e( 'Search Series by name or slug', 'wp-title-layer' ); ?>">
-				<button type="submit" class="button"><?php esc_html_e( 'Search', 'wp-title-layer' ); ?></button>
-				<?php if ( '' !== $search ) : ?><a class="button" href="<?php echo esc_url( self::page_url() ); ?>"><?php esc_html_e( 'Clear search', 'wp-title-layer' ); ?></a><?php endif; ?>
+				<label class="screen-reader-text" for="wptl-health-series-search"><?php esc_html_e( 'Search Series', 'irisable-title-layer' ); ?></label>
+				<input type="search" id="wptl-health-series-search" name="series_search" value="<?php echo esc_attr( $search ); ?>" placeholder="<?php esc_attr_e( 'Search Series by name or slug', 'irisable-title-layer' ); ?>">
+				<button type="submit" class="button"><?php esc_html_e( 'Search', 'irisable-title-layer' ); ?></button>
+				<?php if ( '' !== $search ) : ?><a class="button" href="<?php echo esc_url( self::page_url() ); ?>"><?php esc_html_e( 'Clear search', 'irisable-title-layer' ); ?></a><?php endif; ?>
 			</form>
 
 			<?php if ( ! $terms ) : ?>
-				<p class="wptl-health-empty"><?php echo '' !== $search ? esc_html__( 'No Series match this search.', 'wp-title-layer' ) : esc_html__( 'No Series have been created yet.', 'wp-title-layer' ); ?></p>
+				<p class="wptl-health-empty"><?php echo '' !== $search ? esc_html__( 'No Series match this search.', 'irisable-title-layer' ) : esc_html__( 'No Series have been created yet.', 'irisable-title-layer' ); ?></p>
 			<?php else : ?>
 				<table class="widefat striped wptl-health-table">
 					<thead><tr>
-						<th><?php esc_html_e( 'Series', 'wp-title-layer' ); ?></th>
-						<th><?php esc_html_e( 'Lifecycle', 'wp-title-layer' ); ?></th>
-						<th><?php esc_html_e( 'Reading model', 'wp-title-layer' ); ?></th>
-						<th><?php esc_html_e( 'Published archive count', 'wp-title-layer' ); ?></th>
-						<th><span class="screen-reader-text"><?php esc_html_e( 'Action', 'wp-title-layer' ); ?></span></th>
+						<th><?php esc_html_e( 'Series', 'irisable-title-layer' ); ?></th>
+						<th><?php esc_html_e( 'Lifecycle', 'irisable-title-layer' ); ?></th>
+						<th><?php esc_html_e( 'Reading model', 'irisable-title-layer' ); ?></th>
+						<th><?php esc_html_e( 'Published archive count', 'irisable-title-layer' ); ?></th>
+						<th><span class="screen-reader-text"><?php esc_html_e( 'Action', 'irisable-title-layer' ); ?></span></th>
 					</tr></thead>
 					<tbody>
 					<?php foreach ( $terms as $term ) : ?>
 						<?php if ( $term instanceof \WP_Term ) : ?>
 							<tr>
 								<td><strong><?php echo esc_html( (string) $term->name ); ?></strong></td>
-								<td><?php echo esc_html( Series::status_label( $term ) ?: __( 'Not set', 'wp-title-layer' ) ); ?></td>
+								<td><?php echo esc_html( Series::status_label( $term ) ?: __( 'Not set', 'irisable-title-layer' ) ); ?></td>
 								<td><?php echo esc_html( self::model_label( $term ) ); ?></td>
 								<td><?php echo esc_html( number_format_i18n( max( 0, (int) $term->count ) ) ); ?></td>
-								<td><a class="button button-small" href="<?php echo esc_url( self::page_url( array( 'series_id' => (int) $term->term_id ) ) ); ?>"><?php esc_html_e( 'Check', 'wp-title-layer' ); ?></a></td>
+								<td><a class="button button-small" href="<?php echo esc_url( self::page_url( array( 'series_id' => (int) $term->term_id ) ) ); ?>"><?php esc_html_e( 'Check', 'irisable-title-layer' ); ?></a></td>
 							</tr>
 						<?php endif; ?>
 					<?php endforeach; ?>
@@ -149,8 +149,8 @@ final class SeriesHealth {
 	private static function render_report( array $report ): void {
 		if ( empty( $report['valid'] ) || ! ( $report['term'] instanceof \WP_Term ) ) {
 			?>
-			<div class="notice notice-error inline"><p><?php esc_html_e( 'That Series could not be inspected.', 'wp-title-layer' ); ?></p></div>
-			<p><a href="<?php echo esc_url( self::page_url() ); ?>"><?php esc_html_e( 'Back to all Series', 'wp-title-layer' ); ?></a></p>
+			<div class="notice notice-error inline"><p><?php esc_html_e( 'That Series could not be inspected.', 'irisable-title-layer' ); ?></p></div>
+			<p><a href="<?php echo esc_url( self::page_url() ); ?>"><?php esc_html_e( 'Back to all Series', 'irisable-title-layer' ); ?></a></p>
 			<?php
 			return;
 		}
@@ -161,7 +161,7 @@ final class SeriesHealth {
 			? get_edit_term_link( (int) $term->term_id, $term->taxonomy )
 			: '';
 		?>
-		<p class="wptl-health-back"><a href="<?php echo esc_url( self::page_url() ); ?>">&larr; <?php esc_html_e( 'All Series', 'wp-title-layer' ); ?></a></p>
+		<p class="wptl-health-back"><a href="<?php echo esc_url( self::page_url() ); ?>">&larr; <?php esc_html_e( 'All Series', 'irisable-title-layer' ); ?></a></p>
 		<section class="wptl-health-panel wptl-health-panel--report" aria-labelledby="wptl-health-report-title">
 			<div class="wptl-health-panel__heading">
 				<div>
@@ -169,37 +169,37 @@ final class SeriesHealth {
 					<p>
 						<?php echo esc_html( self::model_label( $term ) ); ?>
 						<span aria-hidden="true"> &middot; </span>
-						<?php echo esc_html( $report['status_label'] ?: __( 'Lifecycle not set', 'wp-title-layer' ) ); ?>
+						<?php echo esc_html( $report['status_label'] ?: __( 'Lifecycle not set', 'irisable-title-layer' ) ); ?>
 					</p>
 				</div>
 				<div class="wptl-health-actions">
 					<?php if ( current_user_can( SequenceManager::capability() ) ) : ?>
-						<a class="button button-primary" href="<?php echo esc_url( SequenceManager::page_url( array( 'series_id' => (int) $term->term_id ) ) ); ?>"><?php esc_html_e( 'Open Sequence & Structure', 'wp-title-layer' ); ?></a>
+						<a class="button button-primary" href="<?php echo esc_url( SequenceManager::page_url( array( 'series_id' => (int) $term->term_id ) ) ); ?>"><?php esc_html_e( 'Open Sequence & Structure', 'irisable-title-layer' ); ?></a>
 					<?php endif; ?>
 					<?php if ( is_string( $term_edit_url ) && '' !== $term_edit_url ) : ?>
-						<a class="button" href="<?php echo esc_url( $term_edit_url ); ?>"><?php esc_html_e( 'Edit Series definition', 'wp-title-layer' ); ?></a>
+						<a class="button" href="<?php echo esc_url( $term_edit_url ); ?>"><?php esc_html_e( 'Edit Series definition', 'irisable-title-layer' ); ?></a>
 					<?php endif; ?>
 				</div>
 			</div>
 
 			<div class="wptl-health-summary-grid">
-				<?php self::render_summary_card( __( 'Member articles', 'wp-title-layer' ), (int) $summary['members'], __( 'All saved states except transient auto-drafts.', 'wp-title-layer' ), 'neutral' ); ?>
-				<?php self::render_summary_card( __( 'Structure needs review', 'wp-title-layer' ), (int) $summary['structural_issues'], __( 'Unique articles with at least one Series-structure issue.', 'wp-title-layer' ), 0 < (int) $summary['structural_issues'] ? 'warning' : 'success' ); ?>
-				<?php self::render_summary_card( __( 'Published-state issues', 'wp-title-layer' ), (int) $summary['required_status_issues'], __( 'Published, scheduled, or private articles requiring attention.', 'wp-title-layer' ), 0 < (int) $summary['required_status_issues'] ? 'warning' : 'success' ); ?>
-				<?php self::render_summary_card( __( 'Draft-stage gaps', 'wp-title-layer' ), (int) $summary['work_in_progress_issues'], __( 'Draft or pending work that may still be intentionally incomplete.', 'wp-title-layer' ), 'notice' ); ?>
+				<?php self::render_summary_card( __( 'Member articles', 'irisable-title-layer' ), (int) $summary['members'], __( 'All saved states except transient auto-drafts.', 'irisable-title-layer' ), 'neutral' ); ?>
+				<?php self::render_summary_card( __( 'Structure needs review', 'irisable-title-layer' ), (int) $summary['structural_issues'], __( 'Unique articles with at least one Series-structure issue.', 'irisable-title-layer' ), 0 < (int) $summary['structural_issues'] ? 'warning' : 'success' ); ?>
+				<?php self::render_summary_card( __( 'Published-state issues', 'irisable-title-layer' ), (int) $summary['required_status_issues'], __( 'Published, scheduled, or private articles requiring attention.', 'irisable-title-layer' ), 0 < (int) $summary['required_status_issues'] ? 'warning' : 'success' ); ?>
+				<?php self::render_summary_card( __( 'Draft-stage gaps', 'irisable-title-layer' ), (int) $summary['work_in_progress_issues'], __( 'Draft or pending work that may still be intentionally incomplete.', 'irisable-title-layer' ), 'notice' ); ?>
 			</div>
 
-			<div class="wptl-health-statuses" aria-label="<?php esc_attr_e( 'Article visibility summary', 'wp-title-layer' ); ?>">
+			<div class="wptl-health-statuses" aria-label="<?php esc_attr_e( 'Article visibility summary', 'irisable-title-layer' ); ?>">
 				<?php
 				$status_counts = array(
-					__( 'Published', 'wp-title-layer' )         => (int) $summary['published'],
-					__( 'Draft', 'wp-title-layer' )             => (int) $summary['draft'],
-					__( 'Scheduled', 'wp-title-layer' )         => (int) $summary['scheduled'],
-					__( 'Private', 'wp-title-layer' )           => (int) $summary['private'],
-					__( 'Pending review', 'wp-title-layer' )    => (int) $summary['pending'],
-					__( 'Trash', 'wp-title-layer' )             => (int) $summary['trash'],
-					__( 'Other', 'wp-title-layer' )             => (int) $summary['other'],
-					__( 'Password protected', 'wp-title-layer' )=> (int) $summary['password_protected'],
+					__( 'Published', 'irisable-title-layer' )         => (int) $summary['published'],
+					__( 'Draft', 'irisable-title-layer' )             => (int) $summary['draft'],
+					__( 'Scheduled', 'irisable-title-layer' )         => (int) $summary['scheduled'],
+					__( 'Private', 'irisable-title-layer' )           => (int) $summary['private'],
+					__( 'Pending review', 'irisable-title-layer' )    => (int) $summary['pending'],
+					__( 'Trash', 'irisable-title-layer' )             => (int) $summary['trash'],
+					__( 'Other', 'irisable-title-layer' )             => (int) $summary['other'],
+					__( 'Password protected', 'irisable-title-layer' )=> (int) $summary['password_protected'],
 				);
 				foreach ( $status_counts as $label => $count ) :
 					?>
@@ -211,7 +211,7 @@ final class SeriesHealth {
 			<?php self::render_rows( $report ); ?>
 			<?php self::render_pagination( (int) $report['page'], (int) $report['total_pages'], array( 'series_id' => (int) $term->term_id, 'health_view' => (string) $report['view'] ) ); ?>
 
-			<p class="description wptl-health-footnote"><?php echo esc_html( ! empty( $report['managed'] ) ? __( 'Draft and pending gaps are informational. Trashed articles remain visible in totals but are not treated as structural errors. Managed order checks the private canonical rank; a legacy-field warning means obsolete position data changed after initialization but does not affect readers.', 'wp-title-layer' ) : __( 'Draft and pending gaps are informational. Trashed articles remain visible in totals but are not treated as structural errors. Duplicate positions follow the same non-internal post-status scope as the editor publication check.', 'wp-title-layer' ) ); ?></p>
+			<p class="description wptl-health-footnote"><?php echo esc_html( ! empty( $report['managed'] ) ? __( 'Draft and pending gaps are informational. Trashed articles remain visible in totals but are not treated as structural errors. Managed order checks the private canonical rank; a legacy-field warning means obsolete position data changed after initialization but does not affect readers.', 'irisable-title-layer' ) : __( 'Draft and pending gaps are informational. Trashed articles remain visible in totals but are not treated as structural errors. Duplicate positions follow the same non-internal post-status scope as the editor publication check.', 'irisable-title-layer' ) ); ?></p>
 		</section>
 		<?php
 	}
@@ -231,20 +231,20 @@ final class SeriesHealth {
 		$term   = $report['term'];
 		$counts = (array) $report['view_counts'];
 		$tabs   = array(
-			'issues'             => __( 'Needs attention', 'wp-title-layer' ),
-			'all'                => __( 'All members', 'wp-title-layer' ),
-			'missing_position'   => ! empty( $report['managed'] ) ? __( 'Managed order', 'wp-title-layer' ) : __( 'Position', 'wp-title-layer' ),
-			'season'             => __( 'Season', 'wp-title-layer' ),
-			'scope'              => __( 'Scope / role', 'wp-title-layer' ),
-			'duplicate_position' => __( 'Duplicates', 'wp-title-layer' ),
-			'legacy_position_change' => __( 'Legacy field changed', 'wp-title-layer' ),
-			'category'           => __( 'Category branch', 'wp-title-layer' ),
-			'not_public'         => __( 'Not openly published', 'wp-title-layer' ),
+			'issues'             => __( 'Needs attention', 'irisable-title-layer' ),
+			'all'                => __( 'All members', 'irisable-title-layer' ),
+			'missing_position'   => ! empty( $report['managed'] ) ? __( 'Managed order', 'irisable-title-layer' ) : __( 'Position', 'irisable-title-layer' ),
+			'season'             => __( 'Season', 'irisable-title-layer' ),
+			'scope'              => __( 'Scope / role', 'irisable-title-layer' ),
+			'duplicate_position' => __( 'Duplicates', 'irisable-title-layer' ),
+			'legacy_position_change' => __( 'Legacy field changed', 'irisable-title-layer' ),
+			'category'           => __( 'Category branch', 'irisable-title-layer' ),
+			'not_public'         => __( 'Not openly published', 'irisable-title-layer' ),
 		);
 		if ( Schema::MODE_ORDERED !== $report['mode'] && empty( $report['book_structure'] ) ) {
 			unset( $tabs['missing_position'], $tabs['duplicate_position'], $tabs['legacy_position_change'] );
 		} elseif ( Schema::MODE_ORDERED !== $report['mode'] ) {
-			$tabs['missing_position'] = __( 'Track order', 'wp-title-layer' );
+			$tabs['missing_position'] = __( 'Track order', 'irisable-title-layer' );
 			unset( $tabs['legacy_position_change'] );
 		} elseif ( empty( $report['managed'] ) ) {
 			unset( $tabs['legacy_position_change'] );
@@ -253,7 +253,7 @@ final class SeriesHealth {
 			unset( $tabs['season'] );
 		}
 		?>
-		<nav class="nav-tab-wrapper wptl-health-tabs" aria-label="<?php esc_attr_e( 'Health report filters', 'wp-title-layer' ); ?>">
+		<nav class="nav-tab-wrapper wptl-health-tabs" aria-label="<?php esc_attr_e( 'Health report filters', 'irisable-title-layer' ); ?>">
 			<?php foreach ( $tabs as $key => $label ) : ?>
 				<a class="nav-tab<?php echo $key === $report['view'] ? ' nav-tab-active' : ''; ?>" href="<?php echo esc_url( self::page_url( array( 'series_id' => (int) $term->term_id, 'health_view' => $key ) ) ); ?>">
 					<?php echo esc_html( $label . ' (' . number_format_i18n( (int) ( $counts[ $key ] ?? 0 ) ) . ')' ); ?>
@@ -268,18 +268,18 @@ final class SeriesHealth {
 		$rows = (array) $report['rows'];
 		if ( ! $rows ) {
 			?>
-			<p class="wptl-health-empty"><?php echo 'issues' === $report['view'] ? esc_html__( 'No structural issues were found in this Series.', 'wp-title-layer' ) : esc_html__( 'No articles match this filter.', 'wp-title-layer' ); ?></p>
+			<p class="wptl-health-empty"><?php echo 'issues' === $report['view'] ? esc_html__( 'No structural issues were found in this Series.', 'irisable-title-layer' ) : esc_html__( 'No articles match this filter.', 'irisable-title-layer' ); ?></p>
 			<?php
 			return;
 		}
 		?>
 		<table class="widefat striped wptl-health-table wptl-health-table--members">
 			<thead><tr>
-				<th><?php esc_html_e( 'Article', 'wp-title-layer' ); ?></th>
-				<th><?php esc_html_e( 'Visibility', 'wp-title-layer' ); ?></th>
-				<th><?php esc_html_e( 'Season', 'wp-title-layer' ); ?></th>
-				<th><?php echo esc_html( ! empty( $report['managed'] ) ? __( 'Automatic number', 'wp-title-layer' ) : ( ! empty( $report['book_structure'] ) ? __( 'Track order', 'wp-title-layer' ) : __( 'Position', 'wp-title-layer' ) ) ); ?></th>
-				<th><?php esc_html_e( 'Check result', 'wp-title-layer' ); ?></th>
+				<th><?php esc_html_e( 'Article', 'irisable-title-layer' ); ?></th>
+				<th><?php esc_html_e( 'Visibility', 'irisable-title-layer' ); ?></th>
+				<th><?php esc_html_e( 'Season', 'irisable-title-layer' ); ?></th>
+				<th><?php echo esc_html( ! empty( $report['managed'] ) ? __( 'Automatic number', 'irisable-title-layer' ) : ( ! empty( $report['book_structure'] ) ? __( 'Track order', 'irisable-title-layer' ) : __( 'Position', 'irisable-title-layer' ) ) ); ?></th>
+				<th><?php esc_html_e( 'Check result', 'irisable-title-layer' ); ?></th>
 			</tr></thead>
 			<tbody>
 			<?php foreach ( $rows as $row ) : ?>
@@ -294,7 +294,7 @@ final class SeriesHealth {
 					</td>
 					<td>
 						<span class="wptl-health-badge"><?php echo esc_html( (string) $row['status_label'] ); ?></span>
-						<?php if ( ! empty( $row['password_protected'] ) ) : ?><span class="wptl-health-badge wptl-health-badge--notice"><?php esc_html_e( 'Password', 'wp-title-layer' ); ?></span><?php endif; ?>
+						<?php if ( ! empty( $row['password_protected'] ) ) : ?><span class="wptl-health-badge wptl-health-badge--notice"><?php esc_html_e( 'Password', 'irisable-title-layer' ); ?></span><?php endif; ?>
 					</td>
 					<td><?php echo esc_html( self::row_season( $row, (string) $report['structure'] ) ); ?></td>
 					<td><?php echo esc_html( self::row_position( $row, (string) $report['mode'], ! empty( $report['managed'] ), ! empty( $report['book_structure'] ) ) ); ?></td>
@@ -311,20 +311,20 @@ final class SeriesHealth {
 		$managed = ! empty( $row['managed'] )
 			|| ( ! empty( $row['book_structure'] ) && Schema::ROLE_ARTICLE !== (string) ( $row['role'] ?? '' ) );
 		$labels = array(
-			'missing_season'     => __( 'Season missing', 'wp-title-layer' ),
-			'invalid_season'     => __( 'Season not defined', 'wp-title-layer' ),
-			'unresolved_scope'   => __( 'Series/Season scope unresolved', 'wp-title-layer' ),
-			'invalid_scope'      => __( 'Scope conflicts with role or Series structure', 'wp-title-layer' ),
-			'invalid_role'       => __( 'Series role is not recognized', 'wp-title-layer' ),
-			'missing_position'   => $managed ? __( 'Managed order missing', 'wp-title-layer' ) : __( 'Position missing', 'wp-title-layer' ),
-			'invalid_position'   => $managed ? __( 'Managed order damaged', 'wp-title-layer' ) : __( 'Position invalid', 'wp-title-layer' ),
-			'duplicate_position' => $managed ? __( 'Managed order duplicated', 'wp-title-layer' ) : __( 'Position duplicated', 'wp-title-layer' ),
-			'legacy_position_changed' => __( 'Obsolete legacy position changed', 'wp-title-layer' ),
-			'category_mismatch'  => __( 'Outside the Series Category branch', 'wp-title-layer' ),
+			'missing_season'     => __( 'Season missing', 'irisable-title-layer' ),
+			'invalid_season'     => __( 'Season not defined', 'irisable-title-layer' ),
+			'unresolved_scope'   => __( 'Series/Season scope unresolved', 'irisable-title-layer' ),
+			'invalid_scope'      => __( 'Scope conflicts with role or Series structure', 'irisable-title-layer' ),
+			'invalid_role'       => __( 'Series role is not recognized', 'irisable-title-layer' ),
+			'missing_position'   => $managed ? __( 'Managed order missing', 'irisable-title-layer' ) : __( 'Position missing', 'irisable-title-layer' ),
+			'invalid_position'   => $managed ? __( 'Managed order damaged', 'irisable-title-layer' ) : __( 'Position invalid', 'irisable-title-layer' ),
+			'duplicate_position' => $managed ? __( 'Managed order duplicated', 'irisable-title-layer' ) : __( 'Position duplicated', 'irisable-title-layer' ),
+			'legacy_position_changed' => __( 'Obsolete legacy position changed', 'irisable-title-layer' ),
+			'category_mismatch'  => __( 'Outside the Series Category branch', 'irisable-title-layer' ),
 		);
 		$issues = (array) ( $row['issues'] ?? array() );
 		if ( ! $issues ) {
-			echo '<span class="wptl-health-badge wptl-health-badge--success">' . esc_html__( 'No structural issue', 'wp-title-layer' ) . '</span>';
+			echo '<span class="wptl-health-badge wptl-health-badge--success">' . esc_html__( 'No structural issue', 'irisable-title-layer' ) . '</span>';
 			return;
 		}
 
@@ -339,36 +339,36 @@ final class SeriesHealth {
 	/** @param array<string,mixed> $row Member row. */
 	private static function row_season( array $row, string $structure ): string {
 		if ( Schema::STRUCTURE_SEASONED !== $structure ) {
-			return __( 'Not used', 'wp-title-layer' );
+			return __( 'Not used', 'irisable-title-layer' );
 		}
 		if ( Schema::SCOPE_SERIES === (string) ( $row['scope'] ?? '' ) && Schema::ROLE_ARTICLE !== (string) ( $row['role'] ?? '' ) ) {
-			return __( 'Entire Series', 'wp-title-layer' );
+			return __( 'Entire Series', 'irisable-title-layer' );
 		}
 		if ( '' !== (string) $row['season_label'] ) {
 			return (string) $row['season_label'];
 		}
 
-		return __( 'Not set', 'wp-title-layer' );
+		return __( 'Not set', 'irisable-title-layer' );
 	}
 
 	/** @param array<string,mixed> $row Member row. */
 	private static function row_position( array $row, string $mode, bool $managed, bool $book_structure ): string {
 		if ( Schema::MODE_ORDERED !== $mode ) {
 			return $book_structure && Schema::ROLE_ARTICLE !== (string) ( $row['role'] ?? '' )
-				? __( 'Managed track', 'wp-title-layer' )
-				: __( 'Not used', 'wp-title-layer' );
+				? __( 'Managed track', 'irisable-title-layer' )
+				: __( 'Not used', 'irisable-title-layer' );
 		}
 		if ( $managed ) {
 			return 0 < (int) ( $row['ordinal'] ?? 0 )
 				? (string) (int) $row['ordinal']
-				: __( 'Non-numbered role', 'wp-title-layer' );
+				: __( 'Non-numbered role', 'irisable-title-layer' );
 		}
-		return '' !== (string) $row['position'] ? (string) $row['position'] : __( 'Not set', 'wp-title-layer' );
+		return '' !== (string) $row['position'] ? (string) $row['position'] : __( 'Not set', 'irisable-title-layer' );
 	}
 
 	private static function model_label( \WP_Term $term ): string {
-		$mode = Series::is_ordered( $term ) ? __( 'Ordered', 'wp-title-layer' ) : __( 'Unordered', 'wp-title-layer' );
-		$structure = Series::is_seasoned( $term ) ? __( 'Seasoned', 'wp-title-layer' ) : __( 'Flat', 'wp-title-layer' );
+		$mode = Series::is_ordered( $term ) ? __( 'Ordered', 'irisable-title-layer' ) : __( 'Unordered', 'irisable-title-layer' );
+		$structure = Series::is_seasoned( $term ) ? __( 'Seasoned', 'irisable-title-layer' ) : __( 'Flat', 'irisable-title-layer' );
 		return $mode . ' · ' . $structure;
 	}
 
@@ -399,12 +399,12 @@ final class SeriesHealth {
 				'current'   => max( 1, $page ),
 				'total'     => $total_pages,
 				'type'      => 'list',
-				'prev_text' => __( 'Previous page', 'wp-title-layer' ),
-				'next_text' => __( 'Next page', 'wp-title-layer' ),
+				'prev_text' => __( 'Previous page', 'irisable-title-layer' ),
+				'next_text' => __( 'Next page', 'irisable-title-layer' ),
 			)
 		);
 		if ( is_string( $links ) ) {
-			echo '<nav class="wptl-health-pagination" aria-label="' . esc_attr__( 'Health report pages', 'wp-title-layer' ) . '">' . wp_kses_post( $links ) . '</nav>';
+			echo '<nav class="wptl-health-pagination" aria-label="' . esc_attr__( 'Health report pages', 'irisable-title-layer' ) . '">' . wp_kses_post( $links ) . '</nav>';
 		}
 	}
 }

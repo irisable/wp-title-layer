@@ -50,12 +50,12 @@ final class PostListColumns {
 		foreach ( $columns as $key => $label ) {
 			$result[ $key ] = $label;
 			if ( 'title' === $key ) {
-				$result[ self::COLUMN ] = __( 'Subtitle', 'wp-title-layer' );
+				$result[ self::COLUMN ] = __( 'Subtitle', 'irisable-title-layer' );
 			}
 		}
 
 		if ( ! isset( $result[ self::COLUMN ] ) ) {
-			$result[ self::COLUMN ] = __( 'Subtitle', 'wp-title-layer' );
+			$result[ self::COLUMN ] = __( 'Subtitle', 'irisable-title-layer' );
 		}
 		return $result;
 	}
@@ -67,7 +67,7 @@ final class PostListColumns {
 
 		$subtitle = self::subtitle( $post_id );
 		if ( '' === $subtitle ) {
-			echo '<span aria-hidden="true">—</span><span class="screen-reader-text">' . esc_html__( 'No subtitle', 'wp-title-layer' ) . '</span>';
+			echo '<span aria-hidden="true">—</span><span class="screen-reader-text">' . esc_html__( 'No subtitle', 'irisable-title-layer' ) . '</span>';
 			return;
 		}
 

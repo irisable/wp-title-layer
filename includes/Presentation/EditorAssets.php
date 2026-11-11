@@ -42,7 +42,7 @@ final class EditorAssets {
 
 		wp_set_script_translations(
 			self::SCRIPT_HANDLE,
-			'wp-title-layer',
+			'irisable-title-layer',
 			defined( 'WPTL_PATH' ) ? WPTL_PATH . 'languages' : dirname( __DIR__, 2 ) . '/languages'
 		);
 

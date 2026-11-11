@@ -4,9 +4,9 @@ const fs = require( 'node:fs' );
 const path = require( 'node:path' );
 
 const root = path.resolve( __dirname, '..' );
-const poPath = path.join( root, 'languages', 'wp-title-layer-zh_CN.po' );
+const poPath = path.join( root, 'languages', 'irisable-title-layer-zh_CN.po' );
 const editorPath = path.join( root, 'assets', 'editor.js' );
-const outputPath = path.join( root, 'languages', 'wp-title-layer-zh_CN-wptl-editor.json' );
+const outputPath = path.join( root, 'languages', 'irisable-title-layer-zh_CN-wptl-editor.json' );
 
 function poString( line ) {
 	const quote = line.indexOf( '"' );
@@ -57,7 +57,7 @@ const messages = {
 	},
 };
 const missing = [];
-for ( const match of editor.matchAll( /__\(\s*'([^']+)'\s*,\s*'wp-title-layer'\s*\)/g ) ) {
+for ( const match of editor.matchAll( /__\(\s*'([^']+)'\s*,\s*'irisable-title-layer'\s*\)/g ) ) {
 	const msgid = match[ 1 ];
 	if ( Object.prototype.hasOwnProperty.call( messages, msgid ) ) {
 		continue;
@@ -75,7 +75,7 @@ if ( missing.length ) {
 
 const payload = {
 	'translation-revision-date': revisionDate,
-	generator: 'WP Title Layer translation build',
+	generator: 'Irisable Title Layer translation build',
 	source: 'assets/editor.js',
 	domain: 'messages',
 	locale_data: { messages },

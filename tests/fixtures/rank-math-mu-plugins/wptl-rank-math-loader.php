@@ -1,6 +1,6 @@
 <?php
 /**
- * Load the mounted official Rank Math build before WP Title Layer.
+ * Load the mounted official Rank Math build before Irisable Title Layer.
  *
  * @package WPTitleLayer
  */

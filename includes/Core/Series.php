@@ -61,19 +61,19 @@ final class Series {
 		}
 
 		$labels = [
-			'name'                       => __( 'Series', 'wp-title-layer' ),
-			'singular_name'              => __( 'Series', 'wp-title-layer' ),
-			'search_items'               => __( 'Search Series', 'wp-title-layer' ),
-			'all_items'                  => __( 'All Series', 'wp-title-layer' ),
-			'edit_item'                  => __( 'Edit Series', 'wp-title-layer' ),
-			'update_item'                => __( 'Update Series', 'wp-title-layer' ),
-			'add_new_item'               => __( 'Add New Series', 'wp-title-layer' ),
-			'new_item_name'              => __( 'New Series Name', 'wp-title-layer' ),
-			'menu_name'                  => __( 'Series', 'wp-title-layer' ),
-			'not_found'                  => __( 'No Series found.', 'wp-title-layer' ),
-			'back_to_items'              => __( 'Back to Series', 'wp-title-layer' ),
-			'item_link'                  => __( 'Series Link', 'wp-title-layer' ),
-			'item_link_description'      => __( 'A link to a Series.', 'wp-title-layer' ),
+			'name'                       => __( 'Series', 'irisable-title-layer' ),
+			'singular_name'              => __( 'Series', 'irisable-title-layer' ),
+			'search_items'               => __( 'Search Series', 'irisable-title-layer' ),
+			'all_items'                  => __( 'All Series', 'irisable-title-layer' ),
+			'edit_item'                  => __( 'Edit Series', 'irisable-title-layer' ),
+			'update_item'                => __( 'Update Series', 'irisable-title-layer' ),
+			'add_new_item'               => __( 'Add New Series', 'irisable-title-layer' ),
+			'new_item_name'              => __( 'New Series Name', 'irisable-title-layer' ),
+			'menu_name'                  => __( 'Series', 'irisable-title-layer' ),
+			'not_found'                  => __( 'No Series found.', 'irisable-title-layer' ),
+			'back_to_items'              => __( 'Back to Series', 'irisable-title-layer' ),
+			'item_link'                  => __( 'Series Link', 'irisable-title-layer' ),
+			'item_link_description'      => __( 'A link to a Series.', 'irisable-title-layer' ),
 		];
 
 		$args = [
@@ -196,7 +196,7 @@ final class Series {
 
 	/**
 	 * Repair only the active Series taxonomy when a third party replaces its
-	 * registry object after WP Title Layer has initialized.
+	 * registry object after Irisable Title Layer has initialized.
 	 */
 	public static function preserve_rest_registration( string $taxonomy ): void {
 		if ( self::is_claimed_taxonomy( $taxonomy ) ) {
@@ -236,7 +236,7 @@ final class Series {
 	/**
 	 * Keep assign-only users from using the term endpoint as a term-management
 	 * endpoint. WordPress permits non-hierarchical term creation with the weaker
-	 * assign_terms capability, while WP Title Layer deliberately treats Series
+	 * assign_terms capability, while Irisable Title Layer deliberately treats Series
 	 * definitions as administrator/editor-managed content.
 	 *
 	 * @param mixed            $response Pre-dispatch response, when another filter handled it.
@@ -281,7 +281,7 @@ final class Series {
 
 		return new \WP_Error(
 			'wptl_rest_cannot_write_series_terms',
-			__( 'Sorry, you are not allowed to create or change Series terms.', 'wp-title-layer' ),
+			__( 'Sorry, you are not allowed to create or change Series terms.', 'irisable-title-layer' ),
 			[ 'status' => rest_authorization_required_code() ]
 		);
 	}
@@ -307,70 +307,70 @@ final class Series {
 		}
 		self::render_term_nonce();
 		self::render_category_select( 0 );
-		self::render_add_select( Schema::TERM_META_SERIES_MODE, __( 'Reading mode', 'wp-title-layer' ), Schema::modes(), Schema::MODE_UNORDERED );
-		self::render_add_select( Schema::TERM_META_SERIES_STRUCTURE, __( 'Structure', 'wp-title-layer' ), Schema::structures(), Schema::STRUCTURE_FLAT );
+		self::render_add_select( Schema::TERM_META_SERIES_MODE, __( 'Reading mode', 'irisable-title-layer' ), Schema::modes(), Schema::MODE_UNORDERED );
+		self::render_add_select( Schema::TERM_META_SERIES_STRUCTURE, __( 'Structure', 'irisable-title-layer' ), Schema::structures(), Schema::STRUCTURE_FLAT );
 		self::render_add_select(
 			Schema::TERM_META_NAVIGATION_SCOPE,
-			__( 'Reading navigation scope', 'wp-title-layer' ),
+			__( 'Reading navigation scope', 'irisable-title-layer' ),
 			Schema::navigation_scopes(),
 			Schema::NAVIGATION_SCOPE_SERIES,
-			__( 'Used by ordered Series with seasons. Entire Series may cross a season boundary; Current Season stops at that season’s first and last article.', 'wp-title-layer' )
+			__( 'Used by ordered Series with seasons. Entire Series may cross a season boundary; Current Season stops at that season’s first and last article.', 'irisable-title-layer' )
 		);
 		self::render_add_select(
 			Schema::TERM_META_SERIES_STATUS,
-			__( 'Series status', 'wp-title-layer' ),
+			__( 'Series status', 'irisable-title-layer' ),
 			array_merge( [ '' ], Schema::statuses() ),
 			'',
-			__( 'Descriptive only. It does not publish, hide, lock, or reorder articles.', 'wp-title-layer' )
+			__( 'Descriptive only. It does not publish, hide, lock, or reorder articles.', 'irisable-title-layer' )
 		);
 		self::render_add_select(
 			Schema::TERM_META_ARCHIVE_SORT,
-			__( 'Archive sort', 'wp-title-layer' ),
+			__( 'Archive sort', 'irisable-title-layer' ),
 			Schema::archive_sorts(),
 			Schema::ARCHIVE_SORT_DATE_DESC,
-			__( 'Used by unordered Series. Ordered Series always follow their reading sequence; seasoned unordered Series apply this order within each season.', 'wp-title-layer' )
+			__( 'Used by unordered Series. Ordered Series always follow their reading sequence; seasoned unordered Series apply this order within each season.', 'irisable-title-layer' )
 		);
 		self::render_add_select(
 			Schema::TERM_META_ARCHIVE_LAYOUT,
-			__( 'Archive layout for this Series', 'wp-title-layer' ),
+			__( 'Archive layout for this Series', 'irisable-title-layer' ),
 			Schema::archive_layouts(),
 			Schema::ARCHIVE_LAYOUT_INHERIT,
-			__( 'Inherit uses the site-wide Reader setting. Theme keeps the active theme layout; Structured requests WP Title Layer’s season-aware layout when the theme can be safely replaced.', 'wp-title-layer' )
+			__( 'Inherit uses the site-wide Reader setting. Theme keeps the active theme layout; Structured requests Irisable Title Layer’s season-aware layout when the theme can be safely replaced.', 'irisable-title-layer' )
 		);
 		self::render_add_select(
 			Schema::TERM_META_ARCHIVE_SUBTITLES,
-			__( 'Article subtitles on this archive', 'wp-title-layer' ),
+			__( 'Article subtitles on this archive', 'irisable-title-layer' ),
 			Schema::archive_visibility_overrides(),
 			Schema::ARCHIVE_VISIBILITY_INHERIT,
-			__( 'Overrides the relevant structured or supported-theme subtitle setting for this Series only.', 'wp-title-layer' )
+			__( 'Overrides the relevant structured or supported-theme subtitle setting for this Series only.', 'irisable-title-layer' )
 		);
 		self::render_add_select(
 			Schema::TERM_META_ARCHIVE_EXCERPTS,
-			__( 'Article excerpts on this archive', 'wp-title-layer' ),
+			__( 'Article excerpts on this archive', 'irisable-title-layer' ),
 			Schema::archive_visibility_overrides(),
 			Schema::ARCHIVE_VISIBILITY_INHERIT,
-			__( 'Used only by WP Title Layer’s structured archive. The inherited site-wide default is off.', 'wp-title-layer' )
+			__( 'Used only by Irisable Title Layer’s structured archive. The inherited site-wide default is off.', 'irisable-title-layer' )
 		);
 		self::render_add_select(
 			Schema::TERM_META_ARCHIVE_FEATURED_IMAGES,
-			__( 'Featured images on this archive', 'wp-title-layer' ),
+			__( 'Featured images on this archive', 'irisable-title-layer' ),
 			Schema::archive_visibility_overrides(),
 			Schema::ARCHIVE_VISIBILITY_INHERIT,
-			__( 'Used only by WP Title Layer’s structured archive. The default is inherited and remains off on upgraded sites.', 'wp-title-layer' )
+			__( 'Used only by Irisable Title Layer’s structured archive. The default is inherited and remains off on upgraded sites.', 'irisable-title-layer' )
 		);
-		self::render_add_input( Schema::TERM_META_SHORT_LABEL, __( 'Short label', 'wp-title-layer' ), 'text' );
+		self::render_add_input( Schema::TERM_META_SHORT_LABEL, __( 'Short label', 'irisable-title-layer' ), 'text' );
 		self::render_add_template_select();
 		self::render_cover_selector( 0 );
 		self::render_add_select(
 			Schema::TERM_META_TITLE_ICON,
-			__( 'Series icon in article title layers', 'wp-title-layer' ),
+			__( 'Series icon in article title layers', 'irisable-title-layer' ),
 			Schema::archive_visibility_overrides(),
 			Schema::ARCHIVE_VISIBILITY_INHERIT,
-			__( 'Inherit uses the site-wide Title presentation setting. The icon is decorative and never becomes part of the article title or SEO title.', 'wp-title-layer' )
+			__( 'Inherit uses the site-wide Title presentation setting. The icon is decorative and never becomes part of the article title or SEO title.', 'irisable-title-layer' )
 		);
 		self::render_icon_selector( 0 );
 		self::render_add_seasons( [] );
-		echo '<div class="form-field"><label>' . esc_html__( 'Book structure', 'wp-title-layer' ) . '</label><p>' . esc_html__( 'New Series start with the 0.11 book-structure model. Existing Series use a separate read-only preview before activation.', 'wp-title-layer' ) . '</p></div>';
+		echo '<div class="form-field"><label>' . esc_html__( 'Book structure', 'irisable-title-layer' ) . '</label><p>' . esc_html__( 'New Series start with the 0.11 book-structure model. Existing Series use a separate read-only preview before activation.', 'irisable-title-layer' ) . '</p></div>';
 	}
 
 	public static function render_edit_term_fields( \WP_Term $term ): void {
@@ -379,74 +379,74 @@ final class Series {
 		}
 		self::render_term_nonce();
 		self::render_category_select( self::parent_category_id( $term ), true );
-		self::render_edit_select( $term, Schema::TERM_META_SERIES_MODE, __( 'Reading mode', 'wp-title-layer' ), Schema::modes(), self::mode( $term ) );
-		self::render_edit_select( $term, Schema::TERM_META_SERIES_STRUCTURE, __( 'Structure', 'wp-title-layer' ), Schema::structures(), self::structure( $term ) );
+		self::render_edit_select( $term, Schema::TERM_META_SERIES_MODE, __( 'Reading mode', 'irisable-title-layer' ), Schema::modes(), self::mode( $term ) );
+		self::render_edit_select( $term, Schema::TERM_META_SERIES_STRUCTURE, __( 'Structure', 'irisable-title-layer' ), Schema::structures(), self::structure( $term ) );
 		self::render_edit_select(
 			$term,
 			Schema::TERM_META_NAVIGATION_SCOPE,
-			__( 'Reading navigation scope', 'wp-title-layer' ),
+			__( 'Reading navigation scope', 'irisable-title-layer' ),
 			Schema::navigation_scopes(),
 			self::navigation_scope( $term ),
-			__( 'Used by ordered Series with seasons. Existing Series default to Entire Series, which may cross season boundaries.', 'wp-title-layer' )
+			__( 'Used by ordered Series with seasons. Existing Series default to Entire Series, which may cross season boundaries.', 'irisable-title-layer' )
 		);
 		self::render_edit_select(
 			$term,
 			Schema::TERM_META_SERIES_STATUS,
-			__( 'Series status', 'wp-title-layer' ),
+			__( 'Series status', 'irisable-title-layer' ),
 			array_merge( [ '' ], Schema::statuses() ),
 			self::status( $term ),
-			__( 'Descriptive only. It does not publish, hide, lock, or reorder articles.', 'wp-title-layer' )
+			__( 'Descriptive only. It does not publish, hide, lock, or reorder articles.', 'irisable-title-layer' )
 		);
 		self::render_edit_select(
 			$term,
 			Schema::TERM_META_ARCHIVE_SORT,
-			__( 'Archive sort', 'wp-title-layer' ),
+			__( 'Archive sort', 'irisable-title-layer' ),
 			Schema::archive_sorts(),
 			self::archive_sort( $term ),
-			__( 'Used by unordered Series. Ordered Series always follow their reading sequence; seasoned unordered Series apply this order within each season.', 'wp-title-layer' )
+			__( 'Used by unordered Series. Ordered Series always follow their reading sequence; seasoned unordered Series apply this order within each season.', 'irisable-title-layer' )
 		);
 		self::render_edit_select(
 			$term,
 			Schema::TERM_META_ARCHIVE_LAYOUT,
-			__( 'Archive layout for this Series', 'wp-title-layer' ),
+			__( 'Archive layout for this Series', 'irisable-title-layer' ),
 			Schema::archive_layouts(),
 			self::archive_layout( $term ),
-			__( 'Inherit uses the site-wide Reader setting. Theme keeps the active theme layout; Structured requests WP Title Layer’s season-aware layout when the theme can be safely replaced.', 'wp-title-layer' )
+			__( 'Inherit uses the site-wide Reader setting. Theme keeps the active theme layout; Structured requests Irisable Title Layer’s season-aware layout when the theme can be safely replaced.', 'irisable-title-layer' )
 		);
 		self::render_edit_select(
 			$term,
 			Schema::TERM_META_ARCHIVE_SUBTITLES,
-			__( 'Article subtitles on this archive', 'wp-title-layer' ),
+			__( 'Article subtitles on this archive', 'irisable-title-layer' ),
 			Schema::archive_visibility_overrides(),
 			self::archive_subtitles( $term ),
-			__( 'Overrides the relevant structured or supported-theme subtitle setting for this Series only.', 'wp-title-layer' )
+			__( 'Overrides the relevant structured or supported-theme subtitle setting for this Series only.', 'irisable-title-layer' )
 		);
 		self::render_edit_select(
 			$term,
 			Schema::TERM_META_ARCHIVE_EXCERPTS,
-			__( 'Article excerpts on this archive', 'wp-title-layer' ),
+			__( 'Article excerpts on this archive', 'irisable-title-layer' ),
 			Schema::archive_visibility_overrides(),
 			self::archive_excerpts( $term ),
-			__( 'Used only by WP Title Layer’s structured archive. The inherited site-wide default is off.', 'wp-title-layer' )
+			__( 'Used only by Irisable Title Layer’s structured archive. The inherited site-wide default is off.', 'irisable-title-layer' )
 		);
 		self::render_edit_select(
 			$term,
 			Schema::TERM_META_ARCHIVE_FEATURED_IMAGES,
-			__( 'Featured images on this archive', 'wp-title-layer' ),
+			__( 'Featured images on this archive', 'irisable-title-layer' ),
 			Schema::archive_visibility_overrides(),
 			self::archive_featured_images( $term ),
-			__( 'Used only by WP Title Layer’s structured archive. The default is inherited and remains off on upgraded sites.', 'wp-title-layer' )
+			__( 'Used only by Irisable Title Layer’s structured archive. The default is inherited and remains off on upgraded sites.', 'irisable-title-layer' )
 		);
-		self::render_edit_input( $term, Schema::TERM_META_SHORT_LABEL, __( 'Short label', 'wp-title-layer' ), 'text' );
+		self::render_edit_input( $term, Schema::TERM_META_SHORT_LABEL, __( 'Short label', 'irisable-title-layer' ), 'text' );
 		self::render_edit_template_select( $term );
 		self::render_cover_selector( (int) get_term_meta( $term->term_id, Schema::TERM_META_COVER_ID, true ), true );
 		self::render_edit_select(
 			$term,
 			Schema::TERM_META_TITLE_ICON,
-			__( 'Series icon in article title layers', 'wp-title-layer' ),
+			__( 'Series icon in article title layers', 'irisable-title-layer' ),
 			Schema::archive_visibility_overrides(),
 			self::title_icon( $term ),
-			__( 'Inherit uses the site-wide Title presentation setting. The icon is decorative and never becomes part of the article title or SEO title.', 'wp-title-layer' )
+			__( 'Inherit uses the site-wide Title presentation setting. The icon is decorative and never becomes part of the article title or SEO title.', 'irisable-title-layer' )
 		);
 		self::render_icon_selector( (int) get_term_meta( $term->term_id, Schema::TERM_META_ICON_ID, true ), true );
 		self::render_edit_seasons( self::seasons( $term ) );
@@ -461,11 +461,11 @@ final class Series {
 		);
 		?>
 		<tr class="form-field term-wptl-book-structure-wrap">
-			<th scope="row"><?php esc_html_e( 'Book structure', 'wp-title-layer' ); ?></th>
+			<th scope="row"><?php esc_html_e( 'Book structure', 'irisable-title-layer' ); ?></th>
 			<td>
-				<strong><?php echo esc_html( $enabled ? __( 'Active', 'wp-title-layer' ) : __( 'Compatibility mode', 'wp-title-layer' ) ); ?></strong>
-				<p class="description"><?php echo esc_html( $enabled ? __( 'Series/Season scope and role tracks are canonical for this Series.', 'wp-title-layer' ) : __( 'Current front-end order is unchanged. Review legacy roles and activate advanced structure in Sequence & Structure when ready.', 'wp-title-layer' ) ); ?></p>
-				<a class="button" href="<?php echo esc_url( $url ); ?>"><?php esc_html_e( 'Open Sequence & Structure', 'wp-title-layer' ); ?></a>
+				<strong><?php echo esc_html( $enabled ? __( 'Active', 'irisable-title-layer' ) : __( 'Compatibility mode', 'irisable-title-layer' ) ); ?></strong>
+				<p class="description"><?php echo esc_html( $enabled ? __( 'Series/Season scope and role tracks are canonical for this Series.', 'irisable-title-layer' ) : __( 'Current front-end order is unchanged. Review legacy roles and activate advanced structure in Sequence & Structure when ready.', 'irisable-title-layer' ) ); ?></p>
+				<a class="button" href="<?php echo esc_url( $url ); ?>"><?php esc_html_e( 'Open Sequence & Structure', 'irisable-title-layer' ); ?></a>
 			</td>
 		</tr>
 		<?php
@@ -485,12 +485,12 @@ final class Series {
 				'name'              => 'wptl_term[' . $key . ']',
 				'id'                => $key,
 				'selected'          => max( 0, $selected ),
-				'show_option_none'  => __( 'No parent Category', 'wp-title-layer' ),
+				'show_option_none'  => __( 'No parent Category', 'irisable-title-layer' ),
 				'option_none_value' => '0',
 				'echo'              => false,
 			)
 		);
-		$description = __( 'Optional editorial organization only. It does not make Series a child taxonomy and never adds or removes Category assignments on articles.', 'wp-title-layer' );
+		$description = __( 'Optional editorial organization only. It does not make Series a child taxonomy and never adds or removes Category assignments on articles.', 'irisable-title-layer' );
 		$allowed = array(
 			'select' => array( 'name' => true, 'id' => true, 'class' => true ),
 			'option' => array( 'value' => true, 'selected' => true, 'class' => true ),
@@ -498,14 +498,14 @@ final class Series {
 
 		if ( $table_row ) {
 			echo '<tr class="form-field term-' . esc_attr( $key ) . '-wrap">';
-			echo '<th scope="row"><label for="' . esc_attr( $key ) . '">' . esc_html__( 'Parent Category', 'wp-title-layer' ) . '</label></th>';
+			echo '<th scope="row"><label for="' . esc_attr( $key ) . '">' . esc_html__( 'Parent Category', 'irisable-title-layer' ) . '</label></th>';
 			echo '<td>' . wp_kses( (string) $dropdown, $allowed ) . '<p class="description">' . esc_html( $description ) . '</p></td>';
 			echo '</tr>';
 			return;
 		}
 
 		echo '<div class="form-field term-' . esc_attr( $key ) . '-wrap">';
-		echo '<label for="' . esc_attr( $key ) . '">' . esc_html__( 'Parent Category', 'wp-title-layer' ) . '</label>';
+		echo '<label for="' . esc_attr( $key ) . '">' . esc_html__( 'Parent Category', 'irisable-title-layer' ) . '</label>';
 		echo wp_kses( (string) $dropdown, $allowed );
 		echo '<p>' . esc_html( $description ) . '</p>';
 		echo '</div>';
@@ -558,14 +558,14 @@ final class Series {
 		if ( $table_row ) {
 			?>
 			<tr class="form-field term-<?php echo esc_attr( $key ); ?>-wrap">
-				<th scope="row"><label for="<?php echo esc_attr( $key ); ?>"><?php esc_html_e( 'Default template', 'wp-title-layer' ); ?></label></th>
+				<th scope="row"><label for="<?php echo esc_attr( $key ); ?>"><?php esc_html_e( 'Default template', 'irisable-title-layer' ); ?></label></th>
 				<td>
 					<select name="wptl_term[<?php echo esc_attr( $key ); ?>]" id="<?php echo esc_attr( $key ); ?>">
 						<?php foreach ( $choices as $value => $label ) : ?>
 							<option value="<?php echo esc_attr( $value ); ?>" <?php selected( $current, $value ); ?>><?php echo esc_html( $label ); ?></option>
 						<?php endforeach; ?>
 					</select>
-					<p class="description"><?php esc_html_e( 'Used when an article in this Series does not choose its own template.', 'wp-title-layer' ); ?></p>
+					<p class="description"><?php esc_html_e( 'Used when an article in this Series does not choose its own template.', 'irisable-title-layer' ); ?></p>
 				</td>
 			</tr>
 			<?php
@@ -573,20 +573,20 @@ final class Series {
 		}
 		?>
 		<div class="form-field term-<?php echo esc_attr( $key ); ?>-wrap">
-			<label for="<?php echo esc_attr( $key ); ?>"><?php esc_html_e( 'Default template', 'wp-title-layer' ); ?></label>
+			<label for="<?php echo esc_attr( $key ); ?>"><?php esc_html_e( 'Default template', 'irisable-title-layer' ); ?></label>
 			<select name="wptl_term[<?php echo esc_attr( $key ); ?>]" id="<?php echo esc_attr( $key ); ?>">
 				<?php foreach ( $choices as $value => $label ) : ?>
 					<option value="<?php echo esc_attr( $value ); ?>" <?php selected( $current, $value ); ?>><?php echo esc_html( $label ); ?></option>
 				<?php endforeach; ?>
 			</select>
-			<p><?php esc_html_e( 'Used when an article in this Series does not choose its own template.', 'wp-title-layer' ); ?></p>
+			<p><?php esc_html_e( 'Used when an article in this Series does not choose its own template.', 'irisable-title-layer' ); ?></p>
 		</div>
 		<?php
 	}
 
 	/** @return array<string,string> */
 	private static function template_choices(): array {
-		$choices = [ '' => __( 'Use category or global default', 'wp-title-layer' ) ];
+		$choices = [ '' => __( 'Use category or global default', 'irisable-title-layer' ) ];
 		if ( class_exists( '\\WPTitleLayer\\Presentation\\Presets' ) ) {
 			foreach ( \WPTitleLayer\Presentation\Presets::choices() as $choice ) {
 				$value = sanitize_key( (string) ( $choice['value'] ?? '' ) );
@@ -622,8 +622,8 @@ final class Series {
 		self::render_media_selector(
 			Schema::TERM_META_COVER_ID,
 			$attachment_id,
-			__( 'Series cover', 'wp-title-layer' ),
-			__( 'Used by the structured Series archive. The attachment ID remains the canonical stored value.', 'wp-title-layer' ),
+			__( 'Series cover', 'irisable-title-layer' ),
+			__( 'Used by the structured Series archive. The attachment ID remains the canonical stored value.', 'irisable-title-layer' ),
 			'wptl-cover-control',
 			$table_row
 		);
@@ -633,8 +633,8 @@ final class Series {
 		self::render_media_selector(
 			Schema::TERM_META_ICON_ID,
 			$attachment_id,
-			__( 'Series icon', 'wp-title-layer' ),
-			__( 'Choose a small image used decoratively beside this Series name in article title layers. It is separate from the Series cover.', 'wp-title-layer' ),
+			__( 'Series icon', 'irisable-title-layer' ),
+			__( 'Choose a small image used decoratively beside this Series name in article title layers. It is separate from the Series cover.', 'irisable-title-layer' ),
 			'wptl-icon-control',
 			$table_row
 		);
@@ -668,8 +668,8 @@ final class Series {
 				aria-describedby="<?php echo esc_attr( $key . '-description' ); ?>"
 			>
 			<p class="wptl-cover-actions">
-				<button type="button" class="button wptl-select-cover"><?php esc_html_e( 'Choose image', 'wp-title-layer' ); ?></button>
-				<button type="button" class="button-link-delete wptl-remove-cover"<?php echo '' === $image ? ' hidden' : ''; ?>><?php esc_html_e( 'Remove image', 'wp-title-layer' ); ?></button>
+				<button type="button" class="button wptl-select-cover"><?php esc_html_e( 'Choose image', 'irisable-title-layer' ); ?></button>
+				<button type="button" class="button-link-delete wptl-remove-cover"<?php echo '' === $image ? ' hidden' : ''; ?>><?php esc_html_e( 'Remove image', 'irisable-title-layer' ); ?></button>
 			</p>
 			<p class="description" id="<?php echo esc_attr( $key . '-description' ); ?>"><?php echo esc_html( $description ); ?></p>
 		</div>
@@ -697,10 +697,10 @@ final class Series {
 		$rows = array_pad( $seasons, max( 4, count( $seasons ) + 3 ), [ 'key' => '', 'label' => '', 'sort' => 0 ] );
 		?>
 		<div class="form-field term-<?php echo esc_attr( Schema::TERM_META_SEASONS ); ?>-wrap">
-			<label><?php esc_html_e( 'Seasons', 'wp-title-layer' ); ?></label>
+			<label><?php esc_html_e( 'Seasons', 'irisable-title-layer' ); ?></label>
 			<?php self::render_season_rows( $rows ); ?>
 			<?php self::render_add_season_button(); ?>
-			<p><?php esc_html_e( 'Optional. Give each season a name and use order numbers such as 10, 20, 30.', 'wp-title-layer' ); ?></p>
+			<p><?php esc_html_e( 'Optional. Give each season a name and use order numbers such as 10, 20, 30.', 'irisable-title-layer' ); ?></p>
 		</div>
 		<?php
 	}
@@ -709,11 +709,11 @@ final class Series {
 		$rows = array_pad( $seasons, count( $seasons ) + 3, [ 'key' => '', 'label' => '', 'sort' => 0 ] );
 		?>
 		<tr class="form-field term-<?php echo esc_attr( Schema::TERM_META_SEASONS ); ?>-wrap">
-			<th scope="row"><label><?php esc_html_e( 'Seasons', 'wp-title-layer' ); ?></label></th>
+			<th scope="row"><label><?php esc_html_e( 'Seasons', 'irisable-title-layer' ); ?></label></th>
 			<td>
 				<?php self::render_season_rows( $rows ); ?>
 				<?php self::render_add_season_button(); ?>
-				<p class="description"><?php esc_html_e( 'Blank rows are ignored. Order numbers may leave gaps, making later insertion easier.', 'wp-title-layer' ); ?></p>
+				<p class="description"><?php esc_html_e( 'Blank rows are ignored. Order numbers may leave gaps, making later insertion easier.', 'irisable-title-layer' ); ?></p>
 			</td>
 		</tr>
 		<?php
@@ -724,9 +724,9 @@ final class Series {
 		?>
 		<table class="widefat striped wptl-season-table" style="max-width:620px" data-next-index="<?php echo esc_attr( (string) count( $rows ) ); ?>">
 			<thead><tr>
-				<th><?php esc_html_e( 'Season name', 'wp-title-layer' ); ?></th>
-				<th style="width:100px"><?php esc_html_e( 'Public URL ID', 'wp-title-layer' ); ?></th>
-				<th style="width:120px"><?php esc_html_e( 'Order', 'wp-title-layer' ); ?></th>
+				<th><?php esc_html_e( 'Season name', 'irisable-title-layer' ); ?></th>
+				<th style="width:100px"><?php esc_html_e( 'Public URL ID', 'irisable-title-layer' ); ?></th>
+				<th style="width:120px"><?php esc_html_e( 'Order', 'irisable-title-layer' ); ?></th>
 			</tr></thead>
 			<tbody>
 			<?php foreach ( array_values( $rows ) as $index => $season ) : ?>
@@ -738,11 +738,11 @@ final class Series {
 				<tr class="wptl-season-row">
 					<td>
 						<input type="hidden" name="wptl_term[<?php echo esc_attr( $key ); ?>][<?php echo esc_attr( (string) $index ); ?>][key]" value="<?php echo esc_attr( is_array( $season ) ? (string) ( $season['key'] ?? '' ) : '' ); ?>">
-						<input type="text" class="regular-text" name="wptl_term[<?php echo esc_attr( $key ); ?>][<?php echo esc_attr( (string) $index ); ?>][label]" value="<?php echo esc_attr( $label ); ?>" placeholder="<?php esc_attr_e( 'Season 1', 'wp-title-layer' ); ?>">
+						<input type="text" class="regular-text" name="wptl_term[<?php echo esc_attr( $key ); ?>][<?php echo esc_attr( (string) $index ); ?>][label]" value="<?php echo esc_attr( $label ); ?>" placeholder="<?php esc_attr_e( 'Season 1', 'irisable-title-layer' ); ?>">
 					</td>
 					<td>
 						<input type="hidden" name="wptl_term[<?php echo esc_attr( $key ); ?>][<?php echo esc_attr( (string) $index ); ?>][public_id]" value="<?php echo esc_attr( 0 < $public_id ? (string) $public_id : '' ); ?>">
-						<span class="wptl-season-public-id"><?php echo 0 < $public_id ? esc_html( (string) $public_id ) : esc_html__( 'Assigned on save', 'wp-title-layer' ); ?></span>
+						<span class="wptl-season-public-id"><?php echo 0 < $public_id ? esc_html( (string) $public_id ) : esc_html__( 'Assigned on save', 'irisable-title-layer' ); ?></span>
 					</td>
 					<td><input type="number" name="wptl_term[<?php echo esc_attr( $key ); ?>][<?php echo esc_attr( (string) $index ); ?>][sort]" value="<?php echo esc_attr( $label ? (string) $sort : (string) ( ( $index + 1 ) * 10 ) ); ?>" step="1"></td>
 				</tr>
@@ -754,7 +754,7 @@ final class Series {
 
 	private static function render_add_season_button(): void {
 		?>
-		<p><button type="button" class="button wptl-add-season-row"><?php esc_html_e( 'Add another season', 'wp-title-layer' ); ?></button></p>
+		<p><button type="button" class="button wptl-add-season-row"><?php esc_html_e( 'Add another season', 'irisable-title-layer' ); ?></button></p>
 		<?php
 	}
 
@@ -896,25 +896,25 @@ final class Series {
 
 	private static function humanize( string $value ): string {
 		$labels = [
-			''                              => __( 'Not set', 'wp-title-layer' ),
-			Schema::MODE_ORDERED            => __( 'Ordered', 'wp-title-layer' ),
-			Schema::MODE_UNORDERED          => __( 'Unordered', 'wp-title-layer' ),
-			Schema::STATUS_PLANNING         => __( 'Planning', 'wp-title-layer' ),
-			Schema::STATUS_ONGOING          => __( 'Ongoing', 'wp-title-layer' ),
-			Schema::STATUS_PAUSED           => __( 'Paused', 'wp-title-layer' ),
-			Schema::STATUS_COMPLETED        => __( 'Completed', 'wp-title-layer' ),
-			Schema::STRUCTURE_FLAT          => __( 'Flat', 'wp-title-layer' ),
-			Schema::STRUCTURE_SEASONED      => __( 'Seasoned', 'wp-title-layer' ),
-			Schema::NAVIGATION_SCOPE_SERIES => __( 'Entire Series', 'wp-title-layer' ),
-			Schema::NAVIGATION_SCOPE_SEASON => __( 'Current Season', 'wp-title-layer' ),
-			Schema::ARCHIVE_SORT_DATE_DESC  => __( 'Newest first', 'wp-title-layer' ),
-			Schema::ARCHIVE_SORT_DATE_ASC   => __( 'Oldest first', 'wp-title-layer' ),
-			Schema::ARCHIVE_SORT_TITLE      => __( 'Title', 'wp-title-layer' ),
-			Schema::ARCHIVE_LAYOUT_INHERIT  => __( 'Inherit the site-wide setting', 'wp-title-layer' ),
-			Schema::ARCHIVE_LAYOUT_THEME    => __( 'Use the active theme', 'wp-title-layer' ),
-			Schema::ARCHIVE_LAYOUT_STRUCTURED => __( 'Use the structured Series layout', 'wp-title-layer' ),
-			Schema::ARCHIVE_VISIBILITY_SHOW => __( 'Show', 'wp-title-layer' ),
-			Schema::ARCHIVE_VISIBILITY_HIDE => __( 'Hide', 'wp-title-layer' ),
+			''                              => __( 'Not set', 'irisable-title-layer' ),
+			Schema::MODE_ORDERED            => __( 'Ordered', 'irisable-title-layer' ),
+			Schema::MODE_UNORDERED          => __( 'Unordered', 'irisable-title-layer' ),
+			Schema::STATUS_PLANNING         => __( 'Planning', 'irisable-title-layer' ),
+			Schema::STATUS_ONGOING          => __( 'Ongoing', 'irisable-title-layer' ),
+			Schema::STATUS_PAUSED           => __( 'Paused', 'irisable-title-layer' ),
+			Schema::STATUS_COMPLETED        => __( 'Completed', 'irisable-title-layer' ),
+			Schema::STRUCTURE_FLAT          => __( 'Flat', 'irisable-title-layer' ),
+			Schema::STRUCTURE_SEASONED      => __( 'Seasoned', 'irisable-title-layer' ),
+			Schema::NAVIGATION_SCOPE_SERIES => __( 'Entire Series', 'irisable-title-layer' ),
+			Schema::NAVIGATION_SCOPE_SEASON => __( 'Current Season', 'irisable-title-layer' ),
+			Schema::ARCHIVE_SORT_DATE_DESC  => __( 'Newest first', 'irisable-title-layer' ),
+			Schema::ARCHIVE_SORT_DATE_ASC   => __( 'Oldest first', 'irisable-title-layer' ),
+			Schema::ARCHIVE_SORT_TITLE      => __( 'Title', 'irisable-title-layer' ),
+			Schema::ARCHIVE_LAYOUT_INHERIT  => __( 'Inherit the site-wide setting', 'irisable-title-layer' ),
+			Schema::ARCHIVE_LAYOUT_THEME    => __( 'Use the active theme', 'irisable-title-layer' ),
+			Schema::ARCHIVE_LAYOUT_STRUCTURED => __( 'Use the structured Series layout', 'irisable-title-layer' ),
+			Schema::ARCHIVE_VISIBILITY_SHOW => __( 'Show', 'irisable-title-layer' ),
+			Schema::ARCHIVE_VISIBILITY_HIDE => __( 'Hide', 'irisable-title-layer' ),
 		];
 
 		return $labels[ $value ] ?? ucwords( str_replace( '_', ' ', $value ) );
@@ -927,12 +927,12 @@ final class Series {
 		foreach ( $columns as $key => $label ) {
 			$with_status[ $key ] = $label;
 			if ( 'name' === $key ) {
-				$with_status['wptl_series_status'] = __( 'Status', 'wp-title-layer' );
+				$with_status['wptl_series_status'] = __( 'Status', 'irisable-title-layer' );
 				$inserted = true;
 			}
 		}
 		if ( ! $inserted ) {
-			$with_status['wptl_series_status'] = __( 'Status', 'wp-title-layer' );
+			$with_status['wptl_series_status'] = __( 'Status', 'irisable-title-layer' );
 		}
 
 		return $with_status;
@@ -944,7 +944,7 @@ final class Series {
 		}
 
 		$label = self::status_label( $term_id );
-		return esc_html( '' !== $label ? $label : __( 'Not set', 'wp-title-layer' ) );
+		return esc_html( '' !== $label ? $label : __( 'Not set', 'irisable-title-layer' ) );
 	}
 
 	/** @return \WP_Term[] */
@@ -1044,7 +1044,7 @@ final class Series {
 			if ( 1 < $paged ) {
 				$url = add_query_arg( 'paged', $paged, $url );
 			}
-			wp_safe_redirect( $url, 301, 'WP Title Layer' );
+			wp_safe_redirect( $url, 301, 'Irisable Title Layer' );
 			exit;
 		}
 	}
@@ -1064,10 +1064,10 @@ final class Series {
 	/** @return array<string,string> */
 	public static function status_labels(): array {
 		return [
-			Schema::STATUS_PLANNING  => __( 'Planning', 'wp-title-layer' ),
-			Schema::STATUS_ONGOING   => __( 'Ongoing', 'wp-title-layer' ),
-			Schema::STATUS_PAUSED    => __( 'Paused', 'wp-title-layer' ),
-			Schema::STATUS_COMPLETED => __( 'Completed', 'wp-title-layer' ),
+			Schema::STATUS_PLANNING  => __( 'Planning', 'irisable-title-layer' ),
+			Schema::STATUS_ONGOING   => __( 'Ongoing', 'irisable-title-layer' ),
+			Schema::STATUS_PAUSED    => __( 'Paused', 'irisable-title-layer' ),
+			Schema::STATUS_COMPLETED => __( 'Completed', 'irisable-title-layer' ),
 		];
 	}
 
@@ -1278,7 +1278,7 @@ final class Series {
 	public static function validate_single( array $term_ids ) {
 		$term_ids = array_values( array_unique( array_filter( array_map( 'absint', $term_ids ) ) ) );
 		if ( 1 < count( $term_ids ) ) {
-			return new \WP_Error( 'wptl_multiple_series', __( 'A post can belong to only one primary Series.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_multiple_series', __( 'A post can belong to only one primary Series.', 'irisable-title-layer' ) );
 		}
 		return true;
 	}
@@ -1556,7 +1556,7 @@ final class Series {
 		if ( is_array( $meta ) && array_key_exists( Schema::TERM_META_SEASONS, $meta ) ) {
 			return new \WP_Error(
 				'wptl_rest_seasons_read_only',
-				__( 'Season definitions are read-only in the REST API. Use the Series edit screen so stable public IDs can be preserved.', 'wp-title-layer' ),
+				__( 'Season definitions are read-only in the REST API. Use the Series edit screen so stable public IDs can be preserved.', 'irisable-title-layer' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -1589,7 +1589,7 @@ final class Series {
 			? Meta::sanitize_role( $requested_role )
 			: '';
 		if ( $role_requested && ( ! is_scalar( $meta[ Schema::META_SERIES_ROLE ] ) || ( '' !== $requested_role && '' === $sanitized_requested_role ) ) ) {
-			return new \WP_Error( 'wptl_invalid_series_role', __( 'Series role is not recognized', 'wp-title-layer' ), [ 'status' => 400 ] );
+			return new \WP_Error( 'wptl_invalid_series_role', __( 'Series role is not recognized', 'irisable-title-layer' ), [ 'status' => 400 ] );
 		}
 		$prepared_status = isset( $prepared_post->post_status ) ? (string) $prepared_post->post_status : '';
 		$status = (string) ( $request->get_param( 'status' ) ?: ( $prepared_status ?: ( $existing_post ? $existing_post->post_status : 'draft' ) ) );
@@ -1640,26 +1640,26 @@ final class Series {
 
 		if ( self::is_seasoned( $term ) ) {
 			if ( BookStructure::is_enabled( $term ) && Schema::ROLE_ARTICLE !== $role && '' === $scope ) {
-				return new \WP_Error( 'wptl_missing_series_scope', __( 'Choose whether this non-main entry belongs to the entire Series or one season.', 'wp-title-layer' ), [ 'status' => 400 ] );
+				return new \WP_Error( 'wptl_missing_series_scope', __( 'Choose whether this non-main entry belongs to the entire Series or one season.', 'irisable-title-layer' ), [ 'status' => 400 ] );
 			}
 			$series_level = Schema::ROLE_ARTICLE !== $role && Schema::SCOPE_SERIES === $scope;
 			if ( Schema::ROLE_ARTICLE === $role && Schema::SCOPE_SERIES === $scope ) {
-				return new \WP_Error( 'wptl_main_article_series_scope', __( 'A main article in a seasoned Series must belong to one season.', 'wp-title-layer' ), [ 'status' => 400 ] );
+				return new \WP_Error( 'wptl_main_article_series_scope', __( 'A main article in a seasoned Series must belong to one season.', 'irisable-title-layer' ), [ 'status' => 400 ] );
 			}
 			if ( ! $series_level ) {
 				if ( '' === $season_key ) {
-					return new \WP_Error( 'wptl_missing_season', __( 'This Series entry requires a season unless its non-main role is explicitly Series-wide.', 'wp-title-layer' ), [ 'status' => 400 ] );
+					return new \WP_Error( 'wptl_missing_season', __( 'This Series entry requires a season unless its non-main role is explicitly Series-wide.', 'irisable-title-layer' ), [ 'status' => 400 ] );
 				}
 				$valid_keys = wp_list_pluck( self::seasons( $term ), 'key' );
 				if ( empty( $valid_keys ) ) {
-					return new \WP_Error( 'wptl_undefined_seasons', __( 'This seasoned Series has no seasons defined.', 'wp-title-layer' ), [ 'status' => 400 ] );
+					return new \WP_Error( 'wptl_undefined_seasons', __( 'This seasoned Series has no seasons defined.', 'irisable-title-layer' ), [ 'status' => 400 ] );
 				}
 				if ( ! in_array( $season_key, $valid_keys, true ) ) {
-					return new \WP_Error( 'wptl_invalid_season', __( 'The selected season is not defined for this Series.', 'wp-title-layer' ), [ 'status' => 400 ] );
+					return new \WP_Error( 'wptl_invalid_season', __( 'The selected season is not defined for this Series.', 'irisable-title-layer' ), [ 'status' => 400 ] );
 				}
 			}
 		} elseif ( Schema::SCOPE_SEASON === $scope ) {
-			return new \WP_Error( 'wptl_flat_series_season_scope', __( 'A flat Series has no season scope. Choose Entire Series or clear the scope.', 'wp-title-layer' ), [ 'status' => 400 ] );
+			return new \WP_Error( 'wptl_flat_series_season_scope', __( 'A flat Series has no season scope. Choose Entire Series or clear the scope.', 'irisable-title-layer' ), [ 'status' => 400 ] );
 		}
 
 		if ( ! self::is_ordered( $term ) ) {
@@ -1680,13 +1680,13 @@ final class Series {
 		if ( null === $position || '' === $position || ! is_numeric( $position ) || 0 > (int) $position ) {
 			return new \WP_Error(
 				'wptl_missing_sequence_position',
-				__( 'Published posts in an ordered Series require a non-negative sequence position.', 'wp-title-layer' ),
+				__( 'Published posts in an ordered Series require a non-negative sequence position.', 'irisable-title-layer' ),
 				[ 'status' => 400 ]
 			);
 		}
 
 		if ( self::position_exists( (int) $term->term_id, (int) $position, $season_key, $post_id, self::is_seasoned( $term ) ) ) {
-			return new \WP_Error( 'wptl_duplicate_sequence_position', __( 'That sequence position is already used in this Series and season.', 'wp-title-layer' ), [ 'status' => 409 ] );
+			return new \WP_Error( 'wptl_duplicate_sequence_position', __( 'That sequence position is already used in this Series and season.', 'irisable-title-layer' ), [ 'status' => 409 ] );
 		}
 
 		return $prepared_post;

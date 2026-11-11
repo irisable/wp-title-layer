@@ -58,7 +58,7 @@ test( 'the sidebar subtitle remains multiline without consuming excessive height
 
 test( 'Series archives expose theme and structured modes with a subtitle policy', () => {
 	assert.match( readerAdmin, /Use the active theme’s archive layout/ );
-	assert.match( readerAdmin, /Use WP Title Layer’s structured Series layout/ );
+	assert.match( readerAdmin, /Use Irisable Title Layer’s structured Series layout/ );
 	assert.match( readerSettings, /ARCHIVE_SHOW_SUBTITLES\s*=\s*'archive_show_subtitles'/ );
 	assert.match( archiveTemplate, /id="wptl-series-archive"/ );
 	assert.doesNotMatch( archiveTemplate, /id="primary"/ );
@@ -151,16 +151,16 @@ test( 'theme archive subtitles are opt-in and confined to a verified Kadence slo
 
 test( 'page navigation is distinct from previous and next articles', () => {
 	for ( const paginationOwner of [ seriesHealth, channelHealth ] ) {
-		assert.match( paginationOwner, /'prev_text'\s*=>\s*__\( 'Previous page', 'wp-title-layer' \)/ );
-		assert.match( paginationOwner, /'next_text'\s*=>\s*__\( 'Next page', 'wp-title-layer' \)/ );
+		assert.match( paginationOwner, /'prev_text'\s*=>\s*__\( 'Previous page', 'irisable-title-layer' \)/ );
+		assert.match( paginationOwner, /'next_text'\s*=>\s*__\( 'Next page', 'irisable-title-layer' \)/ );
 	}
-	assert.match( readerArchive, /'prev_text'\s*=>[\s\S]*?&lsaquo;[\s\S]*?esc_html__\( 'Previous page', 'wp-title-layer' \)/ );
-	assert.match( readerArchive, /'next_text'\s*=>[\s\S]*?&rsaquo;[\s\S]*?esc_html__\( 'Next page', 'wp-title-layer' \)/ );
+	assert.match( readerArchive, /'prev_text'\s*=>[\s\S]*?&lsaquo;[\s\S]*?esc_html__\( 'Previous page', 'irisable-title-layer' \)/ );
+	assert.match( readerArchive, /'next_text'\s*=>[\s\S]*?&rsaquo;[\s\S]*?esc_html__\( 'Next page', 'irisable-title-layer' \)/ );
 	assert.match( readerCss, /\.wptl-series-archive__pagination span\.current\s*\{[\s\S]*?background:\s*var\(--wptl-reader-accent\)/ );
 	assert.match( readerCss, /\.wptl-series-archive__pagination \.screen-reader-text\s*\{/ );
 	assert.match( readerCss, /text-decoration:\s*none !important/ );
-	assert.match( navigationTemplate, /esc_html_e\( 'Previous', 'wp-title-layer' \)/ );
-	assert.match( navigationTemplate, /esc_html_e\( 'Next', 'wp-title-layer' \)/ );
+	assert.match( navigationTemplate, /esc_html_e\( 'Previous', 'irisable-title-layer' \)/ );
+	assert.match( navigationTemplate, /esc_html_e\( 'Next', 'irisable-title-layer' \)/ );
 } );
 
 test( 'Series icons are decorative, opt-in, and outside the article heading', () => {

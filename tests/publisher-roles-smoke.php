@@ -64,4 +64,4 @@ foreach ( $fixture['requests'] as $case ) {
 	$_POST = array();
 }
 if ( $errors ) { fwrite( STDERR, implode( "\n", $errors ) . "\n" ); exit( 1 ); }
-echo 'WP Title Layer Publisher contract checks passed: ' . $checks . "\n";
+echo 'Irisable Title Layer Publisher contract checks passed: ' . $checks . "\n";

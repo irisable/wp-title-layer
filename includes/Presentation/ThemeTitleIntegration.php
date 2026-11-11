@@ -254,19 +254,19 @@ final class ThemeTitleIntegration {
 			$support = array(
 				'supported' => true,
 				'adapter'   => 'block-theme',
-				'label'     => __( 'Block theme Post Title replacement', 'wp-title-layer' ),
+				'label'     => __( 'Block theme Post Title replacement', 'irisable-title-layer' ),
 			);
 		} elseif ( self::isKadenceTheme() && self::isVerifiedKadenceVersion() && self::hasVerifiedKadenceTemplates() ) {
 			$support = array(
 				'supported' => true,
 				'adapter'   => 'kadence',
-				'label'     => __( 'Kadence title-area integration', 'wp-title-layer' ),
+				'label'     => __( 'Kadence title-area integration', 'irisable-title-layer' ),
 			);
 		} else {
 			$support = array(
 				'supported' => false,
 				'adapter'   => 'manual',
-				'label'     => __( 'Manual theme integration required', 'wp-title-layer' ),
+				'label'     => __( 'Manual theme integration required', 'irisable-title-layer' ),
 			);
 		}
 

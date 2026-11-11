@@ -30,8 +30,8 @@ final class ThemeArchiveIntegration {
 			'supported' => $supported,
 			'adapter'   => $supported ? 'kadence' : 'manual',
 			'label'     => $supported
-				? __( 'Kadence archive-card Subtitle adapter', 'wp-title-layer' )
-				: __( 'No verified archive-card adapter for the active theme', 'wp-title-layer' ),
+				? __( 'Kadence archive-card Subtitle adapter', 'irisable-title-layer' )
+				: __( 'No verified archive-card adapter for the active theme', 'irisable-title-layer' ),
 		);
 	}
 

@@ -27,7 +27,7 @@ final class TemplateResolver {
 			'preset'       => $this->validPreset( (string) ( $settings['default_template'] ?? '' ), $presets ),
 			'disabled'     => false,
 			'source'       => 'global',
-			'source_label' => __( 'Global default', 'wp-title-layer' ),
+			'source_label' => __( 'Global default', 'irisable-title-layer' ),
 			'series_term'  => null,
 		);
 
@@ -45,7 +45,7 @@ final class TemplateResolver {
 				$result['source']       = 'series';
 				$result['source_label'] = sprintf(
 					/* translators: %s: Series name. */
-					__( 'Series default: %s', 'wp-title-layer' ),
+					__( 'Series default: %s', 'irisable-title-layer' ),
 					$series_term->name
 				);
 			}
@@ -57,12 +57,12 @@ final class TemplateResolver {
 				$result['preset']       = 'disabled';
 				$result['disabled']     = true;
 				$result['source']       = 'post';
-				$result['source_label'] = __( 'Disabled by post override', 'wp-title-layer' );
+				$result['source_label'] = __( 'Disabled by post override', 'irisable-title-layer' );
 			} elseif ( '' !== $override && isset( $presets[ $override ] ) ) {
 				$result['preset']       = $override;
 				$result['disabled']     = false;
 				$result['source']       = 'post';
-				$result['source_label'] = __( 'Post override', 'wp-title-layer' );
+				$result['source_label'] = __( 'Post override', 'irisable-title-layer' );
 			}
 		}
 
@@ -134,10 +134,10 @@ final class TemplateResolver {
 					'source_label' => $category instanceof \WP_Term
 						? sprintf(
 							/* translators: %s: Category name. */
-							__( 'Category rule: %s', 'wp-title-layer' ),
+							__( 'Category rule: %s', 'irisable-title-layer' ),
 							$category->name
 						)
-						: __( 'Category rule', 'wp-title-layer' ),
+						: __( 'Category rule', 'irisable-title-layer' ),
 					'series_term'  => null,
 				);
 			}

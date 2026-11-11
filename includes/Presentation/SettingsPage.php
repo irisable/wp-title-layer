@@ -32,14 +32,14 @@ final class SettingsPage {
 
 		add_settings_section(
 			'wptl_frontend_output_section',
-			__( 'Front-end placement', 'wp-title-layer' ),
+			__( 'Front-end placement', 'irisable-title-layer' ),
 			array( __CLASS__, 'renderOutputSectionIntro' ),
 			self::PAGE_SLUG
 		);
 
 		add_settings_field(
 			'wptl_display_mode',
-			__( 'How should the Title Layer appear?', 'wp-title-layer' ),
+			__( 'How should the Title Layer appear?', 'irisable-title-layer' ),
 			array( __CLASS__, 'renderDisplayModeField' ),
 			self::PAGE_SLUG,
 			'wptl_frontend_output_section'
@@ -47,7 +47,7 @@ final class SettingsPage {
 
 		add_settings_field(
 			'wptl_auto_post_types',
-			__( 'Automatic placement applies to', 'wp-title-layer' ),
+			__( 'Automatic placement applies to', 'irisable-title-layer' ),
 			array( __CLASS__, 'renderAutoPostTypesField' ),
 			self::PAGE_SLUG,
 			'wptl_frontend_output_section'
@@ -55,7 +55,7 @@ final class SettingsPage {
 
 		add_settings_field(
 			'wptl_auto_heading_tag',
-			__( 'Main title element', 'wp-title-layer' ),
+			__( 'Main title element', 'irisable-title-layer' ),
 			array( __CLASS__, 'renderAutoHeadingField' ),
 			self::PAGE_SLUG,
 			'wptl_frontend_output_section'
@@ -63,7 +63,7 @@ final class SettingsPage {
 
 		add_settings_field(
 			'wptl_auto_theme_title_disabled',
-			__( 'Theme title safety check', 'wp-title-layer' ),
+			__( 'Theme title safety check', 'irisable-title-layer' ),
 			array( __CLASS__, 'renderThemeTitleConfirmationField' ),
 			self::PAGE_SLUG,
 			'wptl_frontend_output_section'
@@ -71,14 +71,14 @@ final class SettingsPage {
 
 		add_settings_section(
 			'wptl_presentation_section',
-			__( 'Title presentation', 'wp-title-layer' ),
+			__( 'Title presentation', 'irisable-title-layer' ),
 			array( __CLASS__, 'renderSectionIntro' ),
 			self::PAGE_SLUG
 		);
 
 		add_settings_field(
 			'wptl_default_template',
-			__( 'Default template', 'wp-title-layer' ),
+			__( 'Default template', 'irisable-title-layer' ),
 			array( __CLASS__, 'renderDefaultTemplateField' ),
 			self::PAGE_SLUG,
 			'wptl_presentation_section'
@@ -86,7 +86,7 @@ final class SettingsPage {
 
 		add_settings_field(
 			'wptl_series_icons',
-			__( 'Series icons in article title layers', 'wp-title-layer' ),
+			__( 'Series icons in article title layers', 'irisable-title-layer' ),
 			array( __CLASS__, 'renderSeriesIconsField' ),
 			self::PAGE_SLUG,
 			'wptl_presentation_section'
@@ -94,7 +94,7 @@ final class SettingsPage {
 
 		add_settings_field(
 			'wptl_category_rules',
-			__( 'Category rules', 'wp-title-layer' ),
+			__( 'Category rules', 'irisable-title-layer' ),
 			array( __CLASS__, 'renderCategoryRulesField' ),
 			self::PAGE_SLUG,
 			'wptl_presentation_section'
@@ -102,7 +102,7 @@ final class SettingsPage {
 
 		add_settings_field(
 			'wptl_preset_customizations',
-			__( 'Customize the four templates', 'wp-title-layer' ),
+			__( 'Customize the four templates', 'irisable-title-layer' ),
 			array( __CLASS__, 'renderPresetCustomizationsField' ),
 			self::PAGE_SLUG,
 			'wptl_presentation_section'
@@ -111,8 +111,8 @@ final class SettingsPage {
 
 	public static function addPage(): void {
 		add_options_page(
-			__( 'WP Title Layer', 'wp-title-layer' ),
-			__( 'WP Title Layer', 'wp-title-layer' ),
+			__( 'Irisable Title Layer', 'irisable-title-layer' ),
+			__( 'Irisable Title Layer', 'irisable-title-layer' ),
 			'manage_options',
 			self::PAGE_SLUG,
 			array( __CLASS__, 'renderPage' )
@@ -142,11 +142,11 @@ final class SettingsPage {
 		?>
 		<div class="wrap wptl-settings" data-wptl-settings-tabs>
 			<header class="wptl-settings__hero">
-				<h1><?php esc_html_e( 'WP Title Layer', 'wp-title-layer' ); ?></h1>
-				<p><?php esc_html_e( 'Choose where the Title Layer appears and how its parts are arranged. The safe default is manual placement.', 'wp-title-layer' ); ?></p>
+				<h1><?php esc_html_e( 'Irisable Title Layer', 'irisable-title-layer' ); ?></h1>
+				<p><?php esc_html_e( 'Choose where the Title Layer appears and how its parts are arranged. The safe default is manual placement.', 'irisable-title-layer' ); ?></p>
 
 				<?php if ( ! empty( $sections ) ) : ?>
-					<nav class="wptl-settings__nav" aria-label="<?php esc_attr_e( 'Settings sections', 'wp-title-layer' ); ?>" data-wptl-settings-tablist>
+					<nav class="wptl-settings__nav" aria-label="<?php esc_attr_e( 'Settings sections', 'irisable-title-layer' ); ?>" data-wptl-settings-tablist>
 						<ol>
 							<?php foreach ( $sections as $index => $section ) : ?>
 								<?php
@@ -239,13 +239,13 @@ final class SettingsPage {
 	}
 
 	public static function renderSectionIntro(): void {
-		echo '<p>' . esc_html__( 'Resolution order: post override, Series default, category rule, then the global default.', 'wp-title-layer' ) . '</p>';
+		echo '<p>' . esc_html__( 'Resolution order: post override, Series default, category rule, then the global default.', 'irisable-title-layer' ) . '</p>';
 	}
 
 	public static function renderOutputSectionIntro(): void {
 		$support = ThemeTitleIntegration::support();
-		echo '<p>' . esc_html__( 'Theme-title takeover replaces a verified title slot instead of adding a second title inside the article body. Manual placement remains the universal fallback.', 'wp-title-layer' ) . '</p>';
-		echo '<p><strong>' . esc_html__( 'Detected integration:', 'wp-title-layer' ) . '</strong> ' . esc_html( $support['label'] ) . '</p>';
+		echo '<p>' . esc_html__( 'Theme-title takeover replaces a verified title slot instead of adding a second title inside the article body. Manual placement remains the universal fallback.', 'irisable-title-layer' ) . '</p>';
+		echo '<p><strong>' . esc_html__( 'Detected integration:', 'irisable-title-layer' ) . '</strong> ' . esc_html( $support['label'] ) . '</p>';
 	}
 
 	public static function renderDisplayModeField(): void {
@@ -256,25 +256,25 @@ final class SettingsPage {
 		<fieldset>
 			<label>
 				<input type="radio" name="<?php echo esc_attr( $name ); ?>" value="<?php echo esc_attr( ThemeTitleIntegration::MODE_REPLACE ); ?>" <?php checked( $settings['display_mode'], ThemeTitleIntegration::MODE_REPLACE ); ?> <?php disabled( empty( $support['supported'] ) ); ?>>
-				<strong><?php esc_html_e( 'Replace the theme post title (recommended)', 'wp-title-layer' ); ?></strong>
+				<strong><?php esc_html_e( 'Replace the theme post title (recommended)', 'irisable-title-layer' ); ?></strong>
 			</label>
 			<p class="description">
 				<?php echo esc_html( ! empty( $support['supported'] )
-					? __( 'Uses the verified theme title position, keeps one heading, and leaves the article body untouched.', 'wp-title-layer' )
-					: __( 'The current classic theme has no verified adapter. Use Manual, or integrate the theme API in its title template.', 'wp-title-layer' ) ); ?>
+					? __( 'Uses the verified theme title position, keeps one heading, and leaves the article body untouched.', 'irisable-title-layer' )
+					: __( 'The current classic theme has no verified adapter. Use Manual, or integrate the theme API in its title template.', 'irisable-title-layer' ) ); ?>
 			</p>
 			<br>
 			<label>
 				<input type="radio" name="<?php echo esc_attr( $name ); ?>" value="<?php echo esc_attr( AutoDisplay::MODE_MANUAL ); ?>" <?php checked( $settings['display_mode'], AutoDisplay::MODE_MANUAL ); ?>>
-				<strong><?php esc_html_e( 'Manual block or theme API', 'wp-title-layer' ); ?></strong>
+				<strong><?php esc_html_e( 'Manual block or theme API', 'irisable-title-layer' ); ?></strong>
 			</label>
-			<p class="description"><?php esc_html_e( 'Add the Title Layer block or shortcode exactly where you want it. Nothing is inserted automatically.', 'wp-title-layer' ); ?></p>
+			<p class="description"><?php esc_html_e( 'Add the Title Layer block or shortcode exactly where you want it. Nothing is inserted automatically.', 'irisable-title-layer' ); ?></p>
 			<br>
 			<label>
 				<input type="radio" name="<?php echo esc_attr( $name ); ?>" value="<?php echo esc_attr( AutoDisplay::MODE_AUTO_PREPEND ); ?>" <?php checked( $settings['display_mode'], AutoDisplay::MODE_AUTO_PREPEND ); ?>>
-				<strong><?php esc_html_e( 'Legacy fallback: add before the article body', 'wp-title-layer' ); ?></strong>
+				<strong><?php esc_html_e( 'Legacy fallback: add before the article body', 'irisable-title-layer' ); ?></strong>
 			</label>
-			<p class="description"><?php esc_html_e( 'This does not remove the theme title. Use it only after the theme title has been disabled separately.', 'wp-title-layer' ); ?></p>
+			<p class="description"><?php esc_html_e( 'This does not remove the theme title. Use it only after the theme title has been disabled separately.', 'irisable-title-layer' ); ?></p>
 		</fieldset>
 		<?php
 	}
@@ -285,7 +285,7 @@ final class SettingsPage {
 		$post_types = self::availableAutoPostTypes();
 
 		if ( empty( $post_types ) ) {
-			echo '<p>' . esc_html__( 'No public content types are available for automatic placement.', 'wp-title-layer' ) . '</p>';
+			echo '<p>' . esc_html__( 'No public content types are available for automatic placement.', 'irisable-title-layer' ) . '</p>';
 			return;
 		}
 		?>
@@ -297,7 +297,7 @@ final class SettingsPage {
 				</label>
 			<?php endforeach; ?>
 		</fieldset>
-		<p class="description"><?php esc_html_e( 'These content types apply to theme-title takeover and the legacy body fallback.', 'wp-title-layer' ); ?></p>
+		<p class="description"><?php esc_html_e( 'These content types apply to theme-title takeover and the legacy body fallback.', 'irisable-title-layer' ); ?></p>
 		<?php
 	}
 
@@ -306,10 +306,10 @@ final class SettingsPage {
 		$name     = Schema::settingsOption() . '[presentation][auto_heading_tag]';
 		?>
 		<select name="<?php echo esc_attr( $name ); ?>">
-			<option value="h2" <?php selected( $settings['auto_heading_tag'], 'h2' ); ?>><?php esc_html_e( 'H2 — the theme already supplies the page H1 elsewhere', 'wp-title-layer' ); ?></option>
-			<option value="div" <?php selected( $settings['auto_heading_tag'], 'div' ); ?>><?php esc_html_e( 'DIV — visual title only, no heading level', 'wp-title-layer' ); ?></option>
+			<option value="h2" <?php selected( $settings['auto_heading_tag'], 'h2' ); ?>><?php esc_html_e( 'H2 — the theme already supplies the page H1 elsewhere', 'irisable-title-layer' ); ?></option>
+			<option value="div" <?php selected( $settings['auto_heading_tag'], 'div' ); ?>><?php esc_html_e( 'DIV — visual title only, no heading level', 'irisable-title-layer' ); ?></option>
 		</select>
-		<p class="description"><?php esc_html_e( 'Used only by the legacy body fallback. Theme-title takeover inherits the heading level already chosen by the theme.', 'wp-title-layer' ); ?></p>
+		<p class="description"><?php esc_html_e( 'Used only by the legacy body fallback. Theme-title takeover inherits the heading level already chosen by the theme.', 'irisable-title-layer' ); ?></p>
 		<?php
 	}
 
@@ -319,9 +319,9 @@ final class SettingsPage {
 		?>
 		<label>
 			<input type="checkbox" name="<?php echo esc_attr( $name ); ?>" value="1" <?php checked( $settings['auto_theme_title_disabled'] ); ?>>
-			<strong><?php esc_html_e( 'For the legacy body fallback, I have disabled the theme\'s original post title.', 'wp-title-layer' ); ?></strong>
+			<strong><?php esc_html_e( 'For the legacy body fallback, I have disabled the theme\'s original post title.', 'irisable-title-layer' ); ?></strong>
 		</label>
-		<p class="description"><?php esc_html_e( 'This confirmation is ignored by true theme-title takeover. It exists only to prevent duplicate titles in the older body-insertion mode.', 'wp-title-layer' ); ?></p>
+		<p class="description"><?php esc_html_e( 'This confirmation is ignored by true theme-title takeover. It exists only to prevent duplicate titles in the older body-insertion mode.', 'irisable-title-layer' ); ?></p>
 		<?php
 	}
 
@@ -336,7 +336,7 @@ final class SettingsPage {
 				</option>
 			<?php endforeach; ?>
 		</select>
-		<p class="description"><?php esc_html_e( 'Used when no more specific valid rule applies.', 'wp-title-layer' ); ?></p>
+		<p class="description"><?php esc_html_e( 'Used when no more specific valid rule applies.', 'irisable-title-layer' ); ?></p>
 		<?php
 	}
 
@@ -346,9 +346,9 @@ final class SettingsPage {
 		?>
 		<label>
 			<input type="checkbox" name="<?php echo esc_attr( $name ); ?>" value="1" <?php checked( $settings['series_icons_enabled'] ); ?>>
-			<?php esc_html_e( 'Show a Series icon beside its linked name when that Series has chosen an icon.', 'wp-title-layer' ); ?>
+			<?php esc_html_e( 'Show a Series icon beside its linked name when that Series has chosen an icon.', 'irisable-title-layer' ); ?>
 		</label>
-		<p class="description"><?php esc_html_e( 'Off by default. Each Series can inherit, show, or hide its icon. The decorative image never becomes part of the H1, SEO title, or social title.', 'wp-title-layer' ); ?></p>
+		<p class="description"><?php esc_html_e( 'Off by default. Each Series can inherit, show, or hide its icon. The decorative image never becomes part of the H1, SEO title, or social title.', 'irisable-title-layer' ); ?></p>
 		<?php
 	}
 
@@ -364,15 +364,15 @@ final class SettingsPage {
 		$choices = Presets::choices();
 
 		if ( empty( $categories ) ) {
-			echo '<p>' . esc_html__( 'No categories are available.', 'wp-title-layer' ) . '</p>';
+			echo '<p>' . esc_html__( 'No categories are available.', 'irisable-title-layer' ) . '</p>';
 			return;
 		}
 		?>
 		<table class="widefat striped wptl-category-rules">
 			<thead>
 				<tr>
-					<th scope="col"><?php esc_html_e( 'Category', 'wp-title-layer' ); ?></th>
-					<th scope="col"><?php esc_html_e( 'Template', 'wp-title-layer' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Category', 'irisable-title-layer' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Template', 'irisable-title-layer' ); ?></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -382,7 +382,7 @@ final class SettingsPage {
 					<th scope="row"><?php echo esc_html( $category->name ); ?></th>
 					<td>
 						<select name="<?php echo esc_attr( $name ); ?>">
-							<option value=""><?php esc_html_e( 'Use global default', 'wp-title-layer' ); ?></option>
+							<option value=""><?php esc_html_e( 'Use global default', 'irisable-title-layer' ); ?></option>
 							<?php foreach ( $choices as $choice ) : ?>
 								<option value="<?php echo esc_attr( $choice['value'] ); ?>" <?php selected( $settings['category_rules'][ $category->term_id ] ?? '', $choice['value'] ); ?>>
 									<?php echo esc_html( $choice['label'] ); ?>
@@ -394,7 +394,7 @@ final class SettingsPage {
 			<?php endforeach; ?>
 			</tbody>
 		</table>
-		<p class="description"><?php esc_html_e( 'When several assigned categories have rules, the first saved rule in this table wins.', 'wp-title-layer' ); ?></p>
+		<p class="description"><?php esc_html_e( 'When several assigned categories have rules, the first saved rule in this table wins.', 'irisable-title-layer' ); ?></p>
 		<?php
 	}
 
@@ -405,7 +405,7 @@ final class SettingsPage {
 		$separators = Presets::localeSeparators();
 		?>
 		<div class="wptl-preset-customizer">
-			<p class="description"><?php esc_html_e( 'These controls change the chosen template everywhere it is used. They never accept HTML, CSS, or PHP.', 'wp-title-layer' ); ?></p>
+			<p class="description"><?php esc_html_e( 'These controls change the chosen template everywhere it is used. They never accept HTML, CSS, or PHP.', 'irisable-title-layer' ); ?></p>
 			<?php foreach ( Presets::customizableIds() as $index => $preset_id ) : ?>
 				<?php
 				$values      = $settings['preset_customizations'][ $preset_id ];
@@ -421,42 +421,42 @@ final class SettingsPage {
 					<div class="wptl-preset-customizer__body">
 						<div class="wptl-preset-customizer__grid">
 							<label>
-								<span><?php esc_html_e( 'Series context', 'wp-title-layer' ); ?></span>
+								<span><?php esc_html_e( 'Series context', 'irisable-title-layer' ); ?></span>
 								<select name="<?php echo esc_attr( $base . '[series_position]' ); ?>">
-									<option value="above" <?php selected( $values['series_position'], 'above' ); ?>><?php esc_html_e( 'Show above the title when available', 'wp-title-layer' ); ?></option>
-									<option value="hidden" <?php selected( $values['series_position'], 'hidden' ); ?>><?php esc_html_e( 'Do not show', 'wp-title-layer' ); ?></option>
+									<option value="above" <?php selected( $values['series_position'], 'above' ); ?>><?php esc_html_e( 'Show above the title when available', 'irisable-title-layer' ); ?></option>
+									<option value="hidden" <?php selected( $values['series_position'], 'hidden' ); ?>><?php esc_html_e( 'Do not show', 'irisable-title-layer' ); ?></option>
 								</select>
 							</label>
 
 							<label>
-								<span><?php esc_html_e( 'Subtitle', 'wp-title-layer' ); ?></span>
+								<span><?php esc_html_e( 'Subtitle', 'irisable-title-layer' ); ?></span>
 								<select name="<?php echo esc_attr( $base . '[subtitle_position]' ); ?>">
-									<option value="stacked" <?php selected( $values['subtitle_position'], 'stacked' ); ?>><?php esc_html_e( 'Show on a new line below the title', 'wp-title-layer' ); ?></option>
-									<option value="inline" <?php selected( $values['subtitle_position'], 'inline' ); ?>><?php esc_html_e( 'Show beside the title', 'wp-title-layer' ); ?></option>
-									<option value="hidden" <?php selected( $values['subtitle_position'], 'hidden' ); ?>><?php esc_html_e( 'Do not show', 'wp-title-layer' ); ?></option>
+									<option value="stacked" <?php selected( $values['subtitle_position'], 'stacked' ); ?>><?php esc_html_e( 'Show on a new line below the title', 'irisable-title-layer' ); ?></option>
+									<option value="inline" <?php selected( $values['subtitle_position'], 'inline' ); ?>><?php esc_html_e( 'Show beside the title', 'irisable-title-layer' ); ?></option>
+									<option value="hidden" <?php selected( $values['subtitle_position'], 'hidden' ); ?>><?php esc_html_e( 'Do not show', 'irisable-title-layer' ); ?></option>
 								</select>
 							</label>
 
 							<label>
-								<span><?php esc_html_e( 'Same-line separator', 'wp-title-layer' ); ?></span>
+								<span><?php esc_html_e( 'Same-line separator', 'irisable-title-layer' ); ?></span>
 								<select name="<?php echo esc_attr( $base . '[separator_style]' ); ?>">
-									<option value="colon" <?php selected( $values['separator_style'], 'colon' ); ?>><?php /* translators: %s: localized colon separator. */ echo esc_html( sprintf( __( 'Colon %s', 'wp-title-layer' ), trim( $separators['colon'] ) ) ); ?></option>
-									<option value="dash" <?php selected( $values['separator_style'], 'dash' ); ?>><?php /* translators: %s: localized em dash separator. */ echo esc_html( sprintf( __( 'Em dash %s', 'wp-title-layer' ), trim( $separators['dash'] ) ) ); ?></option>
-									<option value="pipe" <?php selected( $values['separator_style'], 'pipe' ); ?>><?php /* translators: %s: localized vertical bar separator. */ echo esc_html( sprintf( __( 'Vertical bar %s', 'wp-title-layer' ), trim( $separators['pipe'] ) ) ); ?></option>
-									<option value="custom" <?php selected( $values['separator_style'], 'custom' ); ?>><?php esc_html_e( 'Custom text below', 'wp-title-layer' ); ?></option>
+									<option value="colon" <?php selected( $values['separator_style'], 'colon' ); ?>><?php /* translators: %s: localized colon separator. */ echo esc_html( sprintf( __( 'Colon %s', 'irisable-title-layer' ), trim( $separators['colon'] ) ) ); ?></option>
+									<option value="dash" <?php selected( $values['separator_style'], 'dash' ); ?>><?php /* translators: %s: localized em dash separator. */ echo esc_html( sprintf( __( 'Em dash %s', 'irisable-title-layer' ), trim( $separators['dash'] ) ) ); ?></option>
+									<option value="pipe" <?php selected( $values['separator_style'], 'pipe' ); ?>><?php /* translators: %s: localized vertical bar separator. */ echo esc_html( sprintf( __( 'Vertical bar %s', 'irisable-title-layer' ), trim( $separators['pipe'] ) ) ); ?></option>
+									<option value="custom" <?php selected( $values['separator_style'], 'custom' ); ?>><?php esc_html_e( 'Custom text below', 'irisable-title-layer' ); ?></option>
 								</select>
 							</label>
 
 							<label>
-								<span><?php esc_html_e( 'Custom separator', 'wp-title-layer' ); ?></span>
-								<input type="text" name="<?php echo esc_attr( $base . '[custom_separator]' ); ?>" value="<?php echo esc_attr( (string) $values['custom_separator'] ); ?>" maxlength="8" placeholder="<?php esc_attr_e( 'For example: ·', 'wp-title-layer' ); ?>">
-								<small><?php esc_html_e( 'Plain text only, up to 8 characters. An empty value uses the locale’s colon separator.', 'wp-title-layer' ); ?></small>
+								<span><?php esc_html_e( 'Custom separator', 'irisable-title-layer' ); ?></span>
+								<input type="text" name="<?php echo esc_attr( $base . '[custom_separator]' ); ?>" value="<?php echo esc_attr( (string) $values['custom_separator'] ); ?>" maxlength="8" placeholder="<?php esc_attr_e( 'For example: ·', 'irisable-title-layer' ); ?>">
+								<small><?php esc_html_e( 'Plain text only, up to 8 characters. An empty value uses the locale’s colon separator.', 'irisable-title-layer' ); ?></small>
 							</label>
 						</div>
 
 						<label class="wptl-preset-customizer__reset">
 							<input type="checkbox" name="<?php echo esc_attr( $base . '[_reset]' ); ?>" value="1">
-							<?php esc_html_e( 'Restore this template to its original defaults when I save', 'wp-title-layer' ); ?>
+							<?php esc_html_e( 'Restore this template to its original defaults when I save', 'irisable-title-layer' ); ?>
 						</label>
 					</div>
 				</details>
@@ -512,7 +512,7 @@ final class SettingsPage {
 			add_settings_error(
 				Schema::settingsOption(),
 				'wptl_theme_takeover_unsupported',
-				__( 'Theme-title takeover was not enabled because the current classic theme has no verified adapter. Manual placement remains active.', 'wp-title-layer' ),
+				__( 'Theme-title takeover was not enabled because the current classic theme has no verified adapter. Manual placement remains active.', 'irisable-title-layer' ),
 				'warning'
 			);
 		}
@@ -523,7 +523,7 @@ final class SettingsPage {
 			add_settings_error(
 				Schema::settingsOption(),
 				'wptl_auto_confirmation_required',
-				__( 'Automatic placement was not enabled because the theme-title confirmation was not checked. Manual placement remains active.', 'wp-title-layer' ),
+				__( 'Automatic placement was not enabled because the theme-title confirmation was not checked. Manual placement remains active.', 'irisable-title-layer' ),
 				'warning'
 			);
 		}

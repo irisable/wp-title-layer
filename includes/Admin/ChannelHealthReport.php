@@ -214,16 +214,16 @@ final class ChannelHealthReport {
 		}
 
 		$labels = array(
-			'manual'              => __( 'Manual placement', 'wp-title-layer' ),
-			'replace-theme-title' => __( 'Verified theme title takeover', 'wp-title-layer' ),
-			'auto-prepend'        => __( 'Legacy body insertion', 'wp-title-layer' ),
-			'unavailable'         => __( 'Unavailable', 'wp-title-layer' ),
+			'manual'              => __( 'Manual placement', 'irisable-title-layer' ),
+			'replace-theme-title' => __( 'Verified theme title takeover', 'irisable-title-layer' ),
+			'auto-prepend'        => __( 'Legacy body insertion', 'irisable-title-layer' ),
+			'unavailable'         => __( 'Unavailable', 'irisable-title-layer' ),
 		);
 
 		return array(
 			'mode'  => $mode,
 			'label' => $labels[ $mode ] ?? $labels['manual'],
-			'owner' => __( 'WP Title Layer and the active theme', 'wp-title-layer' ),
+			'owner' => __( 'Irisable Title Layer and the active theme', 'irisable-title-layer' ),
 		);
 	}
 
@@ -283,7 +283,7 @@ final class ChannelHealthReport {
 				'source'     => $post_configured ? 'post_type_option' : 'provider_default',
 				'policy'     => self::title_layer_policy( $post_title ),
 			),
-			'social_fallback' => __( 'Rank Math social titles inherit the SEO title unless an object has its own Facebook or Twitter title.', 'wp-title-layer' ),
+			'social_fallback' => __( 'Rank Math social titles inherit the SEO title unless an object has its own Facebook or Twitter title.', 'irisable-title-layer' ),
 		);
 	}
 

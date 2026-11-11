@@ -137,10 +137,10 @@ final class Sequence {
 			return true;
 		}
 		if ( self::member_ids( $term ) ) {
-			return new \WP_Error( 'wptl_sequence_not_empty', __( 'Only an empty new Series can skip the sequence migration preview.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_not_empty', __( 'Only an empty new Series can skip the sequence migration preview.', 'irisable-title-layer' ) );
 		}
 		if ( ! self::persist_seasons( $term, Series::seasons( $term ) ) ) {
-			return new \WP_Error( 'wptl_sequence_season_identity_failed', __( 'Stable Season identities could not be prepared for the new Series.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_season_identity_failed', __( 'Stable Season identities could not be prepared for the new Series.', 'irisable-title-layer' ) );
 		}
 
 		$revisions = array();
@@ -151,7 +151,7 @@ final class Sequence {
 		update_term_meta( (int) $term->term_id, Schema::TERM_META_SEQUENCE_SCHEMA_VERSION, Schema::SEQUENCE_SCHEMA_VERSION );
 		if ( ! self::is_managed( $term ) ) {
 			delete_term_meta( (int) $term->term_id, Schema::TERM_META_SEQUENCE_REVISIONS );
-			return new \WP_Error( 'wptl_sequence_activation_failed', __( 'Canonical sequence order could not be activated for the new Series.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_activation_failed', __( 'Canonical sequence order could not be activated for the new Series.', 'irisable-title-layer' ) );
 		}
 		self::invalidate_runtime_cache();
 		return true;
@@ -365,23 +365,23 @@ final class Sequence {
 		$preview = self::initialization_preview( $term_id );
 		$term    = $preview['term'] ?? null;
 		if ( empty( $preview['valid'] ) || ! $term instanceof \WP_Term ) {
-			return new \WP_Error( 'wptl_sequence_invalid_series', __( 'Choose an ordered Series before starting Sequence Manager.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_invalid_series', __( 'Choose an ordered Series before starting Sequence Manager.', 'irisable-title-layer' ) );
 		}
 		if ( self::is_managed( $term ) ) {
-			return new \WP_Error( 'wptl_sequence_already_managed', __( 'This Series is already managed by Sequence Manager.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_already_managed', __( 'This Series is already managed by Sequence Manager.', 'irisable-title-layer' ) );
 		}
 		if ( '' !== $expected_fingerprint && ! hash_equals( (string) $preview['fingerprint'], $expected_fingerprint ) ) {
-			return new \WP_Error( 'wptl_sequence_preview_changed', __( 'The Series changed after this preview was loaded. Reload and review the initialization preview again.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_preview_changed', __( 'The Series changed after this preview was loaded. Reload and review the initialization preview again.', 'irisable-title-layer' ) );
 		}
 		$permission = self::authorize_manager( $term, self::member_ids( $term ) );
 		if ( is_wp_error( $permission ) ) {
 			return $permission;
 		}
 		if ( ! empty( $preview['invalid_season'] ) ) {
-			return new \WP_Error( 'wptl_sequence_invalid_season_members', __( 'Assign every article to a defined season before initializing this Series.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_invalid_season_members', __( 'Assign every article to a defined season before initializing this Series.', 'irisable-title-layer' ) );
 		}
 		if ( 0 < (int) $preview['unresolved'] && ! $append_unresolved ) {
-			return new \WP_Error( 'wptl_sequence_unresolved_members', __( 'Resolve the legacy position conflicts, or explicitly approve appending unresolved articles by date.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_unresolved_members', __( 'Resolve the legacy position conflicts, or explicitly approve appending unresolved articles by date.', 'irisable-title-layer' ) );
 		}
 
 		$entries   = array();
@@ -434,7 +434,7 @@ final class Sequence {
 		$term    = self::term( $term_id );
 		$journal = self::initialization_journal( $term_id );
 		if ( ! $term instanceof \WP_Term || ! is_array( $journal ) || 'writing' !== ( $journal['status'] ?? '' ) ) {
-			return new \WP_Error( 'wptl_sequence_no_initialization', __( 'No resumable Sequence Manager initialization was found.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_no_initialization', __( 'No resumable Sequence Manager initialization was found.', 'irisable-title-layer' ) );
 		}
 		$permission = self::authorize_manager( $term, wp_list_pluck( (array) $journal['entries'], 'post_id' ) );
 		if ( is_wp_error( $permission ) ) {
@@ -451,13 +451,13 @@ final class Sequence {
 		$current_seasons = Series::seasons( $term );
 
 		if ( self::is_managed( $term ) && 'schema' !== $phase ) {
-			return self::initialization_conflict( $journal, __( 'The Series activation marker changed outside the initialization journal.', 'wp-title-layer' ) );
+			return self::initialization_conflict( $journal, __( 'The Series activation marker changed outside the initialization journal.', 'irisable-title-layer' ) );
 		}
 		if ( 'ranks' === $phase && $current_seasons !== $seasons_before ) {
-			return self::initialization_conflict( $journal, __( 'The Series definition changed after the initialization preview.', 'wp-title-layer' ) );
+			return self::initialization_conflict( $journal, __( 'The Series definition changed after the initialization preview.', 'irisable-title-layer' ) );
 		}
 		if ( in_array( $phase, array( 'seasons', 'revisions', 'schema' ), true ) && $current_seasons !== $seasons_before && $current_seasons !== $seasons_after ) {
-			return self::initialization_conflict( $journal, __( 'The Series definition changed during the final initialization commit.', 'wp-title-layer' ) );
+			return self::initialization_conflict( $journal, __( 'The Series definition changed during the final initialization commit.', 'irisable-title-layer' ) );
 		}
 
 		if ( 'ranks' === $phase ) {
@@ -466,14 +466,14 @@ final class Sequence {
 			for ( $index = $cursor; $index < $end; ++$index ) {
 				$entry = $entries[ $index ];
 				if ( ! self::initialization_source_matches( $term, $entry ) ) {
-					return self::initialization_conflict( $journal, __( 'An article’s Series, season, status, or legacy position changed during initialization.', 'wp-title-layer' ) );
+					return self::initialization_conflict( $journal, __( 'An article’s Series, season, status, or legacy position changed during initialization.', 'irisable-title-layer' ) );
 				}
 
 				$post_id = (int) $entry['post_id'];
 				update_post_meta( $post_id, Schema::META_SEQUENCE_RANK, (int) $entry['new_rank'] );
 				update_post_meta( $post_id, Schema::META_SEQUENCE_SOURCE_POSITION, (string) $entry['source_position'] );
 				if ( (int) $entry['new_rank'] !== self::rank( $post_id ) || (string) $entry['source_position'] !== (string) get_post_meta( $post_id, Schema::META_SEQUENCE_SOURCE_POSITION, true ) ) {
-					return self::initialization_conflict( $journal, __( 'WordPress could not verify a sequence rank written during initialization.', 'wp-title-layer' ) );
+					return self::initialization_conflict( $journal, __( 'WordPress could not verify a sequence rank written during initialization.', 'irisable-title-layer' ) );
 				}
 				$journal['cursor'] = $index + 1;
 				self::write_option( self::init_option_name( $term_id ), $journal );
@@ -486,7 +486,7 @@ final class Sequence {
 
 		foreach ( $entries as $entry ) {
 			if ( ! self::initialization_source_matches( $term, $entry ) || (int) $entry['new_rank'] !== self::rank( (int) $entry['post_id'] ) ) {
-				return self::initialization_conflict( $journal, __( 'The frozen initialization set no longer matches the current Series.', 'wp-title-layer' ) );
+				return self::initialization_conflict( $journal, __( 'The frozen initialization set no longer matches the current Series.', 'irisable-title-layer' ) );
 			}
 		}
 
@@ -494,7 +494,7 @@ final class Sequence {
 		if ( 'ranks' === $phase ) {
 			$current_revisions = Meta::sanitize_sequence_revisions( get_term_meta( $term_id, Schema::TERM_META_SEQUENCE_REVISIONS, true ) );
 			if ( $current_revisions !== $revisions_before ) {
-				return self::initialization_conflict( $journal, __( 'The Series sequence revision changed during initialization.', 'wp-title-layer' ) );
+				return self::initialization_conflict( $journal, __( 'The Series sequence revision changed during initialization.', 'irisable-title-layer' ) );
 			}
 			$journal['revisions_after'] = self::initialization_revisions_after( $term, $entries, $revisions_before );
 			$journal['commit_phase']    = 'seasons';
@@ -505,7 +505,7 @@ final class Sequence {
 		$revisions_after = Meta::sanitize_sequence_revisions( (array) ( $journal['revisions_after'] ?? array() ) );
 		if ( 'seasons' === $phase ) {
 			if ( ! self::persist_seasons( $term, $seasons_after ) || Series::seasons( $term ) !== $seasons_after ) {
-				return self::initialization_conflict( $journal, __( 'The stable Season public IDs could not be verified.', 'wp-title-layer' ) );
+				return self::initialization_conflict( $journal, __( 'The stable Season public IDs could not be verified.', 'irisable-title-layer' ) );
 			}
 			$journal['commit_phase'] = 'revisions';
 			self::write_option( self::init_option_name( $term_id ), $journal );
@@ -515,11 +515,11 @@ final class Sequence {
 		if ( 'revisions' === $phase ) {
 			$current_revisions = Meta::sanitize_sequence_revisions( get_term_meta( $term_id, Schema::TERM_META_SEQUENCE_REVISIONS, true ) );
 			if ( $current_revisions !== $revisions_before && $current_revisions !== $revisions_after ) {
-				return self::initialization_conflict( $journal, __( 'The Series sequence revision changed during the final initialization commit.', 'wp-title-layer' ) );
+				return self::initialization_conflict( $journal, __( 'The Series sequence revision changed during the final initialization commit.', 'irisable-title-layer' ) );
 			}
 			update_term_meta( $term_id, Schema::TERM_META_SEQUENCE_REVISIONS, $revisions_after );
 			if ( Meta::sanitize_sequence_revisions( get_term_meta( $term_id, Schema::TERM_META_SEQUENCE_REVISIONS, true ) ) !== $revisions_after ) {
-				return self::initialization_conflict( $journal, __( 'Sequence Manager could not verify the committed scope revisions.', 'wp-title-layer' ) );
+				return self::initialization_conflict( $journal, __( 'Sequence Manager could not verify the committed scope revisions.', 'irisable-title-layer' ) );
 			}
 			$journal['commit_phase'] = 'schema';
 			self::write_option( self::init_option_name( $term_id ), $journal );
@@ -528,13 +528,13 @@ final class Sequence {
 
 		if ( 'schema' === $phase ) {
 			if ( Series::seasons( $term ) !== $seasons_after || Meta::sanitize_sequence_revisions( get_term_meta( $term_id, Schema::TERM_META_SEQUENCE_REVISIONS, true ) ) !== $revisions_after ) {
-				return self::initialization_conflict( $journal, __( 'The final initialization state changed before activation.', 'wp-title-layer' ) );
+				return self::initialization_conflict( $journal, __( 'The final initialization state changed before activation.', 'irisable-title-layer' ) );
 			}
 			if ( ! self::is_managed( $term ) ) {
 				update_term_meta( $term_id, Schema::TERM_META_SEQUENCE_SCHEMA_VERSION, Schema::SEQUENCE_SCHEMA_VERSION );
 			}
 			if ( ! self::is_managed( $term_id ) ) {
-				return self::initialization_conflict( $journal, __( 'Sequence Manager could not commit the Series activation marker.', 'wp-title-layer' ) );
+				return self::initialization_conflict( $journal, __( 'Sequence Manager could not commit the Series activation marker.', 'irisable-title-layer' ) );
 			}
 		}
 
@@ -550,10 +550,10 @@ final class Sequence {
 		$term    = self::term( $term_id );
 		$journal = self::initialization_journal( $term_id );
 		if ( ! $term instanceof \WP_Term || ! is_array( $journal ) || ! in_array( $journal['status'] ?? '', array( 'writing', 'conflict', 'complete' ), true ) ) {
-			return new \WP_Error( 'wptl_sequence_no_rollback', __( 'No Sequence Manager initialization is available to roll back.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_no_rollback', __( 'No Sequence Manager initialization is available to roll back.', 'irisable-title-layer' ) );
 		}
 		if ( BookStructure::is_enabled( $term ) ) {
-			return new \WP_Error( 'wptl_sequence_book_structure_active', __( 'Sequence initialization cannot be rolled back after book structure becomes active.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_book_structure_active', __( 'Sequence initialization cannot be rolled back after book structure becomes active.', 'irisable-title-layer' ) );
 		}
 		$entries    = array_values( (array) $journal['entries'] );
 		$permission = self::authorize_manager( $term, wp_list_pluck( $entries, 'post_id' ) );
@@ -572,32 +572,32 @@ final class Sequence {
 		$managed_incomplete = ! $complete && self::is_managed( $term );
 		if ( $complete ) {
 			if ( ! self::is_managed( $term ) || $current_revisions !== $revisions_after || $current_seasons !== $seasons_after ) {
-				return new \WP_Error( 'wptl_sequence_rollback_stale', __( 'This Series has changed since initialization, so an automatic downgrade would be unsafe.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_sequence_rollback_stale', __( 'This Series has changed since initialization, so an automatic downgrade would be unsafe.', 'irisable-title-layer' ) );
 			}
 		}
 		if ( $managed_incomplete && ( 'schema' !== $phase || $current_revisions !== $revisions_after || $current_seasons !== $seasons_after ) ) {
-			return new \WP_Error( 'wptl_sequence_rollback_stale', __( 'The interrupted activation state no longer matches its journal, so rollback would be unsafe.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_rollback_stale', __( 'The interrupted activation state no longer matches its journal, so rollback would be unsafe.', 'irisable-title-layer' ) );
 		}
 		if ( $complete || $managed_incomplete ) {
 			foreach ( $entries as $entry ) {
 				if ( (int) $entry['new_rank'] !== self::rank( (int) $entry['post_id'] ) ) {
-					return new \WP_Error( 'wptl_sequence_rollback_rank_changed', __( 'At least one managed rank changed after initialization; no rollback was performed.', 'wp-title-layer' ) );
+					return new \WP_Error( 'wptl_sequence_rollback_rank_changed', __( 'At least one managed rank changed after initialization; no rollback was performed.', 'irisable-title-layer' ) );
 				}
 			}
 		}
 		$season_commit_started   = $complete || in_array( $phase, array( 'seasons', 'revisions', 'schema' ), true );
 		$revision_commit_started = $complete || in_array( $phase, array( 'revisions', 'schema' ), true );
 		if ( $season_commit_started && $current_seasons !== $seasons_before && $current_seasons !== $seasons_after ) {
-			return new \WP_Error( 'wptl_sequence_rollback_definition_changed', __( 'The Series definition changed during recovery, so rollback did not overwrite it.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_rollback_definition_changed', __( 'The Series definition changed during recovery, so rollback did not overwrite it.', 'irisable-title-layer' ) );
 		}
 		if ( $revision_commit_started && $current_revisions !== $revisions_before && $current_revisions !== $revisions_after ) {
-			return new \WP_Error( 'wptl_sequence_rollback_revision_changed', __( 'The sequence revision changed during recovery, so rollback did not overwrite it.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_rollback_revision_changed', __( 'The sequence revision changed during recovery, so rollback did not overwrite it.', 'irisable-title-layer' ) );
 		}
 
 		if ( $complete || $managed_incomplete ) {
 			delete_term_meta( $term_id, Schema::TERM_META_SEQUENCE_SCHEMA_VERSION );
 			if ( self::is_managed( $term_id ) ) {
-				return new \WP_Error( 'wptl_sequence_rollback_marker_failed', __( 'The managed activation marker could not be removed, so article ranks were left untouched.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_sequence_rollback_marker_failed', __( 'The managed activation marker could not be removed, so article ranks were left untouched.', 'irisable-title-layer' ) );
 			}
 		}
 
@@ -634,7 +634,7 @@ final class Sequence {
 	public static function move( int $term_id, string $season_key, int $post_id, int $anchor_id, string $placement, int $expected_revision ) {
 		$term = self::term( $term_id );
 		if ( ! $term instanceof \WP_Term ) {
-			return new \WP_Error( 'wptl_sequence_invalid_series', __( 'The selected Series no longer exists.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_invalid_series', __( 'The selected Series no longer exists.', 'irisable-title-layer' ) );
 		}
 		$permission = self::authorize_manager( $term, array( $post_id, $anchor_id ) );
 		if ( is_wp_error( $permission ) ) {
@@ -647,7 +647,7 @@ final class Sequence {
 	public static function move_track( int $term_id, string $track_key, int $post_id, int $anchor_id, string $placement, int $expected_revision ) {
 		$term = self::term( $term_id );
 		if ( ! $term instanceof \WP_Term ) {
-			return new \WP_Error( 'wptl_sequence_invalid_series', __( 'The selected Series no longer exists.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_invalid_series', __( 'The selected Series no longer exists.', 'irisable-title-layer' ) );
 		}
 		$permission = self::authorize_manager( $term, array( $post_id, $anchor_id ) );
 		if ( is_wp_error( $permission ) ) {
@@ -662,7 +662,7 @@ final class Sequence {
 		$track_key = sanitize_key( $track_key );
 		$journal = self::last_move_journal( $term_id, $season_key, $track_key );
 		if ( ! $term instanceof \WP_Term || ! is_array( $journal ) || 'complete' !== ( $journal['status'] ?? '' ) || 'move' !== ( $journal['kind'] ?? '' ) ) {
-			return new \WP_Error( 'wptl_sequence_nothing_to_undo', __( 'There is no completed sequence move to undo in this scope.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_nothing_to_undo', __( 'There is no completed sequence move to undo in this scope.', 'irisable-title-layer' ) );
 		}
 		$changes    = array_values( (array) $journal['changes'] );
 		$permission = self::authorize_manager( $term, wp_list_pluck( $changes, 'post_id' ) );
@@ -671,11 +671,11 @@ final class Sequence {
 		}
 		$current_revision = '' !== $track_key ? self::track_revision( $term, $track_key ) : self::revision( $term, $season_key );
 		if ( $expected_revision !== $current_revision || $current_revision !== (int) $journal['revision_after'] ) {
-			return new \WP_Error( 'wptl_sequence_revision_conflict', __( 'The sequence changed after this page loaded. Reload before undoing.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_revision_conflict', __( 'The sequence changed after this page loaded. Reload before undoing.', 'irisable-title-layer' ) );
 		}
 		foreach ( $changes as $change ) {
 			if ( (int) $change['new_rank'] !== self::rank( (int) $change['post_id'] ) ) {
-				return new \WP_Error( 'wptl_sequence_undo_value_conflict', __( 'A rank changed after the last move, so undo did not overwrite it.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_sequence_undo_value_conflict', __( 'A rank changed after the last move, so undo did not overwrite it.', 'irisable-title-layer' ) );
 			}
 		}
 		foreach ( $changes as $change ) {
@@ -711,11 +711,11 @@ final class Sequence {
 			return false;
 		}
 		if ( ! current_user_can( 'edit_post', $post_id ) ) {
-			return new \WP_Error( 'wptl_sequence_cannot_edit_post', __( 'You cannot update the managed order for this article.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_cannot_edit_post', __( 'You cannot update the managed order for this article.', 'irisable-title-layer' ) );
 		}
 		$season_key = Series::is_seasoned( $term ) ? sanitize_key( (string) get_post_meta( $post_id, Schema::META_SEASON_KEY, true ) ) : '';
 		if ( Series::is_seasoned( $term ) && ! Series::season( $term, $season_key ) ) {
-			return new \WP_Error( 'wptl_sequence_invalid_season', __( 'Choose a defined season before this article can be appended to managed order.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_invalid_season', __( 'Choose a defined season before this article can be appended to managed order.', 'irisable-title-layer' ) );
 		}
 		if ( 0 < self::rank( $post_id ) && ! $force_append ) {
 			return true;
@@ -986,24 +986,24 @@ final class Sequence {
 		$track = '' !== $track_key ? BookStructure::track( $term, $track_key ) : null;
 		if ( is_array( $track ) ) {
 			if ( ! BookStructure::is_enabled( $term ) || empty( $track['movable'] ) ) {
-				return new \WP_Error( 'wptl_sequence_track_not_movable', __( 'This book-structure track is not manually ordered.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_sequence_track_not_movable', __( 'This book-structure track is not manually ordered.', 'irisable-title-layer' ) );
 			}
 			$season_key = (string) $track['season_key'];
 		} elseif ( ! Series::is_ordered( $term ) || ! self::is_managed( $term ) ) {
-			return new \WP_Error( 'wptl_sequence_not_managed', __( 'Initialize this ordered Series before moving articles.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_not_managed', __( 'Initialize this ordered Series before moving articles.', 'irisable-title-layer' ) );
 		}
 		$season_key = Series::is_seasoned( $term ) ? sanitize_key( $season_key ) : '';
 		$requires_season = ! is_array( $track ) || Schema::SCOPE_SEASON === (string) ( $track['scope'] ?? '' );
 		if ( Series::is_seasoned( $term ) && $requires_season && ! Series::season( $term, $season_key ) ) {
-			return new \WP_Error( 'wptl_sequence_invalid_scope', __( 'Choose a defined season before moving articles.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_invalid_scope', __( 'Choose a defined season before moving articles.', 'irisable-title-layer' ) );
 		}
 		$placement = sanitize_key( $placement );
 		if ( ! in_array( $placement, array( 'before', 'after', 'up', 'down', 'start', 'end' ), true ) ) {
-			return new \WP_Error( 'wptl_sequence_invalid_placement', __( 'Choose whether the article belongs before or after its target.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_invalid_placement', __( 'Choose whether the article belongs before or after its target.', 'irisable-title-layer' ) );
 		}
 		$current_revision = is_array( $track ) ? self::track_revision( $term, $track_key ) : self::revision( $term, $season_key );
 		if ( $expected_revision !== $current_revision ) {
-			return new \WP_Error( 'wptl_sequence_revision_conflict', __( 'The sequence changed after this page loaded. Reload before saving another move.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_revision_conflict', __( 'The sequence changed after this page loaded. Reload before saving another move.', 'irisable-title-layer' ) );
 		}
 
 		if ( is_array( $track ) ) {
@@ -1016,19 +1016,19 @@ final class Sequence {
 			$post_ids = self::ordered_post_ids( $term, $season_key, false );
 		}
 		if ( ! in_array( $post_id, $post_ids, true ) ) {
-			return new \WP_Error( 'wptl_sequence_post_outside_scope', __( 'The article is no longer a member of this Series and season.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_post_outside_scope', __( 'The article is no longer a member of this Series and season.', 'irisable-title-layer' ) );
 		}
 		if ( in_array( $placement, array( 'up', 'down' ), true ) ) {
 			$current_index = array_search( $post_id, $post_ids, true );
 			$anchor_index  = 'up' === $placement ? (int) $current_index - 1 : (int) $current_index + 1;
 			if ( false === $current_index || ! isset( $post_ids[ $anchor_index ] ) ) {
-				return new \WP_Error( 'wptl_sequence_no_change', __( 'The article is already at that boundary.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_sequence_no_change', __( 'The article is already at that boundary.', 'irisable-title-layer' ) );
 			}
 			$anchor_id = (int) $post_ids[ $anchor_index ];
 			$placement = 'up' === $placement ? 'before' : 'after';
 		}
 		if ( in_array( $placement, array( 'before', 'after' ), true ) && ( $post_id === $anchor_id || ! in_array( $anchor_id, $post_ids, true ) ) ) {
-			return new \WP_Error( 'wptl_sequence_anchor_outside_scope', __( 'The target article is no longer in the same sequence scope.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_anchor_outside_scope', __( 'The target article is no longer in the same sequence scope.', 'irisable-title-layer' ) );
 		}
 
 		$ordered = array_values( array_diff( $post_ids, array( $post_id ) ) );
@@ -1039,7 +1039,7 @@ final class Sequence {
 		} else {
 			$anchor_index = array_search( $anchor_id, $ordered, true );
 			if ( false === $anchor_index ) {
-				return new \WP_Error( 'wptl_sequence_anchor_outside_scope', __( 'The target article is no longer in the same sequence scope.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_sequence_anchor_outside_scope', __( 'The target article is no longer in the same sequence scope.', 'irisable-title-layer' ) );
 			}
 			$insert_at = 'after' === $placement ? (int) $anchor_index + 1 : (int) $anchor_index;
 			array_splice( $ordered, $insert_at, 0, array( $post_id ) );
@@ -1072,7 +1072,7 @@ final class Sequence {
 			}
 		}
 		if ( ! $changes ) {
-			return new \WP_Error( 'wptl_sequence_no_change', __( 'The article is already in that position.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_no_change', __( 'The article is already in that position.', 'irisable-title-layer' ) );
 		}
 
 		if ( $manager_authorization ) {
@@ -1083,7 +1083,7 @@ final class Sequence {
 		} else {
 			foreach ( $changes as $change ) {
 				if ( ! current_user_can( 'edit_post', (int) $change['post_id'] ) ) {
-					return new \WP_Error( 'wptl_sequence_cannot_rebalance', __( 'This append needs a wider rebalance that you are not allowed to perform.', 'wp-title-layer' ) );
+					return new \WP_Error( 'wptl_sequence_cannot_rebalance', __( 'This append needs a wider rebalance that you are not allowed to perform.', 'irisable-title-layer' ) );
 				}
 			}
 		}
@@ -1116,7 +1116,7 @@ final class Sequence {
 				self::rollback_changes( $written );
 				$journal['status'] = 'failed';
 				self::write_option( $option_name, $journal );
-				return new \WP_Error( 'wptl_sequence_write_failed', __( 'WordPress could not verify the sequence move, so completed writes were restored.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_sequence_write_failed', __( 'WordPress could not verify the sequence move, so completed writes were restored.', 'irisable-title-layer' ) );
 			}
 			$written[] = $change;
 		}
@@ -1127,7 +1127,7 @@ final class Sequence {
 			self::rollback_changes( $written );
 			$journal['status'] = 'failed';
 			self::write_option( $option_name, $journal );
-			return new \WP_Error( 'wptl_sequence_revision_write_failed', __( 'The sequence revision could not be committed, so the move was restored.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_revision_write_failed', __( 'The sequence revision could not be committed, so the move was restored.', 'irisable-title-layer' ) );
 		}
 		$journal['status']         = 'complete';
 		$journal['completed_at']   = time();
@@ -1144,11 +1144,11 @@ final class Sequence {
 	private static function authorize_manager( \WP_Term $term, array $post_ids ) {
 		$taxonomy = get_taxonomy( $term->taxonomy );
 		if ( ! $taxonomy instanceof \WP_Taxonomy || ! current_user_can( $taxonomy->cap->edit_terms ) || ! current_user_can( 'edit_term', (int) $term->term_id ) ) {
-			return new \WP_Error( 'wptl_sequence_cannot_manage', __( 'You are not allowed to manage this Series sequence.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_sequence_cannot_manage', __( 'You are not allowed to manage this Series sequence.', 'irisable-title-layer' ) );
 		}
 		foreach ( array_values( array_unique( array_filter( array_map( 'absint', $post_ids ) ) ) ) as $post_id ) {
 			if ( ! current_user_can( 'edit_post', $post_id ) ) {
-				return new \WP_Error( 'wptl_sequence_cannot_edit_member', __( 'You cannot edit every article affected by this sequence operation.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_sequence_cannot_edit_member', __( 'You cannot edit every article affected by this sequence operation.', 'irisable-title-layer' ) );
 			}
 		}
 		return true;
@@ -1194,7 +1194,7 @@ final class Sequence {
 		$post            = get_post( $post_id );
 		return array(
 			'id'               => $post_id,
-			'title'            => $post instanceof \WP_Post && '' !== trim( (string) $post->post_title ) ? (string) $post->post_title : __( '(no title)', 'wp-title-layer' ),
+			'title'            => $post instanceof \WP_Post && '' !== trim( (string) $post->post_title ) ? (string) $post->post_title : __( '(no title)', 'irisable-title-layer' ),
 			'status'           => $post instanceof \WP_Post ? (string) $post->post_status : '',
 			'date'             => $post instanceof \WP_Post ? (string) $post->post_date : '',
 			'season_key'       => $season_key,
@@ -1363,7 +1363,7 @@ final class Sequence {
 		$status = get_post_status_object( $post->post_status );
 		return array(
 			'id'          => (int) $post->ID,
-			'title'       => '' !== trim( (string) $post->post_title ) ? (string) $post->post_title : __( '(no title)', 'wp-title-layer' ),
+			'title'       => '' !== trim( (string) $post->post_title ) ? (string) $post->post_title : __( '(no title)', 'irisable-title-layer' ),
 			'status'      => (string) $post->post_status,
 			'status_label'=> $status ? (string) $status->label : (string) $post->post_status,
 			'date'        => (string) mysql2date( get_option( 'date_format' ), $post->post_date ),

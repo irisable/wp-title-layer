@@ -23,12 +23,12 @@ final class Rollback {
 	public function start( string $run_id ) {
 		$run_id = Config::clean_run_id( $run_id );
 		if ( '' === $run_id ) {
-			return new \WP_Error( 'wptl_rollback_invalid_id', __( 'The migration run ID is invalid.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_rollback_invalid_id', __( 'The migration run ID is invalid.', 'irisable-title-layer' ) );
 		}
 
 		$global_token = $this->store->acquire_global_lock();
 		if ( false === $global_token ) {
-			return new \WP_Error( 'wptl_rollback_control_locked', __( 'Another migration control action is in progress.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_rollback_control_locked', __( 'Another migration control action is in progress.', 'irisable-title-layer' ) );
 		}
 
 		$active_id = Config::clean_run_id( (string) get_option( Config::ACTIVE_RUN_OPTION, '' ) );
@@ -44,7 +44,7 @@ final class Rollback {
 			}
 			if ( $active_run && in_array( $active_run['status'], [ 'running', 'rollback_running' ], true ) ) {
 				$this->store->release_global_lock( $global_token );
-				return new \WP_Error( 'wptl_migration_active', __( 'Another migration or rollback is already running.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_migration_active', __( 'Another migration or rollback is already running.', 'irisable-title-layer' ) );
 			}
 			$this->store->clear_active_run( $active_id );
 			if ( ! $this->store->refresh_global_lock( $global_token ) ) {
@@ -56,7 +56,7 @@ final class Rollback {
 		$lock_token = $this->store->acquire_lock( $run_id );
 		if ( false === $lock_token ) {
 			$this->store->release_global_lock( $global_token );
-			return new \WP_Error( 'wptl_rollback_locked', __( 'This migration is currently being processed.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_rollback_locked', __( 'This migration is currently being processed.', 'irisable-title-layer' ) );
 		}
 
 		try {
@@ -65,7 +65,7 @@ final class Rollback {
 				return $this->control_lock_lost_error();
 			}
 			if ( ! $run ) {
-				return new \WP_Error( 'wptl_rollback_not_found', __( 'Migration run not found.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_rollback_not_found', __( 'Migration run not found.', 'irisable-title-layer' ) );
 			}
 			if ( 'rolled_back' === $run['status'] || 'rollback_complete' === $run['status'] ) {
 				if ( ! $this->store->refresh_global_lock( $global_token ) || ! $this->store->refresh_lock( $run_id, $lock_token ) ) {
@@ -75,7 +75,7 @@ final class Rollback {
 				return $run;
 			}
 			if ( ! in_array( $run['status'], [ 'running', 'complete', 'rollback_running' ], true ) ) {
-				return new \WP_Error( 'wptl_rollback_bad_state', __( 'This migration cannot be rolled back from its current state.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_rollback_bad_state', __( 'This migration cannot be rolled back from its current state.', 'irisable-title-layer' ) );
 			}
 
 			$current_active    = Config::clean_run_id( (string) get_option( Config::ACTIVE_RUN_OPTION, '' ) );
@@ -84,7 +84,7 @@ final class Rollback {
 				return $this->control_lock_lost_error();
 			}
 			if ( ! $had_active_marker && ! $this->store->claim_active_run( $run_id ) ) {
-				return new \WP_Error( 'wptl_rollback_active_write_failed', __( 'Could not reserve the active rollback marker.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_rollback_active_write_failed', __( 'Could not reserve the active rollback marker.', 'irisable-title-layer' ) );
 			}
 
 			if ( 'rollback_running' !== $run['status'] ) {
@@ -111,7 +111,7 @@ final class Rollback {
 					) {
 						$this->store->clear_active_run( $run_id );
 					}
-					return new \WP_Error( 'wptl_rollback_state_write_failed', __( 'Could not start rollback; its active marker was restored safely.', 'wp-title-layer' ) );
+					return new \WP_Error( 'wptl_rollback_state_write_failed', __( 'Could not start rollback; its active marker was restored safely.', 'irisable-title-layer' ) );
 				}
 				do_action( 'wptl_migration_rollback_started', $run );
 			}
@@ -133,7 +133,7 @@ final class Rollback {
 	public function process_batch( string $run_id, int $limit = Config::DEFAULT_BATCH_SIZE ) {
 		$run_id = Config::clean_run_id( $run_id );
 		if ( '' === $run_id ) {
-			return new \WP_Error( 'wptl_rollback_invalid_id', __( 'The migration run ID is invalid.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_rollback_invalid_id', __( 'The migration run ID is invalid.', 'irisable-title-layer' ) );
 		}
 		$run = $this->start( $run_id );
 		if ( is_wp_error( $run ) || in_array( $run['status'], [ 'rolled_back', 'rollback_complete' ], true ) ) {
@@ -142,22 +142,22 @@ final class Rollback {
 
 		$lock_token = $this->store->acquire_lock( $run_id );
 		if ( false === $lock_token ) {
-			return new \WP_Error( 'wptl_rollback_locked', __( 'This rollback batch is already being processed.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_rollback_locked', __( 'This rollback batch is already being processed.', 'irisable-title-layer' ) );
 		}
 
 		try {
 			$run = $this->store->get_run( $run_id );
 			if ( ! $run ) {
-				return new \WP_Error( 'wptl_rollback_not_found', __( 'Migration run not found.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_rollback_not_found', __( 'Migration run not found.', 'irisable-title-layer' ) );
 			}
 			if ( in_array( $run['status'], [ 'rolled_back', 'rollback_complete' ], true ) ) {
 				return $run;
 			}
 			if ( 'rollback_running' !== $run['status'] ) {
-				return new \WP_Error( 'wptl_rollback_bad_state', __( 'This migration is not in rollback mode.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_rollback_bad_state', __( 'This migration is not in rollback mode.', 'irisable-title-layer' ) );
 			}
 			if ( $run_id !== Config::clean_run_id( (string) get_option( Config::ACTIVE_RUN_OPTION, '' ) ) ) {
-				return new \WP_Error( 'wptl_rollback_inactive', __( 'This rollback is no longer the active run and was stopped safely.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_rollback_inactive', __( 'This rollback is no longer the active run and was stopped safely.', 'irisable-title-layer' ) );
 			}
 
 			$batch = isset( $run['rollback']['current_batch'] ) ? (int) $run['rollback']['current_batch'] : 0;
@@ -169,7 +169,7 @@ final class Rollback {
 			if ( ! $log ) {
 				$run['rollback']['current_batch'] = $batch - 1;
 				if ( ! $this->store->refresh_lock( $run_id, $lock_token ) || ! $this->store->save_run( $run ) ) {
-					return new \WP_Error( 'wptl_rollback_state_write_failed', __( 'Could not advance rollback state; it remains safe to retry.', 'wp-title-layer' ) );
+					return new \WP_Error( 'wptl_rollback_state_write_failed', __( 'Could not advance rollback state; it remains safe to retry.', 'irisable-title-layer' ) );
 				}
 				return $run['rollback']['current_batch'] < 1 ? $this->complete( $run, $lock_token ) : $run;
 			}
@@ -178,7 +178,7 @@ final class Rollback {
 			$processed = 0;
 			foreach ( array_reverse( array_keys( (array) $log['records'] ) ) as $key ) {
 				if ( ! $this->store->refresh_lock( $run_id, $lock_token ) ) {
-					return new \WP_Error( 'wptl_rollback_lock_lost', __( 'The rollback lock expired or changed ownership; the batch stopped safely.', 'wp-title-layer' ) );
+					return new \WP_Error( 'wptl_rollback_lock_lost', __( 'The rollback lock expired or changed ownership; the batch stopped safely.', 'irisable-title-layer' ) );
 				}
 				if ( $processed >= $limit ) {
 					break;
@@ -197,7 +197,7 @@ final class Rollback {
 					return $this->lock_lost_error();
 				}
 				if ( ! $this->store->save_log( $run_id, $batch, $log ) ) {
-					return new \WP_Error( 'wptl_rollback_log_write_failed', __( 'Could not save the rollback journal; processing stopped safely.', 'wp-title-layer' ) );
+					return new \WP_Error( 'wptl_rollback_log_write_failed', __( 'Could not save the rollback journal; processing stopped safely.', 'irisable-title-layer' ) );
 				}
 				if ( ! $this->store->refresh_lock( $run_id, $lock_token ) ) {
 					return $this->lock_lost_error();
@@ -221,11 +221,11 @@ final class Rollback {
 				return $this->lock_lost_error();
 			}
 			if ( ! $this->store->save_log( $run_id, $batch, $log ) ) {
-				return new \WP_Error( 'wptl_rollback_log_write_failed', __( 'Could not finalize the rollback journal; processing stopped safely.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_rollback_log_write_failed', __( 'Could not finalize the rollback journal; processing stopped safely.', 'irisable-title-layer' ) );
 			}
 			$run['rollback']['counts'] = $this->aggregate_counts( $run_id, max( $batch, (int) $run['next_batch'] ) );
 			if ( ! $this->store->refresh_lock( $run_id, $lock_token ) || ! $this->store->save_run( $run ) ) {
-				return new \WP_Error( 'wptl_rollback_state_write_failed', __( 'Could not advance rollback state; the journal remains safe to retry.', 'wp-title-layer' ) );
+				return new \WP_Error( 'wptl_rollback_state_write_failed', __( 'Could not advance rollback state; the journal remains safe to retry.', 'irisable-title-layer' ) );
 			}
 
 			do_action( 'wptl_migration_rollback_batch_completed', $run_id, $batch, $run['rollback']['counts'] );
@@ -401,7 +401,7 @@ final class Rollback {
 			return $this->lock_lost_error();
 		}
 		if ( ! $this->store->save_run( $run ) ) {
-			return new \WP_Error( 'wptl_rollback_completion_write_failed', __( 'Could not record rollback completion; the active marker was preserved for a safe retry.', 'wp-title-layer' ) );
+			return new \WP_Error( 'wptl_rollback_completion_write_failed', __( 'Could not record rollback completion; the active marker was preserved for a safe retry.', 'irisable-title-layer' ) );
 		}
 		if ( ! $this->store->refresh_lock( $run['id'], $lock_token ) ) {
 			return $this->lock_lost_error();
@@ -413,10 +413,10 @@ final class Rollback {
 	}
 
 	private function lock_lost_error(): \WP_Error {
-		return new \WP_Error( 'wptl_rollback_lock_lost', __( 'The rollback lock expired or changed ownership; the batch stopped safely.', 'wp-title-layer' ) );
+		return new \WP_Error( 'wptl_rollback_lock_lost', __( 'The rollback lock expired or changed ownership; the batch stopped safely.', 'irisable-title-layer' ) );
 	}
 
 	private function control_lock_lost_error(): \WP_Error {
-		return new \WP_Error( 'wptl_rollback_control_lock_lost', __( 'The migration control lock changed ownership; rollback was stopped safely.', 'wp-title-layer' ) );
+		return new \WP_Error( 'wptl_rollback_control_lock_lost', __( 'The migration control lock changed ownership; rollback was stopped safely.', 'irisable-title-layer' ) );
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Canonical content-model identifiers for WP Title Layer.
+ * Canonical content-model identifiers for Irisable Title Layer.
  *
  * @package WPTitleLayer
  */
@@ -151,20 +151,20 @@ final class Schema {
 	/** @return array<string,string> */
 	public static function role_labels(): array {
 		return [
-			''                  => __( 'Unspecified role (treated as a main article)', 'wp-title-layer' ),
-			self::ROLE_INTRO    => __( 'Introduction / preface', 'wp-title-layer' ),
-			self::ROLE_ARTICLE  => __( 'Main article (explicit)', 'wp-title-layer' ),
-			self::ROLE_EPILOGUE => __( 'Epilogue / afterword', 'wp-title-layer' ),
-			self::ROLE_APPENDIX => __( 'Appendix', 'wp-title-layer' ),
+			''                  => __( 'Unspecified role (treated as a main article)', 'irisable-title-layer' ),
+			self::ROLE_INTRO    => __( 'Introduction / preface', 'irisable-title-layer' ),
+			self::ROLE_ARTICLE  => __( 'Main article (explicit)', 'irisable-title-layer' ),
+			self::ROLE_EPILOGUE => __( 'Epilogue / afterword', 'irisable-title-layer' ),
+			self::ROLE_APPENDIX => __( 'Appendix', 'irisable-title-layer' ),
 		];
 	}
 
 	/** @return array<string,string> */
 	public static function scope_labels(): array {
 		return [
-			''                 => __( 'Choose scope (legacy value is unresolved)', 'wp-title-layer' ),
-			self::SCOPE_SERIES => __( 'Entire Series', 'wp-title-layer' ),
-			self::SCOPE_SEASON => __( 'One season', 'wp-title-layer' ),
+			''                 => __( 'Choose scope (legacy value is unresolved)', 'irisable-title-layer' ),
+			self::SCOPE_SERIES => __( 'Entire Series', 'irisable-title-layer' ),
+			self::SCOPE_SEASON => __( 'One season', 'irisable-title-layer' ),
 		];
 	}
 }

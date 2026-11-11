@@ -42,15 +42,15 @@ final class ControlCenter {
 
 	/** @param array<int,string> $links Existing plugin-row links. */
 	public static function pluginActionLinks( array $links ): array {
-		$control_center = '<a href="' . esc_url( add_query_arg( 'page', self::PAGE_SLUG, admin_url( 'admin.php' ) ) ) . '">' . esc_html__( 'Control Center', 'wp-title-layer' ) . '</a>';
+		$control_center = '<a href="' . esc_url( add_query_arg( 'page', self::PAGE_SLUG, admin_url( 'admin.php' ) ) ) . '">' . esc_html__( 'Control Center', 'irisable-title-layer' ) . '</a>';
 		array_unshift( $links, $control_center );
 		return $links;
 	}
 
 	public static function addPage(): void {
 		add_menu_page(
-			__( 'WP Title Layer Control Center', 'wp-title-layer' ),
-			__( 'WP Title Layer', 'wp-title-layer' ),
+			__( 'Irisable Title Layer Control Center', 'irisable-title-layer' ),
+			__( 'Irisable Title Layer', 'irisable-title-layer' ),
 			'manage_options',
 			self::PAGE_SLUG,
 			array( __CLASS__, 'render' ),
@@ -80,7 +80,7 @@ final class ControlCenter {
 
 	public static function render(): void {
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'You are not allowed to view WP Title Layer settings.', 'wp-title-layer' ) );
+			wp_die( esc_html__( 'You are not allowed to view Irisable Title Layer settings.', 'irisable-title-layer' ) );
 		}
 
 		$snapshot = self::snapshot();
@@ -91,8 +91,8 @@ final class ControlCenter {
 		<div class="wrap wptl-control-center">
 			<section class="wptl-cc-hero wptl-cc-tone-<?php echo esc_attr( $overall['tone'] ); ?>" aria-labelledby="wptl-control-center-title">
 				<div class="wptl-cc-hero__body">
-					<p class="wptl-cc-eyebrow"><?php esc_html_e( 'Control Center', 'wp-title-layer' ); ?></p>
-					<h1 id="wptl-control-center-title"><?php esc_html_e( 'WP Title Layer', 'wp-title-layer' ); ?></h1>
+					<p class="wptl-cc-eyebrow"><?php esc_html_e( 'Control Center', 'irisable-title-layer' ); ?></p>
+					<h1 id="wptl-control-center-title"><?php esc_html_e( 'Irisable Title Layer', 'irisable-title-layer' ); ?></h1>
 					<p class="wptl-cc-hero__status"><strong><?php echo esc_html( $overall['label'] ); ?></strong></p>
 					<p class="wptl-cc-hero__summary"><?php echo esc_html( $overall['summary'] ); ?></p>
 				</div>
@@ -108,10 +108,10 @@ final class ControlCenter {
 			<section class="wptl-cc-guide" aria-labelledby="wptl-cc-guide-title">
 				<div class="wptl-cc-section-heading">
 					<div>
-						<p class="wptl-cc-eyebrow"><?php esc_html_e( 'A safe first run', 'wp-title-layer' ); ?></p>
-						<h2 id="wptl-cc-guide-title"><?php esc_html_e( 'Start here', 'wp-title-layer' ); ?></h2>
+						<p class="wptl-cc-eyebrow"><?php esc_html_e( 'A safe first run', 'irisable-title-layer' ); ?></p>
+						<h2 id="wptl-cc-guide-title"><?php esc_html_e( 'Start here', 'irisable-title-layer' ); ?></h2>
 					</div>
-					<p><?php esc_html_e( 'Work through these steps with one sample article before changing the whole site.', 'wp-title-layer' ); ?></p>
+					<p><?php esc_html_e( 'Work through these steps with one sample article before changing the whole site.', 'irisable-title-layer' ); ?></p>
 				</div>
 				<ol class="wptl-cc-steps">
 					<?php foreach ( $steps as $index => $step ) : ?>
@@ -133,9 +133,9 @@ final class ControlCenter {
 			<aside class="wptl-cc-boundary" aria-labelledby="wptl-cc-acf-title">
 				<span class="dashicons dashicons-info-outline" aria-hidden="true"></span>
 				<div>
-					<h2 id="wptl-cc-acf-title"><?php esc_html_e( 'About ACF', 'wp-title-layer' ); ?></h2>
+					<h2 id="wptl-cc-acf-title"><?php esc_html_e( 'About ACF', 'irisable-title-layer' ); ?></h2>
 					<p><?php echo esc_html( self::acfBoundaryText( $snapshot['migration'] ) ); ?></p>
-					<p><?php esc_html_e( 'This report cannot confirm whether your theme or another plugin uses other ACF fields. Check those separately before removing ACF.', 'wp-title-layer' ); ?></p>
+					<p><?php esc_html_e( 'This report cannot confirm whether your theme or another plugin uses other ACF fields. Check those separately before removing ACF.', 'irisable-title-layer' ); ?></p>
 				</div>
 			</aside>
 		</div>
@@ -148,7 +148,7 @@ final class ControlCenter {
 	 * @return array<string,mixed>
 	 */
 	public static function snapshot(): array {
-		// Capture this before WP Title Layer loads its own compatibility helpers.
+		// Capture this before Irisable Title Layer loads its own compatibility helpers.
 		// A later function_exists() check would mistake those helpers for the
 		// legacy plugin and lock every normal installation.
 		$legacy_active = self::$legacy_active;
@@ -177,71 +177,71 @@ final class ControlCenter {
 			$is_rollback = 'rollback_running' === $state;
 			return array(
 				'tone'    => 'warning',
-				'label'   => $is_rollback ? __( 'A rollback is still in progress', 'wp-title-layer' ) : __( 'A migration is still in progress', 'wp-title-layer' ),
-				'summary' => __( 'Completed batches are already saved. Return to the migration screen to continue the same run.', 'wp-title-layer' ),
-				'action'  => self::action( $is_rollback ? __( 'Continue rollback', 'wp-title-layer' ) : __( 'Continue migration', 'wp-title-layer' ), $urls['migration'] ),
+				'label'   => $is_rollback ? __( 'A rollback is still in progress', 'irisable-title-layer' ) : __( 'A migration is still in progress', 'irisable-title-layer' ),
+				'summary' => __( 'Completed batches are already saved. Return to the migration screen to continue the same run.', 'irisable-title-layer' ),
+				'action'  => self::action( $is_rollback ? __( 'Continue rollback', 'irisable-title-layer' ) : __( 'Continue migration', 'irisable-title-layer' ), $urls['migration'] ),
 			);
 		}
 
 		if ( ! empty( $snapshot['legacy_active'] ) ) {
 			return array(
 				'tone'    => 'warning',
-				'label'   => __( 'Finish the old-title migration first', 'wp-title-layer' ),
-				'summary' => __( 'Secondary Title is still active, so WP Title Layer is keeping its editor and front-end output safely paused.', 'wp-title-layer' ),
-				'action'  => self::action( __( 'Check and migrate old data', 'wp-title-layer' ), $urls['migration'] ),
+				'label'   => __( 'Finish the old-title migration first', 'irisable-title-layer' ),
+				'summary' => __( 'Secondary Title is still active, so Irisable Title Layer is keeping its editor and front-end output safely paused.', 'irisable-title-layer' ),
+				'action'  => self::action( __( 'Check and migrate old data', 'irisable-title-layer' ), $urls['migration'] ),
 			);
 		}
 
 		if ( empty( $migration['available'] ) ) {
 			return array(
 				'tone'    => 'warning',
-				'label'   => __( 'Some status information is unavailable', 'wp-title-layer' ),
-				'summary' => __( 'WP Title Layer could not read the migration module. No settings were changed; open the migration screen to check the installation.', 'wp-title-layer' ),
-				'action'  => self::action( __( 'Check migration', 'wp-title-layer' ), $urls['migration'] ),
+				'label'   => __( 'Some status information is unavailable', 'irisable-title-layer' ),
+				'summary' => __( 'Irisable Title Layer could not read the migration module. No settings were changed; open the migration screen to check the installation.', 'irisable-title-layer' ),
+				'action'  => self::action( __( 'Check migration', 'irisable-title-layer' ), $urls['migration'] ),
 			);
 		}
 
 		if ( 'scan_incomplete' === $state ) {
 			return array(
 				'tone'    => 'warning',
-				'label'   => __( 'The old-data preview is incomplete', 'wp-title-layer' ),
-				'summary' => __( 'Run a complete read-only scan before starting migration.', 'wp-title-layer' ),
-				'action'  => self::action( __( 'Run a complete scan', 'wp-title-layer' ), $urls['migration'] ),
+				'label'   => __( 'The old-data preview is incomplete', 'irisable-title-layer' ),
+				'summary' => __( 'Run a complete read-only scan before starting migration.', 'irisable-title-layer' ),
+				'action'  => self::action( __( 'Run a complete scan', 'irisable-title-layer' ), $urls['migration'] ),
 			);
 		}
 
 		if ( 'not_scanned' === $state ) {
 			return array(
 				'tone'    => 'notice',
-				'label'   => __( 'Old title data has not been scanned', 'wp-title-layer' ),
-				'summary' => __( 'Run the read-only scan to see what can be copied and what needs review.', 'wp-title-layer' ),
-				'action'  => self::action( __( 'Scan old data', 'wp-title-layer' ), $urls['migration'] ),
+				'label'   => __( 'Old title data has not been scanned', 'irisable-title-layer' ),
+				'summary' => __( 'Run the read-only scan to see what can be copied and what needs review.', 'irisable-title-layer' ),
+				'action'  => self::action( __( 'Scan old data', 'irisable-title-layer' ), $urls['migration'] ),
 			);
 		}
 
 		if ( 'ready_to_copy' === $state ) {
 			return array(
 				'tone'    => 'notice',
-				'label'   => __( 'Old title data is ready to copy', 'wp-title-layer' ),
-				'summary' => __( 'Review the read-only report before copying. Existing WP Title Layer subtitles will not be overwritten.', 'wp-title-layer' ),
-				'action'  => self::action( __( 'Review migration', 'wp-title-layer' ), $urls['migration'] ),
+				'label'   => __( 'Old title data is ready to copy', 'irisable-title-layer' ),
+				'summary' => __( 'Review the read-only report before copying. Existing Irisable Title Layer subtitles will not be overwritten.', 'irisable-title-layer' ),
+				'action'  => self::action( __( 'Review migration', 'irisable-title-layer' ), $urls['migration'] ),
 			);
 		}
 
 		if ( 'conflicts' === $state ) {
 			return array(
 				'tone'    => 'warning',
-				'label'   => __( 'Some old title data needs review', 'wp-title-layer' ),
-				'summary' => __( 'Conflicting source or target values were left unchanged. Review the migration report before proceeding.', 'wp-title-layer' ),
-				'action'  => self::action( __( 'Review conflicts', 'wp-title-layer' ), $urls['migration'] ),
+				'label'   => __( 'Some old title data needs review', 'irisable-title-layer' ),
+				'summary' => __( 'Conflicting source or target values were left unchanged. Review the migration report before proceeding.', 'irisable-title-layer' ),
+				'action'  => self::action( __( 'Review conflicts', 'irisable-title-layer' ), $urls['migration'] ),
 			);
 		}
 
 		return array(
 			'tone'    => 'success',
-			'label'   => __( 'WP Title Layer is ready to use', 'wp-title-layer' ),
-			'summary' => __( 'Choose how titles should appear, then test one ordinary article and one Series article before wider use.', 'wp-title-layer' ),
-			'action'  => self::action( __( 'Set up title display', 'wp-title-layer' ), $urls['settings'] ),
+			'label'   => __( 'Irisable Title Layer is ready to use', 'irisable-title-layer' ),
+			'summary' => __( 'Choose how titles should appear, then test one ordinary article and one Series article before wider use.', 'irisable-title-layer' ),
+			'action'  => self::action( __( 'Set up title display', 'irisable-title-layer' ), $urls['settings'] ),
 		);
 	}
 
@@ -259,46 +259,46 @@ final class ControlCenter {
 		$migration_state = (string) ( $migration['state'] ?? 'unavailable' );
 		$run_active      = in_array( $migration_state, array( 'running', 'rollback_running' ), true );
 
-		$migration_status = __( 'No old data found', 'wp-title-layer' );
+		$migration_status = __( 'No old data found', 'irisable-title-layer' );
 		$migration_tone   = 'success';
 		if ( $run_active ) {
-			$migration_status = 'rollback_running' === $migration_state ? __( 'Rollback in progress', 'wp-title-layer' ) : __( 'Migration in progress', 'wp-title-layer' );
+			$migration_status = 'rollback_running' === $migration_state ? __( 'Rollback in progress', 'irisable-title-layer' ) : __( 'Migration in progress', 'irisable-title-layer' );
 			$migration_tone   = 'warning';
 		} elseif ( 'unavailable' === $migration_state ) {
-			$migration_status = __( 'Status unavailable', 'wp-title-layer' );
+			$migration_status = __( 'Status unavailable', 'irisable-title-layer' );
 			$migration_tone   = 'muted';
 		} elseif ( 'scan_incomplete' === $migration_state ) {
-			$migration_status = __( 'Scan incomplete', 'wp-title-layer' );
+			$migration_status = __( 'Scan incomplete', 'irisable-title-layer' );
 			$migration_tone   = 'warning';
 		} elseif ( 'conflicts' === $migration_state ) {
-			$migration_status = __( 'Items need review', 'wp-title-layer' );
+			$migration_status = __( 'Items need review', 'irisable-title-layer' );
 			$migration_tone   = 'warning';
 		} elseif ( 'ready_to_copy' === $migration_state ) {
-			$migration_status = __( 'Ready to copy', 'wp-title-layer' );
+			$migration_status = __( 'Ready to copy', 'irisable-title-layer' );
 			$migration_tone   = 'notice';
 		} elseif ( 'not_scanned' === $migration_state ) {
-			$migration_status = __( 'Not scanned yet', 'wp-title-layer' );
+			$migration_status = __( 'Not scanned yet', 'irisable-title-layer' );
 			$migration_tone   = 'notice';
 		} elseif ( 'copied' === $migration_state ) {
-			$migration_status = __( 'Already copied', 'wp-title-layer' );
+			$migration_status = __( 'Already copied', 'irisable-title-layer' );
 		}
 
 		if ( $run_active || 'run' === (string) ( $migration['state_source'] ?? '' ) ) {
 			$migration_facts = array(
-				__( 'Processed in latest run', 'wp-title-layer' )   => $migration['run_processed'],
-				__( 'Copied in latest run', 'wp-title-layer' )      => $migration['run_migrated'],
-				__( 'Already equal in latest run', 'wp-title-layer' ) => $migration['run_same'],
-				__( 'Need review in latest run', 'wp-title-layer' ) => $migration['run_conflicts'] + $migration['run_errors'],
+				__( 'Processed in latest run', 'irisable-title-layer' )   => $migration['run_processed'],
+				__( 'Copied in latest run', 'irisable-title-layer' )      => $migration['run_migrated'],
+				__( 'Already equal in latest run', 'irisable-title-layer' ) => $migration['run_same'],
+				__( 'Need review in latest run', 'irisable-title-layer' ) => $migration['run_conflicts'] + $migration['run_errors'],
 			);
 		} elseif ( empty( $migration['available'] ) ) {
-			$migration_facts = array( __( 'Migration report', 'wp-title-layer' ) => __( 'Unavailable', 'wp-title-layer' ) );
+			$migration_facts = array( __( 'Migration report', 'irisable-title-layer' ) => __( 'Unavailable', 'irisable-title-layer' ) );
 		} else {
-			$source_label = $migration['has_scan'] ? __( 'Posts in last scan', 'wp-title-layer' ) : __( 'Detected source matches', 'wp-title-layer' );
+			$source_label = $migration['has_scan'] ? __( 'Posts in last scan', 'irisable-title-layer' ) : __( 'Detected source matches', 'irisable-title-layer' );
 			$migration_facts = array(
 				$source_label                                => $migration['source_posts'],
-				__( 'Ready in last scan', 'wp-title-layer' ) => $migration['scan_ready'],
-				__( 'Already equal', 'wp-title-layer' )      => $migration['scan_same'],
-				__( 'Need review', 'wp-title-layer' )        => $migration['scan_conflicts'],
+				__( 'Ready in last scan', 'irisable-title-layer' ) => $migration['scan_ready'],
+				__( 'Already equal', 'irisable-title-layer' )      => $migration['scan_same'],
+				__( 'Need review', 'irisable-title-layer' )        => $migration['scan_conflicts'],
 			);
 		}
 
@@ -306,137 +306,137 @@ final class ControlCenter {
 		$display_auto = 'auto-prepend' === $display_mode;
 		$display_takeover = 'replace-theme-title' === $display_mode;
 		$display_status = $locked
-			? __( 'Available after migration', 'wp-title-layer' )
+			? __( 'Available after migration', 'irisable-title-layer' )
 			: ( ! $presentation['available']
-				? __( 'Status unavailable', 'wp-title-layer' )
-				: ( $display_takeover ? __( 'Theme title takeover', 'wp-title-layer' ) : ( $display_auto ? __( 'Legacy body insertion', 'wp-title-layer' ) : __( 'Manual placement', 'wp-title-layer' ) ) ) );
+				? __( 'Status unavailable', 'irisable-title-layer' )
+				: ( $display_takeover ? __( 'Theme title takeover', 'irisable-title-layer' ) : ( $display_auto ? __( 'Legacy body insertion', 'irisable-title-layer' ) : __( 'Manual placement', 'irisable-title-layer' ) ) ) );
 		$display_summary = $locked
-			? __( 'Title output is paused while Secondary Title remains active.', 'wp-title-layer' )
+			? __( 'Title output is paused while Secondary Title remains active.', 'irisable-title-layer' )
 			: ( ! $presentation['available']
-				? __( 'The control center could not read the saved title-display settings.', 'wp-title-layer' )
+				? __( 'The control center could not read the saved title-display settings.', 'irisable-title-layer' )
 				: ( $display_takeover
 					? sprintf(
 					/* translators: 1: theme adapter, 2: content type labels. */
-					__( '%1$s replaces the verified title position for: %2$s. The article body is not used as the title slot.', 'wp-title-layer' ),
+					__( '%1$s replaces the verified title position for: %2$s. The article body is not used as the title slot.', 'irisable-title-layer' ),
 					$presentation['theme_support_label'],
 					$presentation['auto_types_label']
 				)
 				: ( $display_auto
 				? sprintf(
 					/* translators: %s: comma-separated content type labels. */
-					__( 'The Title Layer is added before the article body for: %s. The theme title must be disabled separately.', 'wp-title-layer' ),
+					__( 'The Title Layer is added before the article body for: %s. The theme title must be disabled separately.', 'irisable-title-layer' ),
 					$presentation['auto_types_label']
 				)
-					: __( 'Nothing is inserted automatically. Add the Title Layer block or theme API call where the title should appear.', 'wp-title-layer' ) ) ) );
+					: __( 'Nothing is inserted automatically. Add the Title Layer block or theme API call where the title should appear.', 'irisable-title-layer' ) ) ) );
 		$display_facts = $presentation['available']
 			? array(
-				__( 'Default template', 'wp-title-layer' ) => $presentation['default_template_label'],
-				__( 'Category rules', 'wp-title-layer' )   => $presentation['category_rule_count'],
-				__( 'Title element', 'wp-title-layer' )    => $display_takeover ? __( 'Inherited from theme', 'wp-title-layer' ) : ( $display_auto ? strtoupper( $presentation['heading_tag'] ) : __( 'Chosen at placement', 'wp-title-layer' ) ),
+				__( 'Default template', 'irisable-title-layer' ) => $presentation['default_template_label'],
+				__( 'Category rules', 'irisable-title-layer' )   => $presentation['category_rule_count'],
+				__( 'Title element', 'irisable-title-layer' )    => $display_takeover ? __( 'Inherited from theme', 'irisable-title-layer' ) : ( $display_auto ? strtoupper( $presentation['heading_tag'] ) : __( 'Chosen at placement', 'irisable-title-layer' ) ),
 			)
-			: array( __( 'Display settings', 'wp-title-layer' ) => __( 'Unavailable', 'wp-title-layer' ) );
+			: array( __( 'Display settings', 'irisable-title-layer' ) => __( 'Unavailable', 'irisable-title-layer' ) );
 
 		$series_status = $locked
-			? __( 'Available after migration', 'wp-title-layer' )
-			: ( ! $series['available'] ? __( 'Status unavailable', 'wp-title-layer' ) : ( 0 < $series['total'] ? __( 'Series available', 'wp-title-layer' ) : __( 'Not created yet (optional)', 'wp-title-layer' ) ) );
+			? __( 'Available after migration', 'irisable-title-layer' )
+			: ( ! $series['available'] ? __( 'Status unavailable', 'irisable-title-layer' ) : ( 0 < $series['total'] ? __( 'Series available', 'irisable-title-layer' ) : __( 'Not created yet (optional)', 'irisable-title-layer' ) ) );
 		$series_summary = $locked
-			? __( 'Finish migration before assigning Series in the article editor.', 'wp-title-layer' )
+			? __( 'Finish migration before assigning Series in the article editor.', 'irisable-title-layer' )
 			: ( ! $series['available']
-				? __( 'The Series definition is not currently available.', 'wp-title-layer' )
+				? __( 'The Series definition is not currently available.', 'irisable-title-layer' )
 				: ( 0 < $series['total']
-					? __( 'Each article can belong to one Series. Ordered and unordered Series remain separate reading models.', 'wp-title-layer' )
-					: __( 'Create a Series only when several articles belong together. Ordinary articles do not require one.', 'wp-title-layer' ) ) );
+					? __( 'Each article can belong to one Series. Ordered and unordered Series remain separate reading models.', 'irisable-title-layer' )
+					: __( 'Create a Series only when several articles belong together. Ordinary articles do not require one.', 'irisable-title-layer' ) ) );
 		$series_facts = $series['available']
 			? array(
-				__( 'All Series', 'wp-title-layer' )             => $series['total'],
-				__( 'With reading order', 'wp-title-layer' )     => $series['ordered'],
-				__( 'Using insertable sequence order', 'wp-title-layer' ) => $series['managed'],
-				__( 'Using book structure', 'wp-title-layer' )   => $series['book_structure'],
-				__( 'Divided into seasons', 'wp-title-layer' )   => $series['seasoned'],
+				__( 'All Series', 'irisable-title-layer' )             => $series['total'],
+				__( 'With reading order', 'irisable-title-layer' )     => $series['ordered'],
+				__( 'Using insertable sequence order', 'irisable-title-layer' ) => $series['managed'],
+				__( 'Using book structure', 'irisable-title-layer' )   => $series['book_structure'],
+				__( 'Divided into seasons', 'irisable-title-layer' )   => $series['seasoned'],
 			)
-			: array( __( 'Series definition', 'wp-title-layer' ) => __( 'Unavailable', 'wp-title-layer' ) );
+			: array( __( 'Series definition', 'irisable-title-layer' ) => __( 'Unavailable', 'irisable-title-layer' ) );
 
 		$reader_status = $locked
-			? __( 'Available after migration', 'wp-title-layer' )
-			: ( ! $reader['available'] ? __( 'Status unavailable', 'wp-title-layer' ) : ( $reader['archive_enabled'] || $reader['after_content_enabled'] ? __( 'Automatic features enabled', 'wp-title-layer' ) : __( 'Optional features are off', 'wp-title-layer' ) ) );
+			? __( 'Available after migration', 'irisable-title-layer' )
+			: ( ! $reader['available'] ? __( 'Status unavailable', 'irisable-title-layer' ) : ( $reader['archive_enabled'] || $reader['after_content_enabled'] ? __( 'Automatic features enabled', 'irisable-title-layer' ) : __( 'Optional features are off', 'irisable-title-layer' ) ) );
 		$reader_facts = $reader['available']
 			? array(
-				__( 'Series archive', 'wp-title-layer' )            => $reader['archive_label'],
-				__( 'Structured archive subtitles', 'wp-title-layer' ) => $reader['archive_enabled']
+				__( 'Series archive', 'irisable-title-layer' )            => $reader['archive_label'],
+				__( 'Structured archive subtitles', 'irisable-title-layer' ) => $reader['archive_enabled']
 					? self::onOff( $reader['archive_subtitles_enabled'] )
-					: __( 'Structured layout only', 'wp-title-layer' ),
-				__( 'After-article navigation', 'wp-title-layer' )  => self::onOff( $reader['after_content_enabled'] ),
-				__( 'Manual shortcode', 'wp-title-layer' )          => self::onOff( $reader['shortcode_enabled'] ),
+					: __( 'Structured layout only', 'irisable-title-layer' ),
+				__( 'After-article navigation', 'irisable-title-layer' )  => self::onOff( $reader['after_content_enabled'] ),
+				__( 'Manual shortcode', 'irisable-title-layer' )          => self::onOff( $reader['shortcode_enabled'] ),
 			)
-			: array( __( 'Reader settings', 'wp-title-layer' ) => __( 'Unavailable', 'wp-title-layer' ) );
+			: array( __( 'Reader settings', 'irisable-title-layer' ) => __( 'Unavailable', 'irisable-title-layer' ) );
 
 		return array(
 			array(
 				'id'      => 'migration',
 				'icon'    => 'database-import',
-				'title'   => __( 'Content migration', 'wp-title-layer' ),
+				'title'   => __( 'Content migration', 'irisable-title-layer' ),
 				'status'  => $migration_status,
 				'tone'    => $migration_tone,
 				'summary' => empty( $migration['available'] )
-					? __( 'The migration module did not return a readable status. No data was changed here.', 'wp-title-layer' )
-					: __( 'Secondary Title and verified ACF subtitle data are copied conservatively. Source data is retained.', 'wp-title-layer' ),
+					? __( 'The migration module did not return a readable status. No data was changed here.', 'irisable-title-layer' )
+					: __( 'Secondary Title and verified ACF subtitle data are copied conservatively. Source data is retained.', 'irisable-title-layer' ),
 				'facts'   => $migration_facts,
 				'note'    => self::acfShortText( $migration ),
-				'action'  => self::action( __( 'Open migration', 'wp-title-layer' ), $urls['migration'] ),
+				'action'  => self::action( __( 'Open migration', 'irisable-title-layer' ), $urls['migration'] ),
 			),
 			array(
 				'id'      => 'display',
 				'icon'    => 'editor-textcolor',
-				'title'   => __( 'Title display', 'wp-title-layer' ),
+				'title'   => __( 'Title display', 'irisable-title-layer' ),
 				'status'  => $display_status,
 				'tone'    => $locked || ! $presentation['available'] ? 'muted' : ( $display_takeover ? 'success' : ( $display_auto ? 'warning' : 'notice' ) ),
 				'summary' => $display_summary,
 				'facts'   => $display_facts,
 				'note'    => '',
-				'action'  => self::action( __( 'Set title display', 'wp-title-layer' ), $urls['settings'], ! $locked && $presentation['available'] ),
+				'action'  => self::action( __( 'Set title display', 'irisable-title-layer' ), $urls['settings'], ! $locked && $presentation['available'] ),
 			),
 			array(
 				'id'      => 'series',
 				'icon'    => 'book-alt',
-				'title'   => __( 'Series', 'wp-title-layer' ),
+				'title'   => __( 'Series', 'irisable-title-layer' ),
 				'status'  => $series_status,
 				'tone'    => $locked || ! $series['available'] ? 'muted' : ( 0 < $series['total'] ? 'success' : 'notice' ),
 				'summary' => $series_summary,
 				'facts'   => $series_facts,
 				'note'    => '',
 				'action'  => 0 < $series['total']
-					? self::action( __( 'Check Series health', 'wp-title-layer' ), $urls['series_health'], ! $locked && $series['can_manage'] )
-					: self::action( __( 'Manage Series', 'wp-title-layer' ), $urls['series'], ! $locked && $series['can_manage'] ),
+					? self::action( __( 'Check Series health', 'irisable-title-layer' ), $urls['series_health'], ! $locked && $series['can_manage'] )
+					: self::action( __( 'Manage Series', 'irisable-title-layer' ), $urls['series'], ! $locked && $series['can_manage'] ),
 			),
 			array(
 				'id'      => 'reader',
 				'icon'    => 'controls-forward',
-				'title'   => __( 'Reading experience', 'wp-title-layer' ),
+				'title'   => __( 'Reading experience', 'irisable-title-layer' ),
 				'status'  => $reader_status,
 				'tone'    => $locked || ! $reader['available'] ? 'muted' : ( $reader['archive_enabled'] || $reader['after_content_enabled'] ? 'success' : 'notice' ),
 				'summary' => $locked
-					? __( 'Reading features are paused with the rest of WP Title Layer output.', 'wp-title-layer' )
+					? __( 'Reading features are paused with the rest of Irisable Title Layer output.', 'irisable-title-layer' )
 					: ( ! $reader['available']
-						? __( 'The control center could not read the saved reading-experience settings.', 'wp-title-layer' )
-						: __( 'Ordered Series can offer an archive, previous/next links, a start link, and reading progress.', 'wp-title-layer' ) ),
+						? __( 'The control center could not read the saved reading-experience settings.', 'irisable-title-layer' )
+						: __( 'Ordered Series can offer an archive, previous/next links, a start link, and reading progress.', 'irisable-title-layer' ) ),
 				'facts'   => $reader_facts,
-				'note'    => __( 'Unordered Series never receive invented previous/next navigation.', 'wp-title-layer' ),
-				'action'  => self::action( __( 'Set reading experience', 'wp-title-layer' ), $urls['settings'], ! $locked && $reader['available'] ),
+				'note'    => __( 'Unordered Series never receive invented previous/next navigation.', 'irisable-title-layer' ),
+				'action'  => self::action( __( 'Set reading experience', 'irisable-title-layer' ), $urls['settings'], ! $locked && $reader['available'] ),
 			),
 			array(
 				'id'      => 'channels',
 				'icon'    => 'networking',
-				'title'   => __( 'Landing pages and channels', 'wp-title-layer' ),
-				'status'  => $locked ? __( 'Available after migration', 'wp-title-layer' ) : __( 'Read-only check available', 'wp-title-layer' ),
+				'title'   => __( 'Landing pages and channels', 'irisable-title-layer' ),
+				'status'  => $locked ? __( 'Available after migration', 'irisable-title-layer' ) : __( 'Read-only check available', 'irisable-title-layer' ),
 				'tone'    => $locked ? 'muted' : 'notice',
-				'summary' => __( 'Compare Series and Category entry points, then inspect visible, search, social, canonical, robots, and sitemap ownership.', 'wp-title-layer' ),
+				'summary' => __( 'Compare Series and Category entry points, then inspect visible, search, social, canonical, robots, and sitemap ownership.', 'irisable-title-layer' ),
 				'facts'   => array(
-					__( 'Makes SEO changes', 'wp-title-layer' )    => __( 'No', 'wp-title-layer' ),
-					__( 'Removes Categories', 'wp-title-layer' )  => __( 'No', 'wp-title-layer' ),
-					__( 'Supported provider audit', 'wp-title-layer' ) => __( 'Rank Math', 'wp-title-layer' ),
+					__( 'Makes SEO changes', 'irisable-title-layer' )    => __( 'No', 'irisable-title-layer' ),
+					__( 'Removes Categories', 'irisable-title-layer' )  => __( 'No', 'irisable-title-layer' ),
+					__( 'Supported provider audit', 'irisable-title-layer' ) => __( 'Rank Math', 'irisable-title-layer' ),
 				),
-				'note'    => __( 'Other providers are identified as owners but their private settings are not interpreted.', 'wp-title-layer' ),
-				'action'  => self::action( __( 'Check landing & channels', 'wp-title-layer' ), $urls['channel_health'], ! $locked && current_user_can( ChannelHealth::capability() ) ),
+				'note'    => __( 'Other providers are identified as owners but their private settings are not interpreted.', 'irisable-title-layer' ),
+				'action'  => self::action( __( 'Check landing & channels', 'irisable-title-layer' ), $urls['channel_health'], ! $locked && current_user_can( ChannelHealth::capability() ) ),
 			),
 		);
 	}
@@ -460,78 +460,78 @@ final class ControlCenter {
 		$display   = $snapshot['presentation'];
 		$urls      = $snapshot['urls'];
 
-		$migration_status = $needs_migration ? __( 'Needs attention', 'wp-title-layer' ) : __( 'No migration needed', 'wp-title-layer' );
+		$migration_status = $needs_migration ? __( 'Needs attention', 'irisable-title-layer' ) : __( 'No migration needed', 'irisable-title-layer' );
 		if ( $active ) {
-			$migration_status = __( 'In progress', 'wp-title-layer' );
+			$migration_status = __( 'In progress', 'irisable-title-layer' );
 		} elseif ( ! $migration_available ) {
-			$migration_status = __( 'Status unavailable', 'wp-title-layer' );
+			$migration_status = __( 'Status unavailable', 'irisable-title-layer' );
 		} elseif ( 'copied' === $migration_state ) {
-			$migration_status = __( 'Migration complete', 'wp-title-layer' );
+			$migration_status = __( 'Migration complete', 'irisable-title-layer' );
 		}
 
 		if ( ! $migration_available ) {
-			$migration_description = __( 'Open the migration screen to check why its read-only status could not be loaded.', 'wp-title-layer' );
+			$migration_description = __( 'Open the migration screen to check why its read-only status could not be loaded.', 'irisable-title-layer' );
 		} elseif ( 'copied' === $migration_state ) {
-			$migration_description = __( 'Canonical subtitles are already present or the latest migration completed. The old source metadata may remain by design.', 'wp-title-layer' );
+			$migration_description = __( 'Canonical subtitles are already present or the latest migration completed. The old source metadata may remain by design.', 'irisable-title-layer' );
 		} elseif ( 'conflicts' === $migration_state ) {
-			$migration_description = __( 'Review the values that were left unchanged because their source or target data conflicted.', 'wp-title-layer' );
+			$migration_description = __( 'Review the values that were left unchanged because their source or target data conflicted.', 'irisable-title-layer' );
 		} elseif ( 'ready_to_copy' === $migration_state ) {
-			$migration_description = __( 'Review the read-only scan, then copy the ready subtitles without overwriting existing WP Title Layer values.', 'wp-title-layer' );
+			$migration_description = __( 'Review the read-only scan, then copy the ready subtitles without overwriting existing Irisable Title Layer values.', 'irisable-title-layer' );
 		} elseif ( 'not_scanned' === $migration_state || 'scan_incomplete' === $migration_state ) {
-			$migration_description = __( 'Run a complete read-only scan before starting a migration.', 'wp-title-layer' );
+			$migration_description = __( 'Run a complete read-only scan before starting a migration.', 'irisable-title-layer' );
 		} elseif ( $active ) {
-			$migration_description = __( 'Return to the migration screen to continue the saved run.', 'wp-title-layer' );
+			$migration_description = __( 'Return to the migration screen to continue the saved run.', 'irisable-title-layer' );
 		} else {
-			$migration_description = __( 'No Secondary Title or verified ACF subtitle values currently require migration.', 'wp-title-layer' );
+			$migration_description = __( 'No Secondary Title or verified ACF subtitle values currently require migration.', 'irisable-title-layer' );
 		}
 
 		return array(
 			array(
-				'title'       => __( 'Check old title data', 'wp-title-layer' ),
+				'title'       => __( 'Check old title data', 'irisable-title-layer' ),
 				'status'      => $migration_status,
 				'description' => $migration_description,
-				'action'      => self::action( __( 'Open migration', 'wp-title-layer' ), $urls['migration'], $needs_migration ),
+				'action'      => self::action( __( 'Open migration', 'irisable-title-layer' ), $urls['migration'], $needs_migration ),
 			),
 			array(
-				'title'       => __( 'Choose how titles appear', 'wp-title-layer' ),
+				'title'       => __( 'Choose how titles appear', 'irisable-title-layer' ),
 				'status'      => $locked
-					? __( 'Waiting for migration', 'wp-title-layer' )
-					: ( ! $display['available'] ? __( 'Status unavailable', 'wp-title-layer' ) : ( 'replace-theme-title' === $display['display_mode'] ? __( 'Theme title takeover selected', 'wp-title-layer' ) : ( 'auto-prepend' === $display['display_mode'] ? __( 'Legacy body insertion selected', 'wp-title-layer' ) : __( 'Manual placement selected', 'wp-title-layer' ) ) ) ),
-				'description' => __( 'Use verified theme-title takeover when available. Manual placement is the universal fallback; body insertion does not remove the theme title.', 'wp-title-layer' ),
-				'action'      => self::action( __( 'Review title display', 'wp-title-layer' ), $urls['settings'], ! $locked && $display['available'] ),
+					? __( 'Waiting for migration', 'irisable-title-layer' )
+					: ( ! $display['available'] ? __( 'Status unavailable', 'irisable-title-layer' ) : ( 'replace-theme-title' === $display['display_mode'] ? __( 'Theme title takeover selected', 'irisable-title-layer' ) : ( 'auto-prepend' === $display['display_mode'] ? __( 'Legacy body insertion selected', 'irisable-title-layer' ) : __( 'Manual placement selected', 'irisable-title-layer' ) ) ) ),
+				'description' => __( 'Use verified theme-title takeover when available. Manual placement is the universal fallback; body insertion does not remove the theme title.', 'irisable-title-layer' ),
+				'action'      => self::action( __( 'Review title display', 'irisable-title-layer' ), $urls['settings'], ! $locked && $display['available'] ),
 			),
 			array(
-				'title'       => __( 'Create a Series if needed', 'wp-title-layer' ),
+				'title'       => __( 'Create a Series if needed', 'irisable-title-layer' ),
 				'status'      => $locked
-					? __( 'Waiting for migration', 'wp-title-layer' )
+					? __( 'Waiting for migration', 'irisable-title-layer' )
 					/* translators: %s: number of existing Series. */
-					: ( ! $series['available'] ? __( 'Status unavailable', 'wp-title-layer' ) : ( 0 < $series['total'] ? sprintf( __( '%s created', 'wp-title-layer' ), number_format_i18n( $series['total'] ) ) : __( 'Optional', 'wp-title-layer' ) ) ),
-				'description' => __( 'Choose ordered or unordered, then add seasons only when the collection really needs them.', 'wp-title-layer' ),
-				'action'      => self::action( __( 'Manage Series', 'wp-title-layer' ), $urls['series'], ! $locked && $series['can_manage'] ),
+					: ( ! $series['available'] ? __( 'Status unavailable', 'irisable-title-layer' ) : ( 0 < $series['total'] ? sprintf( __( '%s created', 'irisable-title-layer' ), number_format_i18n( $series['total'] ) ) : __( 'Optional', 'irisable-title-layer' ) ) ),
+				'description' => __( 'Choose ordered or unordered, then add seasons only when the collection really needs them.', 'irisable-title-layer' ),
+				'action'      => self::action( __( 'Manage Series', 'irisable-title-layer' ), $urls['series'], ! $locked && $series['can_manage'] ),
 			),
 			array(
-				'title'       => __( 'Edit one sample article', 'wp-title-layer' ),
-				'status'      => $locked ? __( 'Waiting for migration', 'wp-title-layer' ) : __( 'Recommended next step', 'wp-title-layer' ),
-				'description' => __( 'Use the Title Layer panel in the editor sidebar to set a subtitle, Series, and optional per-article template.', 'wp-title-layer' ),
-				'action'      => self::action( __( 'Open articles', 'wp-title-layer' ), $urls['articles'], ! $locked && ! empty( $urls['can_edit_posts'] ) ),
+				'title'       => __( 'Edit one sample article', 'irisable-title-layer' ),
+				'status'      => $locked ? __( 'Waiting for migration', 'irisable-title-layer' ) : __( 'Recommended next step', 'irisable-title-layer' ),
+				'description' => __( 'Use the Title Layer panel in the editor sidebar to set a subtitle, Series, and optional per-article template.', 'irisable-title-layer' ),
+				'action'      => self::action( __( 'Open articles', 'irisable-title-layer' ), $urls['articles'], ! $locked && ! empty( $urls['can_edit_posts'] ) ),
 			),
 			array(
-				'title'       => __( 'Review Series structure', 'wp-title-layer' ),
-				'status'      => $locked ? __( 'Waiting for migration', 'wp-title-layer' ) : ( 0 < $series['total'] ? __( 'Ready to review', 'wp-title-layer' ) : __( 'Optional', 'wp-title-layer' ) ),
-				'description' => __( 'Sequence & Structure initializes insertable order where needed, previews legacy scope without guessing, and arranges each introduction, main, epilogue, or appendix track.', 'wp-title-layer' ),
-				'action'      => self::action( __( 'Open Sequence & Structure', 'wp-title-layer' ), $urls['sequence_manager'], ! $locked && 0 < $series['total'] && current_user_can( SequenceManager::capability() ) ),
+				'title'       => __( 'Review Series structure', 'irisable-title-layer' ),
+				'status'      => $locked ? __( 'Waiting for migration', 'irisable-title-layer' ) : ( 0 < $series['total'] ? __( 'Ready to review', 'irisable-title-layer' ) : __( 'Optional', 'irisable-title-layer' ) ),
+				'description' => __( 'Sequence & Structure initializes insertable order where needed, previews legacy scope without guessing, and arranges each introduction, main, epilogue, or appendix track.', 'irisable-title-layer' ),
+				'action'      => self::action( __( 'Open Sequence & Structure', 'irisable-title-layer' ), $urls['sequence_manager'], ! $locked && 0 < $series['total'] && current_user_can( SequenceManager::capability() ) ),
 			),
 			array(
-				'title'       => __( 'Check the public result', 'wp-title-layer' ),
-				'status'      => __( 'Manual check', 'wp-title-layer' ),
-				'description' => __( 'Check desktop and mobile, and confirm the page has one visible main title and exactly one intended H1.', 'wp-title-layer' ),
-				'action'      => self::action( __( 'View a published sample', 'wp-title-layer' ), $urls['sample'], ! $locked && '' !== $urls['sample'], true ),
+				'title'       => __( 'Check the public result', 'irisable-title-layer' ),
+				'status'      => __( 'Manual check', 'irisable-title-layer' ),
+				'description' => __( 'Check desktop and mobile, and confirm the page has one visible main title and exactly one intended H1.', 'irisable-title-layer' ),
+				'action'      => self::action( __( 'View a published sample', 'irisable-title-layer' ), $urls['sample'], ! $locked && '' !== $urls['sample'], true ),
 			),
 			array(
-				'title'       => __( 'Check landing pages and title channels', 'wp-title-layer' ),
-				'status'      => $locked ? __( 'Waiting for migration', 'wp-title-layer' ) : __( 'Read-only review', 'wp-title-layer' ),
-				'description' => __( 'Compare Series and Category archives, then confirm canonical, robots, sitemap, search-title, and social-title ownership before changing SEO settings.', 'wp-title-layer' ),
-				'action'      => self::action( __( 'Open channel report', 'wp-title-layer' ), $urls['channel_health'], ! $locked && current_user_can( ChannelHealth::capability() ) ),
+				'title'       => __( 'Check landing pages and title channels', 'irisable-title-layer' ),
+				'status'      => $locked ? __( 'Waiting for migration', 'irisable-title-layer' ) : __( 'Read-only review', 'irisable-title-layer' ),
+				'description' => __( 'Compare Series and Category archives, then confirm canonical, robots, sitemap, search-title, and social-title ownership before changing SEO settings.', 'irisable-title-layer' ),
+				'action'      => self::action( __( 'Open channel report', 'irisable-title-layer' ), $urls['channel_health'], ! $locked && current_user_can( ChannelHealth::capability() ) ),
 			),
 		);
 	}
@@ -778,7 +778,7 @@ final class ControlCenter {
 		if ( ! in_array( $display_mode, array( 'manual', 'replace-theme-title', 'auto-prepend' ), true ) ) {
 			$display_mode = 'manual';
 		}
-		$theme_support_label = __( 'No verified theme adapter', 'wp-title-layer' );
+		$theme_support_label = __( 'No verified theme adapter', 'irisable-title-layer' );
 		$integration         = '\\WPTitleLayer\\Presentation\\ThemeTitleIntegration';
 		if ( class_exists( $integration ) && is_callable( array( $integration, 'support' ) ) ) {
 			try {
@@ -796,7 +796,7 @@ final class ControlCenter {
 			'display_mode'           => $display_mode,
 			'default_template_label' => $template_label,
 			'category_rule_count'    => count( (array) $settings['category_rules'] ),
-			'auto_types_label'       => $type_labels ? implode( ', ', $type_labels ) : __( 'no content types', 'wp-title-layer' ),
+			'auto_types_label'       => $type_labels ? implode( ', ', $type_labels ) : __( 'no content types', 'irisable-title-layer' ),
 			'heading_tag'            => in_array( $settings['auto_heading_tag'], array( 'h2', 'div' ), true ) ? $settings['auto_heading_tag'] : 'div',
 			'theme_support_label'     => $theme_support_label,
 		);
@@ -914,7 +914,7 @@ final class ControlCenter {
 		return array(
 			'available'                 => $available && ! $locked,
 			'archive_enabled'           => $archive_enabled,
-			'archive_label'             => $block_theme ? __( 'Controlled by the block theme', 'wp-title-layer' ) : self::onOff( $archive_enabled ),
+			'archive_label'             => $block_theme ? __( 'Controlled by the block theme', 'irisable-title-layer' ) : self::onOff( $archive_enabled ),
 			'archive_subtitles_enabled' => ! empty( $settings['archive_show_subtitles'] ),
 			'after_content_enabled'     => ! empty( $settings['after_content_enabled'] ),
 			'shortcode_enabled'         => ! empty( $settings['shortcode_enabled'] ),
@@ -1032,41 +1032,41 @@ final class ControlCenter {
 	/** @param array<string,mixed> $migration Migration state. */
 	private static function acfShortText( array $migration ): string {
 		if ( empty( $migration['available'] ) ) {
-			return __( 'The old ACF Series fields could not be audited from this screen.', 'wp-title-layer' );
+			return __( 'The old ACF Series fields could not be audited from this screen.', 'irisable-title-layer' );
 		}
 
 		if ( 0 < (int) $migration['acf_series_assignments'] ) {
 			return sprintf(
 				/* translators: 1: non-empty field-post values, 2: unique posts. */
-				__( '%1$s non-empty old ACF field values across %2$s post IDs can include defaults and are not confirmed Series use.', 'wp-title-layer' ),
+				__( '%1$s non-empty old ACF field values across %2$s post IDs can include defaults and are not confirmed Series use.', 'irisable-title-layer' ),
 				number_format_i18n( (int) $migration['acf_series_assignments'] ),
 				number_format_i18n( (int) ( $migration['acf_series_posts'] ?? 0 ) )
 			);
 		}
 
-		return __( 'No non-empty values were found in the five audited old ACF Series fields.', 'wp-title-layer' );
+		return __( 'No non-empty values were found in the five audited old ACF Series fields.', 'irisable-title-layer' );
 	}
 
 	/** @param array<string,mixed> $migration Migration state. */
 	private static function acfBoundaryText( array $migration ): string {
 		if ( empty( $migration['available'] ) ) {
-			return __( 'WP Title Layer does not require ACF, but the five old Series fields could not be audited from this screen. Check the migration report before deciding whether to remove ACF.', 'wp-title-layer' );
+			return __( 'Irisable Title Layer does not require ACF, but the five old Series fields could not be audited from this screen. Check the migration report before deciding whether to remove ACF.', 'irisable-title-layer' );
 		}
 
 		if ( 0 < (int) $migration['acf_series_assignments'] ) {
 			return sprintf(
 				/* translators: 1: non-empty field-post values, 2: unique posts. */
-				__( 'WP Title Layer does not require ACF. The audit found %1$s non-empty field-post values across %2$s post IDs in the five old Series fields. This can include ACF-saved defaults, excludes exact empty strings, and is not proof of Series use; none of these fields is converted automatically. Check unrelated ACF fields separately before uninstalling ACF.', 'wp-title-layer' ),
+				__( 'Irisable Title Layer does not require ACF. The audit found %1$s non-empty field-post values across %2$s post IDs in the five old Series fields. This can include ACF-saved defaults, excludes exact empty strings, and is not proof of Series use; none of these fields is converted automatically. Check unrelated ACF fields separately before uninstalling ACF.', 'irisable-title-layer' ),
 				number_format_i18n( (int) $migration['acf_series_assignments'] ),
 				number_format_i18n( (int) ( $migration['acf_series_posts'] ?? 0 ) )
 			);
 		}
 
-		return __( 'WP Title Layer does not require ACF. The five audited old Series fields currently contain no non-empty stored values; exact empty strings are not counted.', 'wp-title-layer' );
+		return __( 'Irisable Title Layer does not require ACF. The five audited old Series fields currently contain no non-empty stored values; exact empty strings are not counted.', 'irisable-title-layer' );
 	}
 
 	private static function onOff( bool $enabled ): string {
-		return $enabled ? __( 'On', 'wp-title-layer' ) : __( 'Off', 'wp-title-layer' );
+		return $enabled ? __( 'On', 'irisable-title-layer' ) : __( 'Off', 'irisable-title-layer' );
 	}
 
 	/**

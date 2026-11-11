@@ -32,7 +32,7 @@ function writeFixture( directory, versions = {} ) {
 	};
 	fs.writeFileSync(
 		path.join( directory, 'wp-title-layer.php' ),
-		`<?php\n/**\n * Plugin Name: WP Title Layer\n * Version: ${ values.header }\n */\ndefine( 'WPTL_VERSION', '${ values.constant }' );\n`
+		`<?php\n/**\n * Plugin Name: Irisable Title Layer\n * Version: ${ values.header }\n */\ndefine( 'WPTL_VERSION', '${ values.constant }' );\n`
 	);
 	fs.writeFileSync(
 		path.join( directory, 'package.json' ),
@@ -49,16 +49,16 @@ function writeFixture( directory, versions = {} ) {
 	);
 	fs.writeFileSync(
 		path.join( directory, 'readme.txt' ),
-		`=== WP Title Layer ===\nStable tag: ${ values.stable }\n`
+		`=== Irisable Title Layer ===\nStable tag: ${ values.stable }\n`
 	);
 	fs.mkdirSync( path.join( directory, 'languages' ), { recursive: true } );
 	fs.writeFileSync(
-		path.join( directory, 'languages', 'wp-title-layer-zh_CN.po' ),
-		`msgid ""\nmsgstr ""\n"Project-Id-Version: WP Title Layer ${ values.po }\\n"\n`
+		path.join( directory, 'languages', 'irisable-title-layer-zh_CN.po' ),
+		`msgid ""\nmsgstr ""\n"Project-Id-Version: Irisable Title Layer ${ values.po }\\n"\n`
 	);
 	fs.writeFileSync(
-		path.join( directory, 'languages', 'wp-title-layer.pot' ),
-		`msgid ""\nmsgstr ""\n"Project-Id-Version: WP Title Layer ${ values.pot }\\n"\n`
+		path.join( directory, 'languages', 'irisable-title-layer.pot' ),
+		`msgid ""\nmsgstr ""\n"Project-Id-Version: Irisable Title Layer ${ values.pot }\\n"\n`
 	);
 }
 
@@ -71,11 +71,11 @@ function writePackageFixture( directory, versions = {} ) {
 	};
 	fs.writeFileSync(
 		path.join( directory, 'wp-title-layer.php' ),
-		`<?php\n/**\n * Plugin Name: WP Title Layer\n * Version: ${ values.header }\n */\ndefine( 'WPTL_VERSION', '${ values.constant }' );\n`
+		`<?php\n/**\n * Plugin Name: Irisable Title Layer\n * Version: ${ values.header }\n */\ndefine( 'WPTL_VERSION', '${ values.constant }' );\n`
 	);
 	fs.writeFileSync(
 		path.join( directory, 'readme.txt' ),
-		`=== WP Title Layer ===\nStable tag: ${ values.stable }\n`
+		`=== Irisable Title Layer ===\nStable tag: ${ values.stable }\n`
 	);
 }
 
@@ -149,7 +149,7 @@ test( 'release builder validates the committed ref before replacing an archive',
 		assert.equal( run( 'git', [ 'init', '-q' ], { cwd: directory } ).status, 0 );
 		assert.equal( run( 'git', [ 'add', '.' ], { cwd: directory } ).status, 0 );
 		assert.equal(
-			run( 'git', [ '-c', 'user.name=WP Title Layer Tests', '-c', 'user.email=tests@example.invalid', 'commit', '-qm', 'matching release' ], { cwd: directory } ).status,
+			run( 'git', [ '-c', 'user.name=Irisable Title Layer Tests', '-c', 'user.email=tests@example.invalid', 'commit', '-qm', 'matching release' ], { cwd: directory } ).status,
 			0
 		);
 
@@ -164,7 +164,7 @@ test( 'release builder validates the committed ref before replacing an archive',
 		assert.match( committedRef.stdout, /Release version contract verified: 1\.0\.0-rc\.1 at HEAD/ );
 		assert.equal( run( 'git', [ 'add', 'wp-title-layer.php' ], { cwd: directory } ).status, 0 );
 		assert.equal(
-			run( 'git', [ '-c', 'user.name=WP Title Layer Tests', '-c', 'user.email=tests@example.invalid', 'commit', '-qm', 'drifted release' ], { cwd: directory } ).status,
+			run( 'git', [ '-c', 'user.name=Irisable Title Layer Tests', '-c', 'user.email=tests@example.invalid', 'commit', '-qm', 'drifted release' ], { cwd: directory } ).status,
 			0
 		);
 

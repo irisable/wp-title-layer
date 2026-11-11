@@ -178,7 +178,7 @@ test( 'Season public URLs use stable never-reused numeric identities', () => {
 	assert.match( series, /public_season_archive_url/ );
 	assert.match( series, /canonical_season_url/ );
 	assert.match( series, /redirect_legacy_season_url/ );
-	assert.match( series, /wp_safe_redirect\( \$url, 301, 'WP Title Layer' \)/ );
+	assert.match( series, /wp_safe_redirect\( \$url, 301, 'Irisable Title Layer' \)/ );
 	assert.match( series, /wptl_rest_seasons_read_only/ );
 } );
 

@@ -99,7 +99,7 @@ test( 'editor panel is limited to supported post types', () => {
 	assert.match( source, /return null;/ );
 } );
 
-test( 'the editor panel and optional block use the WP Title Layer mark', () => {
+test( 'the editor panel and optional block use the Irisable Title Layer mark', () => {
 	assert.match( source, /function titleLayerIcon\( className \)/ );
 	assert.match( source, /M3 3h14v2h-6v5H9V5H3V3z/ );
 	assert.match( source, /registerPlugin\( 'wp-title-layer', \{ render: TitleLayerPanel, icon: titleLayerIcon\(\) \} \)/ );

@@ -68,7 +68,7 @@ stable_tag_version() {
 }
 
 project_id_version() {
-	extract_one 'Project-Id-Version header' 's/^"Project-Id-Version: WP Title Layer ([^\\]+)\\n"$/\1/p' "$1"
+	extract_one 'Project-Id-Version header' 's/^"Project-Id-Version: Irisable Title Layer ([^\\]+)\\n"$/\1/p' "$1"
 }
 
 assert_version() {
@@ -149,8 +149,8 @@ case "${command_name}" in
 			"$(read_directory_file "$3" 'readme.txt')" \
 			"$(read_directory_file "$3" 'package.json')" \
 			"$(read_directory_file "$3" 'package-lock.json')" \
-			"$(read_directory_file "$3" 'languages/wp-title-layer-zh_CN.po')" \
-			"$(read_directory_file "$3" 'languages/wp-title-layer.pot')"
+			"$(read_directory_file "$3" 'languages/irisable-title-layer-zh_CN.po')" \
+			"$(read_directory_file "$3" 'languages/irisable-title-layer.pot')"
 		echo "Release version contract verified: $2"
 		;;
 	check-git-ref)
@@ -162,8 +162,8 @@ case "${command_name}" in
 			"$(read_git_file "$3" "$4" 'readme.txt')" \
 			"$(read_git_file "$3" "$4" 'package.json')" \
 			"$(read_git_file "$3" "$4" 'package-lock.json')" \
-			"$(read_git_file "$3" "$4" 'languages/wp-title-layer-zh_CN.po')" \
-			"$(read_git_file "$3" "$4" 'languages/wp-title-layer.pot')"
+			"$(read_git_file "$3" "$4" 'languages/irisable-title-layer-zh_CN.po')" \
+			"$(read_git_file "$3" "$4" 'languages/irisable-title-layer.pot')"
 		echo "Release version contract verified: $2 at $4"
 		;;
 	check-package-directory)
