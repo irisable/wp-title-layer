@@ -6,6 +6,23 @@ This is a submission candidate, not an assertion of approval or availability in
 the plugin directory. Published GitHub 1.0.0 remains unchanged. Production is
 not redeployed as part of this preparation.
 
+## Submission attempt outcome
+
+The owner explicitly authorized the directory declarations and upload. The
+upload endpoint rejected the name **WP Title Layer**, stating that `wp` cannot
+begin the plugin permalink or display name. There is no accepted submission or
+review-queue acknowledgement. This live validation overrides the more permissive
+comment in Plugin Check's source. No automatic rename or repeated upload was
+attempted; owner choice is required before changing the public identity/slug.
+
+Candidate commit: `4d436c8`. ZIP SHA-256:
+`c00afbc20033dabdb3b8c33dbb16ed0f011c87c41e36fd9346567cfb31b9a901`.
+Final official static result: **0 errors, 128 reviewed warnings**. All 99
+JavaScript/contracts passed. Both source and exact packaged-payload matrices
+passed on WordPress 6.5/PHP 7.4 and current WordPress/PHP 8.3: 61 PHP files,
+828 integration, 111 sequence, 67 book structure, 57 content group and 46
+Publisher checks per environment.
+
 ## Distribution changes
 
 - Remove `Update URI: false` so directory-distributed installations can use
@@ -52,7 +69,7 @@ to a reviewer if requested; the review team can require additional changes.
 | Unprefixed functions / hooks | Guarded Secondary Title compatibility functions and legacy hooks preserve existing integrations. Rollback emits WordPress core metadata hooks for its guarded atomic deletion. New plugin-owned interfaces use the plugin prefix or namespace. |
 | load_plugin_textdomain | Keep bundled Simplified Chinese working for existing manual/GitHub installations too; directory language packs can still be used. |
 | CREDITS.md | Intentionally retain human-readable third-party review provenance and attribution; no third-party ZIP or development fixture is distributed. |
-| `wp` trademark warning | Plugin Check's `Trademarks_Check::TRADEMARK_SLUGS` explicitly says `wp` is allowed but warns. Preserve the established name and slug; final naming approval belongs to the directory reviewers. |
+| `wp` trademark warning | Plugin Check's `Trademarks_Check::TRADEMARK_SLUGS` says `wp` is allowed but warns; however, the live upload endpoint rejected the prefix. This warning is now an unresolved submission blocker, pending the owner's naming decision. |
 
 No telemetry, tracking cookies, outbound content submission, remote executable
 download, license gate, trial limit, or external account requirement was found
