@@ -121,7 +121,7 @@ final class ChannelHealth {
 
 			<?php if ( ! empty( $rank_math['active'] ) ) : ?>
 				<div class="wptl-health-statuses">
-					<span class="wptl-health-chip"><?php echo esc_html( sprintf( __( 'Series robots: %s', 'wp-title-layer' ), implode( ', ', (array) ( $robots['values'] ?? array() ) ) ) ); ?></span>
+					<span class="wptl-health-chip"><?php /* translators: %s: comma-separated robots directives. */ echo esc_html( sprintf( __( 'Series robots: %s', 'wp-title-layer' ), implode( ', ', (array) ( $robots['values'] ?? array() ) ) ) ); ?></span>
 					<span class="wptl-health-chip"><?php echo esc_html( ! empty( $sitemap['module_active'] ) ? __( 'Rank Math sitemap module: on', 'wp-title-layer' ) : __( 'Rank Math sitemap module: off', 'wp-title-layer' ) ); ?></span>
 					<span class="wptl-health-chip"><?php echo esc_html( ! empty( $sitemap['enabled'] ) ? __( 'Series taxonomy in sitemap: on', 'wp-title-layer' ) : __( 'Series taxonomy in sitemap: off', 'wp-title-layer' ) ); ?></span>
 				</div>
@@ -301,7 +301,7 @@ final class ChannelHealth {
 			<?php if ( 'rank_math' !== (string) ( $provider['state'] ?? '' ) ) : ?>
 				<p><?php esc_html_e( 'Rank Math is not the sole verified provider here, so WP Title Layer does not interpret stored Rank Math post metadata as the current channel policy.', 'wp-title-layer' ); ?></p>
 			<?php else : ?>
-				<p><?php echo esc_html( sprintf( __( 'Among %1$s public members: %2$s have an SEO-title override (%3$s use a WP Title Layer variable), %4$s have a Facebook-title override (%5$s use a WP Title Layer variable), and %6$s have a Twitter-title override (%7$s use a WP Title Layer variable).', 'wp-title-layer' ), number_format_i18n( (int) ( $counts['members'] ?? 0 ) ), number_format_i18n( (int) ( $counts['seo_titles'] ?? 0 ) ), number_format_i18n( (int) ( $counts['seo_titles_with_wptl'] ?? 0 ) ), number_format_i18n( (int) ( $counts['facebook_titles'] ?? 0 ) ), number_format_i18n( (int) ( $counts['facebook_titles_with_wptl'] ?? 0 ) ), number_format_i18n( (int) ( $counts['twitter_titles'] ?? 0 ) ), number_format_i18n( (int) ( $counts['twitter_titles_with_wptl'] ?? 0 ) ) ) ); ?></p>
+				<p><?php /* translators: 1: public article count, 2: SEO overrides, 3: SEO overrides using this plugin, 4: Facebook overrides, 5: Facebook overrides using this plugin, 6: Twitter overrides, 7: Twitter overrides using this plugin. */ echo esc_html( sprintf( __( 'Among %1$s public members: %2$s have an SEO-title override (%3$s use a WP Title Layer variable), %4$s have a Facebook-title override (%5$s use a WP Title Layer variable), and %6$s have a Twitter-title override (%7$s use a WP Title Layer variable).', 'wp-title-layer' ), number_format_i18n( (int) ( $counts['members'] ?? 0 ) ), number_format_i18n( (int) ( $counts['seo_titles'] ?? 0 ) ), number_format_i18n( (int) ( $counts['seo_titles_with_wptl'] ?? 0 ) ), number_format_i18n( (int) ( $counts['facebook_titles'] ?? 0 ) ), number_format_i18n( (int) ( $counts['facebook_titles_with_wptl'] ?? 0 ) ), number_format_i18n( (int) ( $counts['twitter_titles'] ?? 0 ) ), number_format_i18n( (int) ( $counts['twitter_titles_with_wptl'] ?? 0 ) ) ) ); ?></p>
 				<p class="description"><?php esc_html_e( 'These counts describe explicit overrides; they do not judge whether every article should include a subtitle. Edit those titles in Rank Math, not on this report.', 'wp-title-layer' ); ?></p>
 			<?php endif; ?>
 		</div>

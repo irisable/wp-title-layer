@@ -504,6 +504,7 @@ final class ControlCenter {
 				'title'       => __( 'Create a Series if needed', 'wp-title-layer' ),
 				'status'      => $locked
 					? __( 'Waiting for migration', 'wp-title-layer' )
+					/* translators: %s: number of existing Series. */
 					: ( ! $series['available'] ? __( 'Status unavailable', 'wp-title-layer' ) : ( 0 < $series['total'] ? sprintf( __( '%s created', 'wp-title-layer' ), number_format_i18n( $series['total'] ) ) : __( 'Optional', 'wp-title-layer' ) ) ),
 				'description' => __( 'Choose ordered or unordered, then add seasons only when the collection really needs them.', 'wp-title-layer' ),
 				'action'      => self::action( __( 'Manage Series', 'wp-title-layer' ), $urls['series'], ! $locked && $series['can_manage'] ),

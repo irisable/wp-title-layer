@@ -1,6 +1,7 @@
 # WP Title Layer
 
-Current stable release: **1.0.0**. This promotes the production-tested release
+WordPress.org submission candidate: **1.0.1**. See the [submission audit](docs/wordpress-org-submission.md).
+Published stable release: **1.0.0**. This promotes the production-tested release
 candidates, including the Kadence 1.6.0 compatibility fix, without a new data
 migration. Historical RC checklists below remain the detailed feature records.
 

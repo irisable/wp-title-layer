@@ -34,7 +34,7 @@ final class AjaxController {
 
 	private static function authorize(): void {
 		$method = isset( $_SERVER['REQUEST_METHOD'] ) && is_scalar( $_SERVER['REQUEST_METHOD'] )
-			? strtoupper( (string) $_SERVER['REQUEST_METHOD'] )
+			? strtoupper( sanitize_text_field( wp_unslash( (string) $_SERVER['REQUEST_METHOD'] ) ) )
 			: '';
 		if ( 'POST' !== $method ) {
 			wp_send_json_error( [ 'code' => 'wptl_migration_method_not_allowed' ], 405 );

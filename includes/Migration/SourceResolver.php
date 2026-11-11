@@ -57,8 +57,9 @@ final class SourceResolver {
 			[ Config::LEGACY_META, Config::ACF_META, Config::ACF_REFERENCE_META, $limit ]
 		);
 
-		$prepared = $wpdb->prepare( $sql, $args );
-		return array_map( 'intval', (array) $wpdb->get_col( $prepared ) );
+		// Only fixed SQL fragments and generated %s placeholders form $sql; all values are bound through $args.
+		$prepared = $wpdb->prepare( $sql, $args ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+		return array_map( 'intval', (array) $wpdb->get_col( $prepared ) ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,PluginCheck.Security.DirectDB.UnescapedDBParameter -- Prepared immediately above; migration requires a fresh source scan.
 	}
 
 	public function max_candidate_post_id(): int {
@@ -89,7 +90,8 @@ final class SourceResolver {
 				)";
 
 		$args = array_merge( $post_types, [ Config::LEGACY_META, Config::ACF_META, Config::ACF_REFERENCE_META ] );
-		return (int) $wpdb->get_var( $wpdb->prepare( $sql, $args ) );
+		// The IN list contains generated %s placeholders, never values; all values are bound through $args.
+		return (int) $wpdb->get_var( $wpdb->prepare( $sql, $args ) ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 	}
 
 	/**

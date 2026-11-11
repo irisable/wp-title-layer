@@ -281,6 +281,7 @@ final class Detector {
 			WHERE value_meta.meta_key = %s AND value_meta.meta_value <> ''";
 		$args = array_merge( [ '_' . $field_name ], $field_keys, [ $field_name ] );
 
-		return (int) $wpdb->get_var( $wpdb->prepare( $sql, $args ) );
+		// The IN list contains generated %s placeholders; field names and keys are bound, not interpolated.
+		return (int) $wpdb->get_var( $wpdb->prepare( $sql, $args ) ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 	}
 }

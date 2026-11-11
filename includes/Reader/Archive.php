@@ -102,7 +102,7 @@ final class Archive {
 			'status'         => Series::status( $term ),
 			'status_label'   => Series::status_label( $term ),
 			'active_season'  => $active_season,
-			'description'    => term_description( (int) $term->term_id, $term->taxonomy ),
+			'description'    => term_description( (int) $term->term_id ),
 			'cover_id'       => $this->coverId( (int) get_term_meta( $term->term_id, Schema::TERM_META_COVER_ID, true ) ),
 			'mode'           => $mode,
 			'structure'      => $structure,

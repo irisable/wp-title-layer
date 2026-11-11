@@ -69,7 +69,10 @@ final class RankMath {
 			<li><code>%wptl_title_with_subtitle%</code> — <?php esc_html_e( 'WordPress title plus a locale-appropriate separator and the subtitle only when one exists', 'wp-title-layer' ); ?></li>
 		</ul>
 		<p class="description">
-			<?php esc_html_e( 'Use the combined variable in Rank Math’s SEO title, Facebook title, or Twitter title fields only where you want the subtitle included. For example: %wptl_title_with_subtitle% %sep% %sitename%. Leaving Rank Math unchanged keeps its current titles.', 'wp-title-layer' ); ?>
+			<?php
+			/* translators: The percent-delimited names are literal Rank Math variables, not printf placeholders. Keep them unchanged. */
+			esc_html_e( 'Use the combined variable in Rank Math’s SEO title, Facebook title, or Twitter title fields only where you want the subtitle included. For example: %wptl_title_with_subtitle% %sep% %sitename%. Leaving Rank Math unchanged keeps its current titles.', 'wp-title-layer' ); // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText -- Literal Rank Math tokens.
+			?>
 		</p>
 		<?php
 	}

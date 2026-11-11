@@ -1,10 +1,10 @@
 === WP Title Layer ===
-Contributors: iris
+Contributors: irisable
 Tags: title, subtitle, series, editorial, gutenberg
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -379,12 +379,31 @@ inheritance separately. Inactive Rank Math options are ignored; another or
 multiple SEO providers are identified but must be checked in their own UI and
 in rendered page source.
 
+== Privacy and external services ==
+
+WP Title Layer does not collect telemetry, create visitor-tracking cookies,
+or send content to external services. Its data is stored in your WordPress
+database. Optional integrations use locally installed plugins; no external
+account or API key is required. Migration exports download to the requesting
+administrator's browser. Deactivation and deletion preserve content data.
+
+== Source and credits ==
+
+Source code, development tools, and issue tracking:
+https://github.com/irisable/wp-title-layer
+
+The packaged PHP and JavaScript are human-readable source files. WordPress
+provides the editor libraries; no third-party runtime library is bundled.
+Compatibility with Secondary Title 2.2.1 by Kolja Nolte (GPL-2.0-or-later)
+was informed by static review. This is an independent rewrite, not an
+official continuation. See CREDITS.md for the review provenance.
+
 == Development ==
 
-Run `npm run check` for 95 JavaScript, localization, editor, Sequence & Structure,
+Run `npm run check` for 99 JavaScript, localization, editor, Sequence & Structure,
 migration, channel-governance, and release-version contract checks. Run `npm run test:wp` for
 61-file PHP syntax, 828 integration checks, 111 Sequence Manager
-checks, 65 book-structure checks, and 42 content-group checks against both ends of the supported matrix:
+checks, 67 book-structure checks, 57 content-group checks, and 46 Publisher contract checks against both ends of the supported matrix:
 
 * WordPress 6.5 with PHP 7.4;
 * WordPress 7.1 with PHP 8.3.
@@ -394,6 +413,11 @@ Official Kadence 1.5.2 templates pass 40 adapter checks. Official Rank Math
 two-post cache isolation and its real taxonomy/sitemap settings.
 
 == Changelog ==
+
+= 1.0.1 =
+* Prepare WordPress.org distribution, including native update eligibility and contributor metadata.
+* Clarify privacy, source availability, and migration compatibility credits.
+* Address Plugin Check findings without changing stored content or Series structure.
 
 = 1.0.0 =
 * First stable release after extended production use of the release candidates.

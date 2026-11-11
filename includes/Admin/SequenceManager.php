@@ -287,7 +287,7 @@ final class SequenceManager {
 		?>
 		<section class="wptl-health-panel" aria-labelledby="wptl-sequence-progress-title">
 			<h2 id="wptl-sequence-progress-title"><?php esc_html_e( 'Initialization journal', 'wp-title-layer' ); ?></h2>
-			<p><?php echo esc_html( sprintf( __( '%1$d of %2$d private ranks have been value-checked and written.', 'wp-title-layer' ), $cursor, $total ) ); ?></p>
+			<p><?php /* translators: 1: processed rank count, 2: total rank count. */ echo esc_html( sprintf( __( '%1$d of %2$d private ranks have been value-checked and written.', 'wp-title-layer' ), $cursor, $total ) ); ?></p>
 			<progress max="<?php echo esc_attr( (string) max( 1, $total ) ); ?>" value="<?php echo esc_attr( (string) $cursor ); ?>"><?php echo esc_html( (string) $cursor ); ?></progress>
 			<?php if ( 'conflict' === $status ) : ?>
 				<div class="notice notice-error inline"><p><?php echo esc_html( (string) ( $journal['error'] ?? __( 'The frozen source values changed.', 'wp-title-layer' ) ) ); ?></p></div>
@@ -327,7 +327,7 @@ final class SequenceManager {
 				<div>
 					<p class="wptl-cc-eyebrow"><?php esc_html_e( 'Managed sequence', 'wp-title-layer' ); ?></p>
 					<h2 id="wptl-managed-sequence-title"><?php echo esc_html( (string) $term->name ); ?></h2>
-					<p><?php echo esc_html( sprintf( __( 'Revision %d. Every move is checked against this revision before writing.', 'wp-title-layer' ), (int) $view['revision'] ) ); ?></p>
+					<p><?php /* translators: %d: current sequence revision. */ echo esc_html( sprintf( __( 'Revision %d. Every move is checked against this revision before writing.', 'wp-title-layer' ), (int) $view['revision'] ) ); ?></p>
 				</div>
 				<a class="button" href="<?php echo esc_url( get_edit_term_link( (int) $term->term_id, $term->taxonomy ) ); ?>"><?php esc_html_e( 'Edit Series definition', 'wp-title-layer' ); ?></a>
 			</div>
@@ -396,7 +396,7 @@ final class SequenceManager {
 				<?php self::summary_card( __( 'Invalid structure', 'wp-title-layer' ), count( (array) $preview['invalid'] ), __( 'Missing Seasons or incompatible scope choices must be corrected first.', 'wp-title-layer' ), empty( $preview['invalid'] ) ? 'success' : 'warning' ); ?>
 			</div>
 			<?php if ( $review_rows ) : ?>
-				<div class="notice notice-warning inline"><p><strong><?php echo esc_html( sprintf( _n( '%d entry needs a scope or structure decision before activation.', '%d entries need a scope or structure decision before activation.', count( $review_rows ), 'wp-title-layer' ), count( $review_rows ) ) ); ?></strong></p></div>
+				<div class="notice notice-warning inline"><p><strong><?php /* translators: %d: number of entries requiring a decision. */ echo esc_html( sprintf( _n( '%d entry needs a scope or structure decision before activation.', '%d entries need a scope or structure decision before activation.', count( $review_rows ), 'wp-title-layer' ), count( $review_rows ) ) ); ?></strong></p></div>
 				<h3><?php esc_html_e( 'Resolve these entries first', 'wp-title-layer' ); ?></h3>
 				<ul class="wptl-sequence-review-list">
 				<?php foreach ( array_slice( $review_rows, 0, 50 ) as $row ) : ?>
@@ -414,7 +414,7 @@ final class SequenceManager {
 				<?php if ( $sequence_required ) : ?>
 					<p class="description"><?php esc_html_e( 'Initialize this ordered Series in the Sequence view before enabling advanced structure.', 'wp-title-layer' ); ?></p>
 				<?php elseif ( 0 < $blocked ) : ?>
-					<p class="description"><?php echo esc_html( sprintf( _n( 'Activation is unavailable until %d entry above is resolved.', 'Activation is unavailable until all %d entries above are resolved.', $blocked, 'wp-title-layer' ), $blocked ) ); ?></p>
+					<p class="description"><?php /* translators: %d: number of unresolved entries. */ echo esc_html( sprintf( _n( 'Activation is unavailable until %d entry above is resolved.', 'Activation is unavailable until all %d entries above are resolved.', $blocked, 'wp-title-layer' ), $blocked ) ); ?></p>
 				<?php else : ?>
 					<p class="description"><?php esc_html_e( 'Non-main entries receive private per-track ranks. Main-article numbers, public labels, old positions, article content, and taxonomy relationships are preserved.', 'wp-title-layer' ); ?></p>
 				<?php endif; ?>
@@ -425,7 +425,7 @@ final class SequenceManager {
 				<?php self::render_track_preview_table( $populated_tracks, $preview ); ?>
 			<?php endif; ?>
 			<details class="wptl-structure-track-preview">
-				<summary><?php echo esc_html( sprintf( __( 'Show all available tracks (%d)', 'wp-title-layer' ), count( $tracks ) ) ); ?></summary>
+				<summary><?php /* translators: %d: available track count. */ echo esc_html( sprintf( __( 'Show all available tracks (%d)', 'wp-title-layer' ), count( $tracks ) ) ); ?></summary>
 				<?php self::render_track_preview_table( $tracks, $preview ); ?>
 			</details>
 		</section>
@@ -477,7 +477,7 @@ final class SequenceManager {
 				<div>
 					<p class="wptl-cc-eyebrow"><?php echo esc_html( Series::is_ordered( $term ) ? __( 'Ordered Series', 'wp-title-layer' ) : __( 'Unordered Series', 'wp-title-layer' ) ); ?></p>
 					<h2 id="wptl-managed-sequence-title"><?php echo esc_html( (string) $term->name ); ?></h2>
-					<p><strong><?php echo esc_html( (string) $track['label'] ); ?></strong> · <?php echo esc_html( sprintf( __( 'Revision %d. Every move is checked against this track revision before writing.', 'wp-title-layer' ), (int) $view['revision'] ) ); ?></p>
+					<p><strong><?php echo esc_html( (string) $track['label'] ); ?></strong> · <?php /* translators: %d: current track revision. */ echo esc_html( sprintf( __( 'Revision %d. Every move is checked against this track revision before writing.', 'wp-title-layer' ), (int) $view['revision'] ) ); ?></p>
 				</div>
 				<a class="button" href="<?php echo esc_url( get_edit_term_link( (int) $term->term_id, $term->taxonomy ) ); ?>"><?php esc_html_e( 'Edit Series definition', 'wp-title-layer' ); ?></a>
 			</div>
@@ -620,7 +620,7 @@ final class SequenceManager {
 		}
 		?>
 		<details class="wptl-sequence-unresolved">
-			<summary><?php echo esc_html( sprintf( __( 'Review unresolved articles (%d)', 'wp-title-layer' ), count( $samples ) ) ); ?></summary>
+			<summary><?php /* translators: %d: unresolved article count. */ echo esc_html( sprintf( __( 'Review unresolved articles (%d)', 'wp-title-layer' ), count( $samples ) ) ); ?></summary>
 			<ul>
 			<?php foreach ( array_slice( $samples, 0, 25 ) as $record ) : ?>
 				<li><?php if ( '' !== (string) $record['edit_url'] ) : ?><a href="<?php echo esc_url( (string) $record['edit_url'] ); ?>"><?php echo esc_html( (string) $record['title'] ); ?></a><?php else : ?><?php echo esc_html( (string) $record['title'] ); ?><?php endif; ?> <span class="description"><?php echo esc_html( sprintf( 'ID %1$d · %2$s', (int) $record['id'], (string) $record['source_position'] ) ); ?></span></li>

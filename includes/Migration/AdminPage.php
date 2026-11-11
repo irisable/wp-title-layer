@@ -102,7 +102,7 @@ final class AdminPage {
 			<?php if ( 0 === $acf_series_value_posts ) : ?>
 				<p class="notice notice-success inline"><span><?php echo esc_html__( 'No non-empty stored values were found in these five ACF Series fields. Exact empty-string rows are not included, and this does not inspect unrelated ACF fields used by a theme or another plugin.', 'wp-title-layer' ); ?></span></p>
 			<?php else : ?>
-				<p class="notice notice-info inline"><span><?php echo esc_html( sprintf( __( '%1$s non-empty field-post values were found across %2$s unique post IDs. This is not a confirmed Series-usage count: ACF-saved defaults are included, while exact empty strings are excluded. WP Title Layer never imports these five fields automatically. If you know they were unused, they do not block subtitle migration; inspect unrelated ACF fields separately before uninstalling ACF.', 'wp-title-layer' ), number_format_i18n( $acf_series_value_posts ), number_format_i18n( $acf_series_unique_posts ) ) ); ?></span></p>
+				<p class="notice notice-info inline"><span><?php /* translators: 1: stored field-post value count, 2: distinct post count. */ echo esc_html( sprintf( __( '%1$s non-empty field-post values were found across %2$s unique post IDs. This is not a confirmed Series-usage count: ACF-saved defaults are included, while exact empty strings are excluded. WP Title Layer never imports these five fields automatically. If you know they were unused, they do not block subtitle migration; inspect unrelated ACF fields separately before uninstalling ACF.', 'wp-title-layer' ), number_format_i18n( $acf_series_value_posts ), number_format_i18n( $acf_series_unique_posts ) ) ); ?></span></p>
 			<?php endif; ?>
 
 			<h2><?php echo esc_html__( 'Dry run', 'wp-title-layer' ); ?></h2>
@@ -238,7 +238,7 @@ final class AdminPage {
 	public static function handle_rollback(): void {
 		self::authorize( 'wptl_migration_rollback' );
 		$run_id  = self::posted_run_id();
-		$confirm = isset( $_POST['confirm_rollback'] ) && is_scalar( $_POST['confirm_rollback'] ) ? (string) wp_unslash( $_POST['confirm_rollback'] ) : '';
+		$confirm = isset( $_POST['confirm_rollback'] ) && is_scalar( $_POST['confirm_rollback'] ) ? sanitize_text_field( (string) wp_unslash( $_POST['confirm_rollback'] ) ) : '';
 		if ( '1' !== $confirm ) {
 			self::redirect( 'rollback_confirmation_required', 'error', $run_id );
 		}
@@ -274,7 +274,8 @@ final class AdminPage {
 		if ( false === $output ) {
 			wp_die( esc_html__( 'Could not open the conflict export.', 'wp-title-layer' ) );
 		}
-		fwrite( $output, "\xEF\xBB\xBF" );
+		// This is the HTTP download stream, not a server file; WP_Filesystem cannot replace streaming CSV output.
+		fwrite( $output, "\xEF\xBB\xBF" ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fwrite
 		fputcsv( $output, [ 'post_id', 'post_type', 'post_title', 'reason', 'warnings' ] );
 		for ( $batch = 1; $batch <= max( 1, (int) ( $run['next_batch'] ?? 1 ) ); ++$batch ) {
 			foreach ( $store->get_conflicts( $run_id, $batch ) as $conflict ) {
@@ -290,7 +291,7 @@ final class AdminPage {
 				);
 			}
 		}
-		fclose( $output );
+		fclose( $output ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose -- Close the php://output response stream only.
 		exit;
 	}
 
@@ -375,7 +376,7 @@ final class AdminPage {
 		?>
 		<tr><td colspan="6">
 			<details>
-				<summary><?php echo esc_html( sprintf( __( 'Show conflict queue (%s total)', 'wp-title-layer' ), number_format_i18n( $count ) ) ); ?></summary>
+				<summary><?php /* translators: %s: conflict count. */ echo esc_html( sprintf( __( 'Show conflict queue (%s total)', 'wp-title-layer' ), number_format_i18n( $count ) ) ); ?></summary>
 				<ul>
 				<?php foreach ( $shown as $conflict ) : ?>
 					<li><a href="<?php echo esc_url( get_edit_post_link( (int) $conflict['post_id'] ) ); ?>"><?php echo esc_html( '#' . (int) $conflict['post_id'] . ' ' . $conflict['post_title'] ); ?></a> — <code><?php echo esc_html( $conflict['reason'] ); ?></code></li>
@@ -407,7 +408,7 @@ final class AdminPage {
 
 	private static function authorize( string $nonce_action ): void {
 		$method = isset( $_SERVER['REQUEST_METHOD'] ) && is_scalar( $_SERVER['REQUEST_METHOD'] )
-			? strtoupper( (string) $_SERVER['REQUEST_METHOD'] )
+			? strtoupper( sanitize_text_field( wp_unslash( (string) $_SERVER['REQUEST_METHOD'] ) ) )
 			: '';
 		if ( 'POST' !== $method ) {
 			wp_die( esc_html__( 'This migration action accepts POST requests only.', 'wp-title-layer' ), '', [ 'response' => 405 ] );

@@ -440,9 +440,9 @@ final class SettingsPage {
 							<label>
 								<span><?php esc_html_e( 'Same-line separator', 'wp-title-layer' ); ?></span>
 								<select name="<?php echo esc_attr( $base . '[separator_style]' ); ?>">
-									<option value="colon" <?php selected( $values['separator_style'], 'colon' ); ?>><?php echo esc_html( sprintf( __( 'Colon %s', 'wp-title-layer' ), trim( $separators['colon'] ) ) ); ?></option>
-									<option value="dash" <?php selected( $values['separator_style'], 'dash' ); ?>><?php echo esc_html( sprintf( __( 'Em dash %s', 'wp-title-layer' ), trim( $separators['dash'] ) ) ); ?></option>
-									<option value="pipe" <?php selected( $values['separator_style'], 'pipe' ); ?>><?php echo esc_html( sprintf( __( 'Vertical bar %s', 'wp-title-layer' ), trim( $separators['pipe'] ) ) ); ?></option>
+									<option value="colon" <?php selected( $values['separator_style'], 'colon' ); ?>><?php /* translators: %s: localized colon separator. */ echo esc_html( sprintf( __( 'Colon %s', 'wp-title-layer' ), trim( $separators['colon'] ) ) ); ?></option>
+									<option value="dash" <?php selected( $values['separator_style'], 'dash' ); ?>><?php /* translators: %s: localized em dash separator. */ echo esc_html( sprintf( __( 'Em dash %s', 'wp-title-layer' ), trim( $separators['dash'] ) ) ); ?></option>
+									<option value="pipe" <?php selected( $values['separator_style'], 'pipe' ); ?>><?php /* translators: %s: localized vertical bar separator. */ echo esc_html( sprintf( __( 'Vertical bar %s', 'wp-title-layer' ), trim( $separators['pipe'] ) ) ); ?></option>
 									<option value="custom" <?php selected( $values['separator_style'], 'custom' ); ?>><?php esc_html_e( 'Custom text below', 'wp-title-layer' ); ?></option>
 								</select>
 							</label>

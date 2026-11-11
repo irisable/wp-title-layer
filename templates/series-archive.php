@@ -102,7 +102,7 @@ get_header();
 									<?php endif; ?>
 
 									<?php if ( $wptl_has_image ) : ?>
-										<a class="wptl-series-list__media" href="<?php echo esc_url( (string) $wptl_post['url'] ); ?>" aria-label="<?php echo esc_attr( sprintf( __( 'Read %s', 'wp-title-layer' ), (string) $wptl_post['title'] ) ); ?>">
+										<a class="wptl-series-list__media" href="<?php echo esc_url( (string) $wptl_post['url'] ); ?>" aria-label="<?php /* translators: %s: article title. */ echo esc_attr( sprintf( __( 'Read %s', 'wp-title-layer' ), (string) $wptl_post['title'] ) ); ?>">
 											<?php
 											echo wp_kses_post(
 												wp_get_attachment_image(
@@ -121,7 +121,7 @@ get_header();
 
 									<div class="wptl-series-list__body">
 										<?php $wptl_heading = '' !== $wptl_segment['label'] ? 'h4' : 'h3'; ?>
-										<<?php echo $wptl_heading; ?> class="wptl-series-list__title"><a href="<?php echo esc_url( (string) $wptl_post['url'] ); ?>"><?php echo esc_html( (string) $wptl_post['title'] ); ?></a></<?php echo $wptl_heading; ?>>
+										<<?php echo esc_html( $wptl_heading ); ?> class="wptl-series-list__title"><a href="<?php echo esc_url( (string) $wptl_post['url'] ); ?>"><?php echo esc_html( (string) $wptl_post['title'] ); ?></a></<?php echo esc_html( $wptl_heading ); ?>>
 										<?php if ( ! empty( $wptl_view['show_subtitles'] ) && '' !== trim( (string) $wptl_post['subtitle'] ) ) : ?>
 											<p class="wptl-series-list__subtitle"><?php echo esc_html( (string) $wptl_post['subtitle'] ); ?></p>
 										<?php endif; ?>
